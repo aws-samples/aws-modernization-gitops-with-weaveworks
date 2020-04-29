@@ -1,7 +1,7 @@
 ---
 title: "Open Workspace"
 chapter: false
-weight: 30
+weight: 10
 ---
 
 {{% notice info %}}
