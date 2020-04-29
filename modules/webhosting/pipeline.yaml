@@ -8,19 +8,19 @@ Parameters:
   ProjectName:
     Type: String
     Description: Project Name
-    Default: dynatrace
+    Default: weaveworks-gitops
   WebsiteBucket:
     Type: String
     Description: Website S3 bucket name
-    Default: dynatrace.awsworkshop.io  
+    Default: weaveworks-gitops.awsworkshop.io  
   GitHubRepo:
     Type: String
     Description: repo name
-    Default: aws-modernization-with-dynatrace
+    Default: aws-modernization-gitops-with-weaveworks
   FullRepoURL:
     Type: String
     Description: The full url to the repo
-    Default: https://github.com/aws-samples/aws-modernization-with-dynatrace.git  
+    Default: https://github.com/aws-samples/aws-modernization-gitops-with-weaveworks.git  
   GitHubOwner:
     Type: String
     Description: GitHub owner name
