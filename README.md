@@ -1,13 +1,22 @@
-## My Project
+# Overview
 
-TODO: Fill this README out!
+This repo contains the content for a workshop that shows how Weaveworks helps DevOps and AppDev gain end-to-end visibility and immediate insight to identify root cases to problems when managing EKS.
 
-Be sure to:
+This workshop is available at https://gitops-eks.awsworkshop.io/
 
-* Change the title in this README
-* Edit your repository description on GitHub
+# To view this content locally
 
-## License
+* install [hugo](https://gohugo.io/)
+    * macOS: `brew install hugo`
+    * Windows: `choco install hugo -confirm`
+* clone this repo
+* execute in the root folder:
+  * `git submodule init`
+  * `git submodule update`
+* run ```hugo server```
+* open website
 
-This library is licensed under the MIT-0 License. See the LICENSE file.
+# Reference
 
+* [AWS workshop content documentation guide](https://aws-samples.github.io/aws-modernization-workshop-sample/)
+* [AWS sample workshop](https://github.com/aws-samples/aws-modernization-workshop-sample)

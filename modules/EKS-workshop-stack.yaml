@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: AWS EKS Workshop 
+
+Resources:
+
+  EKS:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://s3.amazonaws.com/aws-quickstart/quickstart-amazon-eks/templates/amazon-eks-master.template.yaml
+      Parameters:
+        RemoteAccessCIDR: 0.0.0.0/0
+        NodeInstanceType: m5.2xlarge
+        AvailabilityZones: us-west-2a, us-west-2b, us-west-2c
+        KeyPairName: eksworkshop  
+  
+Outputs: {}
