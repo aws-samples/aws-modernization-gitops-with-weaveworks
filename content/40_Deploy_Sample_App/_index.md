@@ -1,7 +1,7 @@
 +++
-title = "Deploy Sock Shop"
+title = "Deploy Sock Shop Application (Optional)"
 chapter = true
-weight = 30
+weight = 40
 +++
 
 ### Shop Sock

@@ -1,7 +1,7 @@
 +++
-title = "GitOps for EKS Prerequisites"
+title = "Create a Cluster"
 chapter = true
-weight = 20
+weight = 25
 +++
 
 # eksctl Setup

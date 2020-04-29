@@ -1,5 +1,5 @@
 +++
-title = "About Dynatrace"
+title = "About Weaveworks"
 chapter = false
 weight = 20
 +++

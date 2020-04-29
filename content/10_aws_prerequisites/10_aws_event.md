@@ -27,6 +27,21 @@ Click on **AWS Console** on dashboard.
 
 Take the defaults and click on **Open AWS Console**. This will open AWS Console in a new browser tab.
 
+In the **AWS Console**, click on **Cloud9**
+
+If a **Cloud9** environment has not been set up:
+
+- Click on the **Create Environment** button
+- Enter a name, such as "GitOps Workshop", for this **Cloud9** environment
+- Click **Next Step**
+- Leave the default values unchanged, and click **Next Step**
+- Again, leave the default values, and click **Create Environment**
+
+If a **Cloud9** environment has been set up:
+
+- Click on "Open IDE"
+
+
 ### Next step
 
 Once you have completed the step above, you can leave the AWS console open. You can now move to the [**ekstctl Setup**](/20_eksctl_prerequisites.html) section. 
