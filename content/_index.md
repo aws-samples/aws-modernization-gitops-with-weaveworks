@@ -13,8 +13,6 @@ GitOps relies on Git as the single source of truth for declarative infrastructur
  
 </div>
 
-![workshop](/images/workshop.png)
-
 In this webinar Weaveworks will teach and demonstrate: 
 
 * The 4 principles of GitOps 
