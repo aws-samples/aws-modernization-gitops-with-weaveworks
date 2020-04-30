@@ -88,4 +88,4 @@ This workshop creates an AWS account and a Cloud9 environment using a CloudForma
 
 ### While you are waiting ...
 
-You will be asked to come back to the AWS console to review that CloudFormation status, but for now head to [**Dynatrace Setup**](/20_dynatrace_prerequisites.html) section. 
+You will be asked to come back to the AWS console to review that CloudFormation status, but for now head to [**GitOps for EKS Prerequisites**](/20_weaveworks_prerequisites/) section. 

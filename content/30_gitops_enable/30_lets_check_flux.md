@@ -1,5 +1,5 @@
 ---
-title: "Flux and Gitops"
+title: "Flux and GitOps"
 chapter: false
 weight: 30
 ---
@@ -33,4 +33,4 @@ kube-system            coredns-7d7755744b-ls5d9                                 
 kube-system            kube-proxy-wllff                                          1/1     Running                      0          14m
 </pre>
 
-All of the cluster configuration can be easily edited in Git now. Welcome to a fully gitopsed world!
+All of the cluster configuration can be easily edited in Git now. Welcome to a fully GitOps'd world!
