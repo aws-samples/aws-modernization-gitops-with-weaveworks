@@ -72,7 +72,7 @@ $ ./create-sockshop-accounts.sh
 
 Load the Sock Shop app page in your browser.
 
-![sockshop](/images/sockshop.png)
+![sockshop](https://github.com/microservices-demo/microservices-demo.github.io/raw/master/assets/sockshop-frontend.png)
 
 Play around! 
 
