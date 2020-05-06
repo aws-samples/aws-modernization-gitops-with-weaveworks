@@ -16,7 +16,7 @@ Using a combination of instructor led demonstrations and hands-on exercises, the
 * How to set up multi-cluster and configure AWS services such as ELB and Route53
 * How to connect ingress and DNS using GitOps
 
-# An operating model for cloud native 
+## An operating model for cloud native 
 
 * An operating model for Kubernetes and other cloud native technologies, providing a set of best practices that unify deployment, management and monitoring for containerized clusters and applications.
 * A path towards a developer experience for managing applications; where end-to-end CICD pipelines and git workflows are applied to both operations, and development. 
@@ -27,7 +27,7 @@ For further reading we recommend:
 
 * [A guide to GitOps](https://www.weave.works/technologies/gitops/)
 * [FAQs on GitOps](https://www.weave.works/technologies/gitops-frequently-asked-questions/)
- * Blog Series:
+* Blog Series:
  * [Operations by Pull Request](https://www.weave.works/blog/gitops-operations-by-pull-request)
  * [The GitOps Pipeline](https://www.weave.works/blog/the-gitops-pipeline)
  * [GitOps Observability](https://www.weave.works/blog/gitops-part-3-observability)
