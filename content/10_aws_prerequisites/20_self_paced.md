@@ -4,6 +4,11 @@ chapter: false
 weight: 20
 ---
 
+
+{{% notice warning %}}
+PLEASE NOTE THAT THESE INSTRUCTIONS ARE INCOMPLETE AS OF **MAY 7, 2020**. PLEASE DO NOT PERFORM THESE WORKSHOPS UNLESS AT AN AWS HOSTED EVENT UNTIL THIS WARNING IS REMOVED.
+{{% /notice %}}
+
 {{% notice warning %}}
 Only complete this section if you are running the workshop on your own. If you are at an AWS hosted event (such as re:Invent, Kubecon, Immersion Day, etc), goto [Start the workshop at an AWS event](/10_aws_prerequisites/10_aws_event.html).
 {{% /notice %}}
