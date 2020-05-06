@@ -28,12 +28,13 @@ In these workshops Weaveworks will teach and demonstrate:
 * Anyone who has interest in GitOps & EKS 
 * Application teams
 * Architects & Developers
-* Technical leads Operations Engineers
+* Technical leads
+* Operations Engineers
 * Infrastructure Teams
 * Technical Business Leaders
 
-## Prerequistes
+## Prerequisites
 
 * Basic understanding of Kubernetes concepts and architecture
-* Basic understanding of infrastructure and application monititoring
+* Basic understanding of infrastructure and application monitoring
 * Familiarity with basic unix commands
