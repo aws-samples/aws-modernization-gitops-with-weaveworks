@@ -28,3 +28,4 @@ GitOps can be summarized as these two things:
  * [Compliance and Secure CICD](https://www.weave.works/blog/gitops-compliance-and-secure-cicd)
 * [Case Study: Fidelity](https://www.weave.works/blog/gitops-driven-fidelity-fideks)
 
+* [Weaveworks](https://www.weave.works) is the EKS certified Advanced partner that built [eksctl](https://eksctl.io/). Founded in 2014, Weaveworks makes it fast and simple for developers and DevOps teams to build and operate powerful containerized applications. Weaveworks minimizes the complexity of operating workloads in Kubernetes by providing automated continuous delivery pipelines, observability and monitoring.  One of the first members of the Cloud Native Computing Foundation, Weaveworks also contributes to several open source projects, including Weave Scope, Weave Cortex and Weave Flux.
