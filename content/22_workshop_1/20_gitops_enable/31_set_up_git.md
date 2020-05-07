@@ -1,7 +1,7 @@
 ---
 title: "Set Up Your GIT Repository"
 chapter: false
-weight: 10
+weight: 31
 ---
 
 The most important ingredient using eksctl enable repo is the configuration of your repository (which will include your workload manifests, HelmReleases, etc). You can start with an empty repository and push that to Git, or use the one you intend to deploy to the cluster.

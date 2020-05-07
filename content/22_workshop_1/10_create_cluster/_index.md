@@ -1,7 +1,7 @@
 +++
 title = "Create a Cluster"
 chapter = true
-weight = 25
+weight = 05
 +++
 
 # eksctl Setup

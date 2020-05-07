@@ -1,12 +1,12 @@
 +++
-title = "Workshop Prerequsites"
+title = "Add YAMLs to Repo"
 chapter = true
-weight = 22
+weight = 50
 +++
 
-# Prerequisites
+# Add the YAML Files to the Repository
 
-Please note that in order to complete this workshop, you should have completed [Workshop 1: Introduction to GitOps on EKS](/22_workshop_1/). Once you have completed the Introduction to GitOps Workshop, please return to perform this workshop.
+[//]: # (content to come)
 
 
 {{% notice warning %}}
