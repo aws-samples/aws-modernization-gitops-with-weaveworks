@@ -4,7 +4,7 @@ chapter = true
 weight = 20
 +++
 
-# eksctl Setup
+# Setup All the Required Tools & Permissions
 
 To complete these workshops, you will first need to install eksctl. Instructions for doing this can be found at [eksctl.io](https://eksctl.io/introduction/#installation). eksctl (pronounced "eks control") is a simple CLI tool for creating clusters on EKS. It is written in Go, uses CloudFormation, was created by [Weaveworks](https://weave.works) and it welcomes contributions from the community. 
 

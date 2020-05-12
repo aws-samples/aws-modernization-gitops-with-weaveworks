@@ -1,12 +1,12 @@
 +++
-title = "Workshop Prerequsites"
+title = "Workshop Prerequisites"
 chapter = true
 weight = 05
 +++
 
 # Prerequisites
 
-Please note that in order to complete this workshop, you should have completed [Workshop 1: Introduction to GitOps on EKS](/22_workshop_1/). Once you have completed the Introduction to GitOps Workshop, please return to perform this workshop.
+Please note that in order to complete this workshop, you should have completed [Prerequisites for all GitOps Workshops](/20_weaveworks_prerequisites.html). Once you have completed the Introduction to GitOps Workshop, please return to perform this workshop.
 
 
 {{% notice warning %}}

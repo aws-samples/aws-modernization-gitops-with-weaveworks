@@ -6,10 +6,4 @@ weight = 40
 
 # GitOps Enable the Two EKS Clusters
 
-[//]: # (content to come)
-
-
-{{% notice warning %}}
-If you are using your own AWS account, you will need permissions to create EKS clusters plus admin rights within your EKS cluster to configure configuration rules and install agents. Ensure you have authority within your organization to do this in your tenant. 
-{{% /notice %}}
-
+With two terminal windows open, you'll have to be careful when executing commands to ensure you are working with the correct cluster. In these exercises, you will be flipping back and forth between your two terminal windows fairly often. As this can get confusing, just be sure to verify which window you are using each time.
