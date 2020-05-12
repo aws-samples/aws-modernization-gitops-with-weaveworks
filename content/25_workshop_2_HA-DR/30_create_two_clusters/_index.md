@@ -18,11 +18,11 @@ Not all AWS regions have all EKS capabilities enabled
 
 In the first terminal window, execute:
 ```
-eksctl create cluster -n east
+eksctl create cluster -n east --alb-ingress-access
 ```
 and in the second terminal window, execute:
 ```
-elsctl create cluster -n west
+elsctl create cluster -n west --alb-ingress-access
 ```
 These commands will take approximately 10 minutes to execute, so now would be a good time to take a break or ask a question.
 

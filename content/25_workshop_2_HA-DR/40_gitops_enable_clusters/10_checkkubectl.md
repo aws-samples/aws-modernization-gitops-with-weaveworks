@@ -15,4 +15,4 @@ CURRENT   NAME                                               CLUSTER            
 </pre>
 In this case, the `kubectl` command will be executed on the `ha-1.us-east-2.eksctl.io` cluster.
 
-Check in your two terminal windows to ensure that each terminal session is connecting to your two different clusters.:w
+Check in your two terminal windows to ensure that each terminal session is connecting to your two different clusters.
