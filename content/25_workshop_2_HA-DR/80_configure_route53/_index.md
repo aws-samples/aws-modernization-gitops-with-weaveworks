@@ -3,13 +3,12 @@ title = "Configure Route53 (Optional)"
 chapter = true
 weight = 80
 +++
+To see what your ingress controller and cluster look like, head to the console -> EC2 -> LoadBalancers.
 
-# Configure Route53 for Disastor Recovery (DR)
+You'll see that there is a load balancer between the nodes of your kubernetes cluster, and it is assigned a host name. That is the same host name that appears s output from this command:
+```
+kubectl get ingress -A
+```
+To finish a complete HA solution, you could add a **Route 53** DNS round robin (Simple) entry to point to your two Kubernetes clusters. This would complete the simpliest high availability configuration for EKS.
 
-[//]: # (content to come)
-
-
-{{% notice warning %}}
-If you are using your own AWS account, you will need permissions to create EKS clusters plus admin rights within your EKS cluster to configure configuration rules and install agents. Ensure you have authority within your organization to do this in your tenant. 
-{{% /notice %}}
-
+There are other ingress available for EKS that provide additional features.
