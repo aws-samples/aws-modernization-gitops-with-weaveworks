@@ -1,7 +1,7 @@
 ---
 title: "Flux and GitOps"
 chapter: false
-weight: 30
+weight: 33
 ---
 
 The command will take a while to run and it's a good idea to scan the output. You will note a similar bit of information in the log like this one:

@@ -1,7 +1,7 @@
 +++
 title = "Setup Kubernetes labels"
 chapter = false
-weight = 30
+weight = 41
 +++
 
 ## Explore metadata in pod definitions

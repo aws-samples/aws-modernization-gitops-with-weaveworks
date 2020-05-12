@@ -1,7 +1,7 @@
 +++
 title = "Create a Cluster with eksctl"
 chapter = false
-weight = 20
+weight = 10
 
 +++
 

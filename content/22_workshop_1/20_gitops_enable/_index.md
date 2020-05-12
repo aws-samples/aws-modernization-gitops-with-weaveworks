@@ -1,7 +1,7 @@
 +++
 title = "GitOps Enable Your Cluster"
 chapter = true
-weight = 30
+weight = 05
 +++
 
 ## Getting ready for gitops

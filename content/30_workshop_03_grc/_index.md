@@ -1,10 +1,10 @@
 +++
-title = "Workshop 2: Using GitOps and EKS to Manage HA & DR"
+title = "Workshop 3: Managing GRC for K8s on EKS"
 chapter = true
 weight = 22
 +++
 
-# Welcome to High Availability and Disaster Recovery 
+# Welcome to GitOps on AWS: Managing governance, risk and compliance for Kubernetes on EKS
 
 4 out of 10 enterprises are now running Kubernetes in a production environment today but many still consider security and policy concerns an overwhelming obstacle and bottleneck to innovation. 
 

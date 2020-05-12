@@ -1,7 +1,7 @@
 ---
 title: "Set Up Your GIT Repository"
 chapter: false
-weight: 31
+weight: 20
 ---
 
 The most important ingredient using eksctl enable repo is the configuration of your repository (which will include your workload manifests, HelmReleases, etc). You can start with an empty repository and push that to Git, or use the one you intend to deploy to the cluster.
@@ -13,4 +13,3 @@ In the **Cloud9** environment, a user SSH key pair is not automatically created.
 {{% /notice %}}
 
 You will also want to enable the software agent in your cluster (flux) to write to your GitOps git repository by installing a valid SSH key as a **Deploy Key**. Instructions to do so [are here](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account).
-

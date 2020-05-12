@@ -2,7 +2,7 @@
 
 This repo contains the content for a workshop that shows how Weaveworks helps DevOps and AppDev gain end-to-end visibility and immediate insight to identify root cases to problems when managing EKS.
 
-This workshop is available at https://gitops-eks.awsworkshop.io/
+This workshop is available at https://weaveworks-gitops.awsworkshop.io/
 
 # To view this content locally
 
