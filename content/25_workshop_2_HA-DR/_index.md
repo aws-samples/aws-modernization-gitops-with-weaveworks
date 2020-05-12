@@ -21,7 +21,7 @@ Using a combination of instructor led demonstrations and hands-on exercises, the
 * An operating model for Kubernetes and other cloud native technologies, providing a set of best practices that unify deployment, management and monitoring for containerized clusters and applications.
 * A path towards a developer experience for managing applications; where end-to-end CICD pipelines and git workflows are applied to both operations, and development. 
 
-![GitOps Operating Model](images/../../../static/images/workshop02_gitops-operating-model.png)
+![GitOps Operating Model](/images/workshop02_gitops-operating-model.png)
 
 For further reading we recommend:
 
