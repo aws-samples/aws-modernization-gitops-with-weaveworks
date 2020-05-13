@@ -25,8 +25,7 @@ kubectl get sa -n alpha
 ```
 kubectl describe sa iam-test -n alpha
 ```
-{{< output >}}
-
+<pre>
 Name:                iam-test
 Namespace:           alpha
 Labels:              <none>
@@ -35,4 +34,4 @@ Image pull secrets:  <none>
 Mountable secrets:   iam-test-token-5n9cb
 Tokens:              iam-test-token-5n9cb
 Events:              <none>
-{{< /output >}}
+</pre>

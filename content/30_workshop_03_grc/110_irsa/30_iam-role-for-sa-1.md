@@ -17,9 +17,9 @@ You must also create a role for your service accounts to use before you associat
 aws iam list-policies --query 'Policies[?PolicyName==`AmazonS3ReadOnlyAccess`].Arn'
 ```
 
-{{< output >}}
+<pre>
 "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
-{{< /output >}}
+</pre>>
 
 ##### Create an IAM role for your service accounts:
 
@@ -27,7 +27,7 @@ aws iam list-policies --query 'Policies[?PolicyName==`AmazonS3ReadOnlyAccess`].A
 eksctl create iamserviceaccount --name iam-test --namespace alpha --cluster eksworkshop-eksctl --attach-policy-arn arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess --approve --override-existing-serviceaccounts
 ```
 
-{{< output >}}
+<pre>
 [ℹ]  using region {AWS_REGION}
 [ℹ]  1 iamserviceaccount (default/iam-test) was included (based on the include/exclude rules)
 [!]  metadata of serviceaccounts that exist in Kubernetes will be updated, as --override-existing-serviceaccounts was set
@@ -35,7 +35,7 @@ eksctl create iamserviceaccount --name iam-test --namespace alpha --cluster eksw
 [ℹ]  building iamserviceaccount stack "eksctl-eksworkshop-eksctl-addon-iamserviceaccount-default-iam-test"
 [ℹ]  deploying stack "eksctl-eksworkshop-eksctl-addon-iamserviceaccount-default-iam-test"
 [ℹ]  created serviceaccount "default/iam-test"
-{{< /output >}}
+</pre>
 
 
 {{% notice info %}}

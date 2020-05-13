@@ -28,9 +28,9 @@ If your EKS cluster version is lower or not match with above, [updating an Amazo
 aws --version
 ```
 
-{{< output >}}
+<pre>
 aws-cli/1.18.15 Python/2.7.16 Linux/4.14.133-88.112.amzn1.x86_64 botocore/1.12.228
-{{< /output >}}
+</pre>
 
 {{% notice info %}}
 If your aws cli version is lower than 1.18.15, use [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) in the User Guide
@@ -44,9 +44,9 @@ If your aws cli version is lower than 1.18.15, use [Installing the AWS CLI](http
 aws eks describe-cluster --name eksworkshop-eksctl --query cluster.identity.oidc.issuer --output text
 ```
 <div data-proofer-ignore>
-{{< output >}}
+<pre>
 https://oidc.eks.{AWS_REGION}.amazonaws.com/id/D48675832CA65BD10A532F59741CF90B
 {{< /output >}}
-</div>
+</pre>
 
 

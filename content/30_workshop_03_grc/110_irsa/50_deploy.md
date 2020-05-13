@@ -19,9 +19,9 @@ curl -o https://weaveworks-gitops.awsworkshop.io/110_irsa/deploy.files/iam-pod.y
 kubectl get pod -n alpha
 ```
 
-{{< output >}}
+<pre>
 eks-iam-test-7fb8c5ffb8-fdr6c  1/1  Running  0  5m23s
-{{< /output >}}
+</pre>
 
 ##### Get into the Pod:
 
@@ -53,6 +53,6 @@ aws ec2 describe-instances --region us-west-2
 
 ##### You will get this error message:
 
-{{< output >}}
+<pre>
 An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation.
-{{< /output >}}
+</pre>

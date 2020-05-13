@@ -107,7 +107,7 @@ You now should have your 3 groups
 aws iam list-groups
 ```
 
-{{< output >}}
+<pre>
 {
     "Groups": [
         {
@@ -133,4 +133,4 @@ aws iam list-groups
         }
     ]
 }
-{{< /output >}}
+</pre>

@@ -54,13 +54,13 @@ EoF
 aws sts get-caller-identity --profile dev
 ```
 
-{{<output>}}
+<pre>
 {
     "UserId": "AROAUD5VMKW75WJEHFU4X:botocore-session-1581687024",
     "Account": "xxxxxxxxxx",
     "Arn": "arn:aws:sts::xxxxxxxxxx:assumed-role/k8sDev/botocore-session-1581687024"
 }
-{{</output>}}
+</pre>
 
 > the assumed-role is k8sDev, so we achieved our goal
 
@@ -111,10 +111,10 @@ We can list the pods
 kubectl get pods -n development
 ```
 
-{{<output>}}
+<pre>
 NAME                     READY   STATUS    RESTARTS   AGE
 nginx-dev   1/1     Running   0          28h
-{{</output>}}
+</pre>
 
 but not in other namespaces
 
@@ -122,9 +122,9 @@ but not in other namespaces
 kubectl get pods -n integration 
 ```
 
-{{<output>}}
+<pre>
 Error from server (Forbidden): pods is forbidden: User "dev-user" cannot list resource "pods" in API group "" in the namespace "integration"
-{{</output>}}
+</pre>
 
 #### Test with integ profile
 
@@ -144,10 +144,10 @@ We can list the pods
 kubectl get pods -n integration
 ```
 
-{{<output>}}
+<pre>
 NAME          READY   STATUS    RESTARTS   AGE
 nginx-integ   1/1     Running   0          43s
-{{</output>}}
+</pre>pre>
 
 but not in other namespaces
 
@@ -155,9 +155,9 @@ but not in other namespaces
 kubectl get pods -n development 
 ```
 
-{{<output>}}
+<pre>
 Error from server (Forbidden): pods is forbidden: User "integ-user" cannot list resource "pods" in API group "" in the namespace "development"
-{{</output>}}
+</pre>
 
 
 #### Test with admin profile
@@ -178,10 +178,10 @@ We can list the pods
 kubectl get pods 
 ```
 
-{{<output>}}
+<pre>
 NAME          READY   STATUS    RESTARTS   AGE
 nginx-integ   1/1     Running   0          43s
-{{</output>}}
+</pre>>
 
 We can list ALL pods in all namespaces
 
@@ -189,7 +189,7 @@ We can list ALL pods in all namespaces
 kubectl get pods -A
 ```
 
-{{<output>}}
+<pre>
 NAMESPACE     NAME                       READY   STATUS    RESTARTS   AGE
 default       nginx-admin                1/1     Running   0          15s
 development   nginx-dev                  1/1     Running   0          11m
@@ -202,7 +202,7 @@ kube-system   coredns-85bb8bb6bc-87ndr   1/1     Running   0          105m
 kube-system   kube-proxy-4n5lc           1/1     Running   0          100m
 kube-system   kube-proxy-b65xm           1/1     Running   0          100m
 kube-system   kube-proxy-pr7k7           1/1     Running   0          100m
-{{</output>}}
+</pre>>
 
 
 ## Swithing between different contexts

@@ -15,9 +15,9 @@ To use IAM roles for service accounts in your cluster, you must create an OIDC i
 eksctl version
 ```
 
-{{< output >}}
+<pre>
 [ℹ]  version.Info{BuiltAt:"", GitCommit:"", GitTag:"0.5.3"}
-{{< /output >}}
+</pre>>
 
 {{% notice info %}}
 If your eksctl version is lower than 0.5.1, use [Installing or Upgrading eksctl](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html#installing-eksctl) in the user guide
@@ -29,11 +29,11 @@ If your eksctl version is lower than 0.5.1, use [Installing or Upgrading eksctl]
 eksctl utils associate-iam-oidc-provider --cluster eksworkshop-eksctl --approve
 ```
 
-{{< output >}}
+<pre>
 [ℹ]  using region {AWS_REGION}
 [ℹ]  will create IAM Open ID Connect provider for cluster "eksworkshop-eksctl" in "{AWS_REGION}"
 [✔]  created IAM Open ID Connect provider for cluster "eksworkshop-eksctl" in "{AWS_REGION}"
-{{< /output >}}
+</pre>>
 
 If you go to the [Identity Providers in IAM Console](https://console.aws.amazon.com/iam/home#/providers), you will see OIDC provider has created for your cluster
 

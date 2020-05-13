@@ -35,7 +35,7 @@ you should have the config map looking something like:
 kubectl get cm -n kube-system aws-auth -o yaml
 ```
 
-{{< output >}}
+<pre>
 apiVersion: v1
 data:
   mapRoles: |
@@ -55,7 +55,7 @@ data:
   mapUsers: |
     []
 kind: ConfigMap
-{{< /output >}}
+</pre>
 
 We can leverage eksctl to get a list of all identity managed in our cluster. Example:
 
@@ -63,12 +63,12 @@ We can leverage eksctl to get a list of all identity managed in our cluster. Exa
 eksctl get iamidentitymapping --cluster eksworkshop-eksctl
 ```
 
-{{< output >}}
+<pre>
 arn:aws:iam::xxxxxxxxxx:role/eksctl-quick-nodegroup-ng-fe1bbb6-NodeInstanceRole-1KRYARWGGHPTT	system:node:{{EC2PrivateDNSName}}	system:bootstrappers,system:nodes
 arn:aws:iam::xxxxxxxxxx:role/k8sAdmin           admin					system:masters
 arn:aws:iam::xxxxxxxxxx:role/k8sDev             dev-user
 arn:aws:iam::xxxxxxxxxx:role/k8sInteg           integ-user
-{{< /output >}}
+</pre>
 
 Here we have created:
 
