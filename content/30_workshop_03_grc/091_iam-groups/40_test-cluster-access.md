@@ -1,6 +1,6 @@
 ---
 title: "Test EKS access"
-date: 2020-04-05T18:00:00-00:00
+date: 2020-05-05T18:00:00-00:00
 draft: false
 weight: 40
 ---
@@ -84,7 +84,7 @@ aws sts get-caller-identity --profile admin
 
 ## Using AWS profiles with Kubectl config file
 
-It is also possible to specify the AWS_PROFILE to uses with the aws-iam-authenticator in the `.kube/config` file, so that it will uses the appropriate profile.
+It is also possible to specify the AWS_PROFILE uses with the aws-iam-authenticator in the `.kube/config` file, so that it will use the appropriate profile.
 
 
 ### with dev profile 
@@ -102,7 +102,7 @@ With this configuration we should be able to interract with the **development** 
 
 let's create a pod
 ```
-kubectl run --generator=run-pod/v1 nginx-dev --image=nginx -n development
+kubectl run nginx-dev --image=nginx -n development
 ```
 
 We can list the pods
@@ -135,7 +135,7 @@ cat $KUBECONFIG | awk "/args:/{print;print \"      - --profile\n      - integ\";
 
 let's create a pod
 ```
-kubectl run --generator=run-pod/v1 nginx-integ --image=nginx -n integration
+kubectl run nginx-integ --image=nginx -n integration
 ```
 
 We can list the pods
@@ -169,7 +169,7 @@ cat $KUBECONFIG | awk "/args:/{print;print \"      - --profile\n      - admin\";
 
 let's create a pod in default namespace
 ```
-kubectl run --generator=run-pod/v1 nginx-admin --image=nginx 
+kubectl run nginx-admin --image=nginx 
 ```
 
 We can list the pods
@@ -209,28 +209,16 @@ kube-system   kube-proxy-pr7k7           1/1     Running   0          100m
 
 It is possible to merge several kubernetes API access in the same KUBECONFIG file, or just tell Kubectl several file to lookup at once:
 
-```
+```bash
 export KUBECONFIG=/tmp/kubeconfig-dev:/tmp/kubeconfig-integ:/tmp/kubeconfig-admin
+
+# then run the following to get a list of contexts
+kubectl config get-contexts
+kubectl config current-context
+kubectl config use-context my-cluster-name
 ```
 
-There is a tool [kubectx / kubens](https://github.com/ahmetb/kubectx) that will help manage KUBECONFIG files with several contexts
 
-```
-curl -sSLO https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx && chmod 755 kubectx && sudo mv kubectx /usr/local/bin
-```
-
-
-I can use kubectx to quickly list or swith kubernetes contexts
-
-```
-kubectx
-```
-
-{{<output>}}
-i-0397aa1339e238a99@eksworkshop-eksctl-admin.eu-west-2.eksctl.io
-i-0397aa1339e238a99@eksworkshop-eksctl-dev.eu-west-2.eksctl.io
-i-0397aa1339e238a99@eksworkshop-eksctl-integ.eu-west-2.eksctl.io
-{{</output>}}
 
 ## Conclusion
 

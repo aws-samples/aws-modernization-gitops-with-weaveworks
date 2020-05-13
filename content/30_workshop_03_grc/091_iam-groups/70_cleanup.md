@@ -9,9 +9,18 @@ Once you have completed this chapter, you can cleanup the files and resources yo
 
 ```bash
 unset KUBECONFIG
+# we will remove the manifest from git that we no longer want in our cluster
+rm -rf development
 
-kubectl delete namespace development integration
-kubectl delete pod nginx-admin
+rm -rf integration
+
+git add .integration/ .development/
+
+git commit -m "cleaning up iamgroups demo"
+
+git push
+# if flux garbage collection is not enabled, please also run these commands to tidy things up:
+kubectl delete ns development integration
 
 eksctl delete iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sAdmin
 eksctl delete iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sDev
@@ -44,4 +53,5 @@ aws iam delete-role --role-name k8sInteg
 rm /tmp/*.json
 rm /tmp/kubeconfig*
 rm /tmp/credentials
+
 ```

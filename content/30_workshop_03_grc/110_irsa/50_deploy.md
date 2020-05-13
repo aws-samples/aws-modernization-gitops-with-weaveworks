@@ -1,21 +1,22 @@
 ---
 title: "Deploy Sample Pod"
-date: 2018-11-13T16:36:24+09:00
+date: 2020-05-13T16:36:24+09:00
 weight: 50
 draft: false
 ---
 
 Now that we have completed all the necessary configuration to run a Pod with IAM role. We will deploy sample Pod to the cluster, and run a test command to see whether it works correctly or not.
 
-```
-curl -LO https://eksworkshop.com/beginner/110_irsa/deploy.files/iam-pod.yaml
-kubectl apply -f iam-pod.yaml
+```bash
+mkdir alpha
+curl -o https://weaveworks-gitops.awsworkshop.io/110_irsa/deploy.files/iam-pod.yaml
+> ./alpha/iam-pod.yaml
 ```
 
 ##### Make sure your pod is in **Running** status:
 
 ```
-kubectl get pod
+kubectl get pod -n alpha
 ```
 
 {{< output >}}
@@ -25,7 +26,7 @@ eks-iam-test-7fb8c5ffb8-fdr6c  1/1  Running  0  5m23s
 ##### Get into the Pod:
 
 ```
-kubectl exec -it <place Pod Name> /bin/bash
+kubectl exec -it <place Pod Name> -n alpha /bin/bash
 ```
 
 ##### Manually Call sts:AssumeRoleWithWebIdentity, and you will see AccessKeyId, SecretAccessKey information if configuration is set appropriately

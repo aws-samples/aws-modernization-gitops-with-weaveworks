@@ -1,6 +1,6 @@
 ---
 title: "Configure Kubernetes Role Access"
-date: 2020-04-05T18:00:00-00:00
+date: 2020-05-12T18:00:00-00:00
 draft: false
 weight: 31
 ---
@@ -26,7 +26,7 @@ eksctl create iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam:
 eksctl create iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sInteg --username integ-user
 eksctl create iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sAdmin --username admin --group system:masters
 ```
-> It cal also be used to delete entries
+> It can also be used to delete entries
 > `eksctl delete iamidentitymapping --cluster eksworkshop-eksctlv --arn arn:aws:iam::xxxxxxxxxx:role/k8sDev --username dev-user`
 
 you should have the config map looking something like:

@@ -1,6 +1,6 @@
 ---
 title: "Create IAM Users"
-date: 2018-10-03T10:14:46-07:00
+date: 2020-05-12T10:14:46-07:00
 draft: false
 weight: 22
 ---

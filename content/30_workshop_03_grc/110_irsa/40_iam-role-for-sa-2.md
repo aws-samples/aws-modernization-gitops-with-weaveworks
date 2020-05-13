@@ -12,23 +12,23 @@ In the previous step, we created the IAM role that associated with a service acc
 ##### Be sure your service account iam-test is exist:
 
 ```
-kubectl get sa
+kubectl get sa -n alpha
 ```
 
 | NAME | SECRETS | AGE |
 | ---- | ------- | --- |
-| default | 1 | 85m |
+| alpha | 1 | 85m |
 | **iam-test** | 1 | 44m |
 
 ##### Make sure your service account with the ARN of the IAM role is annotated:
 
 ```
-kubectl describe sa iam-test
+kubectl describe sa iam-test -n alpha
 ```
 {{< output >}}
 
 Name:                iam-test
-Namespace:           default
+Namespace:           alpha
 Labels:              <none>
 Annotations:         eks.amazonaws.com/role-arn: arn:aws:iam::14xxxxxxxx84:role/eksctl-eksworkshop-eksctl-addon-iamserviceac-Role1-1PJ5Q3H39Z5M9
 Image pull secrets:  <none>

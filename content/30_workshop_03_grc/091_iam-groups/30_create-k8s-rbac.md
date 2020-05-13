@@ -1,32 +1,48 @@
 ---
 title: "Configure Kubernetes RBAC"
-date: 2020-04-05T18:00:00-00:00
+date: 2020-05-12T18:00:00-00:00
 draft: false
 weight: 30
 ---
 
-You can refere to [intro to RBAC](/beginner/090_rbac/) module to understand the basic of Kubernetes RBAC.
+You can refere to [intro to RBAC](https://eksworkshop.com/beginner/090_rbac/) module to understand the basic of Kubernetes RBAC.
 
 #### Create kubernetes namespaces
 
 * **development** namespace will be accessible for IAM users from **k8sDev** group
 * **integration** namespace will be accessible for IAM users from **k8sInteg** group
 
-```
-kubectl create namespace integration
-kubectl create namespace development
+```bash
+mkdir integration
+cat << EOF > integration/integration-ns.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: integration
+EOF
+
+mkdir development
+cat << EOF > development/development-ns.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: development
+EOF
 ```
 
 #### Configuring access to development namespace
 
 We create a kubernetes role and rolebinding in the development namespace giving full access to the kubernetes user **dev-user**
 
-```
-cat << EOF | kubectl apply -f - -n development
+```bash
+mkdir development/roles
+
+cat << EOF > ./roles/dev-role.yaml
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   name: dev-role
+  namespace: development
 rules:
   - apiGroups:
       - ""
@@ -60,6 +76,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   name: dev-role-binding
+  namespace: development
 subjects:
 - kind: User
   name: dev-user
@@ -79,12 +96,14 @@ The role we define will give full access to everything in that namespace. It is 
 We create a kubernetes role and rolebinding in the integration namespace for full access with the kubernetes user **integ-user**
 
 
-```
-cat << EOF | kubectl apply -f - -n integration
+```bash
+mkdir integration/roles
+cat << EOF >| ./roles/integ-role.yaml
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   name: integ-role
+  namespace: integration
 rules:
   - apiGroups:
       - ""
@@ -118,6 +137,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   name: integ-role-binding
+  namespace: integration
 subjects:
 - kind: User
   name: integ-user
@@ -129,5 +149,26 @@ EOF
 ```
 
 The role we define will give full access to everything in that namespace. It is a Role, and not a ClusterRole, so it is going to be applied only in the **integration** namespace.
+
+
+## Check this in to git!
+
+run the following to add our changes:
+
+```bash
+git add "integration/integration-ns.yaml"
+
+git add "development/development-ns.yaml"
+
+git commit -m "adding dev adn int namespaces"
+
+git add "integration/roles/"
+
+git add "development/roles/"
+
+git commit -m "adding int & dev roles"
+
+git push
+```
 
 

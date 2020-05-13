@@ -1,11 +1,11 @@
 ---
 title: "Kubernetes Authentication"
-date: 2020-04-05T18:00:00-00:00
+date: 2020-05-12T18:00:00-00:00
 draft: false
 weight: 10
 ---
 
-In the [intro to RBAC](/beginner/090_rbac/) module, we have see how we can give access to individual users to Kubernetes.
+In this workshop we will run through how to map IAM roles to rbac. 
 
 If you have different teams which needs different kind of cluster access, it would be difficult to manually add or remove access for each EKS clusters you want them to give or remove access from.
 

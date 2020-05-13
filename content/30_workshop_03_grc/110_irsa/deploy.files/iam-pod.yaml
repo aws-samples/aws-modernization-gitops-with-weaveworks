@@ -2,6 +2,7 @@
  kind: Deployment
  metadata:
    name: eks-iam-test
+   namespace: alpha
  spec:
    replicas: 1
    selector:

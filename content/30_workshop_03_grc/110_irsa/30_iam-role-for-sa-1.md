@@ -1,6 +1,6 @@
 ---
 title: "Creating an IAM Role for Service Account"
-date: 2018-11-13T16:36:24+09:00
+date: 2020-05-13T16:36:24+09:00
 weight: 30
 draft: false
 ---
@@ -24,7 +24,7 @@ aws iam list-policies --query 'Policies[?PolicyName==`AmazonS3ReadOnlyAccess`].A
 ##### Create an IAM role for your service accounts:
 
 ```
-eksctl create iamserviceaccount --name iam-test --namespace default --cluster eksworkshop-eksctl --attach-policy-arn arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess --approve --override-existing-serviceaccounts
+eksctl create iamserviceaccount --name iam-test --namespace alpha --cluster eksworkshop-eksctl --attach-policy-arn arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess --approve --override-existing-serviceaccounts
 ```
 
 {{< output >}}
