@@ -1,5 +1,5 @@
 ---
-title: "Create Contraint Templates"
+title: "Create Constraint Templates"
 date: 2020-04-12T18:00:00-00:00
 draft: false
 weight: 20
@@ -16,12 +16,14 @@ We are going to create 2 templates:
 Run the following commands to download some policy template examples to your local git repo:
 
 ```bash
-
 mkdir opa/templates
+```
 
-curl -o https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/125_create_policy_templates/deploy.files/allowed-repos.yaml > opa/templates/allowed-repos.yaml
-
-curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/125_create_policy_templates/deploy.files/require-labels.yaml > opa/templates/require-labels.yaml
+```bash
+curl https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/library/general/allowedrepos/template.yaml -o opa/templates/allowed-repos.yaml
+```
+```bash
+curl https://github.com/open-policy-agent/gatekeeper/blob/master/library/general/requiredlabels/template.yaml -o opa/templates/require-labels.yaml
 
 ```
 
@@ -181,11 +183,12 @@ If the image we use does not match what we have in our contraint, then it will t
 Lets check this in to git and next we can look at constraints and start using these templates.
 
 ```bash
-
 git add opa/templates
-
+```
+```bash
 git commit -m "adding opa templates"
-
+```
+```bash
 git push
 ```
 

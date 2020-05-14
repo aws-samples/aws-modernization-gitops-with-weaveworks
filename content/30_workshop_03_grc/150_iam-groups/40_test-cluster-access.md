@@ -29,6 +29,7 @@ EoF
 ```
 
 #### create `~/.aws/credentials`:
+
 ```
 cat << EoF > ~/.aws/credentials
 
@@ -92,15 +93,18 @@ It is also possible to specify the AWS_PROFILE uses with the aws-iam-authenticat
 Create new KUBECONFIG file to test this:
 
 ```
-export KUBECONFIG=/tmp/kubeconfig-dev && eksctl utils write-kubeconfig eksworkshop-eksctl
-cat $KUBECONFIG | awk "/args:/{print;print \"      - --profile\n      - dev\";next}1" | sed 's/eksworkshop-eksctl./eksworkshop-eksctl-dev./g' | tee $KUBECONFIG
+export KUBECONFIG=/tmp/kubeconfig-dev && eksctl utils write-kubeconfig eksworkshop
+cat $KUBECONFIG | awk "/args:/{print;print \"      - --profile\n      - dev\";next}1" | sed 's/eksworkshop./eksworkshop-dev./g' > ~/.kube/dev
+rm /tmp/kubeconfig-dev
 ```
+
 
 We just added the `--profile dev` parameter to our kubectl config file, so that this will ask kubectl to use our IAM role associated to our dev profile.
 
 With this configuration we should be able to interract with the **development** namespace, because it as our RBAC role defined.
 
 let's create a pod
+
 ```
 kubectl run nginx-dev --image=nginx -n development
 ```
@@ -128,19 +132,24 @@ Error from server (Forbidden): pods is forbidden: User "dev-user" cannot list re
 
 #### Test with integ profile
 
+```bash
+export KUBECONFIG=/tmp/kubeconfig-integ && eksctl utils write-kubeconfig eksworkshop
+cat $KUBECONFIG | awk "/args:/{print;print \"      - --profile\n      - integ\";next}1" | sed 's/eksworkshop./eksworkshop-integ./g' > ~/.kube/integ
+rm /tmp/kubeconfig-integ
 ```
-export KUBECONFIG=/tmp/kubeconfig-integ && eksctl utils write-kubeconfig eksworkshop-eksctl
-cat $KUBECONFIG | awk "/args:/{print;print \"      - --profile\n      - integ\";next}1" | sed 's/eksworkshop-eksctl./eksworkshop-eksctl-integ./g' | tee $KUBECONFIG
+
+```bash
+export KUBECONFIG=~/.kube/integ
 ```
 
 let's create a pod
-```
+```bash
 kubectl run nginx-integ --image=nginx -n integration
 ```
 
 We can list the pods
 
-```
+```bash
 kubectl get pods -n integration
 ```
 
@@ -163,18 +172,18 @@ Error from server (Forbidden): pods is forbidden: User "integ-user" cannot list 
 #### Test with admin profile
 
 ```
-export KUBECONFIG=/tmp/kubeconfig-admin && eksctl utils write-kubeconfig eksworkshop-eksctl
-cat $KUBECONFIG | awk "/args:/{print;print \"      - --profile\n      - admin\";next}1" | sed 's/eksworkshop-eksctl./eksworkshop-eksctl-admin./g' | tee $KUBECONFIG
+export KUBECONFIG=/tmp/kubeconfig-admin && eksctl utils write-kubeconfig eksworkshop
+cat $KUBECONFIG | awk "/args:/{print;print \"      - --profile\n      - admin\";next}1" | sed 's/eksworkshop./eksworkshop-admin./g' | tee $KUBECONFIG
 ```
 
 let's create a pod in default namespace
-```
+```bash
 kubectl run nginx-admin --image=nginx 
 ```
 
 We can list the pods
 
-```
+```bash
 kubectl get pods 
 ```
 
@@ -210,7 +219,7 @@ kube-system   kube-proxy-pr7k7           1/1     Running   0          100m
 It is possible to merge several kubernetes API access in the same KUBECONFIG file, or just tell Kubectl several file to lookup at once:
 
 ```bash
-export KUBECONFIG=/tmp/kubeconfig-dev:/tmp/kubeconfig-integ:/tmp/kubeconfig-admin
+export KUBECONFIG=~/.kube/dev:/tmp/.kube/integ:/.kube/admin
 
 # then run the following to get a list of contexts
 kubectl config get-contexts

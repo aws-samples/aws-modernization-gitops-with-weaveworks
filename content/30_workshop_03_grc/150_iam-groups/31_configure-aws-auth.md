@@ -22,12 +22,12 @@ This file makes the mapping between IAM role and k8S RBAC rights. We can edit it
 We can edit it using [eksctl](https://github.com/weaveworks/eksctl) :
 
 ```
-eksctl create iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sDev --username dev-user
-eksctl create iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sInteg --username integ-user
-eksctl create iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sAdmin --username admin --group system:masters
+eksctl create iamidentitymapping --cluster eksworkshop --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sDev --username dev-user
+eksctl create iamidentitymapping --cluster eksworkshop --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sInteg --username integ-user
+eksctl create iamidentitymapping --cluster eksworkshop --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sAdmin --username admin --group system:masters
 ```
 > It can also be used to delete entries
-> `eksctl delete iamidentitymapping --cluster eksworkshop-eksctlv --arn arn:aws:iam::xxxxxxxxxx:role/k8sDev --username dev-user`
+> `eksctl delete iamidentitymapping --cluster eksworkshop --arn arn:aws:iam::xxxxxxxxxx:role/k8sDev --username dev-user`
 
 you should have the config map looking something like:
 
@@ -60,7 +60,7 @@ kind: ConfigMap
 We can leverage eksctl to get a list of all identity managed in our cluster. Example:
 
 ```
-eksctl get iamidentitymapping --cluster eksworkshop-eksctl
+eksctl get iamidentitymapping --cluster eksworkshop
 ```
 
 <pre>

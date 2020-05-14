@@ -1,6 +1,5 @@
 ---
-title: "Create OPA Contraints"
-date: 2020-04-12T18:00:00-00:00
+title: "Create OPA Constraints"
 draft: false
 weight: 20
 ---
@@ -67,11 +66,23 @@ Let's grab these example templates and check them in to git!
 
 ```bash
 mkdir opa/contraints
-curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/130_create_policy_contraints/deploy.files/alowed-repos.yaml -o opa/constraints/alowed-repos.yaml
-curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/130_create_policy_contraints/deploy.files/require-labels.yaml -o opa/constraints/require-labels.yaml
+```
 
+```
+curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/130_create_policy_contraints/deploy.files/alowed-repos.yaml -o opa/constraints/alowed-repos.yaml
+```
+```
+curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/130_create_policy_contraints/deploy.files/require-labels.yaml -o opa/constraints/require-labels.yaml
+```
+Once you ar happy these have downloaded, lets check them in to git:
+
+```
 git add "opa/contraints/"
+```
+```
 git commit -m "adding test constraints"
+```
+```
 git push
 ```
 

@@ -19,7 +19,7 @@ aws iam list-policies --query 'Policies[?PolicyName==`AmazonS3ReadOnlyAccess`].A
 
 <pre>
 "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
-</pre>>
+</pre>
 
 ##### Create an IAM role for your service accounts:
 

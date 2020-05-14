@@ -1,7 +1,7 @@
 +++
 title = "Test Policy Constraints"
 chapter = true
-weight = 125
+weight = 140
 +++
 
 In this workshop we are going to create some resources and attempt to deploy them in to our cluster.

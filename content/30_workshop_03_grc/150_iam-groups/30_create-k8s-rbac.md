@@ -9,8 +9,8 @@ You can refere to [intro to RBAC](https://eksworkshop.com/beginner/090_rbac/) mo
 
 #### Create kubernetes namespaces
 
-* **development** namespace will be accessible for IAM users from **k8sDev** group
-* **integration** namespace will be accessible for IAM users from **k8sInteg** group
+**development** namespace will be accessible for IAM users from **k8sDev** group
+**integration** namespace will be accessible for IAM users from **k8sInteg** group
 
 ```bash
 mkdir integration
@@ -19,6 +19,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: integration
+  labels:
+    owner: me.agilebank.demo
 EOF
 
 mkdir development
@@ -27,6 +29,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: development
+  labels:
+    owner: me.agilebank.demo
 EOF
 ```
 
@@ -37,7 +41,7 @@ We create a kubernetes role and rolebinding in the development namespace giving 
 ```bash
 mkdir development/roles
 
-cat << EOF > ./roles/dev-role.yaml
+cat << EOF > ./development/roles/dev-role.yaml
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
@@ -98,7 +102,7 @@ We create a kubernetes role and rolebinding in the integration namespace for ful
 
 ```bash
 mkdir integration/roles
-cat << EOF >| ./roles/integ-role.yaml
+cat << EOF > ./integration/roles/integ-role.yaml
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:

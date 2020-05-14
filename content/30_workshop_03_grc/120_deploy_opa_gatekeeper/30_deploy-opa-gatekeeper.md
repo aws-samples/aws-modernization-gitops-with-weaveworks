@@ -21,9 +21,20 @@ This manifest will deplpy the following in to the cluster:
 
 
 ```bash
+cd eksworkshop
+```
+
+make sure you have navigated into your git repo
+
+```bash
 mkdir opa
 
-curl -o https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/120_deploy_opa_gatekeeper/deploy.files/opa-gatekeper.yaml > opa/opa-gatekeeper.yaml
+curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/120_deploy_opa_gatekeeper/deploy.files/opa-gatekeper.yaml -o opa/opa-gatekeeper.yaml
+```
+
+You should see the manifest now exists insde the `opa` folder. We're no gonna let Flux install this and manage for us. Run the following to check in to git:
+
+```bash
 git add opa/opa-gatekeeper.yaml
 git commit -m "adding opa gatekeeper"
 git push
