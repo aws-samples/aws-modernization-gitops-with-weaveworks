@@ -1,8 +1,8 @@
----
-title: "Enable Your Cluster for GitOps"
-chapter: false
-weight: 32
----
++++
+title = "Enable Your Cluster for GitOps"
+chapter = false
+weight = 32
++++
 
 The following command will set up your cluster with:
 

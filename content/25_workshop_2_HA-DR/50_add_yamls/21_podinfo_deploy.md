@@ -1,8 +1,9 @@
----
-title: "Deploy a Podinfo Pod"
-chapter: false
-weight: 21
----
++++
+title = "Deploy a Podinfo Pod"
+chapter = false
+weight = 21
++++
+
 First, let's create a namespace for our application (podinfo) to execute in. In each of the terminal sessions, execute:
 ```
 kubectl create namespace podinfo

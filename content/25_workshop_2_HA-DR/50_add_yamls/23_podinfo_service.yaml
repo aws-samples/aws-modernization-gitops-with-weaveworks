@@ -1,8 +1,9 @@
----
-title: "Expose the Podinfo Pod Service"
-chapter: false
-weight: 23
----
++++
+title = "Expose the Podinfo Pod Service"
+chapter = false
+weight = 23
++++
+
 In order for any Kubernetes object, including other pods, to access the `podinfo` pod, we have to expose on the Kubernetes network the network ports that should be accessed. When using the **Application Load Balancer** on EKS, the service type should be `NodePort`. In more complex architectures, there are other load balancing methods that can be used.
 
 Create a file called **podinfo-service.yaml** in your git repository containing:

@@ -1,8 +1,8 @@
----
-title: "Update IAM settings for your Workspace"
-chapter: false
-weight: 50
----
++++
+title = "Update IAM settings for your Workspace"
+chapter = false
+weight = 50
++++
 
 {{% notice info %}}
 Cloud9 normally manages IAM credentials dynamically. This isn't currently compatible with
@@ -28,6 +28,8 @@ If you are [at an AWS event](https://eksworkshop.com/020_prerequisites/aws_event
 {{% /notice %}}
 
 ```sh
+# install jq 
+sudo yum install jq
 export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
 export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
 ```

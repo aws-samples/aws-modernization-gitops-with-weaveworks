@@ -1,8 +1,8 @@
----
-title: "At an AWS Event"
-chapter: false
-weight: 10
----
++++
+title = "At an AWS Event"
+chapter = true
+weight = 10
++++
 
 {{% notice warning %}}
 Only complete this section if you are at an AWS hosted event (such as re:Invent,
@@ -44,4 +44,4 @@ If a **Cloud9** environment has been set up:
 
 ### Next step
 
-Once you have completed the step above, you can leave the AWS console open. You can now move to the [**ekstctl Setup**](/20_eksctl_prerequisites.html) section. 
+Once you have completed the step above, you can leave the AWS console open. You can now move to the [**ekstctl Setup**](/20_weaveworks_prerequisites.html) section. 
