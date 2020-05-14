@@ -92,10 +92,18 @@ It is also possible to specify the AWS_PROFILE uses with the aws-iam-authenticat
 
 Create new KUBECONFIG file to test this:
 
-```
+```bash
 export KUBECONFIG=/tmp/kubeconfig-dev && eksctl utils write-kubeconfig eksworkshop
-cat $KUBECONFIG | awk "/args:/{print;print \"      - --profile\n      - dev\";next}1" | sed 's/eksworkshop./eksworkshop-dev./g' > ~/.kube/dev
-rm /tmp/kubeconfig-dev
+cat $KUBECONFIG | sed 's/eksworkshop./eksworkshop-dev./g' > ~/.kube/dev
+cat >> $KUBECONFIG <<- EOM
+      - name: AWS_PROFILE
+        value: dev
+EOM
+rm /tmp/kubeconfig-integ
+```
+
+```bash
+export KUBECONFIG=~/.kube/dev
 ```
 
 
@@ -134,7 +142,11 @@ Error from server (Forbidden): pods is forbidden: User "dev-user" cannot list re
 
 ```bash
 export KUBECONFIG=/tmp/kubeconfig-integ && eksctl utils write-kubeconfig eksworkshop
-cat $KUBECONFIG | awk "/args:/{print;print \"      - --profile\n      - integ\";next}1" | sed 's/eksworkshop./eksworkshop-integ./g' > ~/.kube/integ
+cat $KUBECONFIG | sed 's/eksworkshop./eksworkshop-integ./g' > ~/.kube/integ
+cat >> $KUBECONFIG <<- EOM
+      - name: AWS_PROFILE
+        value: integ
+EOM
 rm /tmp/kubeconfig-integ
 ```
 
@@ -173,7 +185,15 @@ Error from server (Forbidden): pods is forbidden: User "integ-user" cannot list 
 
 ```
 export KUBECONFIG=/tmp/kubeconfig-admin && eksctl utils write-kubeconfig eksworkshop
-cat $KUBECONFIG | awk "/args:/{print;print \"      - --profile\n      - admin\";next}1" | sed 's/eksworkshop./eksworkshop-admin./g' | tee $KUBECONFIG
+cat $KUBECONFIG | sed 's/eksworkshop./eksworkshop-integ./g' > ~/.kube/admin
+cat >> $KUBECONFIG <<- EOM
+      - name: AWS_PROFILE
+        value: admin
+EOM
+rm /tmp/kubeconfig-admin
+```
+```bash
+export KUBECONFIG=~/.kube/admin
 ```
 
 let's create a pod in default namespace
@@ -219,7 +239,7 @@ kube-system   kube-proxy-pr7k7           1/1     Running   0          100m
 It is possible to merge several kubernetes API access in the same KUBECONFIG file, or just tell Kubectl several file to lookup at once:
 
 ```bash
-export KUBECONFIG=~/.kube/dev:/tmp/.kube/integ:/.kube/admin
+export KUBECONFIG=~/.kube/dev:~/.kube/integ:~/.kube/admin
 
 # then run the following to get a list of contexts
 kubectl config get-contexts
