@@ -29,4 +29,4 @@ You should get a "No clusters found" message.
 eksctl version
 ```
 
-For the current workshops, we will be using `elsctl` **0.19-rc.1** or newer. Please verify the version, as some features are only available in the **0.19** version of `eksctl`
+For the current workshops, we will be using `eksctl` **0.19-rc.1** or newer. Please verify the version, as some features are only available in the **0.19** version of `eksctl`
