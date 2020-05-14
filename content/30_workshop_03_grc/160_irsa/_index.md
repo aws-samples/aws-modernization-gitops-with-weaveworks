@@ -1,12 +1,8 @@
----
-title: "IAM Roles for Service Accounts"
-date: 2020-05-12T16:32:30+09:00
-weight: 110
-draft: false
-tags:
-  - intermediate
-  - CON205
----
++++
+title = "IAM Roles for Service Accounts"
+chapter = true
+weight = 160
++++
 
 ### Fine-Grained IAM Roles for Service Accounts
 

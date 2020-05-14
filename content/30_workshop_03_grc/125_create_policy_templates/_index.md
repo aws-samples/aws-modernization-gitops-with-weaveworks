@@ -1,9 +1,8 @@
----
-title: "Create Policy Constraint Templates"
-date: 2020-04-12T18:00:00-00:00
-draft: false
-weight: 125
----
++++
+title = "Create Policy Constraint Templates"
+chapter = true
+weight = 125
++++
 
 ### Manage Policies and Compliance using OPA Gatekeeper
 

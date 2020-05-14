@@ -51,7 +51,7 @@ We will dicsuss later on how we define these rules.
 
 #### Overview of OPA Gatekeeper Architecture
 
-![OPA gatekeeper](../../../static/images/opa-gatekeeper.png)
+![OPA gatekeeper](/images/opa-gatekeeper.png)
 
 - **Configure Replication** - this is for auditing what has already been deployed to check for pre-existing violations
 - **Authz Webhook** - this is used by the api server to query opa for authz decisions

@@ -1,6 +1,6 @@
 ---
 title: "Preparation"
-date: 2018-11-13T16:36:24+09:00
+date: 2020-05-13T16:36:24+09:00
 weight: 10
 draft: false
 ---

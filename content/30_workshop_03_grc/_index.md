@@ -12,9 +12,10 @@ GitOps operation practices give teams a head start as they rely on git’s stron
 
 Using a combination of instructor led demonstrations and hands-on exercises, the workshop will enable the attendee to go into detail on the following topics:
 
-* How to set up repeatable fleets of clusters with GitOps and eksctl
-* How to set up multi-cluster and configure AWS services such as ELB and Route53
-* How to connect ingress and DNS using GitOps
+* How to deploy opa gatekeeper and manage policies/compliance in your eks cluster
+* How to create policies and test they work in your cluster
+* How to manage authorisation in to your eks cluster using iam roles
+* How to create iam roles for service accounts in your cluster
 
 ## An operating model for cloud native 
 
