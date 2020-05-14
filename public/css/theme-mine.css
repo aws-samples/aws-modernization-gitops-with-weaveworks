@@ -64,7 +64,7 @@ a:hover {
   color: #fd9827 !important;
   margin: 10px 0px 5px;
   padding: 0px;
-  font-weight: normal !important;
+  font-weight = normal !important;
   margin-top: 10px;
   padding-top: 30px;
   border-top: 1px dotted #384657;
@@ -145,7 +145,7 @@ div.notices p:first-child:before {
     color: #fff;
     font-family: 'Font Awesome\ 5 Free';
     content: #F06A;
-    font-weight: 900; /* Fix version 5.0.9 */
+    font-weight = 900; /* Fix version 5.0.9 */
     left: 10px;
 }
 

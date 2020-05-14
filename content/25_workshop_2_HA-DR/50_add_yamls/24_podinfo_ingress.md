@@ -1,8 +1,9 @@
----
-title: "Connect the Podinfo Service to the Ingress Controller"
-chapter: false
-weight: 24
----
++++
+title = "Connect the Podinfo Service to the Ingress Controller"
+chapter = false
+weight = 24
++++
+
 The final step is to inform the **ALB Ingress Controller** that a service needs to be exposed externally from the cluster. The ingress controller watches for the creation of **Ingress** objects, and then creates the routing required to reach the object externally.
 
 In the **Ingress** object definition, ther eare annotations to indicate how the **Ingress Controller** should handle this service, as well as which controller to utilize. As there may be several different ingress controllers in a single Kubernetes cluster, this ability is key to managing access to multiple applications and microservices.

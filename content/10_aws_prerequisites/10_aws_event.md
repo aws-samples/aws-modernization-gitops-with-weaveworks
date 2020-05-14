@@ -1,8 +1,8 @@
----
-title: "At an AWS Event"
-chapter: false
-weight: 10
----
++++
+title = "At an AWS Event"
+chapter = true
+weight = 10
++++
 
 {{% notice warning %}}
 Only complete this section if you are at an AWS hosted event (such as re:Invent,

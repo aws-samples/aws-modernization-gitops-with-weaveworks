@@ -28,7 +28,7 @@
 }
 
 .autocomplete-suggestion b {
-    font-weight: normal;
+    font-weight = normal;
     color: #1f8dd6;
 }
 

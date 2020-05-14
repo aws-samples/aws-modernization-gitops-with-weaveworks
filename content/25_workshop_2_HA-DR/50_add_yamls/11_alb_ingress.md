@@ -1,8 +1,8 @@
----
-title: "Install an Application Load Balancer Ingress Controller"
-chapter: false
-weight: 11
----
++++
+title = "Install an Application Load Balancer Ingress Controller"
+chapter = false
+weight = 11
++++
 
 This manifest actually creates the ingress controller. Copy and paste the following into a file called **alb-ingress.yaml**  in each of your terminal windows. We will be creating two files, one for each cluster, as we must place the actual cluster name in this file. Replace the **XXXXXXXX** on the `cluster-name` option with the name of your cluster.
 
