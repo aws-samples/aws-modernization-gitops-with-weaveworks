@@ -62,9 +62,9 @@ You should see it does not get deployed.
 
 If we explore flux logs we should be able to see what happened and get the following error:
 
-{{< output >}}
+<pre>
 Error from server ([denied by prod-repo-is-openpolicyagent] container <opa> has an invalid image repo <openpolicyagent/opa:0.9.2>, allowed repos are ["only-this-repo"]): error when creating "pod-unauthorized-repo.yaml": admission webhook "validation.gatekeeper.sh" denied the request: [denied by prod-repo-is-openpolicyagent] container <opa> has an invalid image repo <openpolicyagent/opa:0.9.2>, allowed repos are ["only-this-repo"]
-{{< /output >}}
+</pre>
 
 To get the logs run:
 
@@ -102,9 +102,9 @@ Lets run this manually for now so we can see it fail:
 kubectl create -f ./namespaces/bad-namespace.yaml
 ```
 
-{{< output >}}
+<pre>
 Error from server ([denied by all-must-have-owner] All namespaces must have an `owner` label that points to your company username): error when creating "bad-namespace.yaml": admission webhook "validation.gatekeeper.sh" denied the request: [denied by all-must-have-owner] All namespaces must have an `owner` label that points to your company username
-{{< /output >}}
+</pre>
 
 Let's make sure our policy allows namespaces to be created when the rules are met. Edit the manifest with the following:
 
@@ -129,9 +129,9 @@ git push
 
 You see that this has nwo been created.
 
-{{< output >}}
+<pre>
 namespace/test-namespace created
-{{< /output >}}
+</pre>
 
 
 ## Summary
