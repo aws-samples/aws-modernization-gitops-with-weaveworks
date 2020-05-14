@@ -8,7 +8,7 @@ weight = 10
 [eksctl](https://eksctl.io/introduction/) makes it simple to provision Kubernetes clusters in EKS. For this workshop, we will create a defauklt three node EKS cluster. With `eksctl`, this is a single command line:
 
 ```
-eksctl create cluster
+eksctl create cluster --cluster eksworkshop
 ```
 
 You will see a number of messages scroll, ending with the `kubeconfig` message

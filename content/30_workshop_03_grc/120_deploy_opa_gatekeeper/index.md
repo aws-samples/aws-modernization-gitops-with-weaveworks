@@ -2,7 +2,7 @@
 title: "Deploy OPA gatekeeper"
 date: 2020-04-12T18:00:00-00:00
 draft: false
-weight: 10
+weight: 120
 ---
 
 ### Manage Policies and Compliance using OPA Gatekeeper
