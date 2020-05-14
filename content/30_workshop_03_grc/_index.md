@@ -1,7 +1,7 @@
 +++
 title = "Workshop 3: Managing GRC for K8s on EKS"
 chapter = true
-weight = 22
+weight = 30
 +++
 
 # Welcome to GitOps on AWS: Managing governance, risk and compliance for Kubernetes on EKS
