@@ -1,8 +1,8 @@
----
-title: "Install an Application Load Balancer Ingress Controller (RBAC)"
-chapter: false
-weight: 10
----
++++
+title = "Install an Application Load Balancer Ingress Controller (RBAC)"
+chapter = false
+weight = 10
++++
 
 This manifest creates the role based authorization (RBAC) for the ingress controller. Copy and paste the following into a file called **alb-rbac.yaml** in your repository:
 ```

@@ -1,8 +1,9 @@
----
-title: "Check Everything"
-chapter: false
-weight: 25
----
++++
+title = "Check Everything"
+chapter = false
+weight = 25
++++
+
 When all the manifests have been created and pushed to your git repository, we can verify that everything worked as expected. The software agent in the cluster, `flux`, checks for commit updates every five minutes (by default). After it has checked your git repository, and applied the changed manifests, we will want to verify everything.
 
 In each terminal session, execute:

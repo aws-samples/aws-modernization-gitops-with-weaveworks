@@ -1,8 +1,9 @@
----
-title: "Enable Your Clusters for GitOps"
-chapter: false
-weight: 32
----
++++
+title = "Enable Your Clusters for GitOps"
+chapter = false
+weight = 32
++++
+
 {{% notice info %}}
 Perform this command in each of your two terminal windows. Verify that you are connecting to your two clusters **individually.** The cluster names and regions are the information provided when you created the clusters.
 {{% /notice %}}

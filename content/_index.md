@@ -1,8 +1,8 @@
----
-title: "Main Page"
-chapter: true
-weight: 1
----
++++
+title = "GitOps on EKS with Weaveworks"
+chapter = true
+weight = 1
++++
 
 <div style="text-align: center">
 <h2>Introduction to GitOps on EKS with Weaveworks</h2></div>
