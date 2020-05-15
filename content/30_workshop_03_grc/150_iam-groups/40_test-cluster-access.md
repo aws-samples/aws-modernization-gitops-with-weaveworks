@@ -5,7 +5,7 @@ draft: false
 weight: 40
 ---
 
-## Automate assumerole with aws cli
+### Automate assumerole with `aws cli`
 
 It is possible to automate the retrieval of temporary credentials for the assumed role by configuring the aws cli using `.aws/config`and `.aws/credentials` files.
 Examples we will define 3 profile:
@@ -63,14 +63,12 @@ aws sts get-caller-identity --profile dev
 }
 </pre>
 
-> the assumed-role is k8sDev, so we achieved our goal
+The assumed-role is k8sDev, so we achieved our goal
 
 When specifying the **--profile dev** parameter we automatically ask for temporary credentials for the role k8sDev
 You can test this with **integ** and **admin** also.
- 
-<details>
-  <summary>with admin:</summary>
-  
+
+With admin:
 ```
 aws sts get-caller-identity --profile admin
 {
@@ -80,15 +78,14 @@ aws sts get-caller-identity --profile admin
 }
 ```
 
-> When specifying the **--profile admin** parameter we automatically ask for temporary credentials for the role k8sAdmin
-</details>
+When specifying the **--profile admin** parameter we automatically ask for temporary credentials for the role k8sAdmin
 
-## Using AWS profiles with Kubectl config file
+### Using AWS profiles with Kubectl config file
 
 It is also possible to specify the AWS_PROFILE uses with the aws-iam-authenticator in the `.kube/config` file, so that it will use the appropriate profile.
 
 
-### with dev profile 
+#### with dev profile 
 
 Create new KUBECONFIG file to test this:
 
@@ -234,7 +231,7 @@ kube-system   kube-proxy-pr7k7           1/1     Running   0          100m
 </pre>>
 
 
-## Swithing between different contexts
+### Swithing between different contexts
 
 It is possible to merge several kubernetes API access in the same KUBECONFIG file, or just tell Kubectl several file to lookup at once:
 
@@ -249,7 +246,7 @@ kubectl config use-context my-cluster-name
 
 
 
-## Conclusion
+### Conclusion
 
 In this module, we have seen how to configure EKS to provide finer access to users combining IAM Groups and Kubernetes RBAC.
 You'll be able to create different groups depending on your needs, configure their associated RBAC access in your cluster, and simply add or remove users from 

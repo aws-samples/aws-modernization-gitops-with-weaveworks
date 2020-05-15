@@ -31,12 +31,12 @@ Looking at `spec.match` We are saying only apply this constraint to `Namespace` 
 
 {{% notice info %}}
 Note as well the fields we defined previously `kind: K8sRequiredLabels`, `parameters`. This is where we are able to pass unique values in to here.
-{{% notice info %}}
+{{% /notice %}}
 
 In this case, we've added a sepcific message for this contraint as well as the labels we require whenver a namespace is created or updated and the regex of that label.
 
 
-lets take a look at anoother example :
+Let's take a look at anoother example :
 
 ```yaml
 apiVersion: constraints.gatekeeper.sh/v1beta1
@@ -85,6 +85,3 @@ git commit -m "adding test constraints"
 ```
 git push
 ```
-
-
-

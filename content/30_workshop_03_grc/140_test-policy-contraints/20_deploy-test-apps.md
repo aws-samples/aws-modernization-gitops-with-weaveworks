@@ -1,5 +1,5 @@
 ---
-title: "Deploy test apps"
+title: "Deploy Test Apps"
 date: 2020-04-12T18:00:00-00:00
 draft: false
 weight: 20
@@ -134,7 +134,7 @@ namespace/test-namespace created
 </pre>
 
 
-## Summary
+### Summary
 
 
 We've proven now that the policies we've defined through OPA Gatekeeper Contraint templates have worked.
