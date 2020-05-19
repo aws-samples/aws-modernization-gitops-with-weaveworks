@@ -1,5 +1,5 @@
 +++
-title = "Update the Namespace with App Mesh Label
+title = "Update the Namespace with App Mesh Label"
 chapter = true
 weight = 10
 +++
