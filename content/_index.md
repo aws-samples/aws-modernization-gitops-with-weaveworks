@@ -1,7 +1,7 @@
 +++
 title = "GitOps on EKS with Weaveworks"
 chapter = true
-weight = 1
+weight = 01
 +++
 
 <div style="text-align: center">
