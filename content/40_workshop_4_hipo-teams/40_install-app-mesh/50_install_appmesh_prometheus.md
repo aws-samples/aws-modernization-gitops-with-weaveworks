@@ -6,10 +6,6 @@ weight = 50
 
 We also want to collect the metrics that App Mesh publishes and so we will also deploy Prometheus. We can use the metrics to create alerts or to help enable progressive delivery (covered in a later workshop).
 
-{{% notice tip %}}
-We could also use Container Insights, see the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.html).
-{{% /notice %}}
-
 Prometheus for App Mesh is also available as a Helm package from the [EKS Chart Repository](https://aws.github.io/eks-charts/). We will use the **Helm Operator** along with this chart to install the injector.
 
 Create a new file called `appmesh-prometheus.yaml` in the **appmesh-system** folder. Add the following as contents to the file:

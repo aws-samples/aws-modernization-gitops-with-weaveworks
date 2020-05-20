@@ -1,5 +1,5 @@
 +++
 title = "Install Metrics Server"
 chapter = true
-weight = 45
+weight = 60
 +++
