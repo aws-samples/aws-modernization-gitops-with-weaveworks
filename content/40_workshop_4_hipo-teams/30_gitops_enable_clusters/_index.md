@@ -1,11 +1,11 @@
 +++
 title = "GitOps Enable Clusters"
 chapter = true
-weight = 40
+weight = 30
 +++
 
 # GitOps Enable Your EKS Cluster
 
-[//]: # (add content here)
+[gitops](https://www.weave.works/technologies/gitops/) is a way to do Kubernetes application delivery. It works by using Git as a single source of truth for Kubernetes resources and everything else. With Git at the center of your delivery pipelines, you and your team can make pull requests to accelerate and simplify application deployments and operations tasks to Kubernetes.
 
-With two terminal windows open, you'll have to be careful when executing commands to ensure you are working with the correct cluster. In these exercises, you will be flipping back and forth between your two terminal windows fairly often. As this can get confusing, just be sure to verify which window you are using each time.
+Its assumed that you have already completed [Workshop 1: Introduction to GitOps on EKS](/22_workshop_1/) and as suck we will be speeding through some of the base Flux commands.

@@ -1,7 +1,7 @@
 +++
 title = "Install PodInfo (Deployment & HPA)"
 chapter = true
-weight = 01
+weight = 50
 +++
 
 # Install PodInfo (Deployment & HPA) Into Non-Production Cluster Using GitOps

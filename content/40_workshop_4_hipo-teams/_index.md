@@ -1,7 +1,7 @@
 +++
 title = "Workshop 4: How to Build High Performing Team Operations"
 chapter = true
-weight = 01
+weight = 40
 +++
 
 # Welcome to GitOps on AWS: How to Build High Performing Team Operations

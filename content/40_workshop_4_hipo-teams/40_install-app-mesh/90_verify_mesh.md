@@ -1,7 +1,7 @@
 +++
 title = "Verify Service Mesh is Active"
-chapter = true
-weight = 50
+chapter = false
+weight = 90
 +++
 
 # Verify Service Mesh is Active

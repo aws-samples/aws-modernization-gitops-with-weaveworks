@@ -1,7 +1,7 @@
 +++
 title = "Add the Required IAM Role"
 chapter = false
-weight = 14
+weight = 15
 
 +++
 

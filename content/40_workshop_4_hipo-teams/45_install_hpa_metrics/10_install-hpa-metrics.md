@@ -1,7 +1,7 @@
 +++
 title = "Install HPA Metrics Provider"
-chapter = true
-weight = 20
+chapter = false
+weight = 10
 +++
 
 # Install HPA Metrics Provider - Using HelmRelease

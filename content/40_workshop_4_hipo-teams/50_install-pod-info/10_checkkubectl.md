@@ -1,7 +1,7 @@
 +++
 title = "Update PodInfo with New Version"
 chapter = false
-weight = 10
+weight = 41
 +++
 
 # Update PodInfo with New Version
