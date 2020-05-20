@@ -1,7 +1,7 @@
 +++
 title = "Rollback PodInfo"
 chapter = true
-weight = 80
+weight = 70
 +++
 
 # Rollback PodInfo
