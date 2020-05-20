@@ -25,7 +25,7 @@ Create a `amazon-cloudwatch` folder in our repo:
 Now run the following commands to download the CloudWatch Agent resources into the new folder, make sure you replace **<AWS_REGION>** with the name AWS region of your cluster:
 
 ```bash
-curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed "s/{{cluster_name}}/eksworkshop/;s/{{region_name}}/<AWS_REGION>/" > amazon-cloudwatch/cwagent-fluentd-quickstart.yaml
+curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed "s/{{cluster_name}}/gitopsworkshop/;s/{{region_name}}/<AWS_REGION>/" > amazon-cloudwatch/cwagent-fluentd-quickstart.yaml
 ```
 
 Your folder structure should look like this now:
