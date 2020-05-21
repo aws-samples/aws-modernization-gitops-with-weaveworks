@@ -25,9 +25,10 @@ metadata:
 nodeGroups:
   - name: ng-1
     instanceType: m5.large
-    desiredCapacity: 2
+    desiredCapacity: 1
     iam:
       withAddonPolicies:
+        albIngress: true
         appMesh: true
         xRay: true
         cloudWatch: true

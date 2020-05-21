@@ -18,7 +18,7 @@ metadata:
   name: amazon-cloudwatch
 ```
 
-Your repositoiry structure should be:
+Your repository structure should be:
 
 ```bash
 .
@@ -56,4 +56,4 @@ kube-public         Active   4h18m
 kube-system         Active   4h18m
 ```
 
-If you don't see it listed given a few minutes longer and try again.
+If you don't see it listed, give it a few minutes longer and try again.

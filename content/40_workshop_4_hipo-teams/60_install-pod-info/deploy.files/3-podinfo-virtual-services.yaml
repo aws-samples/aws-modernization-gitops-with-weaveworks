@@ -1,0 +1,20 @@
+apiVersion: appmesh.k8s.aws/v1beta1
+kind: VirtualService
+metadata:
+  name: backend-podinfo.apps.svc.cluster.local
+  namespace: apps
+spec:
+  meshName: apps
+  virtualRouter:
+    name: backend-podinfo-router
+  routes:
+    - name: podinfo-route
+      http:
+        match:
+          prefix: /
+        action:
+          weightedTargets:
+            - virtualNodeName: backend-podinfo-v1
+              weight: 50
+            - virtualNodeName: backend-podinfo-v2
+              weight: 50

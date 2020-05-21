@@ -4,7 +4,7 @@ chapter = false
 weight = 20
 +++
 
-As every namespace in our EKS cluster has a folder in our repo that contains the declarations of the resources we want to live in that namespace we will need a new folder for the **amazon-cloudwatch** namespace.
+As every namespace in our EKS cluster has a folder in our repo that contains the declarations of the resources we want to live in that namespace, we will need a new folder for the **amazon-cloudwatch** namespace.
 
 Create a `amazon-cloudwatch` folder in our repo:
 
@@ -25,7 +25,11 @@ Create a `amazon-cloudwatch` folder in our repo:
 Now run the following commands to download the CloudWatch Agent resources into the new folder, make sure you replace **<AWS_REGION>** with the name AWS region of your cluster:
 
 ```bash
+# Download container insights
 curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed "s/{{cluster_name}}/gitopsworkshop/;s/{{region_name}}/<AWS_REGION>/" > amazon-cloudwatch/cwagent-fluentd-quickstart.yaml
+
+# Download the CloudWatch Agent for prometheus
+curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/prometheus-beta/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/prometheus-eks.yaml > amazon-cloudwatch/cwagent-prometheus-eks.yaml
 ```
 
 Your folder structure should look like this now:
@@ -33,7 +37,8 @@ Your folder structure should look like this now:
 ```bash
 .
 ├── amazon-cloudwatch
-│   └── cwagent-fluentd-quickstart.yaml
+│   ├── cwagent-fluentd-quickstart.yaml
+│   └── cwagent-prometheus-eks.yaml
 ├── appmesh-system
 │   ├── appmesh-controller.yaml
 │   ├── appmesh-inject.yaml
@@ -45,7 +50,7 @@ Your folder structure should look like this now:
 └── README.md
 ```
 
-Edit the **cwagent-fluentd-quickstart** and delete the following (which should appear at the beginning):
+Edit the **cwagent-fluentd-quickstart.yaml** and **cwagent-prometheus-eks.yaml** to delete the following (which should appear at the beginning of each file):
 
 ```yaml
 # create amazon-cloudwatch namespace
@@ -55,7 +60,6 @@ metadata:
   name: amazon-cloudwatch
   labels:
     name: amazon-cloudwatch
-
 ---
 ```
 

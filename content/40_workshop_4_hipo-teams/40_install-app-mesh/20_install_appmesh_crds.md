@@ -4,7 +4,7 @@ chapter = false
 weight = 20
 +++
 
-For every namespace in our EKS cluster we will create a folder in our repo that will contain the declarations of every resource we want to live in that namespace. __This becomes the desired state of that namespaces__.
+For every namespace in our EKS cluster we will create a folder in our repo that will contain the declarations of every resource we want to live in that namespace. __This becomes the desired state of that namespace__.
 
 The controller requires CRDs to be installed. We have a couple of options to do this:
 

@@ -33,7 +33,7 @@ metadata:
   name: appmesh-system
 ```
 
-Your repositoiry structure should be:
+Your repository structure should be:
 
 ```bash
 .
@@ -64,4 +64,4 @@ kube-public       Active   76m
 kube-system       Active   76m
 ```
 
-If you don't see it listed given a few minutes longer and try again.
+If you don't see it listed, give it a few minutes longer and try again.

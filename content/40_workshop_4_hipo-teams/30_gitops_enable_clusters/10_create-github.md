@@ -18,7 +18,7 @@ In the **Cloud9** environment, a user SSH key pair is not automatically created.
 
 You will also want to add your ssh. Instructions to do so [are here](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account).
 
-The pbcopy will not work on amazon linix, so instead just run:
+The pbcopy will not work on amazon linux, so instead just run:
 
 ```bash
 cat ~/.ssh/id_rsa.pub

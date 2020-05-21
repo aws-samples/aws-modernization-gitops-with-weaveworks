@@ -30,3 +30,16 @@ The output should be similar to below and you should see **apps** listed:
 You can also check by going to the AWS Console and choosing **AWS App Mesh** from the **Services** menu:
 
 ![aws_console_appmesh](/images/aws_console_appmesh.png)
+
+And we need to check out out cluster by running:
+
+```bash
+kubectl get meshes -A
+```
+
+You should see output similar to:
+
+```bash
+NAME   AGE
+apps   51m
+```

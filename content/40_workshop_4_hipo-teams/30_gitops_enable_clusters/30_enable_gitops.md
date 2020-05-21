@@ -15,7 +15,7 @@ In other workshops we have used `eksctl enable repo` to install these. However, 
 
 ### Base Setup
 
-Both **Flux** and **Flux Helm Operator** will reside in their won namespace. Run the following command to create the namespace:
+Both **Flux** and **Flux Helm Operator** will reside in their own namespace. Run the following command to create the namespace:
 
 ```bash
  kubectl create ns flux
@@ -29,7 +29,7 @@ helm repo add fluxcd https://charts.fluxcd.io
 
 ### Flux Install
 
-Lets install Flux using its Helm Chart making sure you replace `yourname/my-eks-config.git` with your repo details:
+Let's install Flux using its Helm Chart making sure you replace `yourname/my-eks-config.git` with your repo details:
 
 ```bash
 helm upgrade -i flux fluxcd/flux --wait --namespace flux --set git.url=git@github.com:yourname/my-eks-config.git --set git.pollInterval=1m
