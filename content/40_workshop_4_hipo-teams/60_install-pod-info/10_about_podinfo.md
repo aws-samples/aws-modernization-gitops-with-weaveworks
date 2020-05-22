@@ -10,4 +10,4 @@ For our workshop, we will be using `podinfo` to show how to use App Mesh and the
 
 We will be deploying podinfo in the following logical architecture:
 
-![PodInfo Logical Architecture](/images/podinfo_app_mesh_.png)
+![PodInfo Logical Architecture](/images/podinfo_app_mesh.png)
