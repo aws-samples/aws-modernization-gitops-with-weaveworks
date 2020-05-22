@@ -63,7 +63,7 @@ metadata:
 ---
 ```
 
-Add and then commit the **cwagent-fluentd-quickstart.yaml** file and push the the changes to your GitHub repo.
+Add and then commit the 2 files and push the the changes to your GitHub repo.
 
 Flux will now see that the desired state of the `amazon-cloudwatch` namespace has changed in Git and will apply the resources to our cluster. This will take up to 1 minute to apply.
 
