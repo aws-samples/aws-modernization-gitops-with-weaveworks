@@ -10,7 +10,7 @@ We are going to create 2 templates:
 - **allowed-repos** this will determine what image repos can ben used in production
 - **require-labels** - this policy requires that namespaces must have labels that match a regex value
 
-# Let's download some samples for the above
+### Let's download some samples for the above
 
 
 Run the following commands to download some policy template examples to your local git repo:
@@ -27,7 +27,7 @@ curl https://github.com/open-policy-agent/gatekeeper/blob/master/library/general
 
 ```
 
-# Explore the require-labels template
+### Explore the require-labels template
 
 Lets understand what's happening and what each part of this template is doing.
 
@@ -63,7 +63,7 @@ spec:
 
 {{% notice info %}}
 Remember, this is only a template, so that means that on its own, its not going to do anything, it needs to be consumed by something else. So every constraint template needs to create constraint objects so it can be used (and it does this by creating crd's). Hopefully that makes sense but don't worry we will show some examples shortly.
-{{% notice info %}}
+{{% /notice %}}
 
 The above example shows the outline for the crd, in this case it's called `K8sRequiredLabels` it also contains the parameters of the constraint, in this case its `labels` which is an array of items you can add (`key` + `allowedRegex`).
 
@@ -118,7 +118,7 @@ As we can see in the rego policy, we've set 2 `violations`, one flags if require
 
 {{% notice info %}}
 **Things to note** - when configuring rules you can add as many and configure them how you want but you must have the following format on at least one of them for this to work and flag as a violation:
-{{% notice info %}}
+{{% /notice %}}
 
 ```
 violation[{"msg": msg, "details": {}}] {
@@ -129,7 +129,7 @@ violation[{"msg": msg, "details": {}}] {
 
 As we discussed earlier, this is just a **contraint template**, its not a constraint and it does nothing when deployed on it's own.
 
-# Explore the allowed-repos template
+### Explore the allowed-repos template
 
 The format for this look svery similar, we have `metadata` and `name`, then inside the `spec` we are defining a crd called `K8sAllowedRepos`.
 

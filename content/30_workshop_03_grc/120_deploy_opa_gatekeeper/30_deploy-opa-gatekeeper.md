@@ -12,10 +12,10 @@ This manifest will deplpy the following in to the cluster:
 - **gatekeeper-system** namespace
 - **gatekeeper-admin** service account
 - **config** custom resource defintion
-- **ConstraintTemplate** custome resource
+- **ConstraintTemplate** custom resource
 - **gatekeeper-webhook-service** - clusterip service
 - **gatekeeper-controller-manager** deployment
-- **secret** - self signed certificate `think about using someting else, such as cert-manager + pki`
+- **secret** - self signed certificate `think about using something else, such as cert-manager + pki`
 - **required roles**
 - **ValidatingWebhookConfiguration** - this basically creates a validating webhook whenever a resource is created or udpated in the cluster
 
