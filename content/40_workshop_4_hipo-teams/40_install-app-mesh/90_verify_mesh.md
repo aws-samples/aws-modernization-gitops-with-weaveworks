@@ -18,7 +18,7 @@ The output should be similar to below and you should see **apps** listed:
 {
     "meshes": [
         {
-            "arn": "arn:aws:appmesh:eu-west-2:1234567890:mesh/apps",
+            "arn": "arn:aws:appmesh:us-west-2:1234567890:mesh/apps",
             "meshName": "apps",
             "meshOwner": "1234567890",
             "resourceOwner": "1234567890"

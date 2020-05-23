@@ -9,7 +9,7 @@ weight = 20
 For this exercise we will need to create an EKS cluster. We will be using the **Cloud9** terminal window to do this.
 
 {{% notice warning %}}
-Not all AWS regions have all EKS capabilities enabled
+Not all AWS regions have all EKS capabilities enabled. The config file below assumes you are running the workshop from `us-west-2 (Oregon)`. If you are using a different region make sure you replace `us-west-2` in the config with your region.
 {{% /notice %}}
 
 Create a new file in the root of your environment called `cluster.yaml` and paste in the following as the contents:
@@ -20,7 +20,7 @@ kind: ClusterConfig
 
 metadata:
   name: gitopsworkshop
-  region: eu-west-2
+  region: us-west-2
 
 nodeGroups:
   - name: ng-1
