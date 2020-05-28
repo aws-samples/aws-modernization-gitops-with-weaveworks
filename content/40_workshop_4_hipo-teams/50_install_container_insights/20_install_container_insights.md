@@ -22,11 +22,15 @@ Create a `amazon-cloudwatch` folder in our repo:
 └── README.md
 ```
 
-Now run the following commands to download the CloudWatch Agent resources into the new folder, make sure you replace **<AWS_REGION>** with the name AWS region of your cluster:
+Now run the following commands to download the CloudWatch Agent resources into the new folder:
+
+{{% notice note %}}
+The command below assumes you are running the workshop from `us-west-2 (Oregon)`. If you are using a different region make sure you replace `us-west-2` in the command with your region.
+{{% /notice %}}
 
 ```bash
 # Download container insights
-curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed "s/{{cluster_name}}/gitopsworkshop/;s/{{region_name}}/<AWS_REGION>/" > amazon-cloudwatch/cwagent-fluentd-quickstart.yaml
+curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed "s/{{cluster_name}}/gitopsworkshop/;s/{{region_name}}/us-west-2/" > amazon-cloudwatch/cwagent-fluentd-quickstart.yaml
 
 # Download the CloudWatch Agent for prometheus
 curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/prometheus-beta/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/prometheus-eks.yaml > amazon-cloudwatch/cwagent-prometheus-eks.yaml

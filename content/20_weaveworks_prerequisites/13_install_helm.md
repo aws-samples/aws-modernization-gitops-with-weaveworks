@@ -24,7 +24,7 @@ We then want to extract helm, make it executable and copy to a location in the p
 ```bash
 tar xvfz helm.tar.gz linux-amd64/helm
 chmod +x ./linux-amd64/helm
-mv ./linux-amd64/helm /usr/local/bin
+sudo mv ./linux-amd64/helm /usr/local/bin
 ```
 
 This will install `helm` in your **Cloud9** environment. To test to make sure the command is installed properly, execute the command:
