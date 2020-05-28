@@ -21,7 +21,7 @@ git clone git@github.com:${GH_USER}/${GH_REPO}
 cd ${GH_REPO}
 ```
 
-Next, we will be running running `eksctl enable repo`. This takes an existing EKS cluster and an empty repository and sets up a GitOps pipeline.
+Next, we will be running `eksctl enable repo`. This takes an existing EKS cluster and an empty repository and sets up a GitOps pipeline.
 
 ```sh
 export EKSCTL_EXPERIMENTAL=true

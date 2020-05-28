@@ -29,3 +29,4 @@ For further reading we recommend:
  * [GitOps Observability](https://www.weave.works/blog/gitops-part-3-observability)
  * [Compliance and Secure CICD](https://www.weave.works/blog/gitops-compliance-and-secure-cicd)
 * [Case Study: Fidelity](https://www.weave.works/blog/gitops-driven-fidelity-fideks)
+* [EKS GitOps Hands On](https://eks.handson.flagger.dev/intro/#what-is-gitops)

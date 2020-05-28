@@ -38,7 +38,7 @@ git push origin master && \
 fluxctl sync --k8s-fwd-ns flux
 ```
 
-Watch Flagger logs with:
+View Flagger logs with:
 
 ```sh
 kubectl -n appmesh-system logs deployment/flagger -f | jq .msg
@@ -55,7 +55,7 @@ hey -z 1m -c 5 -q 5 http://podinfo-canary.demo:9898/delay/1
 
 When the number of failed checks reaches the canary analysis threshold, the traffic is routed back to the primary and the canary is scaled to zero.
 
-Watch Flagger logs with:
+View Flagger logs with:
 
 ```sh
 kubectl -n appmesh-system logs deployment/flagger -f | jq .msg

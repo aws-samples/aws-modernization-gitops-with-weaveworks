@@ -63,4 +63,4 @@ Watch Flagger logs:
 kubectl -n appmesh-system logs deployment/flagger -f | jq .msg
 ```
 
-As we watch the weight of traffic increase for upgraded podinfo, we can expect to see our site change accordingly. As Flagger shifts more traffic to the canary according to the policy in the Canary object, we see requests going to our new version of the app.
+As we watch the weight of traffic increase for upgraded `podinfo`, we can expect to see our site change accordingly. As Flagger shifts more traffic to the canary according to the policy in the Canary object, we see requests going to the new version of the app.
