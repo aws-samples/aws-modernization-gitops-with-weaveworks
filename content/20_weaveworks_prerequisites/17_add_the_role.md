@@ -1,7 +1,7 @@
 +++
 title = "Add the Required IAM Role"
 chapter = false
-weight = 15
+weight = 17
 
 +++
 
@@ -14,5 +14,3 @@ Creating and using EKS clusters in AWS requires specific IAM roles for the user 
 - On **Actions** pull down, select **Instance Settings -> Attach/Replace IAM Role**
 - In the **IAM role** pull down, select **TeamRoleInstanceProfile**
 - To the right, click **Apply**
-
-
