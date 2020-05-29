@@ -4,7 +4,7 @@ chapter = false
 weight = 502
 +++
 
-The RollingUpdate [deployment strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment) ensures upgraded pods successfully come up before terminating older versions.
+The [RollingUpdate](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment) deployment strategy ensures upgraded pods successfully come up before terminating older versions.
 
 The following demonstrates an example of the RollingUpdate strategy. When using RollingUpdate, you can specify `maxUnavailable` to specify how many pods can go down as an update takes place. You can also specify `maxSurge` to specify how many pods can be created in addition to the desired replica count.
 

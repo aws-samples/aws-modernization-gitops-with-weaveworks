@@ -13,6 +13,10 @@ git pull origin master
 
 ## Kustomize the profile
 
+[Kustomize](https://github.com/kubernetes-sigs/kustomize) lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.
+
+We will be using kustomize to create more targeted patches that make our code easier to factor, understand, and reuse.
+
 Create kustomization files for base and flux manifests:
 
 ```sh

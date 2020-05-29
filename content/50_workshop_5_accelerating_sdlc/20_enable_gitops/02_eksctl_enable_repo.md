@@ -18,6 +18,11 @@ export GH_REPO=sdlc-workshop
 
 ```sh
 git clone git@github.com:${GH_USER}/${GH_REPO}
+```
+
+Navigate to your newly cloned repository:
+
+```sh
 cd ${GH_REPO}
 ```
 

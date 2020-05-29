@@ -29,8 +29,8 @@ If a **Cloud9** environment has not been set up:
 - Click on the **Create Environment** button
 - Enter a name, such as "GitOps Workshop", for this **Cloud9** environment
 - Click **Next Step**
-- Leave the default values unchanged, and click **Next Step**
-- Again, leave the default values, and click **Create Environment**
+- Change the **Cost saving setting** to `After one hour` and click **Next Step**
+- Leave the other default values as are, and click **Create Environment**
 
 If a **Cloud9** environment has been set up:
 

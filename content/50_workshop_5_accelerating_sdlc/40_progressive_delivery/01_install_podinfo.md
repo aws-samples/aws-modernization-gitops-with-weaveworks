@@ -6,7 +6,7 @@ weight = 401
 
 In the `/base/demo` folder, you will find several components that will help us deploy our sample `podinfo` application.
 
-Install the demo app by setting fluxcd.io/ignore to false in base/demo/namespace.yaml:
+Install the demo app by setting `fluxcd.io/ignore` to `false` in base/demo/namespace.yaml:
 
 ```sh
 cat << EOF | tee base/demo/namespace.yaml
@@ -21,7 +21,7 @@ metadata:
 EOF
 ```
 
-Apply changes:
+Push the changes to your git repository and apply using `fluxctl`:
 
 ```sh
 git add -A && \
@@ -33,7 +33,7 @@ fluxctl sync --k8s-fwd-ns flux
 Wait for Flagger to initialize the canary:
 
 ```sh
-kubectl -n demo get canary --watch
+kubectl get canary -n demo
 ```
 
 Find the ingress public address with:
@@ -45,4 +45,4 @@ echo $URL
 
 In a few minutes or so, podinfo will be accessible via the public URL.
 
-Open a new tab and navigate to the url; you can leave this up as we complete this workshop.
+While we wait for podinfo to be accessible, let's review some of the components that Flagger creates / uses in order to canary your deployments on the next page.

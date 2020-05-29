@@ -1,12 +1,12 @@
 +++
 title = "Automated Canary Rollback"
 chapter = false
-weight = 403
+weight = 404
 +++
 
 Now we will generate some failed requests to trigger an automated rollback.
 
-During the canary analysis you can generate HTTP 500 errors and high latency to test if Flagger pauses and rolls back the faulted version.
+During the canary analysis, you can generate HTTP 500 errors and high latency to verify that Flagger pauses and rolls back the faulty version.
 
 Trigger another canary release:
 
@@ -29,7 +29,7 @@ spec:
 EOF
 ```
 
-Apply changes:
+Push your changes and use `fluxctl` to sync:
 
 ```sh
 git add -A && \
@@ -38,18 +38,28 @@ git push origin master && \
 fluxctl sync --k8s-fwd-ns flux
 ```
 
+Watch the canaries: 
+
+```sh
+kubectl -n demo get canaries --watch
+```
+
 View Flagger logs with:
 
 ```sh
 kubectl -n appmesh-system logs deployment/flagger -f | jq .msg
 ```
 
-Exec into the tester pod and generate HTTP 500 errors:
+Exec into the tester pod:
 
 ```sh
 kubectl -n demo exec -it $(kubectl -n demo get pods -o name | grep -m1 flagger-loadtester | cut -d'/' -f 2) bash
+```
 
-hey -z 1m -c 5 -q 5 http://podinfo-canary.demo:9898/status/500
+Generate HTTP 500 errors:
+
+```sh
+hey -z 1m -c 5 -q 5 http://podinfo-canary.demo:9898/status/500 && \
 hey -z 1m -c 5 -q 5 http://podinfo-canary.demo:9898/delay/1
 ```
 
@@ -76,3 +86,5 @@ You should see the following:
  Rolling back podinfo.prod failed checks threshold reached 5
  Canary failed! Scaling down podinfo.test
 ```
+
+You'll see that your `podinfo-primary` pods are still up, but they are all versioned at `3.1.1`.

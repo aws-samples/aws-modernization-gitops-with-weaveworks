@@ -1,7 +1,7 @@
 +++
 title = "Deployment Strategies"
 chapter = true
-weight = 50
+weight = 15
 +++
 
 ## Deployment Strategies

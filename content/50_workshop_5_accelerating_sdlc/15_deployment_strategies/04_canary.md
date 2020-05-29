@@ -16,7 +16,7 @@ In Canary deployments, you will incrementally introduce upgraded versions of you
 
 ## Drawbacks of Canary Deployments
 
-* Typically requires a traffic management solution / service mesh (Envoy, Istio, Linkerd)
+* Typically requires a traffic management solution / service mesh (Envoy, Istio, Linkerd, App Mesh)
 * Requires backwards compatibility between API versions and database migrations
 
 ## Suitable Use Cases

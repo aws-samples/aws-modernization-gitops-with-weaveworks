@@ -12,6 +12,7 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
 - Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose "Open Preferences"
 - Select **AWS SETTINGS**
 - Turn off **AWS managed temporary credentials**
+- If you'd like to turn on AutoSave, select **Experimental** and select your **Auto-Save Files** preference
 - Close the Preferences tab
 ![c9disableiam](/images/c9disableiam.png)
 
@@ -32,6 +33,9 @@ Install `jq` and export your `ACCOUNT_ID` and `AWS_REGION`:
 
 ```sh
 sudo yum install jq
+```
+
+```sh
 export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
 export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
 ```

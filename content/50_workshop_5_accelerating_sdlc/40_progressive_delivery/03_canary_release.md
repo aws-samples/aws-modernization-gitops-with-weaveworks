@@ -1,7 +1,7 @@
 +++
 title = "Automated Canary Promotion"
 chapter = false
-weight = 402
+weight = 403
 +++
 
 When you deploy a new `podinfo` version, Flagger gradually shifts traffic to the canary. At the same time, Flagger measures the requests success rate as well as the average response duration. Based on an analysis of these App Mesh provided metrics, a canary deployment is either promoted or rolled back.
@@ -63,4 +63,4 @@ Watch Flagger logs:
 kubectl -n appmesh-system logs deployment/flagger -f | jq .msg
 ```
 
-As we watch the weight of traffic increase for upgraded `podinfo`, we can expect to see our site change accordingly. As Flagger shifts more traffic to the canary according to the policy in the Canary object, we see requests going to the new version of the app.
+As we watch the weight of traffic increase for upgraded `podinfo`, we can expect to see our site change accordingly. As Flagger shifts more traffic to the canary according to the policy in the Canary object, we see requests going to the new version of the app. When the canary analysis successfully completes, the new version `3.1.1` will be promoted as the primary. 

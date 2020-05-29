@@ -6,7 +6,7 @@ weight = 50
 
 ## Welcome to GitOps on AWS: How to Accelerate the Software Development Lifecycles
 
-Many modern enterprises embrace DevOps methodologies - automating and streamlining the integration and deployment processes - in order to increase development speed and reliability. GitOps takes DevOps principles one step further while leveraging best practices from managing application infrastructure as code. With Git at the center of your delivery pipelines, developers can make pull requests to accelerate and simplify application deployments and operations tasks to Kubernetes.
+Many modern organizations embrace DevOps methodologies - automating and streamlining the integration and deployment processes - in order to increase development speed and reliability. GitOps takes DevOps principles one step further while leveraging best practices from managing application infrastructure as code. With Git at the center of your delivery pipelines, developers can make pull requests to accelerate and simplify application deployments and operations tasks to Kubernetes.
 
 GitOps empowers developers by allowing them to remain in their git-based workflow, using Git as a single source of truth for declarative infrastructure and applications. In today's workshop, we will be creating a GitOps workflow, reviewing advanced deployment strategies, and implementing progressive delivery.
 
