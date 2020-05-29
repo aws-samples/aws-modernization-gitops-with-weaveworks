@@ -12,8 +12,8 @@ weight = 14
 Install by running this command:
 
 ```sh
-curl -sL https://fluxcd.io/install | sh
-export PATH="$PATH:$HOME/.fluxcd/bin"
+curl -Ls https://fluxcd.io/install | sh && \
+sudo mv $HOME/.fluxcd/bin/fluxctl /usr/local/bin/fluxctl
 ```
 
 Verify the installation:
