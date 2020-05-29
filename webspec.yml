@@ -19,7 +19,7 @@ phases:
       - git submodule init
       - git submodule update --recursive
       - echo Install Hugo
-      - curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep "browser_download_url.*hugo_[^extended].*_Linux-64bit\.tar\.gz" | cut -d ":" -f 2,3 | tr -d \" | wget -qi -  
+      - curl -s https://api.github.com/repos/gohugoio/hugo/releases/tag/v0.70.0 | grep "browser_download_url.*hugo_[^extended].*_Linux-64bit\.tar\.gz" | cut -d ":" -f 2,3 | tr -d \" | wget -qi -  
       - HUGO_TAR="$(find . -name "*Linux-64bit.tar.gz")"
       - tar -xzf $HUGO_TAR
       - chmod +x hugo
@@ -27,7 +27,7 @@ phases:
   build:
     commands:
       - echo Build Website
-      - ./hugo
+      - ./hugo -D
       - echo Deploy Copy Website to S3 Bucket
       - aws s3 cp public/ s3://${WEB_SITE_BUCKET}/ --recursive
       
