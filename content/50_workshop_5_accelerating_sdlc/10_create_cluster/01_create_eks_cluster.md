@@ -45,4 +45,4 @@ eksctl create cluster -f cluster.yaml
 
 The creation of the cluster typically takes about 20 minutes. You can monitor the progress of your cluster by navigating to `AWS Console > Services > CloudFormation`.
 
-Since we have some time, let's review some [Advanced Deployment Strategies](50_workshop_5_accelerating_sdlc/50_deployment_strategies.html).
+Since we have some time, let's review some [Advanced Deployment Strategies](/50_workshop_5_accelerating_sdlc/15_deployment_strategies.html).
