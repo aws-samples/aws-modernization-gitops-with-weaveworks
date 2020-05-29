@@ -18,7 +18,7 @@ The output should be similar to below and you should see **apps** listed:
 {
     "virtualRouters": [
         {
-            "arn": "arn:aws:appmesh:eu-west-2:1234567890:mesh/apps/virtualRouter/backend-podinfo-router-apps",
+            "arn": "arn:aws:appmesh:us-west-2:1234567890:mesh/apps/virtualRouter/backend-podinfo-router-apps",
             "meshName": "apps",
             "meshOwner": "1234567890",
             "resourceOwner": "1234567890",
@@ -41,7 +41,7 @@ Hopefully you will see something similar to the following:
     "route": {
         "meshName": "apps",
         "metadata": {
-            "arn": "arn:aws:appmesh:eu-west-2:1234567890:mesh/apps/virtualRouter/backend-podinfo-router-apps/route/podinfo-route",
+            "arn": "arn:aws:appmesh:us-west-2:1234567890:mesh/apps/virtualRouter/backend-podinfo-router-apps/route/podinfo-route",
             "createdAt": 1590071971.866,
             "lastUpdatedAt": 1590071971.866,
             "meshOwner": "1234567890",

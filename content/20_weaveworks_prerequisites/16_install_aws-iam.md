@@ -1,7 +1,7 @@
 +++
 title = "Install AWS IAM"
 chapter = false
-weight = 14
+weight = 16
 
 +++
 
