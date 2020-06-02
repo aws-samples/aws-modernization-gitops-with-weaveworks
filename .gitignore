@@ -37,3 +37,4 @@ node_modules/
 dynatrace-k8s/
 notes.txt
 *.pptx
+public/
