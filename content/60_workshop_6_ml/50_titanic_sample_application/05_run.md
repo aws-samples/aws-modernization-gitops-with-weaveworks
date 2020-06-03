@@ -1,7 +1,7 @@
 +++
 title = "Run Pipeline"
 chapter = false
-weight = 504
+weight = 505
 +++
 
 ## Download the pipeline tar to workstation
@@ -9,7 +9,7 @@ weight = 504
 Using the portforward access to the Kubeflow UI the upload from URL option does not work so it is necessary to download the file to your workstation.
 A shell script is provided to generate the commands required.
 ```sh
-get-tar-cmds.sh
+./get-tar-cmds.sh
 ```
 
 ## Run experiment
