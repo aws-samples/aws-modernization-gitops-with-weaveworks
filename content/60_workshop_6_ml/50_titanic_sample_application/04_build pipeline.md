@@ -1,7 +1,7 @@
 +++
 title = "Build Pipeline"
 chapter = false
-weight = 503
+weight = 504
 +++
 
 ## Install 
@@ -22,6 +22,7 @@ rm Miniconda3-latest-Linux-x86_64.sh
 
 ```sh
 cd aws-titanic
+mkdir -p build
 sed s/mlops-kubeflow-pipeline-data/$BUCKET_NAME/g titanic-survival-prediction.py | sed s/aws-region/$EMR_REGION/ > build/titanic-survival-prediction.py
 dsl-compile --py build/titanic-survival-prediction.py --output build/titanic-survival-prediction.tar.gz
 aws s3api put-object --bucket $BUCKET_NAME --key emr/titanic/titanic-survival-prediction.tar.gz --body build/titanic-survival-prediction.tar.gz

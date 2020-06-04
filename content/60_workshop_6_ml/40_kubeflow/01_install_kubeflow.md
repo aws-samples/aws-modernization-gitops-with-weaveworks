@@ -10,7 +10,7 @@ Install the kubeflow:
 cd $GITHUB_DIR/$GIT_ORG
 wget https://github.com/kubeflow/kfctl/releases/download/v1.0.2/kfctl_v1.0.2-0-ga476281_linux.tar.gz
 tar -zxvf kfctl_v1.0.2-0-ga476281_linux.tar.gz 
-mv kfctl ~/bin
+sudo mv kfctl /usr/bin
 rm kfctl_v1.0.2-0-ga476281_linux.tar.gz 
 
 export AWS_CLUSTER_NAME=$EKS_CLUSTER_NAME
@@ -26,7 +26,7 @@ grep -v eksctl kfctl_aws.yaml > kfctl.yaml
 sed -i s/kubeflow-aws/${AWS_CLUSTER_NAME}/ kfctl.yaml  
 sed -i s/roles:/enablePodIamPolicy\:\ true/ kfctl.yaml  
 sed -i s/us-west-2/${AWS_DEFAULT_REGION}/ kfctl.yaml  
-sed -i s/roles:/enablePodIamPolicy\:\ true/ kfctl.yam
+sed -i s/roles:/enablePodIamPolicy\:\ true/ kfctl.yaml
 
 export CONFIG_FILE=${KF_DIR}/kfctl.yaml
 kfctl apply -V -f ${CONFIG_FILE}

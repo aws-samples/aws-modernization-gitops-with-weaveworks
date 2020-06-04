@@ -4,6 +4,8 @@ chapter = false
 weight = 202
 +++
 
+Using your github account, create a repository called '\<eks cluster name\>-config' in your personal git organisation.
+
 Ensure you are in the root of your Cloud9 Environment and clone your repository.
 
 ```sh
@@ -19,12 +21,13 @@ EKSCTL_EXPERIMENTAL=true \
         --region "$AWS_DEFAULT_REGION"
 ```
 
-`eksctl enable repo` will install FluxCD and the Helm Operator (with support for Helm v3).
+`
+'eksctl enable repo' will install FluxCD and the Helm Operator (with support for Helm v3).
 
 When the command finishes, you will be prompted to add Flux's SSH public key to your GitHub repository.
 
 Copy the public key and create a deploy key with write access to your GitHub repository.
 
-You can add a deploy key to your repository by going to: `Settings > Deploy keys`. Click on `Add deploy key`, and check `Allow write access`. Then paste the Flux public key and click `Add key`.
+You can add a deploy key to your repository by going to: **Settings > Deploy keys**. Click on **Add deploy key**, and check **Allow write access**. Then paste the Flux public key and click **Add key**.
 
 Once you have added the deploy key, Flux will pick up the changes in the repository and deploy them to the cluster.

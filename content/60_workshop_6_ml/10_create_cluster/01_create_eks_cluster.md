@@ -4,6 +4,14 @@ chapter = false
 weight = 101
 +++
 
+If an eks cluster has already been created for you:
+```sh
+export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
+export AWS_DEFAULT_REGION=$AWS_REGION
+export EKS_CLUSTER_NAME=$(eksctl get cluster -o json | jq -r '.[0]["name"]')
+eksctl utils write-kubeconfig --name $EKS_CLUSTER_NAME
+```
+
 Before creating the EKS cluster, please make sure that you have the right role.
 
 ```sh
@@ -19,7 +27,7 @@ To create the EKS cluster, you will need to run the following commands:
 ```sh
 export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
 export AWS_DEFAULT_REGION=$AWS_REGION
-EKS_CLUSTER_NAME=mlops-c9
+export EKS_CLUSTER_NAME=mlops-c9
 
 # Create KMS key for encrypted secrets support
 key_arn=$(aws --region $AWS_DEFAULT_REGION kms create-key | jq -r '."KeyMetadata"["Arn"]')
