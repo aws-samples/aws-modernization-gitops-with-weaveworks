@@ -11,5 +11,5 @@ Creating and using EKS clusters in AWS requires specific IAM roles for the user 
 - Click **Manage EC2 Instance**
 - Make sure your `aws-cloud9-*` instance is selected
 - On **Actions** pull down, select **Instance Settings -> Attach/Replace IAM Role**
-- In the **IAM role** pull down, select **TeamRoleInstanceProfile**
+- In the **IAM role** pull down, select **modernization-admin**
 - To the right, click **Apply**

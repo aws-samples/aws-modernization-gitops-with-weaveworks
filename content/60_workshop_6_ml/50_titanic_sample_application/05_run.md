@@ -41,7 +41,7 @@ Download it and analyse:
 
 ```sh
 export RESULT_FILE=<result file>
-aws s3api get-object --bucket $BUCKET_NAME --key emr/titanic/output/$RESULT_FILE \$HOME/$RESULT_FILE.csv
+aws s3api get-object --bucket $BUCKET_NAME --key emr/titanic/output/$RESULT_FILE $HOME/$RESULT_FILE
 grep ",1,1\|,0,0" $HOME/$RESULT_FILE | wc -l # To count correct results
 wc -l $RESULT_FILE # To count items in file
 ```

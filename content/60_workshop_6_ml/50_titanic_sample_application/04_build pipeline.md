@@ -12,8 +12,14 @@ The following command will install the tools required
 ```sh
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+```sh
 source /home/ec2-user/.bashrc
 conda create --name mlpipeline python=3.7
+```
+
+```sh
 pip3 install --user kfp --upgrade
 rm Miniconda3-latest-Linux-x86_64.sh 
 ```

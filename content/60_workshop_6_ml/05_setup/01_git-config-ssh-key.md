@@ -10,13 +10,6 @@ You need to create and clone github repositories during this workshop so it is r
 
 ```sh
 vim ~/.gitconfig # Add your config
-vim ~/.ssh/id_rsa # Add private key
-chmod 600 ~/.ssh/id_rsa
-vim ~/.ssh/id_rsa.pub # Add your public key
-cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys 
-ssh-add
-eval `ssh-agent`
- ssh-add
 ```
 
 ## Extend FileSystem size

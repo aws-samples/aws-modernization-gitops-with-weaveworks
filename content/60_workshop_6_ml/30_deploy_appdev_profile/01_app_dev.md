@@ -11,6 +11,7 @@ EKSCTL_EXPERIMENTAL=true eksctl enable profile app-dev \
         --cluster $EKS_CLUSTER_NAME \
         --region "$AWS_DEFAULT_REGION"
 
+mkdir -p $GITHUB_DIR/$GIT_ORG
 cd $GITHUB_DIR/$GIT_ORG
 git clone git@github.com:$GIT_ORG/${EKS_CLUSTER_NAME}-config.git
 cd ${EKS_CLUSTER_NAME}-config

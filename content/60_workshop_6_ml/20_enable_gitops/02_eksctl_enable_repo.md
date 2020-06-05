@@ -4,8 +4,6 @@ chapter = false
 weight = 202
 +++
 
-Using your github account, create a repository called '\<eks cluster name\>-config' in your personal git organisation.
-
 Ensure you are in the root of your Cloud9 Environment and clone your repository.
 
 ```sh
