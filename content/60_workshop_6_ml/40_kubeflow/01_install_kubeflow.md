@@ -21,7 +21,7 @@ mkdir -p ${KF_DIR}
 cd ${KF_DIR}
 export CONFIG_URI=https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_aws.v1.0.2.yaml
 wget -O kfctl_aws.yaml $CONFIG_URI
-                                                                                                                                                           
+
 grep -v eksctl kfctl_aws.yaml > kfctl.yaml
 sed -i s/kubeflow-aws/${AWS_CLUSTER_NAME}/ kfctl.yaml  
 sed -i s/roles:/enablePodIamPolicy\:\ true/ kfctl.yaml  
