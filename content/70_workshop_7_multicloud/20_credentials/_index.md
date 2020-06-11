@@ -35,15 +35,6 @@ eksctl utils write-kubeconfig --cluster EKS-YOURCLUSTERNAME
   * Add a new Key Pair named `weaveworks-workshop` and save the pem file
   * In your Cloud9 tab, click File > Upload local files, then choose the Key Pair's pem file that was downloaded. It should have the name `weaveworks-workshop.pem`
 
-## Github SSH key
-
-* Add ssh key to your Github account
-  * On Cloud9, run: `ssh-keygen -t rsa -b 4096` and accept defaults
-  * Run `cat ~/.ssh/id_rsa.pub` and copy the output
-  * Go to [Github > Settings > SSH Keys > New SSH key](https://github.com/settings/ssh/new) and paste your public key
-
-
-
 ## Set up environment variables
 
 * `cd gitops-cluster-management`, then run `cp .envrc.example .envrc`

@@ -1,7 +1,7 @@
 +++
 title = "Prerequisites for Workshop"
 chapter = true
-weight = 20
+weight = 10
 +++
 
 # Setup All the Required Tools & Permissions
