@@ -1,5 +1,5 @@
 +++
-title = "Workshop 7: Multicloud"
+title = "Workshop 7: Cluster Management using Operators"
 chapter = true
 weight = 70
 +++
@@ -11,10 +11,12 @@ Many modern organizations use Machine Learning and also Kubernetes. In this work
 In this workshop we will learn:
 
 * Setup Flux and Helm Operator
-* Install Cluster API components with Flux
+* Bootstrap a ClusterAPI management cluster
 * Bootstrap and manage EC2 clusters declaratively with GitOps
 * Write and ship a custom operator
 * Sync applications across clusters
+
+![Management Cluster](/images/workshop7-management-cluster.svg)
 
 <!-- * How to turn a complex set of components into a profile
 * How profiles allow for reliable and automated deployments to EKS

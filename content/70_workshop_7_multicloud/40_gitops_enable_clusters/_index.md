@@ -75,3 +75,21 @@ helm upgrade helm-operator fluxcd/helm-operator \
     --namespace fluxcd \
     --set helm.versions=v3
 ```
+
+## Setup CNI on all ec2 clusters
+
+```sh
+cp ../gitops-cluster-management/examples/cni/weavenet.yaml flux-ec2/weavenet.yaml
+git add flux-ec2
+git commit -m 'deploy cni to ec2 clusters'
+git push
+```
+
+## Deploy applications across clusters
+
+```
+cp ../gitops-cluster-management/examples/k8s/pod.yaml flux-ec2/pod.yaml
+git add flux-ec2
+git commit -m 'deploy nginx pod to ec2 clusters'
+git push
+```
