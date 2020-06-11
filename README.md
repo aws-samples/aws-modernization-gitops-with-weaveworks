@@ -12,7 +12,7 @@ This workshop is available at https://weaveworks-gitops.awsworkshop.io/
 * clone this repo
 * execute in the root folder:
   * `git submodule init`
-  * `git submodule update`
+  * `git submodule update --recursive --remote`
 * run ```hugo server```
 * open website
 
