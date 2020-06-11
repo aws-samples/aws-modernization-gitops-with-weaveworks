@@ -51,7 +51,7 @@ eksctl utils write-kubeconfig --cluster EKS-YOURCLUSTERNAME
   * `CAPI_AWS_ACCESS_KEY_ID` to your workshop `AWS_ACCESS_KEY_ID`
   * `CAPI_AWS_SECRET_ACCESS_KEY` to your workshop `AWS_SECRET_ACCESS_KEY`
   * `GIT_USER` to your github username
-  * `GIT_REPO_NAME` to the forked repo name `gitops-cluster-management`
+  * `GIT_REPO_NAME` to your repo name `aws-gitops-multicloud`
   * `AWS_REGION` to `us-west-2`
   * `AWS_SSH_KEY_NAME` to `weaveworks-workshop` that we created earlier
   * we can leave `AWS_CONTROL_PLANE_MACHINE_TYPE` and `AWS_NODE_MACHINE_TYPE` as `t3.large`

@@ -1,12 +1,13 @@
 +++
 title = "Set up git repo"
 chapter = true
-weight = 21
+weight = 15
 +++
+
+Create new repo Github called `aws-gitops-multicloud`
 
 ## Clone Workshop Repo
 
-* Create new repo Github called `aws-gitops-multicloud`
 
 We'll use some examples from the below repo
 
