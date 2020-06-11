@@ -1,7 +1,7 @@
 +++
 title = "Update IAM settings for your Workspace"
 chapter = false
-weight = 70
+weight = 18
 +++
 
 {{% notice info %}}
@@ -12,13 +12,11 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
 - Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose "Open Preferences"
 - Select **AWS SETTINGS**
 - Turn off **AWS managed temporary credentials**
-- If you'd like to turn on AutoSave, select **Experimental** and select your **Auto-Save Files** preference
 - Close the Preferences tab
 ![c9disableiam](/images/c9disableiam.png)
 
 To ensure temporary credentials aren't already in place we will also remove
 any existing credentials file:
-
 ```sh
 rm -vf ${HOME}/.aws/credentials
 ```
@@ -29,25 +27,19 @@ We should configure our aws cli with our current region as default.
 If you are [at an AWS event](https://eksworkshop.com/020_prerequisites/aws_event/), ask your instructor which **AWS region** to use.
 {{% /notice %}}
 
-Install `jq` and export your `ACCOUNT_ID` and `AWS_REGION`:
-
 ```sh
+# install jq
 sudo yum install jq
-```
-
-```sh
 export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
 export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
 ```
 
-Verify AWS_REGION is set to desired region
-
+Check if AWS_REGION is set to desired region
 ```sh
 test -n "$AWS_REGION" && echo AWS_REGION is "$AWS_REGION" || echo AWS_REGION is not set
 ```
 
-Let's save these into bash_profile:
-
+Let's save these into bash_profile
 ```sh
 echo "export ACCOUNT_ID=${ACCOUNT_ID}" | tee -a ~/.bash_profile
 echo "export AWS_REGION=${AWS_REGION}" | tee -a ~/.bash_profile
@@ -61,13 +53,13 @@ Use the [GetCallerIdentity](https://docs.aws.amazon.com/cli/latest/reference/sts
 
 Just run this to try it out yourself.
 
-```sh
+```
 aws sts get-caller-identity
 ```
 
 Here is a script that will validate you have the right role.
 
-```sh
+```
 aws sts get-caller-identity --query Arn | grep modernization-admin -q && echo "IAM role valid" || echo "IAM role NOT valid"
 ```
 

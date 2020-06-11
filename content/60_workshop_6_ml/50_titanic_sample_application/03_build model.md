@@ -17,8 +17,6 @@ sdk install sbt
 ## Build Spark Jars
 
 ```sh
-git clone git@github.com:paulcarlton-ww/mlops-titanic
-cd mlops-titanic/
 sbt clean package
 aws s3api put-object --bucket $BUCKET_NAME --key emr/titanic/titanic-survivors-prediction_2.11-1.0.jar --body target/scala-2.11/titanic-survivors-prediction_2.11-1.0.jar
 ```

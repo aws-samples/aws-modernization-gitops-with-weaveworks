@@ -1,22 +1,30 @@
 +++
-title = "Workshop 6:  Machine Learning on AWS EKS"
+title = "Workshop 7: Cluster Management using Operators"
 chapter = true
-weight = 50
+weight = 70
 +++
 
-## Welcome to GitOps on AWS: Machine Learining on AWS EKS and MLops
+# Welcome to Cluster Management using Operators
 
-Many modern organizations use Machine Learning and also Kubernetes. In this workshop we will demonstrate how to use eksctl and gitops to create an AWS EKS cluster and
-use gitops to deploy and application development profile. Then we will deploy Kubeflow and use it to execute a Machine learning sample.
+Many modern organizations use Machine Learning and also Kubernetes. In this workshop we will demonstrate how to use eksctl and gitops to create an AWS EKS cluster and use gitops to deploy and application development profile. Then we will deploy Kubeflow and use it to execute a Machine learning sample.
 
 In this workshop we will learn:
 
-* How to turn a complex set of components into a profile
+* Setup Flux and Helm Operator
+* Bootstrap a ClusterAPI management cluster
+* Bootstrap and manage EC2 clusters declaratively with GitOps
+* Write and ship a custom operator
+* Sync applications across clusters
+
+![Management Cluster](/images/workshop7-management-cluster.svg)
+
+<!-- * How to turn a complex set of components into a profile
 * How profiles allow for reliable and automated deployments to EKS
 * Provision and manage a ML stack with Kubeflow
 * Install a sample app using AWS Elastic MapReduce (EMR)
-* How GitOps managed profiles enable portability for workloads across different clouds, on-premise and your laptop
+* How GitOps managed profiles enable portability for workloads across different clouds, on-premise and your laptop -->
 
+## GitOps - An operating model for cloud native
 
 ![GitOps Operating Model](/images/workshop02_gitops-operating-model.png)
 
@@ -30,4 +38,3 @@ For further reading we recommend:
  * [GitOps Observability](https://www.weave.works/blog/gitops-part-3-observability)
  * [Compliance and Secure CICD](https://www.weave.works/blog/gitops-compliance-and-secure-cicd)
 * [Case Study: Fidelity](https://www.weave.works/blog/gitops-driven-fidelity-fideks)
-* [EKS GitOps Hands On](https://eks.handson.flagger.dev/intro/#what-is-gitops)
