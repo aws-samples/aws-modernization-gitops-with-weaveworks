@@ -118,3 +118,15 @@ CAPI should take care of destroying the AWS EC2 instance, and provision a new on
 You can scale up or down our cluster instances by increasing or decreasing the number of replicas for the control plane or worker nodes in our yaml files.
 
 Let's bump up the replicas from 3 to 5 for the worker nodes.
+
+```sh
+git add flux-mgmt
+git commit -m 'scale up'
+git push
+```
+
+Watch what happens
+
+```sh
+kubectl get machines -w
+```

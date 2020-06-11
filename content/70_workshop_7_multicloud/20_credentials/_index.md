@@ -37,7 +37,7 @@ eksctl utils write-kubeconfig --cluster EKS-YOURCLUSTERNAME
 
 ## Set up environment variables
 
-* `cd gitops-cluster-management`, then run `cp .envrc.example .envrc`
+* `cd aws-gitops-multicloud`, then run `cp ../gitops-cluster-management/.envrc.example .envrc`
 * Open `.envrc` and start populating fields
   * `CAPI_AWS_ACCESS_KEY_ID` to your workshop `AWS_ACCESS_KEY_ID`
   * `CAPI_AWS_SECRET_ACCESS_KEY` to your workshop `AWS_SECRET_ACCESS_KEY`
