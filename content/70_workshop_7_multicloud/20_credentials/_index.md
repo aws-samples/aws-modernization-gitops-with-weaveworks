@@ -15,7 +15,7 @@ aws sts get-caller-identity --query Arn | grep modernization-admin -q && echo "I
 
 {{% /notice %}}
 
-## Kubeconfig
+## Kubeconfig for EKS management cluster
 
 * You should see an eks cluster already provisioned when running
 
