@@ -35,6 +35,7 @@ Get flux's public key
 ```sh
 fluxctl identity --k8s-fwd-ns fluxcd
 ```
+
 * Copy printed public key and paste it in your git repo's Settings > Deploy Keys > Add Deploy Key. Make sure to turn on write access. If no key shows up, try re-running `fluxctl identity --k8s-fwd-ns fluxcd` until it shows up.
 
 ## Install Helm Operator
@@ -61,9 +62,3 @@ EOF
 clusterctl init --infrastructure aws || true
 ```
 
-## Validate
-
-* `kubectl get pod` should now show pods under `flux-mgmt` directory
-
-* Create EC2 clusters with GitOps
-  * copy `examples/clusters/ec2-cluster-1.yaml` into `flux-mgmt/clusters`. Then, modify the new file's region to `us-west-2`.

@@ -56,8 +56,3 @@ eksctl utils write-kubeconfig --cluster EKS-YOURCLUSTERNAME
   * `AWS_SSH_KEY_NAME` to `weaveworks-workshop` that we created earlier
   * we can leave `AWS_CONTROL_PLANE_MACHINE_TYPE` and `AWS_NODE_MACHINE_TYPE` as `t3.large`
 * Finally run `direnv allow`. Which will export these env vars whenever you're in the git repo directory.
-
-
-* Cleanup
-  * Delete the [ssh key](https://github.com/settings/keys) we added to your github
-  * Delete the deploy key in https://github.com/YOURUSERNAME/gitops-cluster-management/settings/keys we added to your github
