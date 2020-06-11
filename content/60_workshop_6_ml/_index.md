@@ -4,13 +4,6 @@ chapter = true
 weight = 50
 +++
 
-
-+++
-title = "Workshop 6: Machine Learning on AWS EKS"
-chapter = true
-weight = 50
-+++
-
 ## Welcome to GitOps on AWS: Machine Learining on AWS EKS and MLops
 
 Many modern organizations use Machine Learning and also Kubernetes. In this workshop we will demonstrate how to use eksctl and gitops to create an AWS EKS cluster and
