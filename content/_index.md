@@ -12,7 +12,7 @@ weight = 01
 GitOps relies on Git as the single source of truth for declarative infrastructure and applications. With Git at the center of delivery pipelines, developers can make pull requests to accelerate and simplify application deployments and operations tasks to Kubernetes.
  
 
-In these workshops Weaveworks will teach and demonstrate: 
+In these workshop modules Weaveworks will teach and demonstrate: 
 
 * The 4 principles of GitOps 
 * How to boost stability and reliability in Kubernetes environments

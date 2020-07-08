@@ -1,12 +1,12 @@
 +++
-title = "Workshop 1: Introduction to GitOps on EKS"
+title = "Workshop Module 1: Introduction to GitOps on EKS"
 chapter = true
 weight = 22
 +++
 
-# Workshop 1: Introduction to GitOps on EKS
+# Workshop Module 1: Introduction to GitOps on EKS
 
-In this workshop we'll introduce you to the concepts of GitOps and how to create and operate an EKS cluster using the eksctl tool. This workshop is a prerequisite for all other workshops in this series.
+In this module we'll introduce you to the concepts of GitOps and how to create and operate an EKS cluster using the eksctl tool. This workshop is a prerequisite for all other workshops in this series.
 
 
 {{% notice warning %}}
