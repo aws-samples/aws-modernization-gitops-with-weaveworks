@@ -6,7 +6,9 @@ weight = 15
 
 # Setup git repo
 
-* Create new repo Github called `aws-gitops-multicloud`
+* Create new repo Github called `aws-gitops-multicloud` and turn on "Initialize this repository with a README"
+* Clone the repo on your machine
+* Create two directories in the repo: `mkdir flux-mgmt` and `mkdir flux-ec2`
 
 ## Github SSH key
 
@@ -15,10 +17,7 @@ weight = 15
   * Run `cat ~/.ssh/id_rsa.pub` and copy the output
   * Go to [Github > Settings > SSH Keys > New SSH key](https://github.com/settings/ssh/new) and paste your public key
 
-
-
 ## Clone Workshop Repo to use examples
-
 
 We'll use some examples from the below repo
 

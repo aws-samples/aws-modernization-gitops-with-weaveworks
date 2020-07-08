@@ -6,8 +6,6 @@ weight = 70
 
 # Welcome to Cluster Management using Operators
 
-Many modern organizations use Machine Learning and also Kubernetes. In this workshop we will demonstrate how to use eksctl and gitops to create an AWS EKS cluster and use gitops to deploy and application development profile. Then we will deploy Kubeflow and use it to execute a Machine learning sample.
-
 In this workshop we will learn:
 
 * Setup Flux and Helm Operator
@@ -17,12 +15,6 @@ In this workshop we will learn:
 * Sync applications across clusters
 
 ![Management Cluster](/images/workshop7-management-cluster.svg)
-
-<!-- * How to turn a complex set of components into a profile
-* How profiles allow for reliable and automated deployments to EKS
-* Provision and manage a ML stack with Kubeflow
-* Install a sample app using AWS Elastic MapReduce (EMR)
-* How GitOps managed profiles enable portability for workloads across different clouds, on-premise and your laptop -->
 
 ## GitOps - An operating model for cloud native
 
