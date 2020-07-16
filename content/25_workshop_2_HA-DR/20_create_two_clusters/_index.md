@@ -1,7 +1,7 @@
 +++
 title = "Create Two EKS Clusters"
 chapter = true
-weight = 30
+weight = 20
 +++
 
 # Create Two EKS Clusters
@@ -17,18 +17,30 @@ Not all AWS regions have all EKS capabilities enabled
 {{% /notice %}}
 
 In the first terminal window, execute:
+
+```sh
+eksctl create cluster -n ha-dr-east --alb-ingress-access
 ```
-eksctl create cluster -n east --alb-ingress-access
-```
+
 and in the second terminal window, execute:
+
+```sh
+eksctl create cluster -n ha-dr-west --alb-ingress-access
 ```
-elsctl create cluster -n west --alb-ingress-access
-```
-These commands will take approximately 10 minutes to execute, so now would be a good time to take a break or ask a question.
+
+By running these `eksctl create cluster` commands, we will:
+
+- Create two m5.large worker nodes; we have found that this instance type suits most use-cases and is good value for the cost
+- Use the official AWS EKS AMI
+- Create the cluster in the us-west-2 region
+- Create a dedicated VPC
+- Use a static AMI resolver
+- Enable full access for alb-ingress-controller
+
+These commands will take approximately 10-15 minutes to execute, so we'll move on to setting up our git repositories.
 
 When they have completed, you will have two node EKS clusters to work with.
 
 {{% notice warning %}}
-If you are using your own AWS account, you will need permissions to create EKS clusters plus admin rights within your EKS cluster to configure configuration rules and install agents. Ensure you have authority within your organization to do this in your tenant. 
+If you are using your own AWS account, you will need permissions to create EKS clusters plus admin rights within your EKS cluster to configure configuration rules and install agents. Ensure you have authority within your organization to do this in your tenant.
 {{% /notice %}}
-
