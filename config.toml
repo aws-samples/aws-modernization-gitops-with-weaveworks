@@ -6,7 +6,8 @@ title = "Weaveworks Introduction to GitOps w/ AWS EKS"
 theme = "hugo-theme-learn"
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= true
-uglyurls = "true"
+uglyUrls = true
+relativeUrls = true
 enableEmoji = true
 
 [params]
