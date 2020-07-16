@@ -37,7 +37,9 @@ By running these `eksctl create cluster` commands, we will:
 - Use a static AMI resolver
 - Enable full access for alb-ingress-controller
 
-These commands will take approximately 10-15 minutes to execute, so we'll move on to setting up our git repositories.
+As we covered in the webinar and as most of you know, EKS solves some major pain points with managing Kubernetes. The onus of managing Kubernetes upgrades and patching is taken up by AWS, with zero downtime upgrades. Another benefit that EKS gives you is High Availability in a regional cluster. EKS runs the Kubernetes management infrastructure across multiple Availability Zones, and detects and replaces unhealthy control plane nodes.
+
+The clusters typically take around 10-15 minutes to create, so we'll move on to setting up our git repositories and have a checkin once we have set them up.
 
 When they have completed, you will have two node EKS clusters to work with.
 
