@@ -11,7 +11,8 @@ In the **Ingress** object definition, ther eare annotations to indicate how the 
 Ther is also a `path` parameter in this definition. The `path` parameter designates the external URL (URI) that would be required to reach this service. Each path for each specific ingress controller must be unique. For simplicity, we have mapped the root URI ("/") to the service directly.
 
 Create a file called **podinfo-ingress.yaml** in your git repository containing:
-```
+
+```yaml
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:

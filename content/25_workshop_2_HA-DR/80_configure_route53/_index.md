@@ -9,6 +9,6 @@ You'll see that there is a load balancer between the nodes of your kubernetes cl
 ```
 kubectl get ingress -A
 ```
-To finish a complete HA solution, you could add a **Route 53** DNS round robin (Simple) entry to point to your two Kubernetes clusters. This would complete the simpliest high availability configuration for EKS.
+To finish a complete HA solution, you could add a **Route 53** DNS round robin (Simple) entry to point to your two Kubernetes clusters. This would complete the simplest high availability configuration for EKS.
 
 There are other ingress available for EKS that provide additional features.

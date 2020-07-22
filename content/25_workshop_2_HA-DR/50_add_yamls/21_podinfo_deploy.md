@@ -5,10 +5,30 @@ weight = 21
 +++
 
 First, let's create a namespace for our application (podinfo) to execute in. In each of the terminal sessions, execute:
-```
+
+```sh
 kubectl create namespace podinfo
 ```
-(Yes, this could have been accomplished by placing a manifest in your git repository to create the namespace)
+
+Yes, this can also be accomplished by placing a manifest in your git repository to create the namespace.
+
+You can run:
+
+```sh
+kubectl create namespace podinfo --dry-run -o yaml > podinfo-namespace.yaml
+```
+
+Or paste this into a new file called `podinfo-namespace.yaml`.
+
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: podinfo
+```
+
+Add, commit, and push this change to your repository. You can call `fluxctl sync --k8s-fwd-ns flux` to get flux to deploy the changes without waiting for the set poll window.
 
 {{% notice tip %}}
 We will be creating a number of files in your git repository for these next few steps. You can choose to create all the files first, then commit and push to the repository, or you can commit and push after each file creation. If you commit and push after each file creation, you can execute `kubectl get pods -A` to see what has happened.

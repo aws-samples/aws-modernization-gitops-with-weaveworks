@@ -30,16 +30,23 @@ If you are [at an AWS event](https://eksworkshop.com/020_prerequisites/aws_event
 ```sh
 # install jq 
 sudo yum install jq
-export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
+```
+
+Then, export the ACCOUNT_ID and AWS_REGION as variables:
+
+```sh
+export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account) &&\
 export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
 ```
 
 Check if AWS_REGION is set to desired region
+
 ```sh
 test -n "$AWS_REGION" && echo AWS_REGION is "$AWS_REGION" || echo AWS_REGION is not set
 ```
- 
+
 Let's save these into bash_profile
+
 ```sh
 echo "export ACCOUNT_ID=${ACCOUNT_ID}" | tee -a ~/.bash_profile
 echo "export AWS_REGION=${AWS_REGION}" | tee -a ~/.bash_profile
@@ -53,13 +60,13 @@ Use the [GetCallerIdentity](https://docs.aws.amazon.com/cli/latest/reference/sts
 
 Just run this to try it out yourself.
 
-```
+```sh
 aws sts get-caller-identity
 ```
 
 Here is a script that will validate you have the right role.
 
-```
+```sh
 aws sts get-caller-identity --query Arn | grep TeamRole -q && echo "IAM role valid" || echo "IAM role NOT valid"
 ```
 
