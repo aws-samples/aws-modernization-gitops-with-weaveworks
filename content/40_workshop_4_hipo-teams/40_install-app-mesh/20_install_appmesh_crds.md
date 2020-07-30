@@ -26,7 +26,7 @@ Firstly create a `appmesh-system` folder in our repo:
 Now run the following commands to download the App Mesh CRDs into the new folder:
 
 ```bash
-curl https://raw.githubusercontent.com/aws/eks-charts/master/stable/appmesh-controller/crds/crds.yaml -o appmesh-system/crds.yaml
+curl https://raw.githubusercontent.com/aws/eks-charts/v0.0.19/stable/appmesh-controller/crds/crds.yaml -o appmesh-system/crds.yaml
 ```
 
 Your folder structure should look like this now:

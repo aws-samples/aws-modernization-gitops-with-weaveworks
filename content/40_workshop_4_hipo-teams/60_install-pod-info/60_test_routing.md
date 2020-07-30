@@ -9,10 +9,10 @@ Now lets test the routing of requests to the backend **PodInfo** services. Accor
 We'll need to exec onto the frontend container:
 
 ```bash
-# Get the frontend pods name
+# Get the frontend pod's name
 export FRONTEND_NAME=$(kubectl get pods -n apps -l app=frontend-podinfo -o jsonpath='{.items[].metadata.name}')
 
-# Exec onto the pod
+# Exec into the pod
 kubectl -n apps exec -it ${FRONTEND_NAME} -- sh
 ```
 
