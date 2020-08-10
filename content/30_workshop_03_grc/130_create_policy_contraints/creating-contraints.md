@@ -69,10 +69,10 @@ mkdir opa/contraints
 ```
 
 ```
-curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/130_create_policy_contraints/deploy.files/alowed-repos.yaml -o opa/constraints/alowed-repos.yaml
+curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/deploy.files/allowed-repos-policy.yaml -o opa/constraints/allowed-repos.yaml
 ```
 ```
-curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/130_create_policy_contraints/deploy.files/require-labels.yaml -o opa/constraints/require-labels.yaml
+curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/deploy.files/require-labels-policy.yaml -o opa/constraints/require-labels.yaml
 ```
 Once you ar happy these have downloaded, lets check them in to git:
 

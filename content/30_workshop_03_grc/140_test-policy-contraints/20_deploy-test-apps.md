@@ -42,7 +42,7 @@ Let's add this to our git repo
 ```bash
 mkdir example-apps
 
-curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/140_test-policy-contraints/deploy.files/pod-unauthorized-repo.yaml -o example-apps/pod-unauthorized-repo.yaml
+curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/deploy.files/pod-unauthorized-repo-example.yaml -o example-apps/pod-unauthorized-repo.yaml
 
 git add example-apps/pod-unauthorized-repo.yaml
 
@@ -84,7 +84,7 @@ Download this manifest and try to create this namespace:
 
 ```bash
 mkdir namespaces
-curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/140_test-policy-contraints/deploy.files/bad-namespace.yaml -o namespaces/bad-namespace.yaml
+curl https://weaveworks-gitops.awsworkshop.io/30_workshop_03_grc/deploy.files/bad-namespace-example.yaml -o namespaces/bad-namespace.yaml
 ```
 
 It should look like this:
