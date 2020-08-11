@@ -27,7 +27,7 @@ spec:
     version: 0.6.1
 ```
 
-This **HelmRelease** is declaring that we want to create a Helm release for a chart called **appmesh-controller** with a version **0.6.1** that is available in the EKS chart repository **https://aws.github.io/eks-charts/**. The name of the release is **appmesh-controller**. 
+This **HelmRelease** is declaring that we want to create a Helm release for a chart called **appmesh-controller** with a version **0.6.1** that is available in the EKS chart repository **https://aws.github.io/eks-charts/**. The name of the release is **appmesh-controller**.
 
 {{% notice tip %}}
 For full details on the elements of the **HelmRelease** please head to the [documentation](https://docs.fluxcd.io/projects/helm-operator/en/latest/helmrelease-guide/introduction).
@@ -61,4 +61,3 @@ You should see the controller pod in a **Running** state:
 NAME                                  READY   STATUS    RESTARTS   AGE
 appmesh-controller-54dd6bdfd8-n8zlq   1/1     Running   0          43s
 ```
-
