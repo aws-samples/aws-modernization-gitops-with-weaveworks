@@ -4,9 +4,9 @@ chapter = true
 weight = 70
 +++
 
-# Welcome to Codifying multi-cloud operations
+# Welcome to Codifying hybrid-cloud operations
 
-Kubernetes is the foundation for modern cloud native architectures today but it is just one of the building blocks. To unlock cloud native agility, platform teams require new components and methodologies in order to successfully operationalize the entire stack. Many enterprise IT teams encounter production challenges when it comes to managing multi-cluster Kubernetes across multiple cloud providers.
+Kubernetes is the foundation for modern cloud native architectures today but it is just one of the building blocks. To unlock cloud native agility, platform teams require new components and methodologies in order to successfully operationalize the entire stack. Many enterprise IT teams encounter production challenges when it comes to managing multi-cluster Kubernetes across multiple regions or in a hybrid-cloud configuration.
 
 This workshop goes deep on the following topics:
 
