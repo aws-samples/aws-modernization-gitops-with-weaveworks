@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test Ingress Settings on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/25_workshop_2_ha-dr/60_test_ingresses.html</link>
+    <description>Recent content in Test Ingress Settings on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/25_workshop_2_ha-dr/60_test_ingresses/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

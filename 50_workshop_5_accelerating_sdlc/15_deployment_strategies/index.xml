@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deployment Strategies on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/50_workshop_5_accelerating_sdlc/15_deployment_strategies.html</link>
+    <description>Recent content in Deployment Strategies on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/50_workshop_5_accelerating_sdlc/15_deployment_strategies/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Recreate</title>
+      <link>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/01_recreate.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/01_recreate.html</guid>
+      <description>When upgrading pods using the recreate strategy, existing pods are terminated before new ones are created.
+To use the recreate strategy, define the Deployment yaml as such:
+apiVersion: apps/v1 kind: Deployment spec: replicas: 2 strategy: type: Recreate The Deployment as defined above will create two replica pods:
+graph LR; A{Deployment} -- B(Replica 1, V1) A -- C(Replica 2, V1)  The recreate strategy will terminate both replicas. During this time, the service is down and will not be able to handle traffic:</description>
+    </item>
+    
+    <item>
+      <title>Rolling Update</title>
+      <link>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/02_rolling_update.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/02_rolling_update.html</guid>
+      <description>The RollingUpdate deployment strategy ensures upgraded pods successfully come up before terminating older versions.
+The following demonstrates an example of the RollingUpdate strategy. When using RollingUpdate, you can specify maxUnavailable to specify how many pods can go down as an update takes place. You can also specify maxSurge to specify how many pods can be created in addition to the desired replica count.
+apiVersion: apps/v1 kind: Deployment spec: replicas: 2 strategy: type: RollingUpdate rollingUpdate: maxSurge: 1 maxUnavailable: 0 minReadySeconds: 10 In the above sample Deployment yaml, two replicas are specified as desired number of pods.</description>
+    </item>
+    
+    <item>
+      <title>Blue / Green</title>
+      <link>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/03_blue_green.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/03_blue_green.html</guid>
+      <description> In Blue / Green deployments, you will have two nearly identical environments, one of which is serving live traffic (Blue). New versions of your applications can be deployed as Green. Once any testing or quality assurance has been performed on the upgraded Green environment, traffic can be routed to the Green, and the blue will eventually be scaled down.
+Benefits of Blue/Green Deployment  Avoids versioning issues Instant rollout and rollback (while the blue deployment still exists)  Drawbacks of Blue/Green Deployment  Requires resource duplication Data synchronization between the two environments can lead to partial service interruption  Suitable Use Cases  Monolithic legacy applications Autonomous microservices  </description>
+    </item>
+    
+    <item>
+      <title>Canary</title>
+      <link>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/04_canary.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/04_canary.html</guid>
+      <description>In Canary deployments, you will incrementally introduce upgraded versions of your services. Upgraded versions of your service are introduced as Canary deployments, where percentages of live traffic are routed to the upgraded services. Depending on the success / failure threshold, the rollout of the upgraded service will continue through to accepting 100% of live traffic in the instance of successful metrics / requests, or rolled back in the instance of failed requests.</description>
+    </item>
+    
+  </channel>
+</rss>

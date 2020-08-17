@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deploy Application Development Profile on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/60_workshop_6_ml/30_deploy_appdev_profile.html</link>
+    <description>Recent content in Deploy Application Development Profile on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/60_workshop_6_ml/30_deploy_appdev_profile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deploy app-dev profile</title>
+      <link>/60_workshop_6_ml/30_deploy_appdev_profile/01_app_dev.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/30_deploy_appdev_profile/01_app_dev.html</guid>
+      <description>EKSCTL_EXPERIMENTAL=true eksctl enable profile app-dev \  --git-url git@github.com:$GIT_ORG/${EKS_CLUSTER_NAME}-config \  --git-email $GIT_EMAIL \  --cluster $EKS_CLUSTER_NAME \  --region &amp;#34;$AWS_DEFAULT_REGION&amp;#34; mkdir -p $GITHUB_DIR/$GIT_ORG cd $GITHUB_DIR/$GIT_ORG git clone git@github.com:$GIT_ORG/${EKS_CLUSTER_NAME}-config.git cd ${EKS_CLUSTER_NAME}-config Wait a minute or two for flux to deploy applications, verify with &amp;lsquo;kubectl get pods -A&amp;rsquo;</description>
+    </item>
+    
+  </channel>
+</rss>

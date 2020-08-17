@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Install App Mesh on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/40_workshop_4_hipo-teams/40_install-app-mesh.html</link>
+    <description>Recent content in Install App Mesh on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/40_workshop_4_hipo-teams/40_install-app-mesh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create the namespace</title>
+      <link>/40_workshop_4_hipo-teams/40_install-app-mesh/10_create_namespace.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/40_install-app-mesh/10_create_namespace.html</guid>
+      <description>All the AWS App Mesh components will be live in the appmesh-system namespace in our EKS cluster. We will be managing all namespaces via GitOps. This includes the actual creation of the namespace and also the resources contained with it.
+Ensure you have cloned your repository into your Cloud9 environment.
+# Make sure you are in your environment directory cd ~/environment # Clone your repo git clone git@github.com:yourname/my-eks-config.git # Change into the repos directory cd my-eks-config Create a folder in your repo called namespaces and then create a file within that folder called appmesh-system.</description>
+    </item>
+    
+    <item>
+      <title>Install App Mesh CRDs</title>
+      <link>/40_workshop_4_hipo-teams/40_install-app-mesh/20_install_appmesh_crds.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/40_install-app-mesh/20_install_appmesh_crds.html</guid>
+      <description>For every namespace in our EKS cluster we will create a folder in our repo that will contain the declarations of every resource we want to live in that namespace. This becomes the desired state of that namespace.
+The controller requires CRDs to be installed. We have a couple of options to do this:
+ Apply the CRDs directly (using kubectl) Apply via GitOps by adding the CRDs to our repo  As we are using GitOps we will be going with option 2!</description>
+    </item>
+    
+    <item>
+      <title>Install App Mesh Controller</title>
+      <link>/40_workshop_4_hipo-teams/40_install-app-mesh/30_install_appmesh_controller.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/40_install-app-mesh/30_install_appmesh_controller.html</guid>
+      <description>Now the CRDs have been installed we can install the controller that understands them.
+The AWS App Mesh Controller is available as a Helm package from the EKS Chart Repository. We can use the Helm Operator along with this chart to install the controller.
+To install a chart using the Helm Operator we need to define a HelmRelease. A HelmRelease is a way to declare the desired state of a Helm release.</description>
+    </item>
+    
+    <item>
+      <title>Install App Mesh Injector</title>
+      <link>/40_workshop_4_hipo-teams/40_install-app-mesh/40_install_appmesh_injector.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/40_install-app-mesh/40_install_appmesh_injector.html</guid>
+      <description>For App Mesh to work each of your pods needs to have a sidecar. This sidecar handles the network routing and is the point in each of services that helps to enable functionality like the end-to-end observability.
+We can manually add the sidecar to each of pods (via Deployments for example). However, this can become quite a maintenance burden and additionally this shouldn&amp;rsquo;t be a concern of application teams.
+Luckily, we can automatically inject the App Mesh sidecar into the pods.</description>
+    </item>
+    
+    <item>
+      <title>Install Prometheus for App Mesh</title>
+      <link>/40_workshop_4_hipo-teams/40_install-app-mesh/50_install_appmesh_prometheus.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/40_install-app-mesh/50_install_appmesh_prometheus.html</guid>
+      <description>We also want to collect the metrics that App Mesh publishes and so we will also deploy Prometheus. We can use the metrics to create alerts or to help enable progressive delivery (covered in a later workshop).
+Prometheus for App Mesh is also available as a Helm package from the EKS Chart Repository. We will use the Helm Operator along with this chart to install the injector.
+Create a new file called appmesh-prometheus.</description>
+    </item>
+    
+    <item>
+      <title>Verify the Service Mesh is Active</title>
+      <link>/40_workshop_4_hipo-teams/40_install-app-mesh/90_verify_mesh.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/40_install-app-mesh/90_verify_mesh.html</guid>
+      <description>When we installed the App Mesh Injector we asked it to create a new service mesh called apps. A service mesh is a logical boundary for network traffic between the services that reside within it.
+To check that the mesh has been created we can use the AWS CLI. Run the following command:
+aws appmesh list-meshes The output should be similar to below and you should see apps listed:
+{ &amp;#34;meshes&amp;#34;: [ { &amp;#34;arn&amp;#34;: &amp;#34;arn:aws:appmesh:us-west-2:1234567890:mesh/apps&amp;#34;, &amp;#34;meshName&amp;#34;: &amp;#34;apps&amp;#34;, &amp;#34;meshOwner&amp;#34;: &amp;#34;1234567890&amp;#34;, &amp;#34;resourceOwner&amp;#34;: &amp;#34;1234567890&amp;#34; } ] } You can also check by going to the AWS Console and choosing AWS App Mesh from the Services menu:</description>
+    </item>
+    
+  </channel>
+</rss>

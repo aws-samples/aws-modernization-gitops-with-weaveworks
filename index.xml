@@ -1,0 +1,1283 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitOps on EKS with Weaveworks on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/</link>
+    <description>Recent content in GitOps on EKS with Weaveworks on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 12 May 2020 18:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS Workshop Portal</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/01_create_workspace.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/01_create_workspace.html</guid>
+      <description>Login to AWS Workshop Portal This workshop creates an AWS account, EKS Cluster, ELB and Route 53 environments that will be managed by eksctl. You will need the Participant Hash provided upon entry, and your email address to track your unique session.
+Connect to the portal by clicking the button or browsing to https://dashboard.eventengine.run/. The following screen shows up.
+Enter the provided hash in the text box. The button on the bottom right corner changes to Accept Terms &amp;amp; Login.</description>
+    </item>
+    
+    <item>
+      <title>AWS Workshop Portal</title>
+      <link>/60_workshop_6_ml/00_prerequisites.md/01_create_workspace.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/00_prerequisites.md/01_create_workspace.html</guid>
+      <description>Login to AWS Workshop Portal This workshop creates an AWS account, EKS Cluster, ELB and Route 53 environments that will be managed by eksctl. You will need the Participant Hash provided upon entry, and your email address to track your unique session.
+Connect to the portal by clicking the button or browsing to https://dashboard.eventengine.run/. The following screen shows up.
+Enter the provided hash in the text box. The button on the bottom right corner changes to Accept Terms &amp;amp; Login.</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes Authentication</title>
+      <link>/30_workshop_03_grc/150_iam-groups/10_intro.html</link>
+      <pubDate>Tue, 12 May 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/10_intro.html</guid>
+      <description>In this workshop we will run through how to map IAM roles to rbac.
+If you have different teams which needs different kind of cluster access, it would be difficult to manually add or remove access for each EKS clusters you want them to give or remove access from.
+We can leverage on AWS IAM Groups to easilly add or remove users and give them permission to whole cluster, or just part of it depending on which groups they belong to.</description>
+    </item>
+    
+    <item>
+      <title>At an AWS Event</title>
+      <link>/10_aws_prerequisites/10_aws_event.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/10_aws_prerequisites/10_aws_event.html</guid>
+      <description>Only complete this section if you are at an AWS hosted event (such as re:Invent, Kubecon, Immersion Day, or any other event hosted by an AWS employee). If you are running the workshop on your own, goto: Start the workshop on your own.
+ Login to AWS Workshop Portal This workshop creates an AWS account, EKS Cluster, ELB and Route 53 environments that will be managed by eksctl. You will need the Participant Hash provided upon entry, and your email address to track your unique session.</description>
+    </item>
+    
+    <item>
+      <title>Check kubectl</title>
+      <link>/25_workshop_2_ha-dr/40_gitops_enable_clusters/10_checkkubectl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/40_gitops_enable_clusters/10_checkkubectl.html</guid>
+      <description>With two terminal windows open, you&amp;rsquo;ll have to be careful when executing commands to ensure you are working with the correct cluster. In each terminal window, verify that you are connecting to the correct cluster by executing:
+kubectl config get-contexts This should produce out similar to this. It is difficult to see because the cluster names and credentials are long. You may have more than one line listed. However, the line that begins with the &amp;ldquo;*&amp;rdquo; is the current context (the cluster kubectl will be connecting to) for the kubectl command.</description>
+    </item>
+    
+    <item>
+      <title>Cleanup</title>
+      <link>/100_cleanup/10_cleanup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/100_cleanup/10_cleanup.html</guid>
+      <description>AWS Cleanup In order to prevent charges to your account we recommend cleaning up the infrastructure that was created. If you plan to keep things running so you can examine the workshop a bit more please remember to do the cleanup when you are done. It is very easy to leave things running in an AWS account, forget about it, and then accrue charges.
+ In the AWS console, go to CloudFormation, click ModernizationWorkshop-EKS stack and then Delete.</description>
+    </item>
+    
+    <item>
+      <title>Create a Cluster with eksctl</title>
+      <link>/22_workshop_1/10_create_cluster/10-create-cluster.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/10_create_cluster/10-create-cluster.html</guid>
+      <description>eksctl makes it simple to provision Kubernetes clusters in EKS. For this workshop, we will create a defauklt three node EKS cluster. With eksctl, this is a single command line:
+eksctl create cluster --name eksworkshop You will see a number of messages scroll, ending with the kubeconfig message
+ [ℹ] eksctl version 0.18.0 [ℹ] using region us-west-2 ..... [ℹ] deploying stack &#34;eksctl-unique-unicorn-1588181335-nodegroup-ng-d61e2b06&#34; [✔] all EKS cluster resources for &#34;unique-unicorn-1588181335&#34; have been created [✔] saved kubeconfig as &#34;</description>
+    </item>
+    
+    <item>
+      <title>Create GitHub Repository</title>
+      <link>/40_workshop_4_hipo-teams/30_gitops_enable_clusters/10_create-github.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/30_gitops_enable_clusters/10_create-github.html</guid>
+      <description>We will be using a GitHub repo to declare the desired state of our EKS cluster. This repo will eventually include your workload manifests, HelmReleases etc.
+You can start with an empty repository and push that to GitHub, or use the one you intend to deploy to the cluster. As a suggestion create a blank public repo on GitHub called my-eks-config and make sure you tick Initialize this Repository with a README:</description>
+    </item>
+    
+    <item>
+      <title>Create the namespace</title>
+      <link>/40_workshop_4_hipo-teams/40_install-app-mesh/10_create_namespace.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/40_install-app-mesh/10_create_namespace.html</guid>
+      <description>All the AWS App Mesh components will be live in the appmesh-system namespace in our EKS cluster. We will be managing all namespaces via GitOps. This includes the actual creation of the namespace and also the resources contained with it.
+Ensure you have cloned your repository into your Cloud9 environment.
+# Make sure you are in your environment directory cd ~/environment # Clone your repo git clone git@github.com:yourname/my-eks-config.git # Change into the repos directory cd my-eks-config Create a folder in your repo called namespaces and then create a file within that folder called appmesh-system.</description>
+    </item>
+    
+    <item>
+      <title>Create the namespace</title>
+      <link>/40_workshop_4_hipo-teams/50_install_container_insights/10_create_namespace.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/50_install_container_insights/10_create_namespace.html</guid>
+      <description>Create a file within the namespaces that folder called amazon-cloudwatch.yaml.
+Paste the contents of the following into the new file:
+--- apiVersion: v1 kind: Namespace metadata: labels: name: amazon-cloudwatch name: amazon-cloudwatch Your repository structure should be:
+. ├── appmesh-system │ ├── appmesh-controller.yaml │ ├── appmesh-inject.yaml │ ├── appmesh-prometheus.yaml │ └── crds.yaml ├── namespaces │ ├── amazon-cloudwatch.yaml │ └── appmesh-system.yaml └── README.md Add and then commit the amazon-cloudwatch.yaml file and push the the changes to your GitHub repo.</description>
+    </item>
+    
+    <item>
+      <title>Install an Application Load Balancer Ingress Controller (RBAC)</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html</guid>
+      <description>This manifest creates the role based authorization (RBAC) for the ingress controller. Copy and paste the following into a file called alb-rbac.yaml in your repository:
+--- apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRole metadata: labels: app.kubernetes.io/name: alb-ingress-controller name: alb-ingress-controller rules: - apiGroups: - &amp;#34;&amp;#34; - extensions resources: - configmaps - endpoints - events - ingresses - ingresses/status - services verbs: - create - get - list - update - watch - patch - apiGroups: - &amp;#34;&amp;#34; - extensions resources: - nodes - pods - secrets - services - namespaces verbs: - get - list - watch --- apiVersion: rbac.</description>
+    </item>
+    
+    <item>
+      <title>Install eksctl</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/10_install_eksctl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/10_install_eksctl.html</guid>
+      <description>For this workshop you will use eksctl. Once you install eksctl, you will be ready to get started.
+At the terminal command prompt, enter the following two commands:
+curl --silent --location &amp;#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz&amp;#34; | tar xz -C /tmp &amp;amp;&amp;amp; \ sudo mv /tmp/eksctl /usr/local/bin This will install eksctl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:
+eksctl get cluster You should get a &amp;ldquo;No clusters found&amp;rdquo; message.</description>
+    </item>
+    
+    <item>
+      <title>Install eksctl</title>
+      <link>/60_workshop_6_ml/00_prerequisites.md/10_install_eksctl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/00_prerequisites.md/10_install_eksctl.html</guid>
+      <description>For this workshop you will use eksctl. Once you install eksctl, you will be ready to get started.
+At the terminal command prompt, enter the following two commands:
+curl --silent --location &amp;#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz&amp;#34; | tar xz -C /tmp &amp;amp;&amp;amp; \ sudo mv /tmp/eksctl /usr/local/bin This will install eksctl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:
+eksctl get cluster You should get a &amp;ldquo;No clusters found&amp;rdquo; message.</description>
+    </item>
+    
+    <item>
+      <title>Introducing Podinfo</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/10_about_podinfo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/10_about_podinfo.html</guid>
+      <description>Podinfo is a tiny web application made with Go that showcases best practices of running microservices in Kubernetes. It provides a simple web interface that allows you verify the operation of ingresses and/or service meshes. Podinfo was written by Stefan Prodan of Weaveworks, and is freely available on github. There are many options, and URLs are available to provide a wealth of information. More information on Podinfo is available here.</description>
+    </item>
+    
+    <item>
+      <title>Open Workspace</title>
+      <link>/20_weaveworks_prerequisites/10_workspace.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/20_weaveworks_prerequisites/10_workspace.html</guid>
+      <description>AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your development machine to start new projects.
+ Ad blockers, javascript disablers, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted.</description>
+    </item>
+    
+    <item>
+      <title>Open Workspace</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/10_workspace.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/10_workspace.html</guid>
+      <description>AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your development machine to start new projects.
+ Ad blockers, javascript disablers, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted.</description>
+    </item>
+    
+    <item>
+      <title>Why EKS?</title>
+      <link>/05_introduction/10_introduction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/05_introduction/10_introduction.html</guid>
+      <description>Modern cloud environments need a different approach to observability Conventional application performance monitoring (APM) emerged when software was mostly monolithic and update cycles were measured in years, not days. Manual instrumentation and performance baselining, though cumbersome, were once adequate—particularly since fault patterns were generally known and well understood.
+As monoliths get replaced by cloud-native applications, that are rapidly growing in size, traditional monitoring approaches are no longer enough. Rather than instrumenting for a predefined set of problems, enterprises need complete visibility into every single component of these dynamically scaling microservice environments.</description>
+    </item>
+    
+    <item>
+      <title>Install an Application Load Balancer Ingress Controller</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/11_alb_ingress.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/11_alb_ingress.html</guid>
+      <description>This manifest actually creates the ingress controller. Copy and paste the following into a file called alb-ingress.yaml in each of your terminal windows. We will be creating two files, one for each cluster, as we must place the actual cluster name in this file. Replace the XXXXXXXX on the cluster-name option with the name of your cluster.
+Once you have edited these two file, use kubectl apply -f alb-ingress.yaml in each of your terminal sessions to install the ingress controllers in each of your clusters.</description>
+    </item>
+    
+    <item>
+      <title>Install eksctl</title>
+      <link>/20_weaveworks_prerequisites/11_install_eksctl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/20_weaveworks_prerequisites/11_install_eksctl.html</guid>
+      <description>For this workshop you will use a eksctl. Once you install eksctl, you will be ready to get started.
+At the terminal command prompt, enter the following two commands:
+curl --silent --location &amp;#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz&amp;#34; | tar xz -C /tmpsudo mv /tmp/eksctl /usr/local/bin This will install eksctl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:
+eksctl get cluster You should get a &amp;ldquo;No clusters found&amp;rdquo; message.</description>
+    </item>
+    
+    <item>
+      <title>Install eksctl</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/11_install_eksctl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/11_install_eksctl.html</guid>
+      <description>For this workshop you will use a eksctl. Once you install eksctl, you will be ready to get started.
+At the terminal command prompt, enter the following two commands:
+curl --silent --location &amp;#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz&amp;#34; | tar xz -C /tmp sudo mv /tmp/eksctl /usr/local/bin This will install eksctl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:
+eksctl get cluster You should get a pre-installed cluster.</description>
+    </item>
+    
+    <item>
+      <title>Install kubectl</title>
+      <link>/20_weaveworks_prerequisites/12_install_kubectl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/20_weaveworks_prerequisites/12_install_kubectl.html</guid>
+      <description>The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs.
+At the terminal command prompt, enter the following two commands:
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectlchmod +x ./kubectlsudo mv ./kubectl /usr/local/bin/kubectl This will install kubectl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:
+kubectl version --client You should see the kubectl version message.</description>
+    </item>
+    
+    <item>
+      <title>Install kubectl</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/12_install_kubectl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/12_install_kubectl.html</guid>
+      <description>The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs.
+At the terminal command prompt, enter the following two commands:
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl chmod +x ./kubectl sudo mv ./kubectl /usr/local/bin/kubectl This will install kubectl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:</description>
+    </item>
+    
+    <item>
+      <title>Install helm</title>
+      <link>/20_weaveworks_prerequisites/13_install_helm.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/20_weaveworks_prerequisites/13_install_helm.html</guid>
+      <description>Helm describes itself as a &amp;lsquo;package manager for kubernetes&amp;rsquo; and can be used to deploy resources to Kubernetes.
+You package your application as a chart which can contain templated files (usually Kubernetes resources) and default configuration values too use when rendering the template. Charts are reusable and values can be overriden for specific environments.
+We are using Helm v3 in the workshops. So there is no tiller. If you are using your own environment and not the workshops Cloud9 environment and you have Helm v2 the commands should work ok.</description>
+    </item>
+    
+    <item>
+      <title>Install helm</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/13_install_helm.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/13_install_helm.html</guid>
+      <description>Helm describes itself as a &amp;lsquo;package manager for kubernetes&amp;rsquo; and can be used to deploy resources to Kubernetes.
+You package your application as a chart which can contain templated files (usually Kubernetes resources) and default configuration values too use when rendering the template. Charts are reusable and values can be overriden for specific environments.
+We are using Helm v3 in the workshops. So there is no tiller. If you are using your own environment and not the workshops Cloud9 environment and you have Helm v2 the commands should work ok.</description>
+    </item>
+    
+    <item>
+      <title>Install fluxctl</title>
+      <link>/20_weaveworks_prerequisites/14_install_fluxctl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/20_weaveworks_prerequisites/14_install_fluxctl.html</guid>
+      <description> Install Fluxctl Fluxctl is a CLI tool that is able to talk to Weave Flux.
+Install by running this command:
+curl -Ls https://fluxcd.io/install | sh &amp;amp;&amp;amp; \ sudo mv $HOME/.fluxcd/bin/fluxctl /usr/local/bin/fluxctl Verify the installation:
+fluxctl version</description>
+    </item>
+    
+    <item>
+      <title>Install fluxctl</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/14_install_fluxctl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/14_install_fluxctl.html</guid>
+      <description> Install Fluxctl Fluxctl is a CLI tool that is able to talk to Weave Flux.
+Install by running this command:
+curl -Ls https://fluxcd.io/install | sh &amp;amp;&amp;amp; \ sudo mv $HOME/.fluxcd/bin/fluxctl /usr/local/bin/fluxctl Verify the installation:
+fluxctl version</description>
+    </item>
+    
+    <item>
+      <title>Install kustomize</title>
+      <link>/20_weaveworks_prerequisites/15_install_kustomize.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/20_weaveworks_prerequisites/15_install_kustomize.html</guid>
+      <description> Install Kustomize Kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.
+Install kustomize for Linux:
+curl --silent --location --remote-name \ &amp;#34;https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v3.2.3/kustomize_kustomize.v3.2.3_linux_amd64&amp;#34; &amp;amp;&amp;amp; \ chmod a+x kustomize_kustomize.v3.2.3_linux_amd64 &amp;amp;&amp;amp; \ sudo mv kustomize_kustomize.v3.2.3_linux_amd64 /usr/local/bin/kustomize Verify the install with:
+kustomize version</description>
+    </item>
+    
+    <item>
+      <title>Install kustomize</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/15_install_kustomize.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/15_install_kustomize.html</guid>
+      <description> Install Kustomize Kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.
+Install kustomize for Linux:
+curl --silent --location --remote-name \ &amp;#34;https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v3.2.3/kustomize_kustomize.v3.2.3_linux_amd64&amp;#34; &amp;amp;&amp;amp; \ chmod a+x kustomize_kustomize.v3.2.3_linux_amd64 &amp;amp;&amp;amp; \ sudo mv kustomize_kustomize.v3.2.3_linux_amd64 /usr/local/bin/kustomize Verify the install with:
+kustomize version</description>
+    </item>
+    
+    <item>
+      <title>Install AWS IAM</title>
+      <link>/20_weaveworks_prerequisites/16_install_aws-iam.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/20_weaveworks_prerequisites/16_install_aws-iam.html</guid>
+      <description>Amazon EKS uses IAM to provide authentication to your Kubernetes cluster through the AWS IAM authenticator for Kubernetes. You can configure the stock kubectl client to work with Amazon EKS by installing the AWS IAM authenticator for Kubernetes and modifying your kubectl configuration file to use it for authentication.
+To install aws-iam-authenticator on Cloud9
+Download the Amazon EKS-vended aws-iam-authenticator binary from Amazon S3:
+curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/aws-iam-authenticator Apply execute permissions to the binary:</description>
+    </item>
+    
+    <item>
+      <title>Install AWS IAM</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/16_install_aws-iam.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/16_install_aws-iam.html</guid>
+      <description>Amazon EKS uses IAM to provide authentication to your Kubernetes cluster through the AWS IAM authenticator for Kubernetes. You can configure the stock kubectl client to work with Amazon EKS by installing the AWS IAM authenticator for Kubernetes and modifying your kubectl configuration file to use it for authentication.
+To install aws-iam-authenticator on Cloud9
+Download the Amazon EKS-vended aws-iam-authenticator binary from Amazon S3:
+curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/aws-iam-authenticator chmod +x ./aws-iam-authenticator sudo mv .</description>
+    </item>
+    
+    <item>
+      <title>Add the Required IAM Role</title>
+      <link>/20_weaveworks_prerequisites/17_add_the_role.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/20_weaveworks_prerequisites/17_add_the_role.html</guid>
+      <description>Creating and using EKS clusters in AWS requires specific IAM roles for the user creating and accessing EKS clusters.
+ Switch to the AWS Console (You can open the console from the &amp;ldquo;Team Dashboard&amp;rdquo;) Under Services, select EC2 Click Running Instances Select the instance named &amp;ldquo;aws-cloud9-&amp;hellip;&amp;rdquo; by clicking the check box to the left of the name On Actions pull down, select Instance Settings -&amp;gt; Attach/Replace IAM Role In the IAM role pull down, select TeamRoleInstanceProfile To the right, click Apply  </description>
+    </item>
+    
+    <item>
+      <title>Add the Required IAM Role</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/17_add_the_role.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/17_add_the_role.html</guid>
+      <description>Creating and using EKS clusters in AWS requires specific IAM roles for the user creating and accessing EKS clusters.
+ Switch to the AWS Console (You can open the console from the &amp;ldquo;Team Dashboard&amp;rdquo;) Under Services, select EC2 Click Running Instances Select the instance named &amp;ldquo;aws-cloud9-&amp;hellip;&amp;rdquo; by clicking the check box to the left of the name On Actions pull down, select Instance Settings -&amp;gt; Attach/Replace IAM Role In the IAM role pull down, select modernization-admin To the right, click Apply  </description>
+    </item>
+    
+    <item>
+      <title>Update IAM settings for your Workspace</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/18_workspaceiam.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/18_workspaceiam.html</guid>
+      <description>Cloud9 normally manages IAM credentials dynamically. This isn&amp;rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
+  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo; Select AWS SETTINGS Turn off AWS managed temporary credentials Close the Preferences tab   To ensure temporary credentials aren&amp;rsquo;t already in place we will also remove any existing credentials file:</description>
+    </item>
+    
+    <item>
+      <title>Install direnv</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/19_direnv.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/19_direnv.html</guid>
+      <description>direnv takes care of exporting environment variables automatically based on the directory we&amp;rsquo;re in.
+To install direnv, run the following commands.
+curl -sfL https://direnv.net/install.sh | bash echo &amp;#34;eval &amp;#39;$(direnv hook bash)&amp;#39;&amp;#34; &amp;gt;&amp;gt; ~/.bashrc source ~/.</description>
+    </item>
+    
+    <item>
+      <title>Create IAM Roles</title>
+      <link>/30_workshop_03_grc/150_iam-groups/20_create-iam-roles.html</link>
+      <pubDate>Tue, 12 May 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/20_create-iam-roles.html</guid>
+      <description>We are going to create 3 roles:
+ a k8sAdmin role which will have adminx rights in our EKS cluster a k8sDev role which will gives access to developers namespace in our EKS cluster a k8sInteg role which will gives access to integration namespace our EKS cluster  Create the roles:
+ACCOUNT_ID=$(aws sts get-caller-identity --output text --query &amp;#39;Account&amp;#39;) POLICY=$(echo -n &amp;#39;{&amp;#34;Version&amp;#34;:&amp;#34;2012-10-17&amp;#34;,&amp;#34;Statement&amp;#34;:[{&amp;#34;Effect&amp;#34;:&amp;#34;Allow&amp;#34;,&amp;#34;Principal&amp;#34;:{&amp;#34;AWS&amp;#34;:&amp;#34;arn:aws:iam::&amp;#39;; echo -n &amp;#34;$ACCOUNT_ID&amp;#34;; echo -n &amp;#39;:root&amp;#34;},&amp;#34;Action&amp;#34;:&amp;#34;sts:AssumeRole&amp;#34;,&amp;#34;Condition&amp;#34;:{}}]}&amp;#39;) echo ACCOUNT_ID=$ACCOUNT_ID echo POLICY=$POLICY aws iam create-role \ --role-name k8sAdmin \ --description &amp;#34;Kubernetes administrator role (for AWS IAM Authenticator for Kubernetes).</description>
+    </item>
+    
+    <item>
+      <title>Create Constraint Templates</title>
+      <link>/30_workshop_03_grc/125_create_policy_templates/20_creating-contraint-template.html</link>
+      <pubDate>Sun, 12 Apr 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/125_create_policy_templates/20_creating-contraint-template.html</guid>
+      <description>We are going to create 2 templates:
+ allowed-repos this will determine what image repos can ben used in production require-labels - this policy requires that namespaces must have labels that match a regex value  Let&amp;rsquo;s download some samples for the above Run the following commands to download some policy template examples to your local git repo:
+mkdir opa/templatescurl https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/library/general/allowedrepos/template.yaml -o opa/templates/allowed-repos.yamlcurl https://github.com/open-policy-agent/gatekeeper/blob/master/library/general/requiredlabels/template.yaml -o opa/templates/require-labels.yaml Explore the require-labels template Lets understand what&amp;rsquo;s happening and what each part of this template is doing.</description>
+    </item>
+    
+    <item>
+      <title>Deploy Test Apps</title>
+      <link>/30_workshop_03_grc/140_test-policy-contraints/20_deploy-test-apps.html</link>
+      <pubDate>Sun, 12 Apr 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/140_test-policy-contraints/20_deploy-test-apps.html</guid>
+      <description>Now that we havwe defined our contraint templates and deployed some contraints, let&amp;rsquo;s see if they work!
+Test image repos in prod namespace Earlier we define that all pods in the production namespace must only use images from xxxx repo. Let&amp;rsquo;s deploy a pod using a different unauthorized repo.
+Here&amp;rsquo;s an example:
+apiVersion: v1 kind: Pod metadata: name: opa namespace: production labels: owner: me.agilebank.demo spec: containers: - name: opa image: openpolicyagent/opa:0.</description>
+    </item>
+    
+    <item>
+      <title>Intro to OPA</title>
+      <link>/30_workshop_03_grc/120_deploy_opa_gatekeeper/20_intro-to-opa.html</link>
+      <pubDate>Sun, 12 Apr 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/120_deploy_opa_gatekeeper/20_intro-to-opa.html</guid>
+      <description>What is OPA? Open Policy Agent (OPA) is an open source, general-purpose policy engine that enables unified, context-aware policy enforcement across the entire stack.
+It allows you to express policies in a high level, declaritive way using rego.
+Here&amp;rsquo;s a link which you can run through to get a ful understanding on how opa and rego code works: OPA
+OPA is platform/service agnostic, it can be used in your jenkins pipelines, terraform, kubernetes and much more&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>About Weaveworks</title>
+      <link>/05_introduction/20_about_weaveworks.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/05_introduction/20_about_weaveworks.html</guid>
+      <description>Weaveworks Weaveworks makes it fast and simple for developers and DevOps teams to build and operate powerful containerized applications. We minimize the complexity of operating workloads in Kubernetes by providing automated continuous delivery pipelines, observability and monitoring.
+Weaveworks’ mission is to minimize complexities in operating workloads and provide a developer centric operating model for cloud native applications. Our goal is to drive cloud native transformation for your developers and portability, flexibility, choice and stability for your business.</description>
+    </item>
+    
+    <item>
+      <title>Create OPA Constraints</title>
+      <link>/30_workshop_03_grc/130_create_policy_contraints/creating-contraints.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/130_create_policy_contraints/creating-contraints.html</guid>
+      <description>Now that we have our ContraintsTemplate configured and deployed into the cluster, we can now start creating the constraints.
+Going back to our templates, we defined a crd called K8sRequiredLabels with a set of fields and values we could use.
+Here&amp;rsquo;s an example of what we could do with this:
+apiVersion: constraints.gatekeeper.sh/v1beta1 kind: K8sRequiredLabels metadata: name: all-must-have-owner spec: match: kinds: - apiGroups: [&amp;#34;&amp;#34;] kinds: [&amp;#34;Namespace&amp;#34;] parameters: message: &amp;#34;All namespaces must have an `owner` label that points to your company username&amp;#34; labels: - key: owner allowedRegex: &amp;#34;^[a-zA-Z]+.</description>
+    </item>
+    
+    <item>
+      <title>Create the namespace</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/20_create_namespace.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/20_create_namespace.html</guid>
+      <description>All the PodInfo components will be live in the apps namespace in our EKS cluster. We will be managing all namespaces via GitOps. This includes the actual creation of the namespace and also the resources contained with it.
+Create a file within the namespaces folder called apps.yaml.
+Paste the contents of the following into the new file:
+--- apiVersion: v1 kind: Namespace metadata: labels: name: apps appmesh.k8s.aws/sidecarInjectorWebhook: enabled name: apps Notice that the namespace has included a label called appmesh.</description>
+    </item>
+    
+    <item>
+      <title>Enable Your Cluster for GitOps</title>
+      <link>/40_workshop_4_hipo-teams/30_gitops_enable_clusters/30_enable_gitops.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/30_gitops_enable_clusters/30_enable_gitops.html</guid>
+      <description>To enable GitOps we will be installing the following to our EKS cluster:
+ Flux Flux Helm Operator with Helm v3 support  In other workshops we have used eksctl enable repo to install these. However, for this workshop we will be using Helm to install them both as we want access to additional configuration options (specifically reduce the polling period).
+ Base Setup Both Flux and Flux Helm Operator will reside in their own namespace.</description>
+    </item>
+    
+    <item>
+      <title>Install App Mesh CRDs</title>
+      <link>/40_workshop_4_hipo-teams/40_install-app-mesh/20_install_appmesh_crds.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/40_install-app-mesh/20_install_appmesh_crds.html</guid>
+      <description>For every namespace in our EKS cluster we will create a folder in our repo that will contain the declarations of every resource we want to live in that namespace. This becomes the desired state of that namespace.
+The controller requires CRDs to be installed. We have a couple of options to do this:
+ Apply the CRDs directly (using kubectl) Apply via GitOps by adding the CRDs to our repo  As we are using GitOps we will be going with option 2!</description>
+    </item>
+    
+    <item>
+      <title>Install clusterctl</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/20_clusterctl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/20_clusterctl.html</guid>
+      <description>The CluserAPI (CAPI) is a project of SIG Cluster Lifecycle to bring declarative, Kubernetes-style APIs to cluster creation, configuration, and management.
+cluserctl is the cli that we&amp;rsquo;ll use to bootstrap the CAPI controllers.
+curl -L https://github.com/kubernetes-sigs/cluster-api/releases/download/v0.3.6/clusterctl-linux-amd64 -o clusterctl chmod +x ./clusterctl sudo mv ./clusterctl /usr/local/bin/clusterctl Validate that it&amp;rsquo;s working
+clusterctl version</description>
+    </item>
+    
+    <item>
+      <title>Install Container Insights</title>
+      <link>/40_workshop_4_hipo-teams/50_install_container_insights/20_install_container_insights.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/50_install_container_insights/20_install_container_insights.html</guid>
+      <description>As every namespace in our EKS cluster has a folder in our repo that contains the declarations of the resources we want to live in that namespace, we will need a new folder for the amazon-cloudwatch namespace.
+Create a amazon-cloudwatch folder in our repo:
+. ├── amazon-cloudwatch ├── appmesh-system │ ├── appmesh-controller.yaml │ ├── appmesh-inject.yaml │ ├── appmesh-prometheus.yaml │ └── crds.yaml ├── namespaces │ ├── amazon-cloudwatch.yaml │ └── appmesh-system.yaml └── README.</description>
+    </item>
+    
+    <item>
+      <title>Install kubectl</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/20_install_kubectl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/20_install_kubectl.html</guid>
+      <description>The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs.
+At the terminal command prompt, enter the following two commands:
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl &amp;amp;&amp;amp; \ chmod +x ./kubectl &amp;amp;&amp;amp; \ sudo mv ./kubectl /usr/local/bin/kubectl This will install kubectl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:</description>
+    </item>
+    
+    <item>
+      <title>Install kubectl</title>
+      <link>/60_workshop_6_ml/00_prerequisites.md/20_install_kubectl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/00_prerequisites.md/20_install_kubectl.html</guid>
+      <description>The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs.
+At the terminal command prompt, enter the following two commands:
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl &amp;amp;&amp;amp; \ chmod +x ./kubectl &amp;amp;&amp;amp; \ sudo mv ./kubectl /usr/local/bin/kubectl This will install kubectl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:</description>
+    </item>
+    
+    <item>
+      <title>Introducing Podinfo</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/20_podinfo_introduction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/20_podinfo_introduction.html</guid>
+      <description>Podinfo is a tiny web application made with Go that showcases best practices of running microservices in Kubernetes. It provides a simple web interface that allows you verify the operation of ingresses and/or service meshes. Podinfo was written by Stefan Prodan of Weaveworks, and is freely available on github. There are many options, and URLs are available to provide a wealth of information. More information on Podinfo is available here.</description>
+    </item>
+    
+    <item>
+      <title>Using your own account</title>
+      <link>/10_aws_prerequisites/20_self_paced.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/10_aws_prerequisites/20_self_paced.html</guid>
+      <description>PLEASE NOTE THAT THESE INSTRUCTIONS ARE INCOMPLETE AS OF MAY 14, 2020. PLEASE DO NOT PERFORM THESE WORKSHOPS UNLESS AT AN AWS HOSTED EVENT UNTIL THIS WARNING IS REMOVED.
+ Only complete this section if you are running the workshop on your own. If you are at an AWS hosted event (such as re:Invent, Kubecon, Immersion Day, etc), goto Start the workshop at an AWS event.
+ Create an AWS account You are responsible for the cost of the AWS services used while running this workshop in your AWS account.</description>
+    </item>
+    
+    <item>
+      <title>Verify metric collection</title>
+      <link>/40_workshop_4_hipo-teams/50_install_container_insights/30_verify_container_insights.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/50_install_container_insights/30_verify_container_insights.html</guid>
+      <description>Now that Container Insights with additional Prometheus metrics collection is setup we should start to see metrics appear in CloudWatch.
+Go to the AWS Console and open CloudWatch.
+Now click Metrics on the left pane. On the right portion of the page you should now see ContainerInsights and ContainerInsights/Prometheus listed:</description>
+    </item>
+    
+    <item>
+      <title>Create IAM Groups</title>
+      <link>/30_workshop_03_grc/150_iam-groups/21_create-iam-groups.html</link>
+      <pubDate>Tue, 12 May 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/21_create-iam-groups.html</guid>
+      <description>We want to have different IAM users which will be added to specific IAM groups in order to have different rights in the kubernetes cluster.
+We will define 3 groups:
+ k8sAdmin - users from this group will have admin rights on the kubernetes cluster k8sDev - users from this group will have full access only in the development namespace of the cluster k8sInteg - users from this group will have access to integration namespace.</description>
+    </item>
+    
+    <item>
+      <title>Deploy a Podinfo Pod</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/21_podinfo_deploy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/21_podinfo_deploy.html</guid>
+      <description>First, let&amp;rsquo;s create a namespace for our application (podinfo) to execute in. In each of the terminal sessions, execute:
+kubectl create namespace podinfo Yes, this can also be accomplished by placing a manifest in your git repository to create the namespace.
+You can run:
+kubectl create namespace podinfo --dry-run -o yaml &amp;gt; podinfo-namespace.yaml Or paste this into a new file called podinfo-namespace.yaml.
+apiVersion: v1 kind: Namespace metadata: creationTimestamp: null name: podinfo Add, commit, and push this change to your repository.</description>
+    </item>
+    
+    <item>
+      <title>Create IAM Users</title>
+      <link>/30_workshop_03_grc/150_iam-groups/22_create_iam_users.html</link>
+      <pubDate>Tue, 12 May 2020 10:14:46 -0700</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/22_create_iam_users.html</guid>
+      <description>In order to test our scenarios, we will create 3 users, one for each groups we created :
+aws iam create-user --user-name PaulAdmin aws iam create-user --user-name JeanDev aws iam create-user --user-name PierreInteg Add users to associated groups:
+aws iam add-user-to-group --group-name k8sAdmin --user-name PaulAdmin aws iam add-user-to-group --group-name k8sDev --user-name JeanDev aws iam add-user-to-group --group-name k8sInteg --user-name PierreInteg Check users are correctly added in their groups:
+aws iam get-group --group-name k8sAdmin aws iam get-group --group-name k8sDev aws iam get-group --group-name k8sInteg For the sake of simplicity, in this chapter, we will save credentials to a file to make it easy to toggle back and forth between users.</description>
+    </item>
+    
+    <item>
+      <title>Enable the Podinfo Pod to Scale Automatically</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/22_podinfo_hpa.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/22_podinfo_hpa.html</guid>
+      <description>A very useful feature in Kubernetes is to enable auto-scaling. This is accomplished by created a Horizontal Pod Autoscaler (HPA) object that is targeted at a specific pod. Each HPA has criteria that Kubernetes uses in order add pods to the running deployment. This HPA will scale the podinfo deployment to a minimum of 2 replicas, and a maximum of 4 replicas.
+Create a file called podinfo-hpa.yaml in your git repository:</description>
+    </item>
+    
+    <item>
+      <title>Expose the Podinfo Pod Service</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/23_podinfo_service.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/23_podinfo_service.html</guid>
+      <description>In order for any Kubernetes object, including other pods, to access the podinfo pod, we have to expose on the Kubernetes network the network ports that should be accessed. When using the Application Load Balancer on EKS, the service type should be NodePort. In more complex architectures, there are other load balancing methods that can be used.
+You can create a NodePort Service yaml (as specified by the ALB ingress controller) by running the following command and adding the manifest to your repository as podinfo-service.</description>
+    </item>
+    
+    <item>
+      <title>Connect the Podinfo Service to the Ingress Controller</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/24_podinfo_ingress.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/24_podinfo_ingress.html</guid>
+      <description>The final step is to inform the ALB Ingress Controller that a service needs to be exposed externally from the cluster. The ingress controller watches for the creation of Ingress objects, and then creates the routing required to reach the object externally.
+In the Ingress object definition, ther eare annotations to indicate how the Ingress Controller should handle this service, as well as which controller to utilize. As there may be several different ingress controllers in a single Kubernetes cluster, this ability is key to managing access to multiple applications and microservices.</description>
+    </item>
+    
+    <item>
+      <title>Configure Kubernetes RBAC</title>
+      <link>/30_workshop_03_grc/150_iam-groups/30_create-k8s-rbac.html</link>
+      <pubDate>Tue, 12 May 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/30_create-k8s-rbac.html</guid>
+      <description>You can refere to intro to RBAC module to understand the basic of Kubernetes RBAC.
+Create kubernetes namespaces development namespace will be accessible for IAM users from k8sDev group integration namespace will be accessible for IAM users from k8sInteg group
+mkdir integration cat &amp;lt;&amp;lt; EOF &amp;gt; integration/integration-ns.yaml apiVersion: v1 kind: Namespace metadata: name: integration labels: owner: me.agilebank.demo EOF mkdir development cat &amp;lt;&amp;lt; EOF &amp;gt; development/development-ns.yaml apiVersion: v1 kind: Namespace metadata: name: development labels: owner: me.</description>
+    </item>
+    
+    <item>
+      <title>Deploy OPA gatekeeper</title>
+      <link>/30_workshop_03_grc/120_deploy_opa_gatekeeper/30_deploy-opa-gatekeeper.html</link>
+      <pubDate>Sun, 12 Apr 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/120_deploy_opa_gatekeeper/30_deploy-opa-gatekeeper.html</guid>
+      <description>Let&amp;rsquo;s deploy opa gatekeeper using a prebuilt image.
+This manifest will deplpy the following in to the cluster:
+ gatekeeper-system namespace gatekeeper-admin service account config custom resource defintion ConstraintTemplate custom resource gatekeeper-webhook-service - clusterip service gatekeeper-controller-manager deployment secret - self signed certificate think about using something else, such as cert-manager + pki required roles ValidatingWebhookConfiguration - this basically creates a validating webhook whenever a resource is created or udpated in the cluster</description>
+    </item>
+    
+    <item>
+      <title>Create PodInfo</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/30_create_podinfo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/30_create_podinfo.html</guid>
+      <description>We first need to install the 3 different instances of PodInfo:
+ Frontend Backend v1 Backend v2  Create a apps folder in our repo:
+. ├── amazon-cloudwatch │ ├── cwagent-fluentd-quickstart.yaml │ └── cwagent-prometheus-eks.yaml ├── appmesh-system │ ├── appmesh-controller.yaml │ ├── appmesh-inject.yaml │ ├── appmesh-prometheus.yaml │ └── crds.yaml ├── apps ├── namespaces │ ├── amazon-cloudwatch.yaml │ ├── appmesh-system.yaml │ └── apps.yaml └── README.md Now download the yaml file for the deployments and services:</description>
+    </item>
+    
+    <item>
+      <title>Install App Mesh Controller</title>
+      <link>/40_workshop_4_hipo-teams/40_install-app-mesh/30_install_appmesh_controller.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/40_install-app-mesh/30_install_appmesh_controller.html</guid>
+      <description>Now the CRDs have been installed we can install the controller that understands them.
+The AWS App Mesh Controller is available as a Helm package from the EKS Chart Repository. We can use the Helm Operator along with this chart to install the controller.
+To install a chart using the Helm Operator we need to define a HelmRelease. A HelmRelease is a way to declare the desired state of a Helm release.</description>
+    </item>
+    
+    <item>
+      <title>Install App Mesh Injector</title>
+      <link>/40_workshop_4_hipo-teams/40_install-app-mesh/40_install_appmesh_injector.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/40_install-app-mesh/40_install_appmesh_injector.html</guid>
+      <description>For App Mesh to work each of your pods needs to have a sidecar. This sidecar handles the network routing and is the point in each of services that helps to enable functionality like the end-to-end observability.
+We can manually add the sidecar to each of pods (via Deployments for example). However, this can become quite a maintenance burden and additionally this shouldn&amp;rsquo;t be a concern of application teams.
+Luckily, we can automatically inject the App Mesh sidecar into the pods.</description>
+    </item>
+    
+    <item>
+      <title>Install fluxctl</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/30_install_fluxctl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/30_install_fluxctl.html</guid>
+      <description>We will be using Fluxctl, a CLI tool that is able to talk to Weave Flux to immediately apply and deploy changes we make to our repository.
+curl -Ls https://fluxcd.io/install | sh &amp;amp;&amp;amp; \ sudo mv $HOME/.fluxcd/bin/fluxctl /usr/local/bin/fluxctl Verify the installation:
+fluxctl version</description>
+    </item>
+    
+    <item>
+      <title>Install fluxctl</title>
+      <link>/60_workshop_6_ml/00_prerequisites.md/30_install_fluxctl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/00_prerequisites.md/30_install_fluxctl.html</guid>
+      <description>We will be using Fluxctl, a CLI tool that is able to talk to Weave Flux to immediately apply and deploy changes we make to our repository.
+curl -Ls https://fluxcd.io/install | sh &amp;amp;&amp;amp; \ sudo mv $HOME/.fluxcd/bin/fluxctl /usr/local/bin/fluxctl Verify the installation:
+fluxctl version</description>
+    </item>
+    
+    <item>
+      <title>Configure Kubernetes Role Access</title>
+      <link>/30_workshop_03_grc/150_iam-groups/31_configure-aws-auth.html</link>
+      <pubDate>Tue, 12 May 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/31_configure-aws-auth.html</guid>
+      <description>Gives Access to our IAM Roles to EKS Cluster In order to gives access to the IAM Roles we defined previously to our EKS cluster, we need to add specific mapRoles to the aws-auth ConfigMap
+The Advantage of using Role to access the cluster instead of specifying directly IAM users is that it will be easier to manage: we won&amp;rsquo;t have to update the ConfigMap each time we want to add or remove users, we will just need to add or remove users from the IAM Group and we just configure the ConfigMap to allow the IAM Role associated to the IAM Group.</description>
+    </item>
+    
+    <item>
+      <title>Set Up Your GIT Repository</title>
+      <link>/22_workshop_1/20_gitops_enable/31_set_up_git.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/20_gitops_enable/31_set_up_git.html</guid>
+      <description>The most important ingredient using eksctl enable repo is the configuration of your repository (which will include your workload manifests, HelmReleases, etc). You can start with an empty repository and push that to Git, or use the one you intend to deploy to the cluster.
+The main point of GitOps is to keep everything (config, alerts, dashboards, apps, literally everything) in Git and use it as a single source of truth.</description>
+    </item>
+    
+    <item>
+      <title>Enable Your Cluster for GitOps</title>
+      <link>/22_workshop_1/20_gitops_enable/32_enable_gitops.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/20_gitops_enable/32_enable_gitops.html</guid>
+      <description>The following command will set up your cluster with:
+ Flux, Flux Helm Operator with Helm v3 support,  and add their manifests to Git, so you can configure them through pull requests.
+Run this command from any directory in your file system. eksctl will clone your repository in a temporary directory that will be removed later.
+EKSCTL_EXPERIMENTAL=true \ eksctl enable repo \ --git-url git@github.com:example/my-eks-config \ --git-email your@email.com \ --cluster your-cluster-name \ --region your-cluster-region Let us go through the specified arguments one by one:</description>
+    </item>
+    
+    <item>
+      <title>Enable Your Clusters for GitOps</title>
+      <link>/25_workshop_2_ha-dr/40_gitops_enable_clusters/32_enable_gitops.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/40_gitops_enable_clusters/32_enable_gitops.html</guid>
+      <description>Perform this command in each of your two terminal windows. Verify that you are connecting to your two clusters individually. The cluster names and regions are the information provided when you created the clusters.
+ The following command will set up your cluster with:
+ Flux, Flux Helm Operator with Helm v3 support,  and add their manifests to Git, so you can configure them through pull requests.
+Run this command from any directory in your file system.</description>
+    </item>
+    
+    <item>
+      <title>Flux and GitOps</title>
+      <link>/22_workshop_1/20_gitops_enable/33_lets_check_flux.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/20_gitops_enable/33_lets_check_flux.html</guid>
+      <description>The command will take a while to run and it&amp;rsquo;s a good idea to scan the output. You will note a similar bit of information in the log like this one:
+ [ℹ] Flux will only operate properly once it has write-access to the Git repository ... [ℹ] please configure git@github.com:YOURUSER/eks-quickstart-app-dev.git so that the following Flux SSH public key has write access to it ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8msUDG9tEEWHKKJw1o8BpwfMkCvCepeUSMa9iTVK6Bmxeu2pA/ivBS8Qgx/Lg8Jnu4Gk2RbXYMt3KL3/lcIezLwqipGmVvLgBLvUccbBpeUpWt+SlW2LMwcMOnhF3n86VOYjaRPggoPtWfLhFIfnkvKOFLHPRYS3nqyYspFeCGUmOzQim+JAWokf4oGOOX4SNzRKjusboh93oy8fvWk8SrtSwLBWXOKu+kKXC0ecZJK7G0jW91qb40QvB+VeSAbfk8LJZcXGWWvWa3W0/woKzGNWBPZz+pGuflUjVwQG5GoOq5VVWu71gmXoXBS3bUNqlu6nDobd2LlqiXNViaszX  Copy the lines starting with ssh-rsa and give it read/write access to your repository.</description>
+    </item>
+    
+    <item>
+      <title>Speed up Flux for Demo</title>
+      <link>/22_workshop_1/20_gitops_enable/34_update_flux_for_demo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/20_gitops_enable/34_update_flux_for_demo.html</guid>
+      <description>By default Flux will poll git every 5m but for the sake of the demo, we want to speed things up a bit.
+Lets edit the flux deployment and add the following argument into around lne 180 --git-poll-interval
+Edit the following file in your prefered way:
+./flux/flux-deployment.yaml175 # Serve /metrics endpoint at different port; 176 # make sure to set prometheus&amp;#39; annotation to scrape the port value. 177 - --listen-metrics=:3031 178 179 # Additional arguments 180 - --sync-garbage-collection 190 - --git-poll-interval=1m</description>
+    </item>
+    
+    <item>
+      <title>Test EKS access</title>
+      <link>/30_workshop_03_grc/150_iam-groups/40_test-cluster-access.html</link>
+      <pubDate>Tue, 05 May 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/40_test-cluster-access.html</guid>
+      <description>Automate assumerole with aws cli It is possible to automate the retrieval of temporary credentials for the assumed role by configuring the aws cli using .aws/configand .aws/credentials files. Examples we will define 3 profile:
+add in ~/.aws/config: cat &amp;lt;&amp;lt; EoF &amp;gt;&amp;gt; ~/.aws/config [profile admin] role_arn=arn:aws:iam::${ACCOUNT_ID}:role/k8sAdmin source_profile=eksAdmin [profile dev] role_arn=arn:aws:iam::${ACCOUNT_ID}:role/k8sDev source_profile=eksDev [profile integ] role_arn=arn:aws:iam::${ACCOUNT_ID}:role/k8sInteg source_profile=eksInteg EoF create ~/.aws/credentials: cat &amp;lt;&amp;lt; EoF &amp;gt; ~/.aws/credentials [eksAdmin] aws_access_key_id=$(jq -r .AccessKey.AccessKeyId /tmp/PaulAdmin.json) aws_secret_access_key=$(jq -r .</description>
+    </item>
+    
+    <item>
+      <title>Create App Mesh Resources</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/40_add_app_mesh.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/40_add_app_mesh.html</guid>
+      <description>We are now going to the the following App Mesh resources for our PodInfo application:
+ Virtual Nodes - for our existing PodInfo services (physical) and also for our new &amp;ldquo;virtual&amp;rdquo; backend service Virtual Service - defines a new &amp;ldquo;virtual&amp;rdquo; service for the backend that will distribute traffic between the existing v1 and v2 backend PodInfo services/pods  To do this download the yaml files into the apps folder:
+# Virtual nodes curl https://weaveworks-gitops.</description>
+    </item>
+    
+    <item>
+      <title>Explore Container Insights</title>
+      <link>/40_workshop_4_hipo-teams/50_install_container_insights/40_explore_container_insights.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/50_install_container_insights/40_explore_container_insights.html</guid>
+      <description>We will now explore some of the observability that Container Insights gives us. This is a very quick look at CloudWatch&amp;hellip;.it can do a lot!
+In the AWS Console make sure you are in CloudWatch (which you will probably be from the last section).
+On the left navigation pane click Resources under Container Insights.
+Click any of the items from the list of Resources and you will see a performance dashboard open giving you an insight into the performance:</description>
+    </item>
+    
+    <item>
+      <title>Install kustomize</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/40_install_kustomize.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/40_install_kustomize.html</guid>
+      <description>Kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.
+We will be using kustomize to create more targeted patches that make our code easier to factor, understand, and reuse.
+Install kustomize for Linux:
+curl --silent --location --remote-name \ &amp;#34;https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v3.2.3/kustomize_kustomize.v3.2.3_linux_amd64&amp;#34; &amp;amp;&amp;amp; \ chmod a+x kustomize_kustomize.v3.2.3_linux_amd64 &amp;amp;&amp;amp; \ sudo mv kustomize_kustomize.v3.2.3_linux_amd64 /usr/local/bin/kustomize Verify the install with:
+kustomize version</description>
+    </item>
+    
+    <item>
+      <title>Install kustomize</title>
+      <link>/60_workshop_6_ml/00_prerequisites.md/40_install_kustomize.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/00_prerequisites.md/40_install_kustomize.html</guid>
+      <description>Kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.
+We will be using kustomize to create more targeted patches that make our code easier to factor, understand, and reuse.
+Install kustomize for Linux:
+curl --silent --location --remote-name \ &amp;#34;https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v3.2.3/kustomize_kustomize.v3.2.3_linux_amd64&amp;#34; &amp;amp;&amp;amp; \ chmod a+x kustomize_kustomize.v3.2.3_linux_amd64 &amp;amp;&amp;amp; \ sudo mv kustomize_kustomize.v3.2.3_linux_amd64 /usr/local/bin/kustomize Verify the install with:
+kustomize version</description>
+    </item>
+    
+    <item>
+      <title>Verify Flux and Helm are Operational</title>
+      <link>/40_workshop_4_hipo-teams/30_gitops_enable_clusters/40_verify_flux_op.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/30_gitops_enable_clusters/40_verify_flux_op.html</guid>
+      <description>Now we have installed Flux and Helm Operator we need to verify that they are both operational.
+Run the following command in your Cloud9 terminal:
+kubectl get pods -n flux You should see that there are 3 pods and the status should be Running:
+NAME READY STATUS RESTARTS AGE flux-5884545b8c-thfxh 1/1 Running 0 22m flux-memcached-97fc488-zwn8w 1/1 Running 0 22m helm-operator-6489b5cc6b-5pdvl 1/1 Running 0 7m21s If the status isn&amp;rsquo;t running then don&amp;rsquo;t proceed with the workshop until it&amp;rsquo;s fixed.</description>
+    </item>
+    
+    <item>
+      <title>Setup Kubernetes labels</title>
+      <link>/22_workshop_1/30_deploy_sample_app/41_import_k8s_labels_annotations.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/30_deploy_sample_app/41_import_k8s_labels_annotations.html</guid>
+      <description>Explore metadata in pod definitions List all the Sock Shop pods running:
+kubectl get po -l product=sockshop --all-namespaces  Pick up a pod and a namespace (production or dev) and get the pods details, including the Labels and the Annotations.
+kubectl describe po &amp;lt;pod_name&amp;gt; -n &amp;lt;namespace&amp;gt; Grant viewer role to service accounts Those Labels and Annotations are centrally defined and managed in Kubernetes but we also want them available in Weaveworks for grouping and filtering purposes.</description>
+    </item>
+    
+    <item>
+      <title>Install aws iam authenticator</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/50_install_aws_iam_auth.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/50_install_aws_iam_auth.html</guid>
+      <description>Amazon EKS uses IAM to provide authentication to your Kubernetes cluster through the AWS IAM authenticator for Kubernetes. You can configure the stock kubectl client to work with Amazon EKS by installing the AWS IAM authenticator for Kubernetes and modifying your kubectl configuration file to use it for authentication.
+To install aws-iam-authenticator on Cloud9
+Download the Amazon EKS-vended aws-iam-authenticator binary from Amazon S3:
+curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/aws-iam-authenticator Apply execute permissions to the binary:</description>
+    </item>
+    
+    <item>
+      <title>Install aws iam authenticator</title>
+      <link>/60_workshop_6_ml/00_prerequisites.md/50_install_aws_iam_auth.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/00_prerequisites.md/50_install_aws_iam_auth.html</guid>
+      <description>Amazon EKS uses IAM to provide authentication to your Kubernetes cluster through the AWS IAM authenticator for Kubernetes. You can configure the stock kubectl client to work with Amazon EKS by installing the AWS IAM authenticator for Kubernetes and modifying your kubectl configuration file to use it for authentication.
+To install aws-iam-authenticator on Cloud9
+Download the Amazon EKS-vended aws-iam-authenticator binary from Amazon S3:
+curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/aws-iam-authenticator Apply execute permissions to the binary:</description>
+    </item>
+    
+    <item>
+      <title>Install Prometheus for App Mesh</title>
+      <link>/40_workshop_4_hipo-teams/40_install-app-mesh/50_install_appmesh_prometheus.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/40_install-app-mesh/50_install_appmesh_prometheus.html</guid>
+      <description>We also want to collect the metrics that App Mesh publishes and so we will also deploy Prometheus. We can use the metrics to create alerts or to help enable progressive delivery (covered in a later workshop).
+Prometheus for App Mesh is also available as a Helm package from the EKS Chart Repository. We will use the Helm Operator along with this chart to install the injector.
+Create a new file called appmesh-prometheus.</description>
+    </item>
+    
+    <item>
+      <title>Update IAM settings for your Workspace</title>
+      <link>/20_weaveworks_prerequisites/50_workspaceiam.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/20_weaveworks_prerequisites/50_workspaceiam.html</guid>
+      <description>Cloud9 normally manages IAM credentials dynamically. This isn&amp;rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
+  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo; Select AWS SETTINGS Turn off AWS managed temporary credentials Close the Preferences tab   To ensure temporary credentials aren&amp;rsquo;t already in place we will also remove any existing credentials file:</description>
+    </item>
+    
+    <item>
+      <title>Verify App Mesh Resources</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/50_verify_app_mesh.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/50_verify_app_mesh.html</guid>
+      <description>When we created the VirtualNode and VirtualService resources in EKS the controller acted on these and updated AWS App Mesh.
+To check that the mesh has been created we can use the AWS CLI. Run the following command:
+aws appmesh list-virtual-routers --mesh-name=apps The output should be similar to below and you should see apps listed:
+{ &amp;#34;virtualRouters&amp;#34;: [ { &amp;#34;arn&amp;#34;: &amp;#34;arn:aws:appmesh:us-west-2:1234567890:mesh/apps/virtualRouter/backend-podinfo-router-apps&amp;#34;, &amp;#34;meshName&amp;#34;: &amp;#34;apps&amp;#34;, &amp;#34;meshOwner&amp;#34;: &amp;#34;1234567890&amp;#34;, &amp;#34;resourceOwner&amp;#34;: &amp;#34;1234567890&amp;#34;, &amp;#34;virtualRouterName&amp;#34;: &amp;#34;backend-podinfo-router-apps&amp;#34; } ] } Lets check that the traffic to the backend service has been configured to be routed 50:50 between v1 and v2:</description>
+    </item>
+    
+    <item>
+      <title>Add the Required IAM Role</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/60_add_iam_role.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/60_add_iam_role.html</guid>
+      <description>Creating and using EKS clusters in AWS requires specific IAM roles for the user creating and accessing EKS clusters.
+ Click the A button next to the Share button in the upper right hand corner of your Cloud9 workspace Click Manage EC2 Instance Make sure your aws-cloud9-* instance is selected On Actions pull down, select Instance Settings -&amp;gt; Attach/Replace IAM Role In the IAM role pull down, select TeamRoleInstanceProfile To the right, click Apply  </description>
+    </item>
+    
+    <item>
+      <title>Add the Required IAM Role</title>
+      <link>/60_workshop_6_ml/00_prerequisites.md/60_add_iam_role.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/00_prerequisites.md/60_add_iam_role.html</guid>
+      <description>Creating and using EKS clusters in AWS requires specific IAM roles for the user creating and accessing EKS clusters.
+ Click the A button next to the Share button in the upper right hand corner of your Cloud9 workspace Click Manage EC2 Instance Make sure your aws-cloud9-* instance is selected On Actions pull down, select Instance Settings -&amp;gt; Attach/Replace IAM Role In the IAM role pull down, select modernization-admin To the right, click Apply  </description>
+    </item>
+    
+    <item>
+      <title>Test the routing</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/60_test_routing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/60_test_routing.html</guid>
+      <description>Now lets test the routing of requests to the backend PodInfo services. According to the routing rules we created request should be split roughly 50:50 between v1 and v2.
+We&amp;rsquo;ll need to exec onto the frontend container:
+# Get the frontend pod&amp;#39;s name export FRONTEND_NAME=$(kubectl get pods -n apps -l app=frontend-podinfo -o jsonpath=&amp;#39;{.items[].metadata.name}&amp;#39;) # Exec into the pod kubectl -n apps exec -it ${FRONTEND_NAME} -- sh We&amp;rsquo;ll use curl to make a request to the backend-podinfo.</description>
+    </item>
+    
+    <item>
+      <title>Cleanup</title>
+      <link>/30_workshop_03_grc/150_iam-groups/70_cleanup.html</link>
+      <pubDate>Wed, 03 Oct 2018 10:14:46 -0700</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/70_cleanup.html</guid>
+      <description>Once you have completed this chapter, you can cleanup the files and resources you created by issuing the following commands:
+unset KUBECONFIG # we will remove the manifest from git that we no longer want in our cluster rm -rf development rm -rf integration git add .integration/ .development/ git commit -m &amp;#34;cleaning up iamgroups demo&amp;#34; git push # if flux garbage collection is not enabled, please also run these commands to tidy things up: kubectl delete ns development integration eksctl delete iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sAdmin eksctl delete iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sDev eksctl delete iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sInteg aws iam remove-user-from-group --group-name k8sAdmin --user-name PaulAdmin aws iam remove-user-from-group --group-name k8sDev --user-name JeanDev aws iam remove-user-from-group --group-name k8sInteg --user-name PierreInteg aws iam delete-group-policy --group-name k8sAdmin --policy-name k8sAdmin-policy aws iam delete-group-policy --group-name k8sDev --policy-name k8sDev-policy aws iam delete-group-policy --group-name k8sInteg --policy-name k8sInteg-policy aws iam delete-group --group-name k8sAdmin aws iam delete-group --group-name k8sDev aws iam delete-group --group-name k8sInteg aws iam delete-access-key --user-name PaulAdmin --access-key-id=$(jq -r .</description>
+    </item>
+    
+    <item>
+      <title>Update IAM settings for your Workspace</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/70_workspace_iam.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/70_workspace_iam.html</guid>
+      <description>Cloud9 normally manages IAM credentials dynamically. This isn&amp;rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
+  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo; Select AWS SETTINGS Turn off AWS managed temporary credentials If you&amp;rsquo;d like to turn on AutoSave, select Experimental and select your Auto-Save Files preference Close the Preferences tab   To ensure temporary credentials aren&amp;rsquo;t already in place we will also remove any existing credentials file:</description>
+    </item>
+    
+    <item>
+      <title>Update IAM settings for your Workspace</title>
+      <link>/60_workshop_6_ml/00_prerequisites.md/70_workspace_iam.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/00_prerequisites.md/70_workspace_iam.html</guid>
+      <description>Cloud9 normally manages IAM credentials dynamically. This isn&amp;rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
+  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo; Select AWS SETTINGS Turn off AWS managed temporary credentials If you&amp;rsquo;d like to turn on AutoSave, select Experimental and select your Auto-Save Files preference Close the Preferences tab   To ensure temporary credentials aren&amp;rsquo;t already in place we will also remove any existing credentials file:</description>
+    </item>
+    
+    <item>
+      <title>Update the routing</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/70_update_routing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/70_update_routing.html</guid>
+      <description>We are happy that v2 of the backend service is behaving as expected and want to switch 100% of the traffic to it.
+Edit the apps/3-podinfo-virtual-services.yaml file so it looks like this:
+apiVersion: appmesh.k8s.aws/v1beta1 kind: VirtualService metadata: name: backend-podinfo.apps.svc.cluster.local namespace: apps spec: meshName: apps virtualRouter: name: backend-podinfo-router routes: - name: podinfo-route http: match: prefix: / action: weightedTargets: - virtualNodeName: backend-podinfo-v2 weight: 100 We have removed the target for v1 and updated the target for v2 to be 100.</description>
+    </item>
+    
+    <item>
+      <title>Revert the routing</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/80_revert_routing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/80_revert_routing.html</guid>
+      <description>The support department is receiving calls from customers about errors they are getting after the new release. You want to put the routing back to a 50:50 split.
+This can be done in 2 ways:
+ Revert the last commit and force push - rewrites history Fix forward - by updating the file and committing/push  If you revert the change you will lose the history of the routing changes. Many companies prefer a Fix Forward approach because of this.</description>
+    </item>
+    
+    <item>
+      <title>Performance Monitoring</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/90_app_mesh_perf.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/90_app_mesh_perf.html</guid>
+      <description>As we&amp;rsquo;ve made some request using App Mesh lets return to Container Insights to have a look at the App Mesh performnace monitoring.
+In the AWS Console make sure you are in CloudWatch.
+On the left navigation pane click Performance Monitoring under Container Insights.
+In the left most dropdown box choose Prometheus AppMesh and then in the dropdown box next to this select our cluster gitopsworkshop.
+When you do this you will see perforamne metrics that are specific to App Mesh.</description>
+    </item>
+    
+    <item>
+      <title>Verify the Service Mesh is Active</title>
+      <link>/40_workshop_4_hipo-teams/40_install-app-mesh/90_verify_mesh.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/40_install-app-mesh/90_verify_mesh.html</guid>
+      <description>When we installed the App Mesh Injector we asked it to create a new service mesh called apps. A service mesh is a logical boundary for network traffic between the services that reside within it.
+To check that the mesh has been created we can use the AWS CLI. Run the following command:
+aws appmesh list-meshes The output should be similar to below and you should see apps listed:
+{ &amp;#34;meshes&amp;#34;: [ { &amp;#34;arn&amp;#34;: &amp;#34;arn:aws:appmesh:us-west-2:1234567890:mesh/apps&amp;#34;, &amp;#34;meshName&amp;#34;: &amp;#34;apps&amp;#34;, &amp;#34;meshOwner&amp;#34;: &amp;#34;1234567890&amp;#34;, &amp;#34;resourceOwner&amp;#34;: &amp;#34;1234567890&amp;#34; } ] } You can also check by going to the AWS Console and choosing AWS App Mesh from the Services menu:</description>
+    </item>
+    
+    <item>
+      <title>Create EKS Cluster</title>
+      <link>/50_workshop_5_accelerating_sdlc/10_create_cluster/01_create_eks_cluster.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/10_create_cluster/01_create_eks_cluster.html</guid>
+      <description>Before creating the EKS cluster, please make sure that you have the right role.
+aws sts get-caller-identity --query Arn | grep TeamRole -q &amp;amp;&amp;amp; echo &amp;#34;IAM role valid&amp;#34; || echo &amp;#34;IAM role NOT valid&amp;#34; If the IAM role is not valid, DO NOT PROCEED. Go back and confirm the steps on this page.
+Once you have ensured your IAM role is valid, proceed to define your cluster configuration.
+Create a cluster.</description>
+    </item>
+    
+    <item>
+      <title>Create EKS Cluster</title>
+      <link>/60_workshop_6_ml/10_create_cluster/01_create_eks_cluster.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/10_create_cluster/01_create_eks_cluster.html</guid>
+      <description>If an eks cluster has already been created for you:
+export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r &amp;#39;.region&amp;#39;) export AWS_DEFAULT_REGION=$AWS_REGION export EKS_CLUSTER_NAME=$(eksctl get cluster -o json | jq -r &amp;#39;.[0][&amp;#34;name&amp;#34;]&amp;#39;) eksctl utils write-kubeconfig --name $EKS_CLUSTER_NAME Before creating the EKS cluster, please make sure that you have the right role.
+aws sts get-caller-identity --query Arn | grep TeamRole -q &amp;amp;&amp;amp; echo &amp;#34;IAM role valid&amp;#34; || echo &amp;#34;IAM role NOT valid&amp;#34; If the IAM role is not valid, DO NOT PROCEED.</description>
+    </item>
+    
+    <item>
+      <title>Create Git Repository</title>
+      <link>/50_workshop_5_accelerating_sdlc/20_enable_gitops/01_create_git_repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/20_enable_gitops/01_create_git_repo.html</guid>
+      <description>We will be using a GitHub repo to declare the desired state of our EKS cluster. This repo will eventually include your workload manifests.
+You can start with an empty repository and push that to GitHub, or use the one you intend to deploy to the cluster. As a suggestion create a blank public repo on GitHub called sdlc-workshop and make sure you tick Initialize this Repository with a README:</description>
+    </item>
+    
+    <item>
+      <title>Create Git Repository</title>
+      <link>/60_workshop_6_ml/20_enable_gitops/01_create_git_repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/20_enable_gitops/01_create_git_repo.html</guid>
+      <description>Using your github account, create a repository called &amp;lsquo;&amp;lt;eks cluster name&amp;gt;-config&amp;rsquo; in your personal git organisation.
+For instructions on how to create a repository on GitHub follow these steps..
+In the Cloud9 environment, a user SSH key pair is not automatically created. Use these instructions to create an SSH key pair for use as your git repository deploy keys.
+ You will also want to add your ssh. Instructions to do so are here.</description>
+    </item>
+    
+    <item>
+      <title>Eksctl Enable Repo</title>
+      <link>/50_workshop_5_accelerating_sdlc/20_enable_gitops/02_eksctl_enable_repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/20_enable_gitops/02_eksctl_enable_repo.html</guid>
+      <description>Ensure you are in the root of your Cloud9 Environment and clone your repository.
+cd ~/environment export GH_USER=YOUR_GITHUB_USERNAMEexport GH_REPO=sdlc-workshopgit clone git@github.com:${GH_USER}/${GH_REPO} Navigate to your newly cloned repository:
+cd ${GH_REPO} Next, we will be running eksctl enable repo. This takes an existing EKS cluster and an empty repository and sets up a GitOps pipeline.
+export EKSCTL_EXPERIMENTAL=true eksctl enable repo \ --cluster=gitopssdlcworkshop \ --region=us-west-2 \ --git-user=&amp;#34;fluxcd&amp;#34; \ --git-email=&amp;#34;${GH_USER}@users.noreply.github.com&amp;#34; \ --git-url=&amp;#34;git@github.com:${GH_USER}/${GH_REPO}&amp;#34; eksctl enable repo will install FluxCD and the Helm Operator (with support for Helm v3).</description>
+    </item>
+    
+    <item>
+      <title>Eksctl Enable Repo</title>
+      <link>/60_workshop_6_ml/20_enable_gitops/02_eksctl_enable_repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/20_enable_gitops/02_eksctl_enable_repo.html</guid>
+      <description>Ensure you are in the root of your Cloud9 Environment and clone your repository.
+GITHUB_DIR=$PWD/src/github.com GIT_EMAIL=$(git config -f ~/.gitconfig --get user.email) GIT_ORG=$(git config -f ~/.gitconfig --get user.name) EKSCTL_EXPERIMENTAL=true \  eksctl enable repo \  --git-url git@github.com:$GIT_ORG/${EKS_CLUSTER_NAME}-config \  --git-email $GIT_EMAIL \  --cluster $EKS_CLUSTER_NAME \  --region &amp;#34;$AWS_DEFAULT_REGION&amp;#34; ` &amp;lsquo;eksctl enable repo&amp;rsquo; will install FluxCD and the Helm Operator (with support for Helm v3).
+When the command finishes, you will be prompted to add Flux&amp;rsquo;s SSH public key to your GitHub repository.</description>
+    </item>
+    
+    <item>
+      <title>Deploy app-dev profile</title>
+      <link>/60_workshop_6_ml/30_deploy_appdev_profile/01_app_dev.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/30_deploy_appdev_profile/01_app_dev.html</guid>
+      <description>EKSCTL_EXPERIMENTAL=true eksctl enable profile app-dev \  --git-url git@github.com:$GIT_ORG/${EKS_CLUSTER_NAME}-config \  --git-email $GIT_EMAIL \  --cluster $EKS_CLUSTER_NAME \  --region &amp;#34;$AWS_DEFAULT_REGION&amp;#34; mkdir -p $GITHUB_DIR/$GIT_ORG cd $GITHUB_DIR/$GIT_ORG git clone git@github.com:$GIT_ORG/${EKS_CLUSTER_NAME}-config.git cd ${EKS_CLUSTER_NAME}-config Wait a minute or two for flux to deploy applications, verify with &amp;lsquo;kubectl get pods -A&amp;rsquo;</description>
+    </item>
+    
+    <item>
+      <title>Enable App Mesh eksctl Profile</title>
+      <link>/50_workshop_5_accelerating_sdlc/30_install_appmesh/01_install_app_mesh.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/30_install_appmesh/01_install_app_mesh.html</guid>
+      <description>In the same terminal window that you exported your GH_USER and GH_REPO to, we will be enabling the appmesh eksctl profile.
+Run the eksctl profile command:
+eksctl enable profile appmesh \ --profile-revision=demo \ --cluster=gitopssdlcworkshop \ --region=us-west-2 \ --git-user=&amp;#34;fluxcd&amp;#34; \ --git-email=&amp;#34;${GH_USER}@users.noreply.github.com&amp;#34; \ --git-url=&amp;#34;git@github.com:${GH_USER}/${GH_REPO}&amp;#34; Run the fluxctl sync command to install the App Mesh control plane on your cluster:
+fluxctl sync --k8s-fwd-ns flux Inspect the components that were installed:
+kubectl get helmreleases --all-namespaces You should see the following:</description>
+    </item>
+    
+    <item>
+      <title>Sync your repository and Kustomize the Profile</title>
+      <link>/50_workshop_5_accelerating_sdlc/30_install_appmesh/02_sync_repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/30_install_appmesh/02_sync_repo.html</guid>
+      <description>eksctl enable profile pushed changes to our new repo. Let&amp;rsquo;s fetch them:
+git pull origin master Kustomize the profile Kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.
+We will be using kustomize to create more targeted patches that make our code easier to factor, understand, and reuse.
+Create kustomization files for base and flux manifests:
+for dir in .</description>
+    </item>
+    
+    <item>
+      <title>Deploy Kubeflow</title>
+      <link>/60_workshop_6_ml/40_kubeflow/01_install_kubeflow.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/40_kubeflow/01_install_kubeflow.html</guid>
+      <description>Install the kubeflow:
+cd $GITHUB_DIR/$GIT_ORG wget https://github.com/kubeflow/kfctl/releases/download/v1.0.2/kfctl_v1.0.2-0-ga476281_linux.tar.gz tar -zxvf kfctl_v1.0.2-0-ga476281_linux.tar.gz sudo mv kfctl /usr/bin rm kfctl_v1.0.2-0-ga476281_linux.tar.gz export AWS_CLUSTER_NAME=$EKS_CLUSTER_NAME export KF_NAME=${AWS_CLUSTER_NAME} export BASE_DIR=$GITHUB_DIR/$GIT_ORG/kubeflow-config export KF_DIR=${BASE_DIR}/${KF_NAME} mkdir -p ${KF_DIR} cd ${KF_DIR} export CONFIG_URI=https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_aws.v1.0.2.yaml wget -O kfctl_aws.yaml $CONFIG_URI grep -v eksctl kfctl_aws.yaml &amp;gt; kfctl.yaml sed -i s/kubeflow-aws/${AWS_CLUSTER_NAME}/ kfctl.yaml sed -i s/roles:/enablePodIamPolicy\:\ true/ kfctl.yaml sed -i s/us-west-2/${AWS_DEFAULT_REGION}/ kfctl.yaml sed -i s/roles:/enablePodIamPolicy\:\ true/ kfctl.yaml export CONFIG_FILE=${KF_DIR}/kfctl.yaml kfctl apply -V -f ${CONFIG_FILE} In a few minutes or so you will see deployments in &amp;lsquo;kubeflow&amp;rsquo; namespace, verify using &amp;lsquo;kubectl get all -n kubeflow&amp;rsquo;</description>
+    </item>
+    
+    <item>
+      <title>Install Podinfo demo app</title>
+      <link>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/01_install_podinfo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/01_install_podinfo.html</guid>
+      <description>In the /base/demo folder, you will find several components that will help us deploy our sample podinfo application.
+Install the demo app by setting fluxcd.io/ignore to false in base/demo/namespace.yaml:
+cat &amp;lt;&amp;lt; EOF | tee base/demo/namespace.yaml apiVersion: v1 kind: Namespace metadata: name: demo annotations: fluxcd.io/ignore: &amp;#34;false&amp;#34; labels: appmesh.k8s.aws/sidecarInjectorWebhook: enabled EOF Push the changes to your git repository and apply using fluxctl:
+git add -A &amp;amp;&amp;amp; \ git commit -m &amp;#34;init demo&amp;#34; &amp;amp;&amp;amp; \ git push origin master &amp;amp;&amp;amp; \ fluxctl sync --k8s-fwd-ns flux Wait for Flagger to initialize the canary:</description>
+    </item>
+    
+    <item>
+      <title>Review Flagger</title>
+      <link>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/02_review_flagger.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/02_review_flagger.html</guid>
+      <description>In base/demo/podinfo/canary.yaml, you&amp;rsquo;ll see the specifications for Flagger to automatically increase traffic to new versions of the application. In this workshop, we will be demonstrating a successful canary release, as well mimicking a failed canary release.
+Below is the Canary configuration:
+apiVersion: flagger.app/v1beta1 kind: Canary metadata: name: podinfo namespace: demo spec: provider: appmesh # the maximum time in seconds for the canary deployment # to make progress before it is rollback (default 600s) progressDeadlineSeconds: 60 # deployment reference targetRef: apiVersion: apps/v1 kind: Deployment name: podinfo # HPA reference (optional) autoscalerRef: apiVersion: autoscaling/v2beta1 kind: HorizontalPodAutoscaler name: podinfo service: # container port port: 9898 # container port name (optional) # can be http or grpc portName: http # App Mesh Gateway external domain hosts: - &amp;#34;*&amp;#34; # App Mesh reference meshName: &amp;#34;gitopssdlcworkshop&amp;#34; # App Mesh retry policy (optional) retries: attempts: 3 perTryTimeout: 1s retryOn: &amp;#34;gateway-error,client-error,stream-error&amp;#34; # define the canary analysis timing and KPIs analysis: # schedule interval (default 60s) interval: 10s # max number of failed metric checks before rollback threshold: 10 # max traffic percentage routed to canary # percentage (0-100) maxWeight: 50 # canary increment step # percentage (0-100) stepWeight: 5 # App Mesh Prometheus checks metrics: - name: request-success-rate # minimum req success rate (non 5xx responses) # percentage (0-100) thresholdRange: min: 99 interval: 1m - name: request-duration # maximum req duration P99 # milliseconds thresholdRange: max: 500 interval: 30s # testing (optional) webhooks: - name: acceptance-test type: pre-rollout url: http://flagger-loadtester.</description>
+    </item>
+    
+    <item>
+      <title>Automated Canary Promotion</title>
+      <link>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/03_canary_release.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/03_canary_release.html</guid>
+      <description>When you deploy a new podinfo version, Flagger gradually shifts traffic to the canary. At the same time, Flagger measures the requests success rate as well as the average response duration. Based on an analysis of these App Mesh provided metrics, a canary deployment is either promoted or rolled back.
+Run the following command to create a Kustomize patch for the podinfo deployment in overlays/podinfo.yaml:
+mkdir -p overlays &amp;amp;&amp;amp; \ cat &amp;lt;&amp;lt; EOF | tee overlays/podinfo.</description>
+    </item>
+    
+    <item>
+      <title>Automated Canary Rollback</title>
+      <link>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/04_canary_rollback.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/04_canary_rollback.html</guid>
+      <description>Now we will generate some failed requests to trigger an automated rollback.
+During the canary analysis, you can generate HTTP 500 errors and high latency to verify that Flagger pauses and rolls back the faulty version.
+Trigger another canary release:
+cat &amp;lt;&amp;lt; EOF | tee overlays/podinfo.yaml apiVersion: apps/v1 kind: Deployment metadata: name: podinfo namespace: demo spec: template: spec: containers: - name: podinfod image: stefanprodan/podinfo:3.1.2 env: - name: PODINFO_UI_LOGO value: https://eks.handson.flagger.dev/cuddle_bunny.gif EOF Push your changes and use fluxctl to sync:</description>
+    </item>
+    
+    <item>
+      <title>AWS and Kubenetes Environment Setup</title>
+      <link>/60_workshop_6_ml/50_titanic_sample_application/01_aws_k8s-setup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/50_titanic_sample_application/01_aws_k8s-setup.html</guid>
+      <description>AWS and Kubenetes Environment Setup cd $HOME/environment # Set default region export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r &amp;#39;.region&amp;#39;) # For ec2 client or cloud9 export AWS_DEFAULT_REGION=$AWS_REGION # I encountered issues with EMR in eu-west-2 but it works fine in eu-west-1. # Use this variable to set the region to run the EMR cluster in if you encounter issues in your local/default region export EMR_REGION=$AWS_REGION EKS_CLUSTER_LOWER=$(echo $EKS_CLUSTER_NAME | awk &amp;#39;{print tolower($0)}&amp;#39;) export BUCKET_NAME=${EKS_CLUSTER_LOWER}-tdata aws iam create-user --user-name mlops-user aws iam create-access-key --user-name mlops-user &amp;gt; $HOME/mlops-user.</description>
+    </item>
+    
+    <item>
+      <title>Cloud9 setup</title>
+      <link>/60_workshop_6_ml/05_setup/01_git-config-ssh-key.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/05_setup/01_git-config-ssh-key.html</guid>
+      <description>Git setup You need to create and clone github repositories during this workshop so it is recommended that you setup your git config and ssh keys.
+vim ~/.gitconfig # Add your config Extend FileSystem size The default disk size for a cloud9 instance is 10gb but we need more than this for the tools needed to build ML projects. So we need to increase the size of the EBS volume and grow the Linux filesytem.</description>
+    </item>
+    
+    <item>
+      <title>Recreate</title>
+      <link>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/01_recreate.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/01_recreate.html</guid>
+      <description>When upgrading pods using the recreate strategy, existing pods are terminated before new ones are created.
+To use the recreate strategy, define the Deployment yaml as such:
+apiVersion: apps/v1 kind: Deployment spec: replicas: 2 strategy: type: Recreate The Deployment as defined above will create two replica pods:
+graph LR; A{Deployment} -- B(Replica 1, V1) A -- C(Replica 2, V1)  The recreate strategy will terminate both replicas. During this time, the service is down and will not be able to handle traffic:</description>
+    </item>
+    
+    <item>
+      <title>Kubeflow UI</title>
+      <link>/60_workshop_6_ml/50_titanic_sample_application/02_kubeflow_ui.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/50_titanic_sample_application/02_kubeflow_ui.html</guid>
+      <description>To enable the mlops-user to do a kubectl port-forward:
+git clone git@github.com:paulcarlton-ww/mlops-titanic cd mlops-titanic aws iam attach-user-policy --user-name mlops-user --policy-arn arn:aws:iam::aws:policy/AdministratorAccess eksctl create iamidentitymapping --cluster $EKS_CLUSTER_NAME --group system:masters --username mlops-user --arn $(aws iam get-user --user-name mlops-user | jq -r &amp;#39;.&amp;#34;User&amp;#34;[&amp;#34;Arn&amp;#34;]&amp;#39;) A shell script is provided to generate the commands required to run kubectl port-forward on workstation
+aws-titanic/get-port-forward-cmds.sh $EKS_CLUSTER_NAME Run the commands generated on a terminal on your workstation (not cloud9 session)</description>
+    </item>
+    
+    <item>
+      <title>Rolling Update</title>
+      <link>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/02_rolling_update.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/02_rolling_update.html</guid>
+      <description>The RollingUpdate deployment strategy ensures upgraded pods successfully come up before terminating older versions.
+The following demonstrates an example of the RollingUpdate strategy. When using RollingUpdate, you can specify maxUnavailable to specify how many pods can go down as an update takes place. You can also specify maxSurge to specify how many pods can be created in addition to the desired replica count.
+apiVersion: apps/v1 kind: Deployment spec: replicas: 2 strategy: type: RollingUpdate rollingUpdate: maxSurge: 1 maxUnavailable: 0 minReadySeconds: 10 In the above sample Deployment yaml, two replicas are specified as desired number of pods.</description>
+    </item>
+    
+    <item>
+      <title>Blue / Green</title>
+      <link>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/03_blue_green.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/03_blue_green.html</guid>
+      <description> In Blue / Green deployments, you will have two nearly identical environments, one of which is serving live traffic (Blue). New versions of your applications can be deployed as Green. Once any testing or quality assurance has been performed on the upgraded Green environment, traffic can be routed to the Green, and the blue will eventually be scaled down.
+Benefits of Blue/Green Deployment  Avoids versioning issues Instant rollout and rollback (while the blue deployment still exists)  Drawbacks of Blue/Green Deployment  Requires resource duplication Data synchronization between the two environments can lead to partial service interruption  Suitable Use Cases  Monolithic legacy applications Autonomous microservices  </description>
+    </item>
+    
+    <item>
+      <title>Build Model</title>
+      <link>/60_workshop_6_ml/50_titanic_sample_application/03_build-model.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/50_titanic_sample_application/03_build-model.html</guid>
+      <description>Install sbt curl -s &amp;#34;https://get.sdkman.io&amp;#34; | bash source &amp;#34;$HOME/.sdkman/bin/sdkman-init.sh&amp;#34; sdk install java sdk install sbt Build Spark Jars sbt clean package aws s3api put-object --bucket $BUCKET_NAME --key emr/titanic/titanic-survivors-prediction_2.11-1.0.jar --body target/scala-2.11/titanic-survivors-prediction_2.11-1.0.jar  Note: EMR has all spark libariries and this project doesn&amp;rsquo;t reply on third-party library. We don&amp;rsquo;t need to build fat jars.
+ The dataset Check Kaggle Titanic: Machine Learning from Disaster for more details about this problem. 70% training dataset is used to train model and rest 30% for validation.</description>
+    </item>
+    
+    <item>
+      <title>Build Pipeline</title>
+      <link>/60_workshop_6_ml/50_titanic_sample_application/04_build-pipeline.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/50_titanic_sample_application/04_build-pipeline.html</guid>
+      <description>Install See building a pipeline to install the Kubeflow Pipelines SDK. The following command will install the tools required
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh bash Miniconda3-latest-Linux-x86_64.shsource /home/ec2-user/.bashrc conda create --name mlpipeline python=3.7pip3 install --user kfp --upgrade rm Miniconda3-latest-Linux-x86_64.sh  Compiling the pipeline template cd aws-titanic mkdir -p build sed s/mlops-kubeflow-pipeline-data/$BUCKET_NAME/g titanic-survival-prediction.py | sed s/aws-region/$EMR_REGION/ &amp;gt; build/titanic-survival-prediction.py dsl-compile --py build/titanic-survival-prediction.py --output build/titanic-survival-prediction.tar.gz aws s3api put-object --bucket $BUCKET_NAME --key emr/titanic/titanic-survival-prediction.tar.gz --body build/titanic-survival-prediction.</description>
+    </item>
+    
+    <item>
+      <title>Canary</title>
+      <link>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/04_canary.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/15_deployment_strategies/04_canary.html</guid>
+      <description>In Canary deployments, you will incrementally introduce upgraded versions of your services. Upgraded versions of your service are introduced as Canary deployments, where percentages of live traffic are routed to the upgraded services. Depending on the success / failure threshold, the rollout of the upgraded service will continue through to accepting 100% of live traffic in the instance of successful metrics / requests, or rolled back in the instance of failed requests.</description>
+    </item>
+    
+    <item>
+      <title>Run Pipeline</title>
+      <link>/60_workshop_6_ml/50_titanic_sample_application/05_run.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/50_titanic_sample_application/05_run.html</guid>
+      <description>Download the pipeline tar to workstation Using the portforward access to the Kubeflow UI the upload from URL option does not work so it is necessary to download the file to your workstation. A shell script is provided to generate the commands required.
+./get-tar-cmds.sh Run experiment Now use the kubeflow UI to upload the pipeline file and run an experiment.
+Check results Open the Kubeflow pipelines UI. Create a new pipeline, and then upload the compiled specification (.</description>
+    </item>
+    
+  </channel>
+</rss>

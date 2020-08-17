@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Welcome on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/05_introduction.html</link>
+    <description>Recent content in Welcome on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/05_introduction/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why EKS?</title>
+      <link>/05_introduction/10_introduction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/05_introduction/10_introduction.html</guid>
+      <description>Modern cloud environments need a different approach to observability Conventional application performance monitoring (APM) emerged when software was mostly monolithic and update cycles were measured in years, not days. Manual instrumentation and performance baselining, though cumbersome, were once adequate—particularly since fault patterns were generally known and well understood.
+As monoliths get replaced by cloud-native applications, that are rapidly growing in size, traditional monitoring approaches are no longer enough. Rather than instrumenting for a predefined set of problems, enterprises need complete visibility into every single component of these dynamically scaling microservice environments.</description>
+    </item>
+    
+    <item>
+      <title>About Weaveworks</title>
+      <link>/05_introduction/20_about_weaveworks.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/05_introduction/20_about_weaveworks.html</guid>
+      <description>Weaveworks Weaveworks makes it fast and simple for developers and DevOps teams to build and operate powerful containerized applications. We minimize the complexity of operating workloads in Kubernetes by providing automated continuous delivery pipelines, observability and monitoring.
+Weaveworks’ mission is to minimize complexities in operating workloads and provide a developer centric operating model for cloud native applications. Our goal is to drive cloud native transformation for your developers and portability, flexibility, choice and stability for your business.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Example application - Titanic Survival Prediction on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/60_workshop_6_ml/50_titanic_sample_application.html</link>
+    <description>Recent content in Example application - Titanic Survival Prediction on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/60_workshop_6_ml/50_titanic_sample_application/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS and Kubenetes Environment Setup</title>
+      <link>/60_workshop_6_ml/50_titanic_sample_application/01_aws_k8s-setup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/50_titanic_sample_application/01_aws_k8s-setup.html</guid>
+      <description>AWS and Kubenetes Environment Setup cd $HOME/environment # Set default region export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r &amp;#39;.region&amp;#39;) # For ec2 client or cloud9 export AWS_DEFAULT_REGION=$AWS_REGION # I encountered issues with EMR in eu-west-2 but it works fine in eu-west-1. # Use this variable to set the region to run the EMR cluster in if you encounter issues in your local/default region export EMR_REGION=$AWS_REGION EKS_CLUSTER_LOWER=$(echo $EKS_CLUSTER_NAME | awk &amp;#39;{print tolower($0)}&amp;#39;) export BUCKET_NAME=${EKS_CLUSTER_LOWER}-tdata aws iam create-user --user-name mlops-user aws iam create-access-key --user-name mlops-user &amp;gt; $HOME/mlops-user.</description>
+    </item>
+    
+    <item>
+      <title>Kubeflow UI</title>
+      <link>/60_workshop_6_ml/50_titanic_sample_application/02_kubeflow_ui.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/50_titanic_sample_application/02_kubeflow_ui.html</guid>
+      <description>To enable the mlops-user to do a kubectl port-forward:
+git clone git@github.com:paulcarlton-ww/mlops-titanic cd mlops-titanic aws iam attach-user-policy --user-name mlops-user --policy-arn arn:aws:iam::aws:policy/AdministratorAccess eksctl create iamidentitymapping --cluster $EKS_CLUSTER_NAME --group system:masters --username mlops-user --arn $(aws iam get-user --user-name mlops-user | jq -r &amp;#39;.&amp;#34;User&amp;#34;[&amp;#34;Arn&amp;#34;]&amp;#39;) A shell script is provided to generate the commands required to run kubectl port-forward on workstation
+aws-titanic/get-port-forward-cmds.sh $EKS_CLUSTER_NAME Run the commands generated on a terminal on your workstation (not cloud9 session)</description>
+    </item>
+    
+    <item>
+      <title>Build Model</title>
+      <link>/60_workshop_6_ml/50_titanic_sample_application/03_build-model.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/50_titanic_sample_application/03_build-model.html</guid>
+      <description>Install sbt curl -s &amp;#34;https://get.sdkman.io&amp;#34; | bash source &amp;#34;$HOME/.sdkman/bin/sdkman-init.sh&amp;#34; sdk install java sdk install sbt Build Spark Jars sbt clean package aws s3api put-object --bucket $BUCKET_NAME --key emr/titanic/titanic-survivors-prediction_2.11-1.0.jar --body target/scala-2.11/titanic-survivors-prediction_2.11-1.0.jar  Note: EMR has all spark libariries and this project doesn&amp;rsquo;t reply on third-party library. We don&amp;rsquo;t need to build fat jars.
+ The dataset Check Kaggle Titanic: Machine Learning from Disaster for more details about this problem. 70% training dataset is used to train model and rest 30% for validation.</description>
+    </item>
+    
+    <item>
+      <title>Build Pipeline</title>
+      <link>/60_workshop_6_ml/50_titanic_sample_application/04_build-pipeline.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/50_titanic_sample_application/04_build-pipeline.html</guid>
+      <description>Install See building a pipeline to install the Kubeflow Pipelines SDK. The following command will install the tools required
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh bash Miniconda3-latest-Linux-x86_64.shsource /home/ec2-user/.bashrc conda create --name mlpipeline python=3.7pip3 install --user kfp --upgrade rm Miniconda3-latest-Linux-x86_64.sh  Compiling the pipeline template cd aws-titanic mkdir -p build sed s/mlops-kubeflow-pipeline-data/$BUCKET_NAME/g titanic-survival-prediction.py | sed s/aws-region/$EMR_REGION/ &amp;gt; build/titanic-survival-prediction.py dsl-compile --py build/titanic-survival-prediction.py --output build/titanic-survival-prediction.tar.gz aws s3api put-object --bucket $BUCKET_NAME --key emr/titanic/titanic-survival-prediction.tar.gz --body build/titanic-survival-prediction.</description>
+    </item>
+    
+    <item>
+      <title>Run Pipeline</title>
+      <link>/60_workshop_6_ml/50_titanic_sample_application/05_run.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/50_titanic_sample_application/05_run.html</guid>
+      <description>Download the pipeline tar to workstation Using the portforward access to the Kubeflow UI the upload from URL option does not work so it is necessary to download the file to your workstation. A shell script is provided to generate the commands required.
+./get-tar-cmds.sh Run experiment Now use the kubeflow UI to upload the pipeline file and run an experiment.
+Check results Open the Kubeflow pipelines UI. Create a new pipeline, and then upload the compiled specification (.</description>
+    </item>
+    
+  </channel>
+</rss>

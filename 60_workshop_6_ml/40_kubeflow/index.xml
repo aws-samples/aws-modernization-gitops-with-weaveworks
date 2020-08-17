@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubeflow on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/60_workshop_6_ml/40_kubeflow.html</link>
+    <description>Recent content in Kubeflow on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/60_workshop_6_ml/40_kubeflow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deploy Kubeflow</title>
+      <link>/60_workshop_6_ml/40_kubeflow/01_install_kubeflow.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/40_kubeflow/01_install_kubeflow.html</guid>
+      <description>Install the kubeflow:
+cd $GITHUB_DIR/$GIT_ORG wget https://github.com/kubeflow/kfctl/releases/download/v1.0.2/kfctl_v1.0.2-0-ga476281_linux.tar.gz tar -zxvf kfctl_v1.0.2-0-ga476281_linux.tar.gz sudo mv kfctl /usr/bin rm kfctl_v1.0.2-0-ga476281_linux.tar.gz export AWS_CLUSTER_NAME=$EKS_CLUSTER_NAME export KF_NAME=${AWS_CLUSTER_NAME} export BASE_DIR=$GITHUB_DIR/$GIT_ORG/kubeflow-config export KF_DIR=${BASE_DIR}/${KF_NAME} mkdir -p ${KF_DIR} cd ${KF_DIR} export CONFIG_URI=https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_aws.v1.0.2.yaml wget -O kfctl_aws.yaml $CONFIG_URI grep -v eksctl kfctl_aws.yaml &amp;gt; kfctl.yaml sed -i s/kubeflow-aws/${AWS_CLUSTER_NAME}/ kfctl.yaml sed -i s/roles:/enablePodIamPolicy\:\ true/ kfctl.yaml sed -i s/us-west-2/${AWS_DEFAULT_REGION}/ kfctl.yaml sed -i s/roles:/enablePodIamPolicy\:\ true/ kfctl.yaml export CONFIG_FILE=${KF_DIR}/kfctl.yaml kfctl apply -V -f ${CONFIG_FILE} In a few minutes or so you will see deployments in &amp;lsquo;kubeflow&amp;rsquo; namespace, verify using &amp;lsquo;kubectl get all -n kubeflow&amp;rsquo;</description>
+    </item>
+    
+  </channel>
+</rss>

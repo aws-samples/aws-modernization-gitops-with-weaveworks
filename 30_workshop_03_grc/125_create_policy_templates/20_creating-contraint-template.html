@@ -1,0 +1,7467 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.70.0" />
+    <meta name="description" content="Introduction to GitOps w/ AWS EKS">
+<meta name="author" content="Daniel Lizio-Katzen">
+
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
+
+    <title>Create Constraint Templates :: Weaveworks Introduction to GitOps w/ AWS EKS</title>
+
+    
+    <link href="../../css/nucleus.css?1597684483" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1597684483" rel="stylesheet">
+    <link href="../../css/hybrid.css?1597684483" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1597684483" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1597684483" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1597684483" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1597684483" rel="stylesheet">
+    <link href="../../css/theme.css?1597684483" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1597684483" rel="stylesheet">
+    
+    <link href="../../css/theme-mine.css?1597684483" rel="stylesheet">
+    
+    
+
+    <script src="../../js/jquery-3.3.1.min.js?1597684483"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/30_workshop_03_grc/125_create_policy_templates/20_creating-contraint-template.html">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="../../" title="Go home"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30" width="60%" style="padding:20px 0px;"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg></a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js?1597684483"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1597684483"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js?1597684483"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/05_introduction.html" title="Welcome" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../05_introduction.html">
+          Welcome
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/05_introduction/10_introduction.html" title="Why EKS?" class="dd-item ">
+        <a href="../../05_introduction/10_introduction.html">
+        Why EKS?
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/05_introduction/20_about_weaveworks.html" title="About Weaveworks" class="dd-item ">
+        <a href="../../05_introduction/20_about_weaveworks.html">
+        About Weaveworks
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/10_aws_prerequisites.html" title="Start the Workshop" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../10_aws_prerequisites.html">
+          Start the Workshop
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/10_aws_prerequisites/10_aws_event.html" title="At an AWS Event" class="dd-item ">
+        <a href="../../10_aws_prerequisites/10_aws_event.html">
+        At an AWS Event
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/10_aws_prerequisites/20_self_paced.html" title="Using your own account" class="dd-item ">
+        <a href="../../10_aws_prerequisites/20_self_paced.html">
+        Using your own account
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/20_weaveworks_prerequisites.html" title="Prerequisites for all GitOps Workshop Modules" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../20_weaveworks_prerequisites.html">
+          Prerequisites for all GitOps Workshop Modules
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/20_weaveworks_prerequisites/10_workspace.html" title="Open Workspace" class="dd-item ">
+        <a href="../../20_weaveworks_prerequisites/10_workspace.html">
+        Open Workspace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/20_weaveworks_prerequisites/11_install_eksctl.html" title="Install eksctl" class="dd-item ">
+        <a href="../../20_weaveworks_prerequisites/11_install_eksctl.html">
+        Install eksctl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/20_weaveworks_prerequisites/12_install_kubectl.html" title="Install kubectl" class="dd-item ">
+        <a href="../../20_weaveworks_prerequisites/12_install_kubectl.html">
+        Install kubectl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/20_weaveworks_prerequisites/13_install_helm.html" title="Install helm" class="dd-item ">
+        <a href="../../20_weaveworks_prerequisites/13_install_helm.html">
+        Install helm
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/20_weaveworks_prerequisites/14_install_fluxctl.html" title="Install fluxctl" class="dd-item ">
+        <a href="../../20_weaveworks_prerequisites/14_install_fluxctl.html">
+        Install fluxctl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/20_weaveworks_prerequisites/15_install_kustomize.html" title="Install kustomize" class="dd-item ">
+        <a href="../../20_weaveworks_prerequisites/15_install_kustomize.html">
+        Install kustomize
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/20_weaveworks_prerequisites/16_install_aws-iam.html" title="Install AWS IAM" class="dd-item ">
+        <a href="../../20_weaveworks_prerequisites/16_install_aws-iam.html">
+        Install AWS IAM
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/20_weaveworks_prerequisites/17_add_the_role.html" title="Add the Required IAM Role" class="dd-item ">
+        <a href="../../20_weaveworks_prerequisites/17_add_the_role.html">
+        Add the Required IAM Role
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/20_weaveworks_prerequisites/50_workspaceiam.html" title="Update IAM settings for your Workspace" class="dd-item ">
+        <a href="../../20_weaveworks_prerequisites/50_workspaceiam.html">
+        Update IAM settings for your Workspace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/22_workshop_1.html" title="Workshop Module 1: Introduction to GitOps on EKS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../22_workshop_1.html">
+          Workshop Module 1: Introduction to GitOps on EKS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/22_workshop_1/10_create_cluster.html" title="Create a Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../22_workshop_1/10_create_cluster.html">
+          Create a Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/22_workshop_1/10_create_cluster/10-create-cluster.html" title="Create a Cluster with eksctl" class="dd-item ">
+        <a href="../../22_workshop_1/10_create_cluster/10-create-cluster.html">
+        Create a Cluster with eksctl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/22_workshop_1/20_gitops_enable.html" title="GitOps Enable Your Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../22_workshop_1/20_gitops_enable.html">
+          GitOps Enable Your Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/22_workshop_1/20_gitops_enable/31_set_up_git.html" title="Set Up Your GIT Repository" class="dd-item ">
+        <a href="../../22_workshop_1/20_gitops_enable/31_set_up_git.html">
+        Set Up Your GIT Repository
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/22_workshop_1/20_gitops_enable/32_enable_gitops.html" title="Enable Your Cluster for GitOps" class="dd-item ">
+        <a href="../../22_workshop_1/20_gitops_enable/32_enable_gitops.html">
+        Enable Your Cluster for GitOps
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/22_workshop_1/20_gitops_enable/33_lets_check_flux.html" title="Flux and GitOps" class="dd-item ">
+        <a href="../../22_workshop_1/20_gitops_enable/33_lets_check_flux.html">
+        Flux and GitOps
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/22_workshop_1/20_gitops_enable/34_update_flux_for_demo.html" title="Speed up Flux for Demo" class="dd-item ">
+        <a href="../../22_workshop_1/20_gitops_enable/34_update_flux_for_demo.html">
+        Speed up Flux for Demo
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/22_workshop_1/30_deploy_sample_app.html" title="Deploy Sock Shop Application (Optional)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../22_workshop_1/30_deploy_sample_app.html">
+          Deploy Sock Shop Application (Optional)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/22_workshop_1/30_deploy_sample_app/41_import_k8s_labels_annotations.html" title="Setup Kubernetes labels" class="dd-item ">
+        <a href="../../22_workshop_1/30_deploy_sample_app/41_import_k8s_labels_annotations.html">
+        Setup Kubernetes labels
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/25_workshop_2_ha-dr.html" title="Workshop Module 2: Using GitOps and EKS to Manage HA &amp; DR" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../25_workshop_2_ha-dr.html">
+          Workshop Module 2: Using GitOps and EKS to Manage HA &amp; DR
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/25_workshop_2_ha-dr/01_prerequisites.html" title="Workshop Prerequisites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../25_workshop_2_ha-dr/01_prerequisites.html">
+          Workshop Prerequisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/25_workshop_2_ha-dr/20_create_two_clusters.html" title="Create Two EKS Clusters" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../25_workshop_2_ha-dr/20_create_two_clusters.html">
+          Create Two EKS Clusters
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/25_workshop_2_ha-dr/30_create_git_repo.html" title="Set Up Your GIT Repository" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../25_workshop_2_ha-dr/30_create_git_repo.html">
+          Set Up Your GIT Repository
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/25_workshop_2_ha-dr/40_gitops_enable_clusters.html" title="GitOps Enable Clusters" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../25_workshop_2_ha-dr/40_gitops_enable_clusters.html">
+          GitOps Enable Clusters
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/25_workshop_2_ha-dr/40_gitops_enable_clusters/10_checkkubectl.html" title="Check kubectl" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/40_gitops_enable_clusters/10_checkkubectl.html">
+        Check kubectl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/25_workshop_2_ha-dr/40_gitops_enable_clusters/32_enable_gitops.html" title="Enable Your Clusters for GitOps" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/40_gitops_enable_clusters/32_enable_gitops.html">
+        Enable Your Clusters for GitOps
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls.html" title="Add YAMLs to Repo" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../25_workshop_2_ha-dr/50_add_yamls.html">
+          Add YAMLs to Repo
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html" title="Install an Application Load Balancer Ingress Controller (RBAC)" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html">
+        Install an Application Load Balancer Ingress Controller (RBAC)
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/11_alb_ingress.html" title="Install an Application Load Balancer Ingress Controller" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/50_add_yamls/11_alb_ingress.html">
+        Install an Application Load Balancer Ingress Controller
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/20_podinfo_introduction.html" title="Introducing Podinfo" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/50_add_yamls/20_podinfo_introduction.html">
+        Introducing Podinfo
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/21_podinfo_deploy.html" title="Deploy a Podinfo Pod" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/50_add_yamls/21_podinfo_deploy.html">
+        Deploy a Podinfo Pod
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/22_podinfo_hpa.html" title="Enable the Podinfo Pod to Scale Automatically" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/50_add_yamls/22_podinfo_hpa.html">
+        Enable the Podinfo Pod to Scale Automatically
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/23_podinfo_service.html" title="Expose the Podinfo Pod Service" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/50_add_yamls/23_podinfo_service.html">
+        Expose the Podinfo Pod Service
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/24_podinfo_ingress.html" title="Connect the Podinfo Service to the Ingress Controller" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/50_add_yamls/24_podinfo_ingress.html">
+        Connect the Podinfo Service to the Ingress Controller
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/25_workshop_2_ha-dr/60_test_ingresses.html" title="Test Ingress Settings" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../25_workshop_2_ha-dr/60_test_ingresses.html">
+          Test Ingress Settings
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/25_workshop_2_ha-dr/70_adjust_hpa.html" title="Adjust HPA Settings" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../25_workshop_2_ha-dr/70_adjust_hpa.html">
+          Adjust HPA Settings
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/25_workshop_2_ha-dr/80_configure_route53.html" title="Configure Route53 (Optional)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../25_workshop_2_ha-dr/80_configure_route53.html">
+          Configure Route53 (Optional)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/30_workshop_03_grc.html" title="Workshop Module 3: Managing GRC for K8s on EKS" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../30_workshop_03_grc.html">
+          Workshop Module 3: Managing GRC for K8s on EKS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/30_workshop_03_grc/010_prerequisites.html" title="Workshop Prerequsites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../30_workshop_03_grc/010_prerequisites.html">
+          Workshop Prerequsites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/30_workshop_03_grc/120_deploy_opa_gatekeeper.html" title="Deploy OPA gatekeeper" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../30_workshop_03_grc/120_deploy_opa_gatekeeper.html">
+          Deploy OPA gatekeeper
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/30_workshop_03_grc/120_deploy_opa_gatekeeper/20_intro-to-opa.html" title="Intro to OPA" class="dd-item ">
+        <a href="../../30_workshop_03_grc/120_deploy_opa_gatekeeper/20_intro-to-opa.html">
+        Intro to OPA
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/30_workshop_03_grc/120_deploy_opa_gatekeeper/30_deploy-opa-gatekeeper.html" title="Deploy OPA gatekeeper" class="dd-item ">
+        <a href="../../30_workshop_03_grc/120_deploy_opa_gatekeeper/30_deploy-opa-gatekeeper.html">
+        Deploy OPA gatekeeper
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/30_workshop_03_grc/125_create_policy_templates.html" title="Create Policy Constraint Templates" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../30_workshop_03_grc/125_create_policy_templates.html">
+          Create Policy Constraint Templates
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/30_workshop_03_grc/125_create_policy_templates/20_creating-contraint-template.html" title="Create Constraint Templates" class="dd-item active">
+        <a href="../../30_workshop_03_grc/125_create_policy_templates/20_creating-contraint-template.html">
+        Create Constraint Templates
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/30_workshop_03_grc/130_create_policy_contraints.html" title="Create Policy Constraints" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../30_workshop_03_grc/130_create_policy_contraints.html">
+          Create Policy Constraints
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/30_workshop_03_grc/130_create_policy_contraints/creating-contraints.html" title="Create OPA Constraints" class="dd-item ">
+        <a href="../../30_workshop_03_grc/130_create_policy_contraints/creating-contraints.html">
+        Create OPA Constraints
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/30_workshop_03_grc/140_test-policy-contraints.html" title="Test Policy Constraints" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../30_workshop_03_grc/140_test-policy-contraints.html">
+          Test Policy Constraints
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/30_workshop_03_grc/140_test-policy-contraints/20_deploy-test-apps.html" title="Deploy Test Apps" class="dd-item ">
+        <a href="../../30_workshop_03_grc/140_test-policy-contraints/20_deploy-test-apps.html">
+        Deploy Test Apps
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/30_workshop_03_grc/150_iam-groups.html" title="Using IAM Groups to manage Kubernetes access" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../30_workshop_03_grc/150_iam-groups.html">
+          Using IAM Groups to manage Kubernetes access
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/30_workshop_03_grc/150_iam-groups/10_intro.html" title="Kubernetes Authentication" class="dd-item ">
+        <a href="../../30_workshop_03_grc/150_iam-groups/10_intro.html">
+        Kubernetes Authentication
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/30_workshop_03_grc/150_iam-groups/20_create-iam-roles.html" title="Create IAM Roles" class="dd-item ">
+        <a href="../../30_workshop_03_grc/150_iam-groups/20_create-iam-roles.html">
+        Create IAM Roles
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/30_workshop_03_grc/150_iam-groups/21_create-iam-groups.html" title="Create IAM Groups" class="dd-item ">
+        <a href="../../30_workshop_03_grc/150_iam-groups/21_create-iam-groups.html">
+        Create IAM Groups
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/30_workshop_03_grc/150_iam-groups/22_create_iam_users.html" title="Create IAM Users" class="dd-item ">
+        <a href="../../30_workshop_03_grc/150_iam-groups/22_create_iam_users.html">
+        Create IAM Users
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/30_workshop_03_grc/150_iam-groups/30_create-k8s-rbac.html" title="Configure Kubernetes RBAC" class="dd-item ">
+        <a href="../../30_workshop_03_grc/150_iam-groups/30_create-k8s-rbac.html">
+        Configure Kubernetes RBAC
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/30_workshop_03_grc/150_iam-groups/31_configure-aws-auth.html" title="Configure Kubernetes Role Access" class="dd-item ">
+        <a href="../../30_workshop_03_grc/150_iam-groups/31_configure-aws-auth.html">
+        Configure Kubernetes Role Access
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/30_workshop_03_grc/150_iam-groups/40_test-cluster-access.html" title="Test EKS access" class="dd-item ">
+        <a href="../../30_workshop_03_grc/150_iam-groups/40_test-cluster-access.html">
+        Test EKS access
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/30_workshop_03_grc/150_iam-groups/70_cleanup.html" title="Cleanup" class="dd-item ">
+        <a href="../../30_workshop_03_grc/150_iam-groups/70_cleanup.html">
+        Cleanup
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/40_workshop_4_hipo-teams.html" title="Workshop Module 4: How to Build High Performing Team Operations" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../40_workshop_4_hipo-teams.html">
+          Workshop Module 4: How to Build High Performing Team Operations
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/40_workshop_4_hipo-teams/01_prerequisites.html" title="Workshop Prerequisites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../40_workshop_4_hipo-teams/01_prerequisites.html">
+          Workshop Prerequisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/40_workshop_4_hipo-teams/20_create-eks-cluster.html" title="Create EKS Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../40_workshop_4_hipo-teams/20_create-eks-cluster.html">
+          Create EKS Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/40_workshop_4_hipo-teams/30_gitops_enable_clusters.html" title="GitOps Enable Clusters" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../40_workshop_4_hipo-teams/30_gitops_enable_clusters.html">
+          GitOps Enable Clusters
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/30_gitops_enable_clusters/10_create-github.html" title="Create GitHub Repository" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/30_gitops_enable_clusters/10_create-github.html">
+        Create GitHub Repository
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/30_gitops_enable_clusters/30_enable_gitops.html" title="Enable Your Cluster for GitOps" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/30_gitops_enable_clusters/30_enable_gitops.html">
+        Enable Your Cluster for GitOps
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/30_gitops_enable_clusters/40_verify_flux_op.html" title="Verify Flux and Helm are Operational" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/30_gitops_enable_clusters/40_verify_flux_op.html">
+        Verify Flux and Helm are Operational
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/40_workshop_4_hipo-teams/40_install-app-mesh.html" title="Install App Mesh" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../40_workshop_4_hipo-teams/40_install-app-mesh.html">
+          Install App Mesh
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/40_install-app-mesh/10_create_namespace.html" title="Create the namespace" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/40_install-app-mesh/10_create_namespace.html">
+        Create the namespace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/40_install-app-mesh/20_install_appmesh_crds.html" title="Install App Mesh CRDs" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/40_install-app-mesh/20_install_appmesh_crds.html">
+        Install App Mesh CRDs
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/40_install-app-mesh/30_install_appmesh_controller.html" title="Install App Mesh Controller" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/40_install-app-mesh/30_install_appmesh_controller.html">
+        Install App Mesh Controller
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/40_install-app-mesh/40_install_appmesh_injector.html" title="Install App Mesh Injector" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/40_install-app-mesh/40_install_appmesh_injector.html">
+        Install App Mesh Injector
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/40_install-app-mesh/50_install_appmesh_prometheus.html" title="Install Prometheus for App Mesh" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/40_install-app-mesh/50_install_appmesh_prometheus.html">
+        Install Prometheus for App Mesh
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/40_install-app-mesh/90_verify_mesh.html" title="Verify the Service Mesh is Active" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/40_install-app-mesh/90_verify_mesh.html">
+        Verify the Service Mesh is Active
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/40_workshop_4_hipo-teams/50_install_container_insights.html" title="Install Container Insights" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../40_workshop_4_hipo-teams/50_install_container_insights.html">
+          Install Container Insights
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/50_install_container_insights/10_create_namespace.html" title="Create the namespace" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/50_install_container_insights/10_create_namespace.html">
+        Create the namespace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/50_install_container_insights/20_install_container_insights.html" title="Install Container Insights" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/50_install_container_insights/20_install_container_insights.html">
+        Install Container Insights
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/50_install_container_insights/30_verify_container_insights.html" title="Verify metric collection" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/50_install_container_insights/30_verify_container_insights.html">
+        Verify metric collection
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/50_install_container_insights/40_explore_container_insights.html" title="Explore Container Insights" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/50_install_container_insights/40_explore_container_insights.html">
+        Explore Container Insights
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/40_workshop_4_hipo-teams/60_install-pod-info.html" title="Install Sample App (PodInfo)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../40_workshop_4_hipo-teams/60_install-pod-info.html">
+          Install Sample App (PodInfo)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/60_install-pod-info/10_about_podinfo.html" title="Introducing Podinfo" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/60_install-pod-info/10_about_podinfo.html">
+        Introducing Podinfo
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/60_install-pod-info/20_create_namespace.html" title="Create the namespace" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/60_install-pod-info/20_create_namespace.html">
+        Create the namespace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/60_install-pod-info/30_create_podinfo.html" title="Create PodInfo" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/60_install-pod-info/30_create_podinfo.html">
+        Create PodInfo
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/60_install-pod-info/40_add_app_mesh.html" title="Create App Mesh Resources" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/60_install-pod-info/40_add_app_mesh.html">
+        Create App Mesh Resources
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/60_install-pod-info/50_verify_app_mesh.html" title="Verify App Mesh Resources" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/60_install-pod-info/50_verify_app_mesh.html">
+        Verify App Mesh Resources
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/60_install-pod-info/60_test_routing.html" title="Test the routing" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/60_install-pod-info/60_test_routing.html">
+        Test the routing
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/60_install-pod-info/70_update_routing.html" title="Update the routing" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/60_install-pod-info/70_update_routing.html">
+        Update the routing
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/60_install-pod-info/80_revert_routing.html" title="Revert the routing" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/60_install-pod-info/80_revert_routing.html">
+        Revert the routing
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/40_workshop_4_hipo-teams/60_install-pod-info/90_app_mesh_perf.html" title="Performance Monitoring" class="dd-item ">
+        <a href="../../40_workshop_4_hipo-teams/60_install-pod-info/90_app_mesh_perf.html">
+        Performance Monitoring
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc.html" title="Workshop Module 5: Accelerating the Software Development Lifecycle" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../50_workshop_5_accelerating_sdlc.html">
+          Workshop Module 5: Accelerating the Software Development Lifecycle
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc/00_prerequisites.md.html" title="Prerequisites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../50_workshop_5_accelerating_sdlc/00_prerequisites.md.html">
+          Prerequisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/00_prerequisites.md/01_create_workspace.html" title="AWS Workshop Portal" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/00_prerequisites.md/01_create_workspace.html">
+        AWS Workshop Portal
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/00_prerequisites.md/10_install_eksctl.html" title="Install eksctl" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/00_prerequisites.md/10_install_eksctl.html">
+        Install eksctl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/00_prerequisites.md/20_install_kubectl.html" title="Install kubectl" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/00_prerequisites.md/20_install_kubectl.html">
+        Install kubectl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/00_prerequisites.md/30_install_fluxctl.html" title="Install fluxctl" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/00_prerequisites.md/30_install_fluxctl.html">
+        Install fluxctl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/00_prerequisites.md/40_install_kustomize.html" title="Install kustomize" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/00_prerequisites.md/40_install_kustomize.html">
+        Install kustomize
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/00_prerequisites.md/50_install_aws_iam_auth.html" title="Install aws iam authenticator" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/00_prerequisites.md/50_install_aws_iam_auth.html">
+        Install aws iam authenticator
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/00_prerequisites.md/60_add_iam_role.html" title="Add the Required IAM Role" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/00_prerequisites.md/60_add_iam_role.html">
+        Add the Required IAM Role
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/00_prerequisites.md/70_workspace_iam.html" title="Update IAM settings for your Workspace" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/00_prerequisites.md/70_workspace_iam.html">
+        Update IAM settings for your Workspace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc/10_create_cluster.html" title="Create Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../50_workshop_5_accelerating_sdlc/10_create_cluster.html">
+          Create Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/10_create_cluster/01_create_eks_cluster.html" title="Create EKS Cluster" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/10_create_cluster/01_create_eks_cluster.html">
+        Create EKS Cluster
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc/15_deployment_strategies.html" title="Deployment Strategies" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../50_workshop_5_accelerating_sdlc/15_deployment_strategies.html">
+          Deployment Strategies
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/15_deployment_strategies/01_recreate.html" title="Recreate" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/15_deployment_strategies/01_recreate.html">
+        Recreate
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/15_deployment_strategies/02_rolling_update.html" title="Rolling Update" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/15_deployment_strategies/02_rolling_update.html">
+        Rolling Update
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/15_deployment_strategies/03_blue_green.html" title="Blue / Green" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/15_deployment_strategies/03_blue_green.html">
+        Blue / Green
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/15_deployment_strategies/04_canary.html" title="Canary" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/15_deployment_strategies/04_canary.html">
+        Canary
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc/20_enable_gitops.html" title="Enable GitOps" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../50_workshop_5_accelerating_sdlc/20_enable_gitops.html">
+          Enable GitOps
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/20_enable_gitops/01_create_git_repo.html" title="Create Git Repository" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/20_enable_gitops/01_create_git_repo.html">
+        Create Git Repository
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/20_enable_gitops/02_eksctl_enable_repo.html" title="Eksctl Enable Repo" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/20_enable_gitops/02_eksctl_enable_repo.html">
+        Eksctl Enable Repo
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc/30_install_appmesh.html" title="Install App Mesh" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../50_workshop_5_accelerating_sdlc/30_install_appmesh.html">
+          Install App Mesh
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/30_install_appmesh/01_install_app_mesh.html" title="Enable App Mesh eksctl Profile" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/30_install_appmesh/01_install_app_mesh.html">
+        Enable App Mesh eksctl Profile
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/30_install_appmesh/02_sync_repo.html" title="Sync your repository and Kustomize the Profile" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/30_install_appmesh/02_sync_repo.html">
+        Sync your repository and Kustomize the Profile
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc/40_progressive_delivery.html" title="Progressive Delivery" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../50_workshop_5_accelerating_sdlc/40_progressive_delivery.html">
+          Progressive Delivery
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/40_progressive_delivery/01_install_podinfo.html" title="Install Podinfo demo app" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/40_progressive_delivery/01_install_podinfo.html">
+        Install Podinfo demo app
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/40_progressive_delivery/02_review_flagger.html" title="Review Flagger" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/40_progressive_delivery/02_review_flagger.html">
+        Review Flagger
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/40_progressive_delivery/03_canary_release.html" title="Automated Canary Promotion" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/40_progressive_delivery/03_canary_release.html">
+        Automated Canary Promotion
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/50_workshop_5_accelerating_sdlc/40_progressive_delivery/04_canary_rollback.html" title="Automated Canary Rollback" class="dd-item ">
+        <a href="../../50_workshop_5_accelerating_sdlc/40_progressive_delivery/04_canary_rollback.html">
+        Automated Canary Rollback
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/60_workshop_6_ml.html" title="Workshop Module 6:  Machine Learning on AWS EKS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../60_workshop_6_ml.html">
+          Workshop Module 6:  Machine Learning on AWS EKS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/60_workshop_6_ml/00_prerequisites.md.html" title="Prerequisites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../60_workshop_6_ml/00_prerequisites.md.html">
+          Prerequisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/00_prerequisites.md/01_create_workspace.html" title="AWS Workshop Portal" class="dd-item ">
+        <a href="../../60_workshop_6_ml/00_prerequisites.md/01_create_workspace.html">
+        AWS Workshop Portal
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/00_prerequisites.md/10_install_eksctl.html" title="Install eksctl" class="dd-item ">
+        <a href="../../60_workshop_6_ml/00_prerequisites.md/10_install_eksctl.html">
+        Install eksctl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/00_prerequisites.md/20_install_kubectl.html" title="Install kubectl" class="dd-item ">
+        <a href="../../60_workshop_6_ml/00_prerequisites.md/20_install_kubectl.html">
+        Install kubectl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/00_prerequisites.md/30_install_fluxctl.html" title="Install fluxctl" class="dd-item ">
+        <a href="../../60_workshop_6_ml/00_prerequisites.md/30_install_fluxctl.html">
+        Install fluxctl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/00_prerequisites.md/40_install_kustomize.html" title="Install kustomize" class="dd-item ">
+        <a href="../../60_workshop_6_ml/00_prerequisites.md/40_install_kustomize.html">
+        Install kustomize
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/00_prerequisites.md/50_install_aws_iam_auth.html" title="Install aws iam authenticator" class="dd-item ">
+        <a href="../../60_workshop_6_ml/00_prerequisites.md/50_install_aws_iam_auth.html">
+        Install aws iam authenticator
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/00_prerequisites.md/60_add_iam_role.html" title="Add the Required IAM Role" class="dd-item ">
+        <a href="../../60_workshop_6_ml/00_prerequisites.md/60_add_iam_role.html">
+        Add the Required IAM Role
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/00_prerequisites.md/70_workspace_iam.html" title="Update IAM settings for your Workspace" class="dd-item ">
+        <a href="../../60_workshop_6_ml/00_prerequisites.md/70_workspace_iam.html">
+        Update IAM settings for your Workspace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/60_workshop_6_ml/05_setup.html" title="Cloud9 Setup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../60_workshop_6_ml/05_setup.html">
+          Cloud9 Setup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/05_setup/01_git-config-ssh-key.html" title="Cloud9 setup" class="dd-item ">
+        <a href="../../60_workshop_6_ml/05_setup/01_git-config-ssh-key.html">
+        Cloud9 setup
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/60_workshop_6_ml/10_create_cluster.html" title="Create Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../60_workshop_6_ml/10_create_cluster.html">
+          Create Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/10_create_cluster/01_create_eks_cluster.html" title="Create EKS Cluster" class="dd-item ">
+        <a href="../../60_workshop_6_ml/10_create_cluster/01_create_eks_cluster.html">
+        Create EKS Cluster
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/60_workshop_6_ml/20_enable_gitops.html" title="Enable GitOps" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../60_workshop_6_ml/20_enable_gitops.html">
+          Enable GitOps
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/20_enable_gitops/01_create_git_repo.html" title="Create Git Repository" class="dd-item ">
+        <a href="../../60_workshop_6_ml/20_enable_gitops/01_create_git_repo.html">
+        Create Git Repository
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/20_enable_gitops/02_eksctl_enable_repo.html" title="Eksctl Enable Repo" class="dd-item ">
+        <a href="../../60_workshop_6_ml/20_enable_gitops/02_eksctl_enable_repo.html">
+        Eksctl Enable Repo
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/60_workshop_6_ml/30_deploy_appdev_profile.html" title="Deploy Application Development Profile" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../60_workshop_6_ml/30_deploy_appdev_profile.html">
+          Deploy Application Development Profile
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/30_deploy_appdev_profile/01_app_dev.html" title="Deploy app-dev profile" class="dd-item ">
+        <a href="../../60_workshop_6_ml/30_deploy_appdev_profile/01_app_dev.html">
+        Deploy app-dev profile
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/60_workshop_6_ml/40_kubeflow.html" title="Kubeflow" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../60_workshop_6_ml/40_kubeflow.html">
+          Kubeflow
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/40_kubeflow/01_install_kubeflow.html" title="Deploy Kubeflow" class="dd-item ">
+        <a href="../../60_workshop_6_ml/40_kubeflow/01_install_kubeflow.html">
+        Deploy Kubeflow
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/60_workshop_6_ml/50_titanic_sample_application.html" title="Example application - Titanic Survival Prediction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../60_workshop_6_ml/50_titanic_sample_application.html">
+          Example application - Titanic Survival Prediction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/50_titanic_sample_application/01_aws_k8s-setup.html" title="AWS and Kubenetes Environment Setup" class="dd-item ">
+        <a href="../../60_workshop_6_ml/50_titanic_sample_application/01_aws_k8s-setup.html">
+        AWS and Kubenetes Environment Setup
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/50_titanic_sample_application/02_kubeflow_ui.html" title="Kubeflow UI" class="dd-item ">
+        <a href="../../60_workshop_6_ml/50_titanic_sample_application/02_kubeflow_ui.html">
+        Kubeflow UI
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/50_titanic_sample_application/03_build-model.html" title="Build Model" class="dd-item ">
+        <a href="../../60_workshop_6_ml/50_titanic_sample_application/03_build-model.html">
+        Build Model
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/50_titanic_sample_application/04_build-pipeline.html" title="Build Pipeline" class="dd-item ">
+        <a href="../../60_workshop_6_ml/50_titanic_sample_application/04_build-pipeline.html">
+        Build Pipeline
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/60_workshop_6_ml/50_titanic_sample_application/05_run.html" title="Run Pipeline" class="dd-item ">
+        <a href="../../60_workshop_6_ml/50_titanic_sample_application/05_run.html">
+        Run Pipeline
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/70_workshop_7_multicloud.html" title="Workshop Module 7: Cluster Management using Operators" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../70_workshop_7_multicloud.html">
+          Workshop Module 7: Cluster Management using Operators
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites.html" title="Prerequisites for Workshop" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../70_workshop_7_multicloud/10_prerequisites.html">
+          Prerequisites for Workshop
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites/10_workspace.html" title="Open Workspace" class="dd-item ">
+        <a href="../../70_workshop_7_multicloud/10_prerequisites/10_workspace.html">
+        Open Workspace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites/11_install_eksctl.html" title="Install eksctl" class="dd-item ">
+        <a href="../../70_workshop_7_multicloud/10_prerequisites/11_install_eksctl.html">
+        Install eksctl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites/12_install_kubectl.html" title="Install kubectl" class="dd-item ">
+        <a href="../../70_workshop_7_multicloud/10_prerequisites/12_install_kubectl.html">
+        Install kubectl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites/13_install_helm.html" title="Install helm" class="dd-item ">
+        <a href="../../70_workshop_7_multicloud/10_prerequisites/13_install_helm.html">
+        Install helm
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites/14_install_fluxctl.html" title="Install fluxctl" class="dd-item ">
+        <a href="../../70_workshop_7_multicloud/10_prerequisites/14_install_fluxctl.html">
+        Install fluxctl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites/15_install_kustomize.html" title="Install kustomize" class="dd-item ">
+        <a href="../../70_workshop_7_multicloud/10_prerequisites/15_install_kustomize.html">
+        Install kustomize
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites/16_install_aws-iam.html" title="Install AWS IAM" class="dd-item ">
+        <a href="../../70_workshop_7_multicloud/10_prerequisites/16_install_aws-iam.html">
+        Install AWS IAM
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites/17_add_the_role.html" title="Add the Required IAM Role" class="dd-item ">
+        <a href="../../70_workshop_7_multicloud/10_prerequisites/17_add_the_role.html">
+        Add the Required IAM Role
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites/18_workspaceiam.html" title="Update IAM settings for your Workspace" class="dd-item ">
+        <a href="../../70_workshop_7_multicloud/10_prerequisites/18_workspaceiam.html">
+        Update IAM settings for your Workspace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites/19_direnv.html" title="Install direnv" class="dd-item ">
+        <a href="../../70_workshop_7_multicloud/10_prerequisites/19_direnv.html">
+        Install direnv
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites/20_clusterctl.html" title="Install clusterctl" class="dd-item ">
+        <a href="../../70_workshop_7_multicloud/10_prerequisites/20_clusterctl.html">
+        Install clusterctl
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/70_workshop_7_multicloud/15_setup_git_repo.html" title="Set up git repo" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../70_workshop_7_multicloud/15_setup_git_repo.html">
+          Set up git repo
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/70_workshop_7_multicloud/20_credentials.html" title="Set up credentials" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../70_workshop_7_multicloud/20_credentials.html">
+          Set up credentials
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/70_workshop_7_multicloud/30_bootstrap_management_cluster.html" title="Bootstrap Management Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../70_workshop_7_multicloud/30_bootstrap_management_cluster.html">
+          Bootstrap Management Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/70_workshop_7_multicloud/31_add_yamls.html" title="Add YAMLs" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../70_workshop_7_multicloud/31_add_yamls.html">
+          Add YAMLs
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/70_workshop_7_multicloud/40_gitops_enable_clusters.html" title="GitOps Enable Clusters" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../70_workshop_7_multicloud/40_gitops_enable_clusters.html">
+          GitOps Enable Clusters
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/70_workshop_7_multicloud/50_cleanup.html" title="Cleanup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../70_workshop_7_multicloud/50_cleanup.html">
+          Cleanup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/100_cleanup.html" title="Cleanup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../100_cleanup.html">
+          Cleanup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/100_cleanup/10_cleanup.html" title="Cleanup" class="dd-item ">
+        <a href="../../100_cleanup/10_cleanup.html">
+        Cleanup
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://awsworkshop.io"><i class='fas fa-graduation-cap'></i> Modern Ops Workshops</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/builders-library/"><i class='fas fa-tools'></i> AWS Builders Library</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/blogs/modernizing-with-aws/"><i class='far fa-lightbulb'></i> Modern Ops with AWS & Weaveworks</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/partners/find/"><i class='fas fa-users'></i> Partner Solutions Finder</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    <h5 class="copyright">&copy; 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.<h5>
+</left>
+
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../'>GitOps on EKS with Weaveworks</a> > <a href='../../30_workshop_03_grc.html'>Workshop Module 3: Managing GRC for K8s on EKS</a> > <a href='../../30_workshop_03_grc/125_create_policy_templates.html'>Create Policy Constraint Templates</a> > Create Constraint Templates
+          
+        
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#let-s-download-some-samples-for-the-above">Let&rsquo;s download some samples for the above</a></li>
+<li><a href="#explore-the-require-labels-template">Explore the require-labels template</a></li>
+<li><a href="#targets">Targets</a></li>
+<li><a href="#explore-the-allowed-repos-template">Explore the allowed-repos template</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Create Constraint Templates
+            </h1>
+          
+
+        
+
+
+
+
+<p>We are going to create 2 templates:</p>
+
+<ul>
+<li><strong>allowed-repos</strong> this will determine what image repos can ben used in production</li>
+<li><strong>require-labels</strong> - this policy requires that namespaces must have labels that match a regex value</li>
+</ul>
+
+<h3 id="let-s-download-some-samples-for-the-above">Let&rsquo;s download some samples for the above</h3>
+
+<p>Run the following commands to download some policy template examples to your local git repo:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir opa/templates</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/library/general/allowedrepos/template.yaml -o opa/templates/allowed-repos.yaml</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl https://github.com/open-policy-agent/gatekeeper/blob/master/library/general/requiredlabels/template.yaml -o opa/templates/require-labels.yaml</code></pre></div>
+<h3 id="explore-the-require-labels-template">Explore the require-labels template</h3>
+
+<p>Lets understand what&rsquo;s happening and what each part of this template is doing.</p>
+
+<p>If we look at <a href=".opa/templates/require-labels.yaml" target="_blank">require-labels.yaml</a></p>
+
+<p>We can see this is a <strong>ConstraintTemplate</strong> object. If you remember this crd was created when we first deplopyed opa-gatekeeper.</p>
+
+<p>Okay, the metadata has the name of the template which is standard stuff, let&rsquo;s look at the next part, we can see inside the <strong>spec</strong> that this template is going to create another crd!!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">crd</span>:
+    <span style="color:#66d9ef">spec</span>:
+      <span style="color:#66d9ef">names</span>:
+        <span style="color:#66d9ef">kind</span>: K8sRequiredLabels
+      <span style="color:#66d9ef">validation</span>:
+        <span style="color:#75715e"># Schema for the `parameters` field</span>
+        <span style="color:#66d9ef">openAPIV3Schema</span>:
+          <span style="color:#66d9ef">properties</span>:
+            <span style="color:#66d9ef">message</span>:
+              <span style="color:#66d9ef">type</span>: string
+            <span style="color:#66d9ef">labels</span>:
+              <span style="color:#66d9ef">type</span>: array
+              <span style="color:#66d9ef">items</span>:
+                <span style="color:#66d9ef">type</span>: object
+                <span style="color:#66d9ef">properties</span>:
+                  <span style="color:#66d9ef">key</span>:
+                    <span style="color:#66d9ef">type</span>: string
+                  <span style="color:#66d9ef">allowedRegex</span>:
+                    <span style="color:#66d9ef">type</span>: string</code></pre></div>
+
+<div class="notices info" ><p>Remember, this is only a template, so that means that on its own, its not going to do anything, it needs to be consumed by something else. So every constraint template needs to create constraint objects so it can be used (and it does this by creating crd&rsquo;s). Hopefully that makes sense but don&rsquo;t worry we will show some examples shortly.</p>
+</div>
+
+
+<p>The above example shows the outline for the crd, in this case it&rsquo;s called <code>K8sRequiredLabels</code> it also contains the parameters of the constraint, in this case its <code>labels</code> which is an array of items you can add (<code>key</code> + <code>allowedRegex</code>).</p>
+
+<p>There is also a <code>message</code> string which can be used add different messages to the template.</p>
+
+<p>This allows us to create simple constraints with just a few parameters and re-use this template.</p>
+
+<p>The next part of the constraints template is <code>targets</code>. This is where the rego code (policy rules) are added..</p>
+
+<h3 id="targets">Targets</h3>
+
+<p><strong>You can only have 1 target per constraint</strong></p>
+
+<p>This contains the <code>rego</code> policy you should use to define what rules are applied.</p>
+
+<p>Let&rsquo;s take a look:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">  <span style="color:#66d9ef">targets</span>:
+    - <span style="color:#66d9ef">target</span>: admission.k8s.gatekeeper.sh
+      <span style="color:#66d9ef">rego</span>: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">        package k8srequiredlabels</span>
+        get_message(parameters, _default) = msg {
+          not parameters.message
+          msg := _default
+        }
+        get_message(parameters, _default) = msg {
+          msg := parameters.message
+        }
+        violation[{<span style="color:#66d9ef">&#34;msg&#34;: msg, &#34;details&#34;: {&#34;missing_labels&#34;: </span>missing}}] {
+          provided := {label | input.review.object.metadata.labels[label]}
+          required := {label | label := input.parameters.labels[_].key}
+          missing := required - provided
+          count(missing) &gt; <span style="color:#ae81ff">0</span>
+          def_msg := sprintf(<span style="color:#e6db74">&#34;you must provide labels: %v&#34;</span>, [missing])
+          msg := get_message(input.parameters, def_msg)
+        }
+        violation[{<span style="color:#66d9ef">&#34;msg&#34;: </span>msg}] {
+          value := input.review.object.metadata.labels[key]
+          expected := input.parameters.labels[_]
+          expected.key == key
+          <span style="color:#75715e"># do not match if allowedRegex is not defined, or is an empty string</span>
+          expected.allowedRegex != <span style="color:#e6db74">&#34;&#34;</span>
+          not re_match(expected.allowedRegex, value)
+          def_msg := sprintf(<span style="color:#e6db74">&#34;Label &lt;%v: %v&gt; does not satisfy allowed regex: %v&#34;</span>, [key, value, expected.allowedRegex])
+          msg := get_message(input.parameters, def_msg)
+        }</code></pre></div>
+<p>As we can see in the rego policy, we&rsquo;ve set 2 <code>violations</code>, one flags if required labels are missing, the other flags up if the label exists <strong>but</strong> does not match the regex we specified in the contraint.</p>
+
+
+<div class="notices info" ><p><strong>Things to note</strong> - when configuring rules you can add as many and configure them how you want but you must have the following format on at least one of them for this to work and flag as a violation:</p>
+</div>
+
+<pre><code>violation[{&#34;msg&#34;: msg, &#34;details&#34;: {}}] {
+  # rule body
+}</code></pre>
+<p>As we discussed earlier, this is just a <strong>contraint template</strong>, its not a constraint and it does nothing when deployed on it&rsquo;s own.</p>
+
+<h3 id="explore-the-allowed-repos-template">Explore the allowed-repos template</h3>
+
+<p>The format for this look svery similar, we have <code>metadata</code> and <code>name</code>, then inside the <code>spec</code> we are defining a crd called <code>K8sAllowedRepos</code>.</p>
+
+<p>The accepted parameters are an array of <code>repos</code> which include item values.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: templates.gatekeeper.sh/v1beta1
+<span style="color:#66d9ef">kind</span>: ConstraintTemplate
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: k8sallowedrepos
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">crd</span>:
+    <span style="color:#66d9ef">spec</span>:
+      <span style="color:#66d9ef">names</span>:
+        <span style="color:#66d9ef">kind</span>: K8sAllowedRepos
+      <span style="color:#66d9ef">validation</span>:
+        <span style="color:#75715e"># Schema for the `parameters` field</span>
+        <span style="color:#66d9ef">openAPIV3Schema</span>:
+          <span style="color:#66d9ef">properties</span>:
+            <span style="color:#66d9ef">repos</span>:
+              <span style="color:#66d9ef">type</span>: array
+              <span style="color:#66d9ef">items</span>:
+                <span style="color:#66d9ef">type</span>: string</code></pre></div>
+<p>Next let&rsquo;s look at the targets:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">targets</span>:
+    - <span style="color:#66d9ef">target</span>: admission.k8s.gatekeeper.sh
+      <span style="color:#66d9ef">rego</span>: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">        package k8sallowedrepos</span>
+        violation[{<span style="color:#66d9ef">&#34;msg&#34;: </span>msg}] {
+          container := input.review.object.spec.containers[_]
+          satisfied := [good | repo = input.parameters.repos[_] ; good = startswith(container.image, repo)]
+          not any(satisfied)
+          msg := sprintf(<span style="color:#e6db74">&#34;container &lt;%v&gt; has an invalid image repo &lt;%v&gt;, allowed repos are %v&#34;</span>, [container.name, container.image, input.parameters.repos])
+        }
+        violation[{<span style="color:#66d9ef">&#34;msg&#34;: </span>msg}] {
+          container := input.review.object.spec.initContainers[_]
+          satisfied := [good | repo = input.parameters.repos[_] ; good = startswith(container.image, repo)]
+          not any(satisfied)
+          msg := sprintf(<span style="color:#e6db74">&#34;container &lt;%v&gt; has an invalid image repo &lt;%v&gt;, allowed repos are %v&#34;</span>, [container.name, container.image, input.parameters.repos])
+        }</code></pre></div>
+<p>For this we&rsquo;ve created 2 rule violations. Bot of which checks the provided container image and compares the beginning of it to the repos in our parameters.</p>
+
+<p>If the image we use does not match what we have in our contraint, then it will trigger a violation.</p>
+
+<p>Lets check this in to git and next we can look at constraints and start using these templates.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git add opa/templates</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git commit -m <span style="color:#e6db74">&#34;adding opa templates&#34;</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git push</code></pre></div>
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../30_workshop_03_grc/125_create_policy_templates.html" title="Create Policy Constraint Templates"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../30_workshop_03_grc/130_create_policy_contraints.html" title="Create Policy Constraints" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js?1597684483"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1597684483"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1597684483"></script>
+    <script src="../../js/jquery.sticky.js?1597684483"></script>
+    <script src="../../js/featherlight.min.js?1597684483"></script>
+    <script src="../../js/highlight.pack.js?1597684483"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1597684483"></script>
+    <script src="../../js/learn.js?1597684483"></script>
+    <script src="../../js/hugo-learn.js?1597684483"></script>
+
+    <link href="../../mermaid/mermaid.css?1597684483" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1597684483"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

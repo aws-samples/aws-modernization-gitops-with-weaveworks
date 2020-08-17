@@ -1,0 +1,78 @@
+# Node for Virtual Service
+apiVersion: appmesh.k8s.aws/v1beta1
+kind: VirtualNode
+metadata:
+  name: backend-podinfo
+  namespace: apps
+spec:
+  meshName: apps
+  listeners:
+    - portMapping:
+        port: 9898
+        protocol: http
+  serviceDiscovery:
+    dns:
+      hostName: backend.apps.svc.cluster.local
+  logging:
+    accessLog:
+      file:
+        path: "/dev/stdout"
+---
+# Node for Physical Service
+apiVersion: appmesh.k8s.aws/v1beta1
+kind: VirtualNode
+metadata:
+  name: frontend-podinfo
+  namespace: apps
+spec:
+  meshName: apps
+  listeners:
+    - portMapping:
+        port: 9898
+        protocol: http
+  serviceDiscovery:
+    dns:
+      hostName: frontend-podinfo.apps.svc.cluster.local
+  backends:
+    - virtualService:
+        virtualServiceName: backend-podinfo.apps.svc.cluster.local
+---
+# Node for Physical Service
+apiVersion: appmesh.k8s.aws/v1beta1
+kind: VirtualNode
+metadata:
+  name: backend-podinfo-v1
+  namespace: apps
+spec:
+  meshName: apps
+  listeners:
+    - portMapping:
+        port: 9898
+        protocol: http
+  serviceDiscovery:
+    dns:
+      hostName: backend-podinfo-v1.apps.svc.cluster.local
+  logging:
+    accessLog:
+      file:
+        path: "/dev/stdout"
+---
+# Node for Physical Service
+apiVersion: appmesh.k8s.aws/v1beta1
+kind: VirtualNode
+metadata:
+  name: backend-podinfo-v2
+  namespace: apps
+spec:
+  meshName: apps
+  listeners:
+    - portMapping:
+        port: 9898
+        protocol: http
+  serviceDiscovery:
+    dns:
+      hostName: backend-podinfo-v2.apps.svc.cluster.local
+  logging:
+    accessLog:
+      file:
+        path: "/dev/stdout"

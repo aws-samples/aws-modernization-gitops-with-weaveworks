@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cleanup on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/100_cleanup.html</link>
+    <description>Recent content in Cleanup on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/100_cleanup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cleanup</title>
+      <link>/100_cleanup/10_cleanup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/100_cleanup/10_cleanup.html</guid>
+      <description>AWS Cleanup In order to prevent charges to your account we recommend cleaning up the infrastructure that was created. If you plan to keep things running so you can examine the workshop a bit more please remember to do the cleanup when you are done. It is very easy to leave things running in an AWS account, forget about it, and then accrue charges.
+ In the AWS console, go to CloudFormation, click ModernizationWorkshop-EKS stack and then Delete.</description>
+    </item>
+    
+  </channel>
+</rss>

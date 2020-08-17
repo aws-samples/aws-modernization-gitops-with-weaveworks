@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Enable GitOps on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/60_workshop_6_ml/20_enable_gitops.html</link>
+    <description>Recent content in Enable GitOps on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/60_workshop_6_ml/20_enable_gitops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create Git Repository</title>
+      <link>/60_workshop_6_ml/20_enable_gitops/01_create_git_repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/20_enable_gitops/01_create_git_repo.html</guid>
+      <description>Using your github account, create a repository called &amp;lsquo;&amp;lt;eks cluster name&amp;gt;-config&amp;rsquo; in your personal git organisation.
+For instructions on how to create a repository on GitHub follow these steps..
+In the Cloud9 environment, a user SSH key pair is not automatically created. Use these instructions to create an SSH key pair for use as your git repository deploy keys.
+ You will also want to add your ssh. Instructions to do so are here.</description>
+    </item>
+    
+    <item>
+      <title>Eksctl Enable Repo</title>
+      <link>/60_workshop_6_ml/20_enable_gitops/02_eksctl_enable_repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/20_enable_gitops/02_eksctl_enable_repo.html</guid>
+      <description>Ensure you are in the root of your Cloud9 Environment and clone your repository.
+GITHUB_DIR=$PWD/src/github.com GIT_EMAIL=$(git config -f ~/.gitconfig --get user.email) GIT_ORG=$(git config -f ~/.gitconfig --get user.name) EKSCTL_EXPERIMENTAL=true \  eksctl enable repo \  --git-url git@github.com:$GIT_ORG/${EKS_CLUSTER_NAME}-config \  --git-email $GIT_EMAIL \  --cluster $EKS_CLUSTER_NAME \  --region &amp;#34;$AWS_DEFAULT_REGION&amp;#34; ` &amp;lsquo;eksctl enable repo&amp;rsquo; will install FluxCD and the Helm Operator (with support for Helm v3).
+When the command finishes, you will be prompted to add Flux&amp;rsquo;s SSH public key to your GitHub repository.</description>
+    </item>
+    
+  </channel>
+</rss>

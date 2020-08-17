@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deploy OPA gatekeeper on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/30_workshop_03_grc/120_deploy_opa_gatekeeper.html</link>
+    <description>Recent content in Deploy OPA gatekeeper on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 12 Apr 2020 18:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/30_workshop_03_grc/120_deploy_opa_gatekeeper/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Intro to OPA</title>
+      <link>/30_workshop_03_grc/120_deploy_opa_gatekeeper/20_intro-to-opa.html</link>
+      <pubDate>Sun, 12 Apr 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/120_deploy_opa_gatekeeper/20_intro-to-opa.html</guid>
+      <description>What is OPA? Open Policy Agent (OPA) is an open source, general-purpose policy engine that enables unified, context-aware policy enforcement across the entire stack.
+It allows you to express policies in a high level, declaritive way using rego.
+Here&amp;rsquo;s a link which you can run through to get a ful understanding on how opa and rego code works: OPA
+OPA is platform/service agnostic, it can be used in your jenkins pipelines, terraform, kubernetes and much more&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Deploy OPA gatekeeper</title>
+      <link>/30_workshop_03_grc/120_deploy_opa_gatekeeper/30_deploy-opa-gatekeeper.html</link>
+      <pubDate>Sun, 12 Apr 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/120_deploy_opa_gatekeeper/30_deploy-opa-gatekeeper.html</guid>
+      <description>Let&amp;rsquo;s deploy opa gatekeeper using a prebuilt image.
+This manifest will deplpy the following in to the cluster:
+ gatekeeper-system namespace gatekeeper-admin service account config custom resource defintion ConstraintTemplate custom resource gatekeeper-webhook-service - clusterip service gatekeeper-controller-manager deployment secret - self signed certificate think about using something else, such as cert-manager + pki required roles ValidatingWebhookConfiguration - this basically creates a validating webhook whenever a resource is created or udpated in the cluster</description>
+    </item>
+    
+  </channel>
+</rss>

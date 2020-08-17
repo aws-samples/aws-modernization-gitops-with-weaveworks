@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Install Sample App (PodInfo) on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/40_workshop_4_hipo-teams/60_install-pod-info.html</link>
+    <description>Recent content in Install Sample App (PodInfo) on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/40_workshop_4_hipo-teams/60_install-pod-info/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introducing Podinfo</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/10_about_podinfo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/10_about_podinfo.html</guid>
+      <description>Podinfo is a tiny web application made with Go that showcases best practices of running microservices in Kubernetes. It provides a simple web interface that allows you verify the operation of ingresses and/or service meshes. Podinfo was written by Stefan Prodan of Weaveworks, and is freely available on github. There are many options, and URLs are available to provide a wealth of information. More information on Podinfo is available here.</description>
+    </item>
+    
+    <item>
+      <title>Create the namespace</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/20_create_namespace.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/20_create_namespace.html</guid>
+      <description>All the PodInfo components will be live in the apps namespace in our EKS cluster. We will be managing all namespaces via GitOps. This includes the actual creation of the namespace and also the resources contained with it.
+Create a file within the namespaces folder called apps.yaml.
+Paste the contents of the following into the new file:
+--- apiVersion: v1 kind: Namespace metadata: labels: name: apps appmesh.k8s.aws/sidecarInjectorWebhook: enabled name: apps Notice that the namespace has included a label called appmesh.</description>
+    </item>
+    
+    <item>
+      <title>Create PodInfo</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/30_create_podinfo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/30_create_podinfo.html</guid>
+      <description>We first need to install the 3 different instances of PodInfo:
+ Frontend Backend v1 Backend v2  Create a apps folder in our repo:
+. ├── amazon-cloudwatch │ ├── cwagent-fluentd-quickstart.yaml │ └── cwagent-prometheus-eks.yaml ├── appmesh-system │ ├── appmesh-controller.yaml │ ├── appmesh-inject.yaml │ ├── appmesh-prometheus.yaml │ └── crds.yaml ├── apps ├── namespaces │ ├── amazon-cloudwatch.yaml │ ├── appmesh-system.yaml │ └── apps.yaml └── README.md Now download the yaml file for the deployments and services:</description>
+    </item>
+    
+    <item>
+      <title>Create App Mesh Resources</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/40_add_app_mesh.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/40_add_app_mesh.html</guid>
+      <description>We are now going to the the following App Mesh resources for our PodInfo application:
+ Virtual Nodes - for our existing PodInfo services (physical) and also for our new &amp;ldquo;virtual&amp;rdquo; backend service Virtual Service - defines a new &amp;ldquo;virtual&amp;rdquo; service for the backend that will distribute traffic between the existing v1 and v2 backend PodInfo services/pods  To do this download the yaml files into the apps folder:
+# Virtual nodes curl https://weaveworks-gitops.</description>
+    </item>
+    
+    <item>
+      <title>Verify App Mesh Resources</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/50_verify_app_mesh.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/50_verify_app_mesh.html</guid>
+      <description>When we created the VirtualNode and VirtualService resources in EKS the controller acted on these and updated AWS App Mesh.
+To check that the mesh has been created we can use the AWS CLI. Run the following command:
+aws appmesh list-virtual-routers --mesh-name=apps The output should be similar to below and you should see apps listed:
+{ &amp;#34;virtualRouters&amp;#34;: [ { &amp;#34;arn&amp;#34;: &amp;#34;arn:aws:appmesh:us-west-2:1234567890:mesh/apps/virtualRouter/backend-podinfo-router-apps&amp;#34;, &amp;#34;meshName&amp;#34;: &amp;#34;apps&amp;#34;, &amp;#34;meshOwner&amp;#34;: &amp;#34;1234567890&amp;#34;, &amp;#34;resourceOwner&amp;#34;: &amp;#34;1234567890&amp;#34;, &amp;#34;virtualRouterName&amp;#34;: &amp;#34;backend-podinfo-router-apps&amp;#34; } ] } Lets check that the traffic to the backend service has been configured to be routed 50:50 between v1 and v2:</description>
+    </item>
+    
+    <item>
+      <title>Test the routing</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/60_test_routing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/60_test_routing.html</guid>
+      <description>Now lets test the routing of requests to the backend PodInfo services. According to the routing rules we created request should be split roughly 50:50 between v1 and v2.
+We&amp;rsquo;ll need to exec onto the frontend container:
+# Get the frontend pod&amp;#39;s name export FRONTEND_NAME=$(kubectl get pods -n apps -l app=frontend-podinfo -o jsonpath=&amp;#39;{.items[].metadata.name}&amp;#39;) # Exec into the pod kubectl -n apps exec -it ${FRONTEND_NAME} -- sh We&amp;rsquo;ll use curl to make a request to the backend-podinfo.</description>
+    </item>
+    
+    <item>
+      <title>Update the routing</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/70_update_routing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/70_update_routing.html</guid>
+      <description>We are happy that v2 of the backend service is behaving as expected and want to switch 100% of the traffic to it.
+Edit the apps/3-podinfo-virtual-services.yaml file so it looks like this:
+apiVersion: appmesh.k8s.aws/v1beta1 kind: VirtualService metadata: name: backend-podinfo.apps.svc.cluster.local namespace: apps spec: meshName: apps virtualRouter: name: backend-podinfo-router routes: - name: podinfo-route http: match: prefix: / action: weightedTargets: - virtualNodeName: backend-podinfo-v2 weight: 100 We have removed the target for v1 and updated the target for v2 to be 100.</description>
+    </item>
+    
+    <item>
+      <title>Revert the routing</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/80_revert_routing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/80_revert_routing.html</guid>
+      <description>The support department is receiving calls from customers about errors they are getting after the new release. You want to put the routing back to a 50:50 split.
+This can be done in 2 ways:
+ Revert the last commit and force push - rewrites history Fix forward - by updating the file and committing/push  If you revert the change you will lose the history of the routing changes. Many companies prefer a Fix Forward approach because of this.</description>
+    </item>
+    
+    <item>
+      <title>Performance Monitoring</title>
+      <link>/40_workshop_4_hipo-teams/60_install-pod-info/90_app_mesh_perf.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/60_install-pod-info/90_app_mesh_perf.html</guid>
+      <description>As we&amp;rsquo;ve made some request using App Mesh lets return to Container Insights to have a look at the App Mesh performnace monitoring.
+In the AWS Console make sure you are in CloudWatch.
+On the left navigation pane click Performance Monitoring under Container Insights.
+In the left most dropdown box choose Prometheus AppMesh and then in the dropdown box next to this select our cluster gitopsworkshop.
+When you do this you will see perforamne metrics that are specific to App Mesh.</description>
+    </item>
+    
+  </channel>
+</rss>

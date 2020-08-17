@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Create a Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/22_workshop_1/10_create_cluster.html</link>
+    <description>Recent content in Create a Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/22_workshop_1/10_create_cluster/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create a Cluster with eksctl</title>
+      <link>/22_workshop_1/10_create_cluster/10-create-cluster.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/10_create_cluster/10-create-cluster.html</guid>
+      <description>eksctl makes it simple to provision Kubernetes clusters in EKS. For this workshop, we will create a defauklt three node EKS cluster. With eksctl, this is a single command line:
+eksctl create cluster --name eksworkshop You will see a number of messages scroll, ending with the kubeconfig message
+ [ℹ] eksctl version 0.18.0 [ℹ] using region us-west-2 ..... [ℹ] deploying stack &#34;eksctl-unique-unicorn-1588181335-nodegroup-ng-d61e2b06&#34; [✔] all EKS cluster resources for &#34;unique-unicorn-1588181335&#34; have been created [✔] saved kubeconfig as &#34;</description>
+    </item>
+    
+  </channel>
+</rss>

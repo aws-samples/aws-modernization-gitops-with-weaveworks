@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Progressive Delivery on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/50_workshop_5_accelerating_sdlc/40_progressive_delivery.html</link>
+    <description>Recent content in Progressive Delivery on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/50_workshop_5_accelerating_sdlc/40_progressive_delivery/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Install Podinfo demo app</title>
+      <link>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/01_install_podinfo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/01_install_podinfo.html</guid>
+      <description>In the /base/demo folder, you will find several components that will help us deploy our sample podinfo application.
+Install the demo app by setting fluxcd.io/ignore to false in base/demo/namespace.yaml:
+cat &amp;lt;&amp;lt; EOF | tee base/demo/namespace.yaml apiVersion: v1 kind: Namespace metadata: name: demo annotations: fluxcd.io/ignore: &amp;#34;false&amp;#34; labels: appmesh.k8s.aws/sidecarInjectorWebhook: enabled EOF Push the changes to your git repository and apply using fluxctl:
+git add -A &amp;amp;&amp;amp; \ git commit -m &amp;#34;init demo&amp;#34; &amp;amp;&amp;amp; \ git push origin master &amp;amp;&amp;amp; \ fluxctl sync --k8s-fwd-ns flux Wait for Flagger to initialize the canary:</description>
+    </item>
+    
+    <item>
+      <title>Review Flagger</title>
+      <link>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/02_review_flagger.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/02_review_flagger.html</guid>
+      <description>In base/demo/podinfo/canary.yaml, you&amp;rsquo;ll see the specifications for Flagger to automatically increase traffic to new versions of the application. In this workshop, we will be demonstrating a successful canary release, as well mimicking a failed canary release.
+Below is the Canary configuration:
+apiVersion: flagger.app/v1beta1 kind: Canary metadata: name: podinfo namespace: demo spec: provider: appmesh # the maximum time in seconds for the canary deployment # to make progress before it is rollback (default 600s) progressDeadlineSeconds: 60 # deployment reference targetRef: apiVersion: apps/v1 kind: Deployment name: podinfo # HPA reference (optional) autoscalerRef: apiVersion: autoscaling/v2beta1 kind: HorizontalPodAutoscaler name: podinfo service: # container port port: 9898 # container port name (optional) # can be http or grpc portName: http # App Mesh Gateway external domain hosts: - &amp;#34;*&amp;#34; # App Mesh reference meshName: &amp;#34;gitopssdlcworkshop&amp;#34; # App Mesh retry policy (optional) retries: attempts: 3 perTryTimeout: 1s retryOn: &amp;#34;gateway-error,client-error,stream-error&amp;#34; # define the canary analysis timing and KPIs analysis: # schedule interval (default 60s) interval: 10s # max number of failed metric checks before rollback threshold: 10 # max traffic percentage routed to canary # percentage (0-100) maxWeight: 50 # canary increment step # percentage (0-100) stepWeight: 5 # App Mesh Prometheus checks metrics: - name: request-success-rate # minimum req success rate (non 5xx responses) # percentage (0-100) thresholdRange: min: 99 interval: 1m - name: request-duration # maximum req duration P99 # milliseconds thresholdRange: max: 500 interval: 30s # testing (optional) webhooks: - name: acceptance-test type: pre-rollout url: http://flagger-loadtester.</description>
+    </item>
+    
+    <item>
+      <title>Automated Canary Promotion</title>
+      <link>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/03_canary_release.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/03_canary_release.html</guid>
+      <description>When you deploy a new podinfo version, Flagger gradually shifts traffic to the canary. At the same time, Flagger measures the requests success rate as well as the average response duration. Based on an analysis of these App Mesh provided metrics, a canary deployment is either promoted or rolled back.
+Run the following command to create a Kustomize patch for the podinfo deployment in overlays/podinfo.yaml:
+mkdir -p overlays &amp;amp;&amp;amp; \ cat &amp;lt;&amp;lt; EOF | tee overlays/podinfo.</description>
+    </item>
+    
+    <item>
+      <title>Automated Canary Rollback</title>
+      <link>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/04_canary_rollback.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/40_progressive_delivery/04_canary_rollback.html</guid>
+      <description>Now we will generate some failed requests to trigger an automated rollback.
+During the canary analysis, you can generate HTTP 500 errors and high latency to verify that Flagger pauses and rolls back the faulty version.
+Trigger another canary release:
+cat &amp;lt;&amp;lt; EOF | tee overlays/podinfo.yaml apiVersion: apps/v1 kind: Deployment metadata: name: podinfo namespace: demo spec: template: spec: containers: - name: podinfod image: stefanprodan/podinfo:3.1.2 env: - name: PODINFO_UI_LOGO value: https://eks.handson.flagger.dev/cuddle_bunny.gif EOF Push your changes and use fluxctl to sync:</description>
+    </item>
+    
+  </channel>
+</rss>

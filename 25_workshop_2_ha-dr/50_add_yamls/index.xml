@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Add YAMLs to Repo on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/25_workshop_2_ha-dr/50_add_yamls.html</link>
+    <description>Recent content in Add YAMLs to Repo on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/25_workshop_2_ha-dr/50_add_yamls/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Install an Application Load Balancer Ingress Controller (RBAC)</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html</guid>
+      <description>This manifest creates the role based authorization (RBAC) for the ingress controller. Copy and paste the following into a file called alb-rbac.yaml in your repository:
+--- apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRole metadata: labels: app.kubernetes.io/name: alb-ingress-controller name: alb-ingress-controller rules: - apiGroups: - &amp;#34;&amp;#34; - extensions resources: - configmaps - endpoints - events - ingresses - ingresses/status - services verbs: - create - get - list - update - watch - patch - apiGroups: - &amp;#34;&amp;#34; - extensions resources: - nodes - pods - secrets - services - namespaces verbs: - get - list - watch --- apiVersion: rbac.</description>
+    </item>
+    
+    <item>
+      <title>Install an Application Load Balancer Ingress Controller</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/11_alb_ingress.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/11_alb_ingress.html</guid>
+      <description>This manifest actually creates the ingress controller. Copy and paste the following into a file called alb-ingress.yaml in each of your terminal windows. We will be creating two files, one for each cluster, as we must place the actual cluster name in this file. Replace the XXXXXXXX on the cluster-name option with the name of your cluster.
+Once you have edited these two file, use kubectl apply -f alb-ingress.yaml in each of your terminal sessions to install the ingress controllers in each of your clusters.</description>
+    </item>
+    
+    <item>
+      <title>Introducing Podinfo</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/20_podinfo_introduction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/20_podinfo_introduction.html</guid>
+      <description>Podinfo is a tiny web application made with Go that showcases best practices of running microservices in Kubernetes. It provides a simple web interface that allows you verify the operation of ingresses and/or service meshes. Podinfo was written by Stefan Prodan of Weaveworks, and is freely available on github. There are many options, and URLs are available to provide a wealth of information. More information on Podinfo is available here.</description>
+    </item>
+    
+    <item>
+      <title>Deploy a Podinfo Pod</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/21_podinfo_deploy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/21_podinfo_deploy.html</guid>
+      <description>First, let&amp;rsquo;s create a namespace for our application (podinfo) to execute in. In each of the terminal sessions, execute:
+kubectl create namespace podinfo Yes, this can also be accomplished by placing a manifest in your git repository to create the namespace.
+You can run:
+kubectl create namespace podinfo --dry-run -o yaml &amp;gt; podinfo-namespace.yaml Or paste this into a new file called podinfo-namespace.yaml.
+apiVersion: v1 kind: Namespace metadata: creationTimestamp: null name: podinfo Add, commit, and push this change to your repository.</description>
+    </item>
+    
+    <item>
+      <title>Enable the Podinfo Pod to Scale Automatically</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/22_podinfo_hpa.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/22_podinfo_hpa.html</guid>
+      <description>A very useful feature in Kubernetes is to enable auto-scaling. This is accomplished by created a Horizontal Pod Autoscaler (HPA) object that is targeted at a specific pod. Each HPA has criteria that Kubernetes uses in order add pods to the running deployment. This HPA will scale the podinfo deployment to a minimum of 2 replicas, and a maximum of 4 replicas.
+Create a file called podinfo-hpa.yaml in your git repository:</description>
+    </item>
+    
+    <item>
+      <title>Expose the Podinfo Pod Service</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/23_podinfo_service.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/23_podinfo_service.html</guid>
+      <description>In order for any Kubernetes object, including other pods, to access the podinfo pod, we have to expose on the Kubernetes network the network ports that should be accessed. When using the Application Load Balancer on EKS, the service type should be NodePort. In more complex architectures, there are other load balancing methods that can be used.
+You can create a NodePort Service yaml (as specified by the ALB ingress controller) by running the following command and adding the manifest to your repository as podinfo-service.</description>
+    </item>
+    
+    <item>
+      <title>Connect the Podinfo Service to the Ingress Controller</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/24_podinfo_ingress.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/24_podinfo_ingress.html</guid>
+      <description>The final step is to inform the ALB Ingress Controller that a service needs to be exposed externally from the cluster. The ingress controller watches for the creation of Ingress objects, and then creates the routing required to reach the object externally.
+In the Ingress object definition, ther eare annotations to indicate how the Ingress Controller should handle this service, as well as which controller to utilize. As there may be several different ingress controllers in a single Kubernetes cluster, this ability is key to managing access to multiple applications and microservices.</description>
+    </item>
+    
+  </channel>
+</rss>

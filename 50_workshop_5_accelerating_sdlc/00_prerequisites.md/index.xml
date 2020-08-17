@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prerequisites on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md.html</link>
+    <description>Recent content in Prerequisites on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/50_workshop_5_accelerating_sdlc/00_prerequisites.md/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS Workshop Portal</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/01_create_workspace.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/01_create_workspace.html</guid>
+      <description>Login to AWS Workshop Portal This workshop creates an AWS account, EKS Cluster, ELB and Route 53 environments that will be managed by eksctl. You will need the Participant Hash provided upon entry, and your email address to track your unique session.
+Connect to the portal by clicking the button or browsing to https://dashboard.eventengine.run/. The following screen shows up.
+Enter the provided hash in the text box. The button on the bottom right corner changes to Accept Terms &amp;amp; Login.</description>
+    </item>
+    
+    <item>
+      <title>Install eksctl</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/10_install_eksctl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/10_install_eksctl.html</guid>
+      <description>For this workshop you will use eksctl. Once you install eksctl, you will be ready to get started.
+At the terminal command prompt, enter the following two commands:
+curl --silent --location &amp;#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz&amp;#34; | tar xz -C /tmp &amp;amp;&amp;amp; \ sudo mv /tmp/eksctl /usr/local/bin This will install eksctl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:
+eksctl get cluster You should get a &amp;ldquo;No clusters found&amp;rdquo; message.</description>
+    </item>
+    
+    <item>
+      <title>Install kubectl</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/20_install_kubectl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/20_install_kubectl.html</guid>
+      <description>The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs.
+At the terminal command prompt, enter the following two commands:
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl &amp;amp;&amp;amp; \ chmod +x ./kubectl &amp;amp;&amp;amp; \ sudo mv ./kubectl /usr/local/bin/kubectl This will install kubectl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:</description>
+    </item>
+    
+    <item>
+      <title>Install fluxctl</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/30_install_fluxctl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/30_install_fluxctl.html</guid>
+      <description>We will be using Fluxctl, a CLI tool that is able to talk to Weave Flux to immediately apply and deploy changes we make to our repository.
+curl -Ls https://fluxcd.io/install | sh &amp;amp;&amp;amp; \ sudo mv $HOME/.fluxcd/bin/fluxctl /usr/local/bin/fluxctl Verify the installation:
+fluxctl version</description>
+    </item>
+    
+    <item>
+      <title>Install kustomize</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/40_install_kustomize.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/40_install_kustomize.html</guid>
+      <description>Kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.
+We will be using kustomize to create more targeted patches that make our code easier to factor, understand, and reuse.
+Install kustomize for Linux:
+curl --silent --location --remote-name \ &amp;#34;https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v3.2.3/kustomize_kustomize.v3.2.3_linux_amd64&amp;#34; &amp;amp;&amp;amp; \ chmod a+x kustomize_kustomize.v3.2.3_linux_amd64 &amp;amp;&amp;amp; \ sudo mv kustomize_kustomize.v3.2.3_linux_amd64 /usr/local/bin/kustomize Verify the install with:
+kustomize version</description>
+    </item>
+    
+    <item>
+      <title>Install aws iam authenticator</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/50_install_aws_iam_auth.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/50_install_aws_iam_auth.html</guid>
+      <description>Amazon EKS uses IAM to provide authentication to your Kubernetes cluster through the AWS IAM authenticator for Kubernetes. You can configure the stock kubectl client to work with Amazon EKS by installing the AWS IAM authenticator for Kubernetes and modifying your kubectl configuration file to use it for authentication.
+To install aws-iam-authenticator on Cloud9
+Download the Amazon EKS-vended aws-iam-authenticator binary from Amazon S3:
+curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/aws-iam-authenticator Apply execute permissions to the binary:</description>
+    </item>
+    
+    <item>
+      <title>Add the Required IAM Role</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/60_add_iam_role.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/60_add_iam_role.html</guid>
+      <description>Creating and using EKS clusters in AWS requires specific IAM roles for the user creating and accessing EKS clusters.
+ Click the A button next to the Share button in the upper right hand corner of your Cloud9 workspace Click Manage EC2 Instance Make sure your aws-cloud9-* instance is selected On Actions pull down, select Instance Settings -&amp;gt; Attach/Replace IAM Role In the IAM role pull down, select TeamRoleInstanceProfile To the right, click Apply  </description>
+    </item>
+    
+    <item>
+      <title>Update IAM settings for your Workspace</title>
+      <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/70_workspace_iam.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/70_workspace_iam.html</guid>
+      <description>Cloud9 normally manages IAM credentials dynamically. This isn&amp;rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
+  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo; Select AWS SETTINGS Turn off AWS managed temporary credentials If you&amp;rsquo;d like to turn on AutoSave, select Experimental and select your Auto-Save Files preference Close the Preferences tab   To ensure temporary credentials aren&amp;rsquo;t already in place we will also remove any existing credentials file:</description>
+    </item>
+    
+  </channel>
+</rss>

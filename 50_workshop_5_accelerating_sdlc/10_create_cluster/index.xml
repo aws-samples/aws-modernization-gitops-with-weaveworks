@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Create Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/50_workshop_5_accelerating_sdlc/10_create_cluster.html</link>
+    <description>Recent content in Create Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/50_workshop_5_accelerating_sdlc/10_create_cluster/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create EKS Cluster</title>
+      <link>/50_workshop_5_accelerating_sdlc/10_create_cluster/01_create_eks_cluster.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/10_create_cluster/01_create_eks_cluster.html</guid>
+      <description>Before creating the EKS cluster, please make sure that you have the right role.
+aws sts get-caller-identity --query Arn | grep TeamRole -q &amp;amp;&amp;amp; echo &amp;#34;IAM role valid&amp;#34; || echo &amp;#34;IAM role NOT valid&amp;#34; If the IAM role is not valid, DO NOT PROCEED. Go back and confirm the steps on this page.
+Once you have ensured your IAM role is valid, proceed to define your cluster configuration.
+Create a cluster.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitOps Enable Your Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/22_workshop_1/20_gitops_enable.html</link>
+    <description>Recent content in GitOps Enable Your Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/22_workshop_1/20_gitops_enable/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Set Up Your GIT Repository</title>
+      <link>/22_workshop_1/20_gitops_enable/31_set_up_git.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/20_gitops_enable/31_set_up_git.html</guid>
+      <description>The most important ingredient using eksctl enable repo is the configuration of your repository (which will include your workload manifests, HelmReleases, etc). You can start with an empty repository and push that to Git, or use the one you intend to deploy to the cluster.
+The main point of GitOps is to keep everything (config, alerts, dashboards, apps, literally everything) in Git and use it as a single source of truth.</description>
+    </item>
+    
+    <item>
+      <title>Enable Your Cluster for GitOps</title>
+      <link>/22_workshop_1/20_gitops_enable/32_enable_gitops.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/20_gitops_enable/32_enable_gitops.html</guid>
+      <description>The following command will set up your cluster with:
+ Flux, Flux Helm Operator with Helm v3 support,  and add their manifests to Git, so you can configure them through pull requests.
+Run this command from any directory in your file system. eksctl will clone your repository in a temporary directory that will be removed later.
+EKSCTL_EXPERIMENTAL=true \ eksctl enable repo \ --git-url git@github.com:example/my-eks-config \ --git-email your@email.com \ --cluster your-cluster-name \ --region your-cluster-region Let us go through the specified arguments one by one:</description>
+    </item>
+    
+    <item>
+      <title>Flux and GitOps</title>
+      <link>/22_workshop_1/20_gitops_enable/33_lets_check_flux.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/20_gitops_enable/33_lets_check_flux.html</guid>
+      <description>The command will take a while to run and it&amp;rsquo;s a good idea to scan the output. You will note a similar bit of information in the log like this one:
+ [ℹ] Flux will only operate properly once it has write-access to the Git repository ... [ℹ] please configure git@github.com:YOURUSER/eks-quickstart-app-dev.git so that the following Flux SSH public key has write access to it ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8msUDG9tEEWHKKJw1o8BpwfMkCvCepeUSMa9iTVK6Bmxeu2pA/ivBS8Qgx/Lg8Jnu4Gk2RbXYMt3KL3/lcIezLwqipGmVvLgBLvUccbBpeUpWt+SlW2LMwcMOnhF3n86VOYjaRPggoPtWfLhFIfnkvKOFLHPRYS3nqyYspFeCGUmOzQim+JAWokf4oGOOX4SNzRKjusboh93oy8fvWk8SrtSwLBWXOKu+kKXC0ecZJK7G0jW91qb40QvB+VeSAbfk8LJZcXGWWvWa3W0/woKzGNWBPZz+pGuflUjVwQG5GoOq5VVWu71gmXoXBS3bUNqlu6nDobd2LlqiXNViaszX  Copy the lines starting with ssh-rsa and give it read/write access to your repository.</description>
+    </item>
+    
+    <item>
+      <title>Speed up Flux for Demo</title>
+      <link>/22_workshop_1/20_gitops_enable/34_update_flux_for_demo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/20_gitops_enable/34_update_flux_for_demo.html</guid>
+      <description>By default Flux will poll git every 5m but for the sake of the demo, we want to speed things up a bit.
+Lets edit the flux deployment and add the following argument into around lne 180 --git-poll-interval
+Edit the following file in your prefered way:
+./flux/flux-deployment.yaml175 # Serve /metrics endpoint at different port; 176 # make sure to set prometheus&amp;#39; annotation to scrape the port value. 177 - --listen-metrics=:3031 178 179 # Additional arguments 180 - --sync-garbage-collection 190 - --git-poll-interval=1m</description>
+    </item>
+    
+  </channel>
+</rss>

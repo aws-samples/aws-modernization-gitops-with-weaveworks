@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Enable GitOps on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/50_workshop_5_accelerating_sdlc/20_enable_gitops.html</link>
+    <description>Recent content in Enable GitOps on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/50_workshop_5_accelerating_sdlc/20_enable_gitops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create Git Repository</title>
+      <link>/50_workshop_5_accelerating_sdlc/20_enable_gitops/01_create_git_repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/20_enable_gitops/01_create_git_repo.html</guid>
+      <description>We will be using a GitHub repo to declare the desired state of our EKS cluster. This repo will eventually include your workload manifests.
+You can start with an empty repository and push that to GitHub, or use the one you intend to deploy to the cluster. As a suggestion create a blank public repo on GitHub called sdlc-workshop and make sure you tick Initialize this Repository with a README:</description>
+    </item>
+    
+    <item>
+      <title>Eksctl Enable Repo</title>
+      <link>/50_workshop_5_accelerating_sdlc/20_enable_gitops/02_eksctl_enable_repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/20_enable_gitops/02_eksctl_enable_repo.html</guid>
+      <description>Ensure you are in the root of your Cloud9 Environment and clone your repository.
+cd ~/environment export GH_USER=YOUR_GITHUB_USERNAMEexport GH_REPO=sdlc-workshopgit clone git@github.com:${GH_USER}/${GH_REPO} Navigate to your newly cloned repository:
+cd ${GH_REPO} Next, we will be running eksctl enable repo. This takes an existing EKS cluster and an empty repository and sets up a GitOps pipeline.
+export EKSCTL_EXPERIMENTAL=true eksctl enable repo \ --cluster=gitopssdlcworkshop \ --region=us-west-2 \ --git-user=&amp;#34;fluxcd&amp;#34; \ --git-email=&amp;#34;${GH_USER}@users.noreply.github.com&amp;#34; \ --git-url=&amp;#34;git@github.com:${GH_USER}/${GH_REPO}&amp;#34; eksctl enable repo will install FluxCD and the Helm Operator (with support for Helm v3).</description>
+    </item>
+    
+  </channel>
+</rss>

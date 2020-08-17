@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitOps Enable Clusters on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/40_workshop_4_hipo-teams/30_gitops_enable_clusters.html</link>
+    <description>Recent content in GitOps Enable Clusters on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/40_workshop_4_hipo-teams/30_gitops_enable_clusters/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create GitHub Repository</title>
+      <link>/40_workshop_4_hipo-teams/30_gitops_enable_clusters/10_create-github.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/30_gitops_enable_clusters/10_create-github.html</guid>
+      <description>We will be using a GitHub repo to declare the desired state of our EKS cluster. This repo will eventually include your workload manifests, HelmReleases etc.
+You can start with an empty repository and push that to GitHub, or use the one you intend to deploy to the cluster. As a suggestion create a blank public repo on GitHub called my-eks-config and make sure you tick Initialize this Repository with a README:</description>
+    </item>
+    
+    <item>
+      <title>Enable Your Cluster for GitOps</title>
+      <link>/40_workshop_4_hipo-teams/30_gitops_enable_clusters/30_enable_gitops.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/30_gitops_enable_clusters/30_enable_gitops.html</guid>
+      <description>To enable GitOps we will be installing the following to our EKS cluster:
+ Flux Flux Helm Operator with Helm v3 support  In other workshops we have used eksctl enable repo to install these. However, for this workshop we will be using Helm to install them both as we want access to additional configuration options (specifically reduce the polling period).
+ Base Setup Both Flux and Flux Helm Operator will reside in their own namespace.</description>
+    </item>
+    
+    <item>
+      <title>Verify Flux and Helm are Operational</title>
+      <link>/40_workshop_4_hipo-teams/30_gitops_enable_clusters/40_verify_flux_op.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/30_gitops_enable_clusters/40_verify_flux_op.html</guid>
+      <description>Now we have installed Flux and Helm Operator we need to verify that they are both operational.
+Run the following command in your Cloud9 terminal:
+kubectl get pods -n flux You should see that there are 3 pods and the status should be Running:
+NAME READY STATUS RESTARTS AGE flux-5884545b8c-thfxh 1/1 Running 0 22m flux-memcached-97fc488-zwn8w 1/1 Running 0 22m helm-operator-6489b5cc6b-5pdvl 1/1 Running 0 7m21s If the status isn&amp;rsquo;t running then don&amp;rsquo;t proceed with the workshop until it&amp;rsquo;s fixed.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Create Policy Constraint Templates on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/30_workshop_03_grc/125_create_policy_templates.html</link>
+    <description>Recent content in Create Policy Constraint Templates on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 12 Apr 2020 18:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/30_workshop_03_grc/125_create_policy_templates/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create Constraint Templates</title>
+      <link>/30_workshop_03_grc/125_create_policy_templates/20_creating-contraint-template.html</link>
+      <pubDate>Sun, 12 Apr 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/125_create_policy_templates/20_creating-contraint-template.html</guid>
+      <description>We are going to create 2 templates:
+ allowed-repos this will determine what image repos can ben used in production require-labels - this policy requires that namespaces must have labels that match a regex value  Let&amp;rsquo;s download some samples for the above Run the following commands to download some policy template examples to your local git repo:
+mkdir opa/templatescurl https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/library/general/allowedrepos/template.yaml -o opa/templates/allowed-repos.yamlcurl https://github.com/open-policy-agent/gatekeeper/blob/master/library/general/requiredlabels/template.yaml -o opa/templates/require-labels.yaml Explore the require-labels template Lets understand what&amp;rsquo;s happening and what each part of this template is doing.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Install App Mesh on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/50_workshop_5_accelerating_sdlc/30_install_appmesh.html</link>
+    <description>Recent content in Install App Mesh on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/50_workshop_5_accelerating_sdlc/30_install_appmesh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Enable App Mesh eksctl Profile</title>
+      <link>/50_workshop_5_accelerating_sdlc/30_install_appmesh/01_install_app_mesh.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/30_install_appmesh/01_install_app_mesh.html</guid>
+      <description>In the same terminal window that you exported your GH_USER and GH_REPO to, we will be enabling the appmesh eksctl profile.
+Run the eksctl profile command:
+eksctl enable profile appmesh \ --profile-revision=demo \ --cluster=gitopssdlcworkshop \ --region=us-west-2 \ --git-user=&amp;#34;fluxcd&amp;#34; \ --git-email=&amp;#34;${GH_USER}@users.noreply.github.com&amp;#34; \ --git-url=&amp;#34;git@github.com:${GH_USER}/${GH_REPO}&amp;#34; Run the fluxctl sync command to install the App Mesh control plane on your cluster:
+fluxctl sync --k8s-fwd-ns flux Inspect the components that were installed:
+kubectl get helmreleases --all-namespaces You should see the following:</description>
+    </item>
+    
+    <item>
+      <title>Sync your repository and Kustomize the Profile</title>
+      <link>/50_workshop_5_accelerating_sdlc/30_install_appmesh/02_sync_repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/50_workshop_5_accelerating_sdlc/30_install_appmesh/02_sync_repo.html</guid>
+      <description>eksctl enable profile pushed changes to our new repo. Let&amp;rsquo;s fetch them:
+git pull origin master Kustomize the profile Kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.
+We will be using kustomize to create more targeted patches that make our code easier to factor, understand, and reuse.
+Create kustomization files for base and flux manifests:
+for dir in .</description>
+    </item>
+    
+  </channel>
+</rss>

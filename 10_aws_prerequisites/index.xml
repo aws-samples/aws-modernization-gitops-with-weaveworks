@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Start the Workshop on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/10_aws_prerequisites.html</link>
+    <description>Recent content in Start the Workshop on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/10_aws_prerequisites/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>At an AWS Event</title>
+      <link>/10_aws_prerequisites/10_aws_event.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/10_aws_prerequisites/10_aws_event.html</guid>
+      <description>Only complete this section if you are at an AWS hosted event (such as re:Invent, Kubecon, Immersion Day, or any other event hosted by an AWS employee). If you are running the workshop on your own, goto: Start the workshop on your own.
+ Login to AWS Workshop Portal This workshop creates an AWS account, EKS Cluster, ELB and Route 53 environments that will be managed by eksctl. You will need the Participant Hash provided upon entry, and your email address to track your unique session.</description>
+    </item>
+    
+    <item>
+      <title>Using your own account</title>
+      <link>/10_aws_prerequisites/20_self_paced.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/10_aws_prerequisites/20_self_paced.html</guid>
+      <description>PLEASE NOTE THAT THESE INSTRUCTIONS ARE INCOMPLETE AS OF MAY 14, 2020. PLEASE DO NOT PERFORM THESE WORKSHOPS UNLESS AT AN AWS HOSTED EVENT UNTIL THIS WARNING IS REMOVED.
+ Only complete this section if you are running the workshop on your own. If you are at an AWS hosted event (such as re:Invent, Kubecon, Immersion Day, etc), goto Start the workshop at an AWS event.
+ Create an AWS account You are responsible for the cost of the AWS services used while running this workshop in your AWS account.</description>
+    </item>
+    
+  </channel>
+</rss>

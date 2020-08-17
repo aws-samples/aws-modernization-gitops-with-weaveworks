@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Using IAM Groups to manage Kubernetes access on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/30_workshop_03_grc/150_iam-groups.html</link>
+    <description>Recent content in Using IAM Groups to manage Kubernetes access on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 12 May 2020 18:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/30_workshop_03_grc/150_iam-groups/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kubernetes Authentication</title>
+      <link>/30_workshop_03_grc/150_iam-groups/10_intro.html</link>
+      <pubDate>Tue, 12 May 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/10_intro.html</guid>
+      <description>In this workshop we will run through how to map IAM roles to rbac.
+If you have different teams which needs different kind of cluster access, it would be difficult to manually add or remove access for each EKS clusters you want them to give or remove access from.
+We can leverage on AWS IAM Groups to easilly add or remove users and give them permission to whole cluster, or just part of it depending on which groups they belong to.</description>
+    </item>
+    
+    <item>
+      <title>Create IAM Roles</title>
+      <link>/30_workshop_03_grc/150_iam-groups/20_create-iam-roles.html</link>
+      <pubDate>Tue, 12 May 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/20_create-iam-roles.html</guid>
+      <description>We are going to create 3 roles:
+ a k8sAdmin role which will have adminx rights in our EKS cluster a k8sDev role which will gives access to developers namespace in our EKS cluster a k8sInteg role which will gives access to integration namespace our EKS cluster  Create the roles:
+ACCOUNT_ID=$(aws sts get-caller-identity --output text --query &amp;#39;Account&amp;#39;) POLICY=$(echo -n &amp;#39;{&amp;#34;Version&amp;#34;:&amp;#34;2012-10-17&amp;#34;,&amp;#34;Statement&amp;#34;:[{&amp;#34;Effect&amp;#34;:&amp;#34;Allow&amp;#34;,&amp;#34;Principal&amp;#34;:{&amp;#34;AWS&amp;#34;:&amp;#34;arn:aws:iam::&amp;#39;; echo -n &amp;#34;$ACCOUNT_ID&amp;#34;; echo -n &amp;#39;:root&amp;#34;},&amp;#34;Action&amp;#34;:&amp;#34;sts:AssumeRole&amp;#34;,&amp;#34;Condition&amp;#34;:{}}]}&amp;#39;) echo ACCOUNT_ID=$ACCOUNT_ID echo POLICY=$POLICY aws iam create-role \ --role-name k8sAdmin \ --description &amp;#34;Kubernetes administrator role (for AWS IAM Authenticator for Kubernetes).</description>
+    </item>
+    
+    <item>
+      <title>Create IAM Groups</title>
+      <link>/30_workshop_03_grc/150_iam-groups/21_create-iam-groups.html</link>
+      <pubDate>Tue, 12 May 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/21_create-iam-groups.html</guid>
+      <description>We want to have different IAM users which will be added to specific IAM groups in order to have different rights in the kubernetes cluster.
+We will define 3 groups:
+ k8sAdmin - users from this group will have admin rights on the kubernetes cluster k8sDev - users from this group will have full access only in the development namespace of the cluster k8sInteg - users from this group will have access to integration namespace.</description>
+    </item>
+    
+    <item>
+      <title>Create IAM Users</title>
+      <link>/30_workshop_03_grc/150_iam-groups/22_create_iam_users.html</link>
+      <pubDate>Tue, 12 May 2020 10:14:46 -0700</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/22_create_iam_users.html</guid>
+      <description>In order to test our scenarios, we will create 3 users, one for each groups we created :
+aws iam create-user --user-name PaulAdmin aws iam create-user --user-name JeanDev aws iam create-user --user-name PierreInteg Add users to associated groups:
+aws iam add-user-to-group --group-name k8sAdmin --user-name PaulAdmin aws iam add-user-to-group --group-name k8sDev --user-name JeanDev aws iam add-user-to-group --group-name k8sInteg --user-name PierreInteg Check users are correctly added in their groups:
+aws iam get-group --group-name k8sAdmin aws iam get-group --group-name k8sDev aws iam get-group --group-name k8sInteg For the sake of simplicity, in this chapter, we will save credentials to a file to make it easy to toggle back and forth between users.</description>
+    </item>
+    
+    <item>
+      <title>Configure Kubernetes RBAC</title>
+      <link>/30_workshop_03_grc/150_iam-groups/30_create-k8s-rbac.html</link>
+      <pubDate>Tue, 12 May 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/30_create-k8s-rbac.html</guid>
+      <description>You can refere to intro to RBAC module to understand the basic of Kubernetes RBAC.
+Create kubernetes namespaces development namespace will be accessible for IAM users from k8sDev group integration namespace will be accessible for IAM users from k8sInteg group
+mkdir integration cat &amp;lt;&amp;lt; EOF &amp;gt; integration/integration-ns.yaml apiVersion: v1 kind: Namespace metadata: name: integration labels: owner: me.agilebank.demo EOF mkdir development cat &amp;lt;&amp;lt; EOF &amp;gt; development/development-ns.yaml apiVersion: v1 kind: Namespace metadata: name: development labels: owner: me.</description>
+    </item>
+    
+    <item>
+      <title>Configure Kubernetes Role Access</title>
+      <link>/30_workshop_03_grc/150_iam-groups/31_configure-aws-auth.html</link>
+      <pubDate>Tue, 12 May 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/31_configure-aws-auth.html</guid>
+      <description>Gives Access to our IAM Roles to EKS Cluster In order to gives access to the IAM Roles we defined previously to our EKS cluster, we need to add specific mapRoles to the aws-auth ConfigMap
+The Advantage of using Role to access the cluster instead of specifying directly IAM users is that it will be easier to manage: we won&amp;rsquo;t have to update the ConfigMap each time we want to add or remove users, we will just need to add or remove users from the IAM Group and we just configure the ConfigMap to allow the IAM Role associated to the IAM Group.</description>
+    </item>
+    
+    <item>
+      <title>Test EKS access</title>
+      <link>/30_workshop_03_grc/150_iam-groups/40_test-cluster-access.html</link>
+      <pubDate>Tue, 05 May 2020 18:00:00 +0000</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/40_test-cluster-access.html</guid>
+      <description>Automate assumerole with aws cli It is possible to automate the retrieval of temporary credentials for the assumed role by configuring the aws cli using .aws/configand .aws/credentials files. Examples we will define 3 profile:
+add in ~/.aws/config: cat &amp;lt;&amp;lt; EoF &amp;gt;&amp;gt; ~/.aws/config [profile admin] role_arn=arn:aws:iam::${ACCOUNT_ID}:role/k8sAdmin source_profile=eksAdmin [profile dev] role_arn=arn:aws:iam::${ACCOUNT_ID}:role/k8sDev source_profile=eksDev [profile integ] role_arn=arn:aws:iam::${ACCOUNT_ID}:role/k8sInteg source_profile=eksInteg EoF create ~/.aws/credentials: cat &amp;lt;&amp;lt; EoF &amp;gt; ~/.aws/credentials [eksAdmin] aws_access_key_id=$(jq -r .AccessKey.AccessKeyId /tmp/PaulAdmin.json) aws_secret_access_key=$(jq -r .</description>
+    </item>
+    
+    <item>
+      <title>Cleanup</title>
+      <link>/30_workshop_03_grc/150_iam-groups/70_cleanup.html</link>
+      <pubDate>Wed, 03 Oct 2018 10:14:46 -0700</pubDate>
+      
+      <guid>/30_workshop_03_grc/150_iam-groups/70_cleanup.html</guid>
+      <description>Once you have completed this chapter, you can cleanup the files and resources you created by issuing the following commands:
+unset KUBECONFIG # we will remove the manifest from git that we no longer want in our cluster rm -rf development rm -rf integration git add .integration/ .development/ git commit -m &amp;#34;cleaning up iamgroups demo&amp;#34; git push # if flux garbage collection is not enabled, please also run these commands to tidy things up: kubectl delete ns development integration eksctl delete iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sAdmin eksctl delete iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sDev eksctl delete iamidentitymapping --cluster eksworkshop-eksctl --arn arn:aws:iam::${ACCOUNT_ID}:role/k8sInteg aws iam remove-user-from-group --group-name k8sAdmin --user-name PaulAdmin aws iam remove-user-from-group --group-name k8sDev --user-name JeanDev aws iam remove-user-from-group --group-name k8sInteg --user-name PierreInteg aws iam delete-group-policy --group-name k8sAdmin --policy-name k8sAdmin-policy aws iam delete-group-policy --group-name k8sDev --policy-name k8sDev-policy aws iam delete-group-policy --group-name k8sInteg --policy-name k8sInteg-policy aws iam delete-group --group-name k8sAdmin aws iam delete-group --group-name k8sDev aws iam delete-group --group-name k8sInteg aws iam delete-access-key --user-name PaulAdmin --access-key-id=$(jq -r .</description>
+    </item>
+    
+  </channel>
+</rss>

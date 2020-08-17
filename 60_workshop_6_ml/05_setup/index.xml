@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud9 Setup on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/60_workshop_6_ml/05_setup.html</link>
+    <description>Recent content in Cloud9 Setup on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/60_workshop_6_ml/05_setup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cloud9 setup</title>
+      <link>/60_workshop_6_ml/05_setup/01_git-config-ssh-key.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/60_workshop_6_ml/05_setup/01_git-config-ssh-key.html</guid>
+      <description>Git setup You need to create and clone github repositories during this workshop so it is recommended that you setup your git config and ssh keys.
+vim ~/.gitconfig # Add your config Extend FileSystem size The default disk size for a cloud9 instance is 10gb but we need more than this for the tools needed to build ML projects. So we need to increase the size of the EBS volume and grow the Linux filesytem.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Install Container Insights on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/40_workshop_4_hipo-teams/50_install_container_insights.html</link>
+    <description>Recent content in Install Container Insights on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/40_workshop_4_hipo-teams/50_install_container_insights/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create the namespace</title>
+      <link>/40_workshop_4_hipo-teams/50_install_container_insights/10_create_namespace.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/50_install_container_insights/10_create_namespace.html</guid>
+      <description>Create a file within the namespaces that folder called amazon-cloudwatch.yaml.
+Paste the contents of the following into the new file:
+--- apiVersion: v1 kind: Namespace metadata: labels: name: amazon-cloudwatch name: amazon-cloudwatch Your repository structure should be:
+. ├── appmesh-system │ ├── appmesh-controller.yaml │ ├── appmesh-inject.yaml │ ├── appmesh-prometheus.yaml │ └── crds.yaml ├── namespaces │ ├── amazon-cloudwatch.yaml │ └── appmesh-system.yaml └── README.md Add and then commit the amazon-cloudwatch.yaml file and push the the changes to your GitHub repo.</description>
+    </item>
+    
+    <item>
+      <title>Install Container Insights</title>
+      <link>/40_workshop_4_hipo-teams/50_install_container_insights/20_install_container_insights.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/50_install_container_insights/20_install_container_insights.html</guid>
+      <description>As every namespace in our EKS cluster has a folder in our repo that contains the declarations of the resources we want to live in that namespace, we will need a new folder for the amazon-cloudwatch namespace.
+Create a amazon-cloudwatch folder in our repo:
+. ├── amazon-cloudwatch ├── appmesh-system │ ├── appmesh-controller.yaml │ ├── appmesh-inject.yaml │ ├── appmesh-prometheus.yaml │ └── crds.yaml ├── namespaces │ ├── amazon-cloudwatch.yaml │ └── appmesh-system.yaml └── README.</description>
+    </item>
+    
+    <item>
+      <title>Verify metric collection</title>
+      <link>/40_workshop_4_hipo-teams/50_install_container_insights/30_verify_container_insights.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/50_install_container_insights/30_verify_container_insights.html</guid>
+      <description>Now that Container Insights with additional Prometheus metrics collection is setup we should start to see metrics appear in CloudWatch.
+Go to the AWS Console and open CloudWatch.
+Now click Metrics on the left pane. On the right portion of the page you should now see ContainerInsights and ContainerInsights/Prometheus listed:</description>
+    </item>
+    
+    <item>
+      <title>Explore Container Insights</title>
+      <link>/40_workshop_4_hipo-teams/50_install_container_insights/40_explore_container_insights.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/40_workshop_4_hipo-teams/50_install_container_insights/40_explore_container_insights.html</guid>
+      <description>We will now explore some of the observability that Container Insights gives us. This is a very quick look at CloudWatch&amp;hellip;.it can do a lot!
+In the AWS Console make sure you are in CloudWatch (which you will probably be from the last section).
+On the left navigation pane click Resources under Container Insights.
+Click any of the items from the list of Resources and you will see a performance dashboard open giving you an insight into the performance:</description>
+    </item>
+    
+  </channel>
+</rss>
