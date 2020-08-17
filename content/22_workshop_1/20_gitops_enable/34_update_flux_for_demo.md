@@ -6,7 +6,7 @@ weight: 34
 
 By default Flux will poll git every 5m but for the sake of the demo, we want to speed things up a bit.
 
-Lets edit the flux deployment and add the following argument into around lne 180 `--git-poll-interval`
+Lets edit the flux deployment and add the following argument into around line 180 `--git-poll-interval`
 
 
 Edit the following file in your prefered way:
