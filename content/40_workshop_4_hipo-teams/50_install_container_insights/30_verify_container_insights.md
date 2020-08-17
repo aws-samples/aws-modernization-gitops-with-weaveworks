@@ -4,7 +4,7 @@ chapter = false
 weight = 20
 +++
 
-Now that Container Insights with additional Prometheus metriocs collection is setup we should start to see metrics appear in CloudWatch.
+Now that Container Insights with additional Prometheus metrics collection is setup we should start to see metrics appear in CloudWatch.
 
 Go to the **AWS Console** and open **CloudWatch**.
 

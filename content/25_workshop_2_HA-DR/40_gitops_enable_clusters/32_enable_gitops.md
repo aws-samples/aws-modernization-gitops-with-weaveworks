@@ -20,7 +20,7 @@ Run this command from any directory in your file system. eksctl will clone your 
 ```
 EKSCTL_EXPERIMENTAL=true \
     eksctl enable repo \
-        --git-url git@github.com:example/my-eks-config \
+        --git-url git@github.com:your-github-username/your-repo-name \
         --git-email your@email.com \
         --cluster your-cluster-name \
         --region your-cluster-region

@@ -4,7 +4,7 @@ chapter = false
 weight = 40
 +++
 
-We will now explore some of the observability that Conatiner Insights gives us. This is a very quick look at CloudWatch....it can do a lot!
+We will now explore some of the observability that Container Insights gives us. This is a very quick look at CloudWatch....it can do a lot!
 
 In the **AWS Console** make sure you are in **CloudWatch** (which you will probably be from the last section).
 
@@ -12,7 +12,7 @@ On the left navigation pane click **Resources** under **Container Insights**.
 
 Click any of the items from the list of Resources and you will see a performance dashboard open giving you an insight into the performance:
 
-![Performnace Monitoring](/images/ci_perf_monitoring.png)
+![Performance Monitoring](/images/ci_perf_monitoring.png)
 
 There is a specific resource for **Prometheus AppMesh** from the left most dropdown box on the **Performance Monitoring** pane. This shows a dashboard specifically for **App Mesh**. We will return to this later.
 

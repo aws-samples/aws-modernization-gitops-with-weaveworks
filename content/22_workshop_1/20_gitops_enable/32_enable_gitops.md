@@ -29,4 +29,4 @@ Let us go through the specified arguments one by one:
 - --cluster: the name of your cluster. Use `eksctl get cluster` to see all clusters in your default region.
 - --region: the region of your cluster.
 
-There are more arguments and options, please refer to the [GitOps reference of eksctl](https://eksctl.io/usage/experimental/gitops/) which details all the flags and resulting directory structure.
+There are more arguments and options, please refer to the [GitOps reference of eksctl](https://eksctl.io/usage/gitops/) which details all the flags and resulting directory structure.

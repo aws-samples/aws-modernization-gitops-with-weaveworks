@@ -38,4 +38,3 @@ Open a new terminal window in **Cloud9**  (make sure you leave the other termina
 Use the second terminal window to add and then commit **3-podinfo-virtual-services.yaml**. Push the the changes to your GitHub repo. Flux will pick this change up and apply it.
 
 Go back to the original terminal window. In about a minutes you will see the output change and the **hostname** will always show **v2**.
-

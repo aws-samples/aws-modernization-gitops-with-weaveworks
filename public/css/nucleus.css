@@ -63,7 +63,7 @@ abbr[title] {
 
 b,
 strong {
-  font-weight = bold; }
+  font-weight: bold; }
 
 dfn {
   font-style: italic; }
@@ -159,7 +159,7 @@ textarea {
   overflow: auto; }
 
 optgroup {
-  font-weight = bold; }
+  font-weight: bold; }
 
 table {
   border-collapse: collapse;

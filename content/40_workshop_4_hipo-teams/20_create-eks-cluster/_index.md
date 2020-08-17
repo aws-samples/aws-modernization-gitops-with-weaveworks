@@ -37,7 +37,7 @@ nodeGroups:
 In the terminal window, execute the following:
 
 ```bash
-# make sure we are in the root envionment folder
+# make sure we are in the root environment folder
 cd ~/environment
 
 # Create the cluster

@@ -1,0 +1,30 @@
+name: publish
+on: push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: get hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.70.0"
+
+      - name: clean output
+        run: rm -rf public
+
+      - name: build
+        run: hugo
+
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

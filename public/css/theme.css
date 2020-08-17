@@ -24,18 +24,18 @@
     src: url("../fonts/Novecentosanswide-UltraLight-webfont.eot");
     src: url("../fonts/Novecentosanswide-UltraLight-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Novecentosanswide-UltraLight-webfont.woff2") format("woff2"), url("../fonts/Novecentosanswide-UltraLight-webfont.woff") format("woff"), url("../fonts/Novecentosanswide-UltraLight-webfont.ttf") format("truetype"), url("../fonts/Novecentosanswide-UltraLight-webfont.svg#novecento_sans_wideultralight") format("svg");
     font-style: normal;
-    font-weight = 200;
+    font-weight: 200;
 }
 @font-face {
     font-family: 'Work Sans';
     font-style: normal;
-    font-weight = 300;
+    font-weight: 300;
     src: url("../fonts/Work_Sans_300.eot?#iefix") format("embedded-opentype"), url("../fonts/Work_Sans_300.woff") format("woff"), url("../fonts/Work_Sans_300.woff2") format("woff2"), url("../fonts/Work_Sans_300.svg#WorkSans") format("svg"), url("../fonts/Work_Sans_300.ttf") format("truetype");
 }
 @font-face {
     font-family: 'Work Sans';
     font-style: normal;
-    font-weight = 500;
+    font-weight: 500;
     src: url("../fonts/Work_Sans_500.eot?#iefix") format("embedded-opentype"), url("../fonts/Work_Sans_500.woff") format("woff"), url("../fonts/Work_Sans_500.woff2") format("woff2"), url("../fonts/Work_Sans_500.svg#WorkSans") format("svg"), url("../fonts/Work_Sans_500.ttf") format("truetype");
 }
 body {
@@ -70,7 +70,7 @@ pre {
     border: 1px solid #eaeaea;
 }
 b, strong, label, th {
-    font-weight = 600;
+    font-weight: 600;
 }
 .default-animation, #header #logo-svg, #header #logo-svg path, #sidebar, #sidebar ul, #body, #body .padding, #body .nav {
     -webkit-transition: all 0.5s ease;
@@ -84,7 +84,7 @@ b, strong, label, th {
     fill: #fff !important;
 }
 #sidebar {
-    font-weight = 300 !important;
+    font-weight: 300 !important;
 }
 fieldset {
     border: 1px solid #ddd;
@@ -150,7 +150,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     border: 0;
     padding: 0 25px 0 30px;
     margin: 0;
-    font-weight = 300;
+    font-weight: 300;
 }
 .searchbox input::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.6);
@@ -179,7 +179,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     width: 300px;
     bottom: 0;
     left: 0;
-    font-weight = 400;
+    font-weight: 400;
     font-size: 15px;
 }
 #sidebar a {
@@ -270,7 +270,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 #sidebar ul.topics > li > a b {
     opacity: 0.5;
-    font-weight = normal;
+    font-weight: normal;
 }
 #sidebar ul.topics > li > a .fa {
     margin-top: 9px;
@@ -428,7 +428,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 #chapter h3 {
     font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
-    font-weight = 300;
+    font-weight: 300;
     text-align: center;
 }
 #chapter h1 {
@@ -449,7 +449,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 body {
     font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
-    font-weight = 300;
+    font-weight: 300;
     line-height: 1.6;
     font-size: 18px !important;
 }
@@ -457,7 +457,7 @@ h2, h3, h4, h5, h6 {
     font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     text-rendering: optimizeLegibility;
     color: #5e5e5e;
-    font-weight = 400;
+    font-weight: 400;
     letter-spacing: -1px;
 }
 h1 {
@@ -465,7 +465,7 @@ h1 {
     text-align: center;
     text-transform: uppercase;
     color: #222;
-    font-weight = 200;
+    font-weight: 200;
 }
 blockquote {
     border-left: 10px solid #F0F2F4;
@@ -497,7 +497,7 @@ div.notices p:first-child:before {
     top: 2px;
     color: #fff;
     font-family: "Font Awesome 5 Free";
-    font-weight = 900;
+    font-weight: 900;
     content: "\f06a";
     left: 10px;
 }
@@ -544,7 +544,7 @@ section.attachments {
 }
 
 section.attachments label {
-    font-weight = 400;
+    font-weight: 400;
     padding-left: 0.5em;
     padding-top: 0.2em;
     padding-bottom: 0.2em;
