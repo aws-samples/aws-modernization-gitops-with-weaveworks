@@ -697,7 +697,7 @@
 	"title": "Speed up Flux for Demo",
 	"tags": [],
 	"description": "",
-	"content": "By default Flux will poll git every 5m but for the sake of the demo, we want to speed things up a bit.\nLets edit the flux deployment and add the following argument into around lne 180 --git-poll-interval\nEdit the following file in your prefered way:\n./flux/flux-deployment.yaml175 # Serve /metrics endpoint at different port; 176 # make sure to set prometheus\u0026#39; annotation to scrape the port value. 177 - --listen-metrics=:3031 178 179 # Additional arguments 180 - --sync-garbage-collection 190 - --git-poll-interval=1m"
+	"content": "By default Flux will poll git every 5m but for the sake of the demo, we want to speed things up a bit.\nLets edit the flux deployment and add the following argument into around line 180 --git-poll-interval\nEdit the following file in your prefered way:\n./flux/flux-deployment.yaml175 # Serve /metrics endpoint at different port; 176 # make sure to set prometheus\u0026#39; annotation to scrape the port value. 177 - --listen-metrics=:3031 178 179 # Additional arguments 180 - --sync-garbage-collection 190 - --git-poll-interval=1m"
 },
 {
 	"uri": "/30_workshop_03_grc/150_iam-groups/40_test-cluster-access.html",

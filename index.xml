@@ -765,7 +765,7 @@ Run this command from any directory in your file system.</description>
       
       <guid>/22_workshop_1/20_gitops_enable/34_update_flux_for_demo.html</guid>
       <description>By default Flux will poll git every 5m but for the sake of the demo, we want to speed things up a bit.
-Lets edit the flux deployment and add the following argument into around lne 180 --git-poll-interval
+Lets edit the flux deployment and add the following argument into around line 180 --git-poll-interval
 Edit the following file in your prefered way:
 ./flux/flux-deployment.yaml175 # Serve /metrics endpoint at different port; 176 # make sure to set prometheus&amp;#39; annotation to scrape the port value. 177 - --listen-metrics=:3031 178 179 # Additional arguments 180 - --sync-garbage-collection 190 - --git-poll-interval=1m</description>
     </item>
