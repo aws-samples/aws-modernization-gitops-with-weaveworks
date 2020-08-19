@@ -16,7 +16,7 @@ vim ~/.gitconfig # Add your config
 
 The default disk size for a cloud9 instance is 10gb but we need more than this for the tools needed to build ML projects. So we need to increase the size of the EBS volume and grow the Linux filesytem. To do this use the aws console to locate the EC2 instance by clicking on EBS volume used by your cloud9 instance and increase the size of the EBS volume from 10gb to 100gb
 
-- Click the **A** button next to the `Share` button in the upper right hand corner of your Cloud9 workspace
+- Go to the AWS console for your event session
 - Click **Manage EC2 Instance**
 - Make sure your `aws-cloud9-*` instance is selected
 
@@ -39,8 +39,11 @@ Then in cloud9 terminal:
 sudo growpart /dev/xvda 1
 sudo resize2fs /dev/xvda1
 df -h
-Filesystem      Size  Used Avail Use% Mounted on
-devtmpfs        483M   60K  483M   1% /dev
-tmpfs           493M     0  493M   0% /dev/shm
-/dev/xvda1       99G  7.6G   91G   8% /
 ```
+You should see output similar to this:
+
+	Filesystem      Size  Used Avail Use% Mounted on
+	devtmpfs        483M   60K  483M   1% /dev
+	tmpfs           493M     0  493M   0% /dev/shm
+	/dev/xvda1       99G  7.6G   91G   8% /
+

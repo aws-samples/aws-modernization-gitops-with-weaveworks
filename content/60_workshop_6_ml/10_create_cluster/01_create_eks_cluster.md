@@ -38,7 +38,9 @@ pushd ${EKS_CLUSTER_NAME}
 ssh-keygen -b 4096 -f id_rsa -q -t rsa -N "" 2>/dev/null <<< y >/dev/null
 curl  https://raw.githubusercontent.com/paulcarlton-ww/ml-workshop/master/resources/eks-template.yaml | \
     sed s/NAME/$EKS_CLUSTER_NAME/ | sed s/REGION/$AWS_DEFAULT_REGION/ | sed s#KEY#$key_arn# > eks.yaml
-
+```
+Then create the cluster:
+```
 eksctl create cluster --config-file eks.yaml
 popd
 ```

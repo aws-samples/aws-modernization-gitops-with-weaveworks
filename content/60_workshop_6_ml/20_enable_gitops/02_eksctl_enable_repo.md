@@ -11,7 +11,6 @@ GITHUB_DIR=$PWD/src/github.com
 GIT_EMAIL=$(git config -f ~/.gitconfig --get user.email)
 GIT_ORG=$(git config -f ~/.gitconfig --get user.name)
 
-EKSCTL_EXPERIMENTAL=true \
     eksctl enable repo \
         --git-url git@github.com:$GIT_ORG/${EKS_CLUSTER_NAME}-config \
         --git-email $GIT_EMAIL \
@@ -19,8 +18,7 @@ EKSCTL_EXPERIMENTAL=true \
         --region "$AWS_DEFAULT_REGION"
 ```
 
-`
-'eksctl enable repo' will install FluxCD and the Helm Operator (with support for Helm v3).
+`eksctl enable repo` will install FluxCD and the Helm Operator (with support for Helm v3).
 
 When the command finishes, you will be prompted to add Flux's SSH public key to your GitHub repository.
 
