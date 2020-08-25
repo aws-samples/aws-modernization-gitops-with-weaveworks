@@ -19,7 +19,7 @@ cd aws-gitops-multicloud
 Create a pod using gitops
 
 ```sh
-cp ../gitops-cluster-management/examples/k8s/pod.yaml flux-mgmt/pod.yaml
+cp ../gitops-cluster-management/examples/k8s/nginx.yaml flux-mgmt/nginx.yaml
 git add flux-mgmt
 git commit -m 'deploy nginx pod'
 git push
@@ -51,6 +51,8 @@ kubectl get pod
 
 ```sh
 cp -R ../gitops-cluster-management/examples/k8s/custom-operators/ flux-mgmt
+cp ../gitops-cluster-management/examples/k8s/all-ns-deployment.yaml flux-mgmt
+cp ../gitops-cluster-management/examples/k8s/all-ns-secret.yaml flux-mgmt
 git add flux-mgmt
 git commit -m 'deploy custom operators'
 git push
