@@ -4,7 +4,7 @@ chapter = false
 weight = 201
 +++
 
-Using your github account, create a repository called '\<eks cluster name\>-config' in your personal git organisation.
+Using your github account, create a repository called **'\<eks cluster name\>-config'** in your personal git organisation.
 
 ![github_repo_settings](/images/gh_repo_init.png)
 

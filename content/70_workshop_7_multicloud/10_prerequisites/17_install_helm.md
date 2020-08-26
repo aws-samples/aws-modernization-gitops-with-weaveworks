@@ -1,8 +1,7 @@
 +++
 title = "Install helm"
 chapter = false
-weight = 13
-
+weight = 17
 +++
 
 [Helm](https://helm.sh/) describes itself as a 'package manager for kubernetes' and can be used to deploy resources to Kubernetes.
