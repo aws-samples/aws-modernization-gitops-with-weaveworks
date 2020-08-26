@@ -21,69 +21,21 @@
     </item>
     
     <item>
-      <title>Install eksctl</title>
-      <link>/70_workshop_7_multicloud/10_prerequisites/11_install_eksctl.html</link>
+      <title>Add the Required IAM Role</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/11_add_the_role.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/70_workshop_7_multicloud/10_prerequisites/11_install_eksctl.html</guid>
-      <description>For this workshop you will use a eksctl. Once you install eksctl, you will be ready to get started.
-At the terminal command prompt, enter the following two commands:
-curl --silent --location &amp;#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz&amp;#34; | tar xz -C /tmp sudo mv /tmp/eksctl /usr/local/bin This will install eksctl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:
-eksctl get cluster You should get a pre-installed cluster.</description>
-    </item>
-    
-    <item>
-      <title>Install kubectl</title>
-      <link>/70_workshop_7_multicloud/10_prerequisites/12_install_kubectl.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/70_workshop_7_multicloud/10_prerequisites/12_install_kubectl.html</guid>
-      <description>The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs.
-At the terminal command prompt, enter the following two commands:
-curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl chmod +x ./kubectl sudo mv ./kubectl /usr/local/bin/kubectl This will install kubectl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:</description>
-    </item>
-    
-    <item>
-      <title>Install helm</title>
-      <link>/70_workshop_7_multicloud/10_prerequisites/13_install_helm.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/70_workshop_7_multicloud/10_prerequisites/13_install_helm.html</guid>
-      <description>Helm describes itself as a &amp;lsquo;package manager for kubernetes&amp;rsquo; and can be used to deploy resources to Kubernetes.
-You package your application as a chart which can contain templated files (usually Kubernetes resources) and default configuration values too use when rendering the template. Charts are reusable and values can be overriden for specific environments.
-We are using Helm v3 in the workshops. So there is no tiller. If you are using your own environment and not the workshops Cloud9 environment and you have Helm v2 the commands should work ok.</description>
-    </item>
-    
-    <item>
-      <title>Install fluxctl</title>
-      <link>/70_workshop_7_multicloud/10_prerequisites/14_install_fluxctl.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/70_workshop_7_multicloud/10_prerequisites/14_install_fluxctl.html</guid>
-      <description> Install Fluxctl Fluxctl is a CLI tool that is able to talk to Weave Flux.
-Install by running this command:
-curl -Ls https://fluxcd.io/install | sh &amp;amp;&amp;amp; \ sudo mv $HOME/.fluxcd/bin/fluxctl /usr/local/bin/fluxctl Verify the installation:
-fluxctl version</description>
-    </item>
-    
-    <item>
-      <title>Install kustomize</title>
-      <link>/70_workshop_7_multicloud/10_prerequisites/15_install_kustomize.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/70_workshop_7_multicloud/10_prerequisites/15_install_kustomize.html</guid>
-      <description> Install Kustomize Kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.
-Install kustomize for Linux:
-curl --silent --location --remote-name \ &amp;#34;https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v3.2.3/kustomize_kustomize.v3.2.3_linux_amd64&amp;#34; &amp;amp;&amp;amp; \ chmod a+x kustomize_kustomize.v3.2.3_linux_amd64 &amp;amp;&amp;amp; \ sudo mv kustomize_kustomize.v3.2.3_linux_amd64 /usr/local/bin/kustomize Verify the install with:
-kustomize version</description>
+      <guid>/70_workshop_7_multicloud/10_prerequisites/11_add_the_role.html</guid>
+      <description>Creating and using EKS clusters in AWS requires specific IAM roles for the user creating and accessing EKS clusters.
+Create admin role  Switch to the AWS Console (You can open the console from the &amp;ldquo;Team Dashboard&amp;rdquo;) Under Services, select IAM &amp;gt; Roles &amp;gt; Create Role Confirm that AWS service and EC2 are selected, then click Next to view permissions. Confirm that AdministratorAccess is checked, then click Next: Tags to assign tags.</description>
     </item>
     
     <item>
       <title>Install AWS IAM</title>
-      <link>/70_workshop_7_multicloud/10_prerequisites/16_install_aws-iam.html</link>
+      <link>/70_workshop_7_multicloud/10_prerequisites/12_install_aws-iam.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/70_workshop_7_multicloud/10_prerequisites/16_install_aws-iam.html</guid>
+      <guid>/70_workshop_7_multicloud/10_prerequisites/12_install_aws-iam.html</guid>
       <description>Amazon EKS uses IAM to provide authentication to your Kubernetes cluster through the AWS IAM authenticator for Kubernetes. You can configure the stock kubectl client to work with Amazon EKS by installing the AWS IAM authenticator for Kubernetes and modifying your kubectl configuration file to use it for authentication.
 To install aws-iam-authenticator on Cloud9
 Download the Amazon EKS-vended aws-iam-authenticator binary from Amazon S3:
@@ -91,23 +43,69 @@ curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.15
     </item>
     
     <item>
-      <title>Add the Required IAM Role</title>
-      <link>/70_workshop_7_multicloud/10_prerequisites/17_add_the_role.html</link>
+      <title>Update IAM settings for your Workspace</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/13_workspaceiam.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/70_workshop_7_multicloud/10_prerequisites/17_add_the_role.html</guid>
-      <description>Creating and using EKS clusters in AWS requires specific IAM roles for the user creating and accessing EKS clusters.
- Switch to the AWS Console (You can open the console from the &amp;ldquo;Team Dashboard&amp;rdquo;) Under Services, select EC2 Click Running Instances Select the instance named &amp;ldquo;aws-cloud9-&amp;hellip;&amp;rdquo; by clicking the check box to the left of the name On Actions pull down, select Instance Settings -&amp;gt; Attach/Replace IAM Role In the IAM role pull down, select modernization-admin To the right, click Apply  </description>
+      <guid>/70_workshop_7_multicloud/10_prerequisites/13_workspaceiam.html</guid>
+      <description>Cloud9 normally manages IAM credentials dynamically. This isn&amp;rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
+  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo; Select AWS SETTINGS Turn off AWS managed temporary credentials Close the Preferences tab   To ensure temporary credentials aren&amp;rsquo;t already in place we will also remove any existing credentials file:</description>
     </item>
     
     <item>
-      <title>Update IAM settings for your Workspace</title>
-      <link>/70_workshop_7_multicloud/10_prerequisites/18_workspaceiam.html</link>
+      <title>Install eksctl</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/14_install_eksctl.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/70_workshop_7_multicloud/10_prerequisites/18_workspaceiam.html</guid>
-      <description>Cloud9 normally manages IAM credentials dynamically. This isn&amp;rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
-  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo; Select AWS SETTINGS Turn off AWS managed temporary credentials Close the Preferences tab   To ensure temporary credentials aren&amp;rsquo;t already in place we will also remove any existing credentials file:</description>
+      <guid>/70_workshop_7_multicloud/10_prerequisites/14_install_eksctl.html</guid>
+      <description>For this workshop you will use a eksctl. Once you install eksctl, you will be ready to get started.
+At the terminal command prompt, enter the following two commands:
+curl --silent --location &amp;#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz&amp;#34; | tar xz -C /tmp sudo mv /tmp/eksctl /usr/local/bin This will install eksctl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:
+eksctl version</description>
+    </item>
+    
+    <item>
+      <title>Create EKS cluster</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/15_create_eks_cluster.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/15_create_eks_cluster.html</guid>
+      <description>Create EKS Cluster  In a seperate terminal, run
+eksctl create cluster --version 1.17 --nodes 1 -t t3.large my-management-cluster  This will save us time while we go through next steps</description>
+    </item>
+    
+    <item>
+      <title>Install kubectl</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/16_install_kubectl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/16_install_kubectl.html</guid>
+      <description>The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs.
+At the terminal command prompt, enter the following two commands:
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl chmod +x ./kubectl sudo mv ./kubectl /usr/local/bin/kubectl This will install kubectl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:</description>
+    </item>
+    
+    <item>
+      <title>Install helm</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/17_install_helm.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/17_install_helm.html</guid>
+      <description>Helm describes itself as a &amp;lsquo;package manager for kubernetes&amp;rsquo; and can be used to deploy resources to Kubernetes.
+You package your application as a chart which can contain templated files (usually Kubernetes resources) and default configuration values too use when rendering the template. Charts are reusable and values can be overriden for specific environments.
+We are using Helm v3 in the workshops. So there is no tiller. If you are using your own environment and not the workshops Cloud9 environment and you have Helm v2 the commands should work ok.</description>
+    </item>
+    
+    <item>
+      <title>Install fluxctl</title>
+      <link>/70_workshop_7_multicloud/10_prerequisites/18_install_fluxctl.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/70_workshop_7_multicloud/10_prerequisites/18_install_fluxctl.html</guid>
+      <description> Install Fluxctl Fluxctl is a CLI tool that is able to talk to Weave Flux.
+Install by running this command:
+curl -Ls https://fluxcd.io/install | sh &amp;amp;&amp;amp; \ sudo mv $HOME/.fluxcd/bin/fluxctl /usr/local/bin/fluxctl Verify the installation:
+fluxctl version</description>
     </item>
     
     <item>

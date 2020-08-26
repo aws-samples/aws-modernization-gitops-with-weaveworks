@@ -129,6 +129,10 @@
   </url>
   
   <url>
+    <loc>/70_workshop_7_multicloud/10_prerequisites/11_add_the_role.html</loc>
+  </url>
+  
+  <url>
     <loc>/25_workshop_2_ha-dr/50_add_yamls/11_alb_ingress.html</loc>
   </url>
   
@@ -137,7 +141,7 @@
   </url>
   
   <url>
-    <loc>/70_workshop_7_multicloud/10_prerequisites/11_install_eksctl.html</loc>
+    <loc>/70_workshop_7_multicloud/10_prerequisites/12_install_aws-iam.html</loc>
   </url>
   
   <url>
@@ -145,15 +149,15 @@
   </url>
   
   <url>
-    <loc>/70_workshop_7_multicloud/10_prerequisites/12_install_kubectl.html</loc>
-  </url>
-  
-  <url>
     <loc>/20_weaveworks_prerequisites/13_install_helm.html</loc>
   </url>
   
   <url>
-    <loc>/70_workshop_7_multicloud/10_prerequisites/13_install_helm.html</loc>
+    <loc>/70_workshop_7_multicloud/10_prerequisites/13_workspaceiam.html</loc>
+  </url>
+  
+  <url>
+    <loc>/70_workshop_7_multicloud/10_prerequisites/14_install_eksctl.html</loc>
   </url>
   
   <url>
@@ -161,7 +165,7 @@
   </url>
   
   <url>
-    <loc>/70_workshop_7_multicloud/10_prerequisites/14_install_fluxctl.html</loc>
+    <loc>/70_workshop_7_multicloud/10_prerequisites/15_create_eks_cluster.html</loc>
   </url>
   
   <url>
@@ -173,10 +177,6 @@
   </url>
   
   <url>
-    <loc>/70_workshop_7_multicloud/10_prerequisites/15_install_kustomize.html</loc>
-  </url>
-  
-  <url>
     <loc>/70_workshop_7_multicloud/15_setup_git_repo.html</loc>
   </url>
   
@@ -185,7 +185,7 @@
   </url>
   
   <url>
-    <loc>/70_workshop_7_multicloud/10_prerequisites/16_install_aws-iam.html</loc>
+    <loc>/70_workshop_7_multicloud/10_prerequisites/16_install_kubectl.html</loc>
   </url>
   
   <url>
@@ -193,11 +193,11 @@
   </url>
   
   <url>
-    <loc>/70_workshop_7_multicloud/10_prerequisites/17_add_the_role.html</loc>
+    <loc>/70_workshop_7_multicloud/10_prerequisites/17_install_helm.html</loc>
   </url>
   
   <url>
-    <loc>/70_workshop_7_multicloud/10_prerequisites/18_workspaceiam.html</loc>
+    <loc>/70_workshop_7_multicloud/10_prerequisites/18_install_fluxctl.html</loc>
   </url>
   
   <url>

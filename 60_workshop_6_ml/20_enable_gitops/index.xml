@@ -29,7 +29,7 @@ In the Cloud9 environment, a user SSH key pair is not automatically created. Use
       
       <guid>/60_workshop_6_ml/20_enable_gitops/02_eksctl_enable_repo.html</guid>
       <description>Ensure you are in the root of your Cloud9 Environment and clone your repository.
-GITHUB_DIR=$PWD/src/github.com GIT_EMAIL=$(git config -f ~/.gitconfig --get user.email) GIT_ORG=$(git config -f ~/.gitconfig --get user.name) EKSCTL_EXPERIMENTAL=true \  eksctl enable repo \  --git-url git@github.com:$GIT_ORG/${EKS_CLUSTER_NAME}-config \  --git-email $GIT_EMAIL \  --cluster $EKS_CLUSTER_NAME \  --region &amp;#34;$AWS_DEFAULT_REGION&amp;#34; ` &amp;lsquo;eksctl enable repo&amp;rsquo; will install FluxCD and the Helm Operator (with support for Helm v3).
+GITHUB_DIR=$PWD/src/github.com GIT_EMAIL=$(git config -f ~/.gitconfig --get user.email) GIT_ORG=$(git config -f ~/.gitconfig --get user.name) eksctl enable repo \  --git-url git@github.com:$GIT_ORG/${EKS_CLUSTER_NAME}-config \  --git-email $GIT_EMAIL \  --cluster $EKS_CLUSTER_NAME \  --region &amp;#34;$AWS_DEFAULT_REGION&amp;#34; eksctl enable repo will install FluxCD and the Helm Operator (with support for Helm v3).
 When the command finishes, you will be prompted to add Flux&amp;rsquo;s SSH public key to your GitHub repository.</description>
     </item>
     
