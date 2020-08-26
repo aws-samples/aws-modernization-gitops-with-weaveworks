@@ -1,7 +1,7 @@
 +++
 title = "Install eksctl"
 chapter = false
-weight = 11
+weight = 14
 
 +++
 
@@ -17,13 +17,5 @@ sudo mv /tmp/eksctl /usr/local/bin
 This will install `eksctl` in your **Cloud9** environment. To test to make sure the command is installed properly, execute the command:
 
 ```
-eksctl get cluster
-```
-
-You should get a pre-installed cluster. If you see "No clusters found" message, contact us to provision a new cluster.
-
-```
 eksctl version
 ```
-
-For the current workshops, we will be using `eksctl` **0.19-rc.1** or newer. Please verify the version, as some features are only available in the **0.19** version of `eksctl`

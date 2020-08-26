@@ -5,7 +5,7 @@ weight = 17
 
 +++
 
-Creating and using EKS clusters in AWS requires specific IAM roles for the user creating and accessing EKS clusters. 
+Creating and using EKS clusters in AWS requires specific IAM roles for the user creating and accessing EKS clusters.
 
 - Switch to the **AWS Console** (You can open the console from the "Team Dashboard")
 - Under **Services**, select **EC2**
