@@ -16,8 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/70_workshop_7_multicloud/10_prerequisites/10_workspace.html</guid>
-      <description>AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your development machine to start new projects.
- Ad blockers, javascript disablers, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted.</description>
+      <description>Create admin role  Switch to the AWS Console (You can open the console from the &amp;ldquo;Team Dashboard&amp;rdquo;) Under Services, select IAM &amp;gt; Roles &amp;gt; Create Role Confirm that AWS service and EC2 are selected, then click Next to view permissions. Confirm that AdministratorAccess is checked, then click Next: Tags to assign tags. Take the defaults, and click Next: Review to review. Enter eksworkshop-admin for the Name, and click Create role  Create Cloud9 Instance AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser.</description>
     </item>
     
     <item>
@@ -26,8 +25,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/70_workshop_7_multicloud/10_prerequisites/11_add_the_role.html</guid>
-      <description>Creating and using EKS clusters in AWS requires specific IAM roles for the user creating and accessing EKS clusters.
-Create admin role  Switch to the AWS Console (You can open the console from the &amp;ldquo;Team Dashboard&amp;rdquo;) Under Services, select IAM &amp;gt; Roles &amp;gt; Create Role Confirm that AWS service and EC2 are selected, then click Next to view permissions. Confirm that AdministratorAccess is checked, then click Next: Tags to assign tags.</description>
+      <description> Creating and using EKS clusters in AWS requires specific IAM roles for the user creating and accessing EKS clusters.
+Attach to cloud9 instance  Switch to the AWS Console (You can open the console from the &amp;ldquo;Team Dashboard&amp;rdquo;) Under Services, select EC2 Click Running Instances Select the instance named &amp;ldquo;aws-cloud9-&amp;hellip;&amp;rdquo; by clicking the check box to the left of the name On Actions pull down, select Instance Settings -&amp;gt; Attach/Replace IAM Role In the IAM role pull down, select eksworkshop-admin To the right, click Apply  </description>
     </item>
     
     <item>
