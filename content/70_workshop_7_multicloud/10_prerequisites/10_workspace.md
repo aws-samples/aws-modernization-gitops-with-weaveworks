@@ -4,6 +4,17 @@ chapter = false
 weight = 10
 +++
 
+## Create admin role
+
+- Switch to the **AWS Console** (You can open the console from the "Team Dashboard")
+- Under **Services**, select **IAM > Roles > Create Role**
+- Confirm that AWS service and EC2 are selected, then click Next to view permissions.
+- Confirm that AdministratorAccess is checked, then click Next: Tags to assign tags.
+- Take the defaults, and click Next: Review to review.
+- Enter `eksworkshop-admin` for the Name, and click **Create role**
+
+## Create Cloud9 Instance
+
 {{% notice info %}}
 [AWS Cloud9](https://aws.amazon.com/cloud9/) is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your development machine to start new projects.
 {{% /notice %}}
