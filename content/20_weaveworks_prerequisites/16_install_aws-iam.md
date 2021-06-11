@@ -1,5 +1,5 @@
 +++
-title = "Install AWS IAM"
+title = "Install AWS IAM Authenticator"
 chapter = false
 weight = 16
 
@@ -7,15 +7,15 @@ weight = 16
 
 Amazon EKS uses IAM to provide authentication to your Kubernetes cluster through the AWS IAM authenticator for Kubernetes. You can configure the stock kubectl client to work with Amazon EKS by installing the AWS IAM authenticator for Kubernetes and modifying your kubectl configuration file to use it for authentication. 
 
-To install aws-iam-authenticator on Cloud9
+To install `aws-iam-authenticator` on Cloud9
 
-Download the Amazon EKS-vended aws-iam-authenticator binary from Amazon S3: 
+Download the Amazon EKS-vended `aws-iam-authenticator binary` from Amazon S3: 
 
 ```
 curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/aws-iam-authenticator
 ```
 
-Apply execute permissions to the binary:
+Make the downloaded binary executable:
 
 ```
 chmod +x ./aws-iam-authenticator

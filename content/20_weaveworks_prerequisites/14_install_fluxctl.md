@@ -1,5 +1,5 @@
 +++
-title = "Install fluxctl"
+title = "Install the Flux CLI"
 chapter = false
 weight = 14
 
@@ -7,17 +7,16 @@ weight = 14
 
 ## Install Fluxctl
 
-[Fluxctl](https://docs.fluxcd.io/en/1.17.1/references/fluxctl.html) is a CLI tool that is able to talk to [Weave Flux](https://github.com/fluxcd/flux).
+[Flux CLI](https://fluxcd.io/docs/installation/) is a CLI tool that is able to talk to [Weave Flux](https://github.com/fluxcd/flux2).
 
 Install by running this command:
 
 ```sh
-curl -Ls https://fluxcd.io/install | sh && \
-sudo mv $HOME/.fluxcd/bin/fluxctl /usr/local/bin/fluxctl
+curl -s https://fluxcd.io/install.sh | sudo bash
 ```
 
 Verify the installation:
 
 ```sh
-fluxctl version
+flux -v
 ```
