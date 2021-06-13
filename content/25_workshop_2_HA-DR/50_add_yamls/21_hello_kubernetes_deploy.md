@@ -117,8 +117,7 @@ metadata:
     ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: hello.demo.weave.works 
-    http:
+  - http:
       paths:
         - path: /
           backend:

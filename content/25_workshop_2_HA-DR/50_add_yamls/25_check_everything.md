@@ -4,35 +4,75 @@ chapter = false
 weight = 25
 +++
 
-When all the manifests have been created and pushed to your git repository, we can verify that everything worked as expected. The software agent in the cluster, `flux`, checks for commit updates every five minutes (by default). After it has checked your git repository, and applied the changed manifests, we will want to verify everything.
+Let's inspect what we have deployed to the cluster by pushing the various manifests into the repo. Using the `kubectl get all -n <namespace>` command, let's look at what has been automatically created in each namespace.
 
-In each terminal session, execute:
+You will now have three new namespaces:
+
+- `flux-system` which holds all the resources that Flux v2 runs to automatically reconcile your cluster against one or more repos
+
+```bash
+NAME                                           READY   STATUS    RESTARTS   AGE
+pod/helm-controller-85bfd4959d-m9f98           1/1     Running   0          11h
+pod/kustomize-controller-7d5959c758-k94sm      1/1     Running   0          11h
+pod/notification-controller-758d759586-cz5bx   1/1     Running   0          11h
+pod/source-controller-6d986bbb7f-486qv         1/1     Running   0          11h
+
+NAME                              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+service/notification-controller   ClusterIP   10.100.142.52   <none>        80/TCP    11h
+service/source-controller         ClusterIP   10.100.26.85    <none>        80/TCP    11h
+service/webhook-receiver          ClusterIP   10.100.25.99    <none>        80/TCP    11h
+
+NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/helm-controller           1/1     1            1           11h
+deployment.apps/kustomize-controller      1/1     1            1           11h
+deployment.apps/notification-controller   1/1     1            1           11h
+deployment.apps/source-controller         1/1     1            1           11h
+
+NAME                                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/helm-controller-85bfd4959d           1         1         1       11h
+replicaset.apps/kustomize-controller-7d5959c758      1         1         1       11h
+replicaset.apps/notification-controller-758d759586   1         1         1       11h
+replicaset.apps/source-controller-6d986bbb7f         1         1         1       11h
 ```
-kubectl get pods -A
+
+- `ingress-nginx` contains the various resources used by the NGINX Ingress Controller
+
+```bash
+NAME                                           READY   STATUS      RESTARTS   AGE
+pod/ingress-nginx-admission-create-8gx6c       0/1     Completed   0          11h
+pod/ingress-nginx-admission-patch-cb565        0/1     Completed   0          11h
+pod/ingress-nginx-controller-98f46f89d-ksntq   1/1     Running     0          11h
+
+NAME                                         TYPE           CLUSTER-IP      EXTERNAL-IP                                                                     PORT(S)                      AGE
+service/ingress-nginx-controller             LoadBalancer   10.100.201.90   xxx.elb.xxx.amazonaws.com   80:31893/TCP,443:31157/TCP   11h
+service/ingress-nginx-controller-admission   ClusterIP      10.100.173.7    <none>                                                                          443/TCP                      11h
+
+NAME                                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/ingress-nginx-controller   1/1     1            1           11h
+
+NAME                                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/ingress-nginx-controller-98f46f89d   1         1         1       11h
+
+NAME                                       COMPLETIONS   DURATION   AGE
+job.batch/ingress-nginx-admission-create   1/1           4s         11h
+job.batch/ingress-nginx-admission-patch    1/1           3s         11h
 ```
-You should see output very similar to this:
-<pre>
-NAMESPACE     NAME                                      READY   STATUS    RESTARTS   AGE
-flux          flux-7ddc59f94c-zxdcx                     1/1     Running   0          4d18h
-flux          helm-operator-74546bd6f5-9mcls            1/1     Running   0          4d18h
-flux          memcached-689f7846dc-f587t                1/1     Running   0          4d18h
-kube-system   alb-ingress-controller-769b6d855d-fntnm   1/1     Running   0          5d20h
-kube-system   aws-node-25p47                            1/1     Running   0          5d20h
-kube-system   aws-node-lgpvw                            1/1     Running   0          5d20h
-kube-system   coredns-5fb4bd6df8-f6c2d                  1/1     Running   0          5d21h
-kube-system   coredns-5fb4bd6df8-n7rws                  1/1     Running   0          5d21h
-kube-system   kube-proxy-bm8gp                          1/1     Running   0          5d20h
-kube-system   kube-proxy-rf92b                          1/1     Running   0          5d20h
-podinfo       podinfo-5f6f84ff7b-7nndj                  1/1     Running   0          4d18h
-podinfo       podinfo-5f6f84ff7b-hfw2j                  1/1     Running   0          4d18h
-podinfo       podinfo-5f6f84ff7b-zjtnc                  1/1     Running   0          4d18h
-</pre>
-We also want to find out how to access the clsuter from the outside world. To see the host name of your ingress controller, execute:
+  
+- `hello-kubernetes` is where our sample `Hello Kubernetes` application lives.
+
+```bash
+NAME                                           READY   STATUS    RESTARTS   AGE
+pod/hello-kubernetes-eks-ha-69968cd578-5k7wq   1/1     Running   0          11h
+pod/hello-kubernetes-eks-ha-69968cd578-lmzl7   1/1     Running   0          11h
+
+NAME                              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+service/hello-kubernetes-eks-ha   ClusterIP   10.100.97.246   <none>        80/TCP    11h
+
+NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/hello-kubernetes-eks-ha   2/2     2            2           11h
+
+NAME                                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/hello-kubernetes-eks-ha-69968cd578   2         2         2       11h
 ```
-kubectl get ingress -A
-```
-You should see output similar to this:
-<pre>
-NAMESPACE   NAME              HOSTS   ADDRESS                                                                  PORTS   AGE
-podinfo     podinfo-ingress   *       e737fb32-podinfo-podinfoin-2c89-1571962006.us-east-2.elb.amazonaws.com   80      4d18h
-</pre>
+
+Go ahead, switch contexts to your other cluster and run the same commands, you will find that both clusters are running identical configurations!
