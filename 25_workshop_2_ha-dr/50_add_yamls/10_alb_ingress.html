@@ -9,24 +9,24 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>Install an Application Load Balancer Ingress Controller (RBAC) :: Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <title>Install the NGINX Ingress Controller :: Weaveworks Introduction to GitOps w/ AWS EKS</title>
 
     
-    <link href="../../css/nucleus.css?1599763225" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1599763225" rel="stylesheet">
-    <link href="../../css/hybrid.css?1599763225" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1599763225" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1599763225" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1599763225" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1599763225" rel="stylesheet">
-    <link href="../../css/theme.css?1599763225" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1599763225" rel="stylesheet">
+    <link href="../../css/nucleus.css?1623721394" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1623721394" rel="stylesheet">
+    <link href="../../css/hybrid.css?1623721394" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1623721394" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1623721394" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1623721394" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1623721394" rel="stylesheet">
+    <link href="../../css/theme.css?1623721394" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1623721394" rel="stylesheet">
     
-    <link href="../../css/theme-mine.css?1599763225" rel="stylesheet">
+    <link href="../../css/theme-mine.css?1623721394" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1599763225"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1623721394"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,17 +53,26 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1599763225"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1599763225"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1623721394"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1623721394"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1599763225"></script>
+<script type="text/javascript" src="../../js/search.js?1623721394"></script>
 
     
   </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='../../'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
 
     <div class="highlightable">
     <ul class="topics">
@@ -78,7 +87,7 @@
  
   
     
-    <li data-nav-id="/05_introduction.html" title="Welcome" class="dd-item 
+    <li data-nav-id="/05_introduction.html" title="Welcome" class="dd-item
         
         
         
@@ -95,7 +104,7 @@
           
           
           
-          
+
         
           
             
@@ -142,7 +151,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -156,7 +165,7 @@
  
   
     
-    <li data-nav-id="/10_aws_prerequisites.html" title="Start the Workshop" class="dd-item 
+    <li data-nav-id="/10_aws_prerequisites.html" title="Start the Workshop" class="dd-item
         
         
         
@@ -173,7 +182,7 @@
           
           
           
-          
+
         
           
             
@@ -220,7 +229,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -234,7 +243,7 @@
  
   
     
-    <li data-nav-id="/20_weaveworks_prerequisites.html" title="Prerequisites for all GitOps Workshop Modules" class="dd-item 
+    <li data-nav-id="/20_weaveworks_prerequisites.html" title="Prerequisites for all GitOps Workshop Modules" class="dd-item
         
         
         
@@ -251,7 +260,7 @@
           
           
           
-          
+
         
           
             
@@ -347,9 +356,9 @@
  
   
     
-      <li data-nav-id="/20_weaveworks_prerequisites/14_install_fluxctl.html" title="Install fluxctl" class="dd-item ">
+      <li data-nav-id="/20_weaveworks_prerequisites/14_install_fluxctl.html" title="Install the Flux CLI" class="dd-item ">
         <a href="../../20_weaveworks_prerequisites/14_install_fluxctl.html">
-        Install fluxctl
+        Install the Flux CLI
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -389,9 +398,9 @@
  
   
     
-      <li data-nav-id="/20_weaveworks_prerequisites/16_install_aws-iam.html" title="Install AWS IAM" class="dd-item ">
+      <li data-nav-id="/20_weaveworks_prerequisites/16_install_aws-iam.html" title="Install AWS IAM Authenticator" class="dd-item ">
         <a href="../../20_weaveworks_prerequisites/16_install_aws-iam.html">
-        Install AWS IAM
+        Install AWS IAM Authenticator
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -410,9 +419,30 @@
  
   
     
-      <li data-nav-id="/20_weaveworks_prerequisites/17_add_the_role.html" title="Add the Required IAM Role" class="dd-item ">
-        <a href="../../20_weaveworks_prerequisites/17_add_the_role.html">
-        Add the Required IAM Role
+      <li data-nav-id="/20_weaveworks_prerequisites/17_create_iam_policy_and_role.html" title="Create IAM Policy and Role" class="dd-item ">
+        <a href="../../20_weaveworks_prerequisites/17_create_iam_policy_and_role.html">
+        Create IAM Policy and Role
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/20_weaveworks_prerequisites/18_attach_the_role.html" title="Attach Role to instance" class="dd-item ">
+        <a href="../../20_weaveworks_prerequisites/18_attach_the_role.html">
+        Attach Role to instance
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -445,7 +475,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -459,7 +489,7 @@
  
   
     
-    <li data-nav-id="/22_workshop_1.html" title="Workshop Module 1: Introduction to GitOps on EKS" class="dd-item 
+    <li data-nav-id="/22_workshop_1.html" title="Workshop Module 1: Introduction to GitOps on EKS" class="dd-item
         
         
         
@@ -478,7 +508,7 @@
             
           
           
-          
+
         
           
             
@@ -490,12 +520,71 @@
  
   
     
-    <li data-nav-id="/22_workshop_1/10_create_cluster.html" title="Create a Cluster" class="dd-item 
+    <li data-nav-id="/22_workshop_1/10_setup_gitops_prequisites.html" title="Setup Prerequisites" class="dd-item
         
         
         
         ">
-      <a href="../../22_workshop_1/10_create_cluster.html">
+      <a href="../../22_workshop_1/10_setup_gitops_prequisites.html">
+          Setup Prerequisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/22_workshop_1/10_setup_gitops_prequisites/11_enable_git_access.html" title="Enable GitHub Access" class="dd-item ">
+        <a href="../../22_workshop_1/10_setup_gitops_prequisites/11_enable_git_access.html">
+        Enable GitHub Access
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/22_workshop_1/20_create_cluster.html" title="Create a Cluster" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../22_workshop_1/20_create_cluster.html">
           Create a Cluster
           
             <i class="fas fa-check read-icon"></i>
@@ -507,7 +596,7 @@
           
           
           
-          
+
         
           
             
@@ -519,9 +608,9 @@
  
   
     
-      <li data-nav-id="/22_workshop_1/10_create_cluster/10-create-cluster.html" title="Create a Cluster with eksctl" class="dd-item ">
-        <a href="../../22_workshop_1/10_create_cluster/10-create-cluster.html">
-        Create a Cluster with eksctl
+      <li data-nav-id="/22_workshop_1/20_create_cluster/21-create-cluster.html" title="Create a GitOps enabled cluster using eksctl" class="dd-item ">
+        <a href="../../22_workshop_1/20_create_cluster/21-create-cluster.html">
+        Create a GitOps enabled cluster using eksctl
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -533,7 +622,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -549,13 +638,13 @@
  
   
     
-    <li data-nav-id="/22_workshop_1/20_gitops_enable.html" title="GitOps Enable Your Cluster" class="dd-item 
+    <li data-nav-id="/22_workshop_1/30_gitops_enable.html" title="Doing GitOps with Flux v2" class="dd-item
         
         
         
         ">
-      <a href="../../22_workshop_1/20_gitops_enable.html">
-          GitOps Enable Your Cluster
+      <a href="../../22_workshop_1/30_gitops_enable.html">
+          Doing GitOps with Flux v2
           
             <i class="fas fa-check read-icon"></i>
           
@@ -566,7 +655,7 @@
           
           
           
-          
+
         
           
             
@@ -578,9 +667,9 @@
  
   
     
-      <li data-nav-id="/22_workshop_1/20_gitops_enable/31_set_up_git.html" title="Set Up Your GIT Repository" class="dd-item ">
-        <a href="../../22_workshop_1/20_gitops_enable/31_set_up_git.html">
-        Set Up Your GIT Repository
+      <li data-nav-id="/22_workshop_1/30_gitops_enable/33_using_flux_v2.html" title="Accessing the configuration repo" class="dd-item ">
+        <a href="../../22_workshop_1/30_gitops_enable/33_using_flux_v2.html">
+        Accessing the configuration repo
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -599,51 +688,9 @@
  
   
     
-      <li data-nav-id="/22_workshop_1/20_gitops_enable/32_enable_gitops.html" title="Enable Your Cluster for GitOps" class="dd-item ">
-        <a href="../../22_workshop_1/20_gitops_enable/32_enable_gitops.html">
-        Enable Your Cluster for GitOps
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/22_workshop_1/20_gitops_enable/33_lets_check_flux.html" title="Flux and GitOps" class="dd-item ">
-        <a href="../../22_workshop_1/20_gitops_enable/33_lets_check_flux.html">
-        Flux and GitOps
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/22_workshop_1/20_gitops_enable/34_update_flux_for_demo.html" title="Speed up Flux for Demo" class="dd-item ">
-        <a href="../../22_workshop_1/20_gitops_enable/34_update_flux_for_demo.html">
-        Speed up Flux for Demo
+      <li data-nav-id="/22_workshop_1/30_gitops_enable/34_update_flux_for_demo.html" title="Managing configuration with GitOps" class="dd-item ">
+        <a href="../../22_workshop_1/30_gitops_enable/34_update_flux_for_demo.html">
+        Managing configuration with GitOps
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -655,7 +702,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -671,12 +718,12 @@
  
   
     
-    <li data-nav-id="/22_workshop_1/30_deploy_sample_app.html" title="Deploy Sock Shop Application (Optional)" class="dd-item 
+    <li data-nav-id="/22_workshop_1/40_deploy_sample_app.html" title="Deploy Sock Shop Application (Optional)" class="dd-item
         
         
         
         ">
-      <a href="../../22_workshop_1/30_deploy_sample_app.html">
+      <a href="../../22_workshop_1/40_deploy_sample_app.html">
           Deploy Sock Shop Application (Optional)
           
             <i class="fas fa-check read-icon"></i>
@@ -688,7 +735,7 @@
           
           
           
-          
+
         
           
             
@@ -700,8 +747,8 @@
  
   
     
-      <li data-nav-id="/22_workshop_1/30_deploy_sample_app/41_import_k8s_labels_annotations.html" title="Setup Kubernetes labels" class="dd-item ">
-        <a href="../../22_workshop_1/30_deploy_sample_app/41_import_k8s_labels_annotations.html">
+      <li data-nav-id="/22_workshop_1/40_deploy_sample_app/41_import_k8s_labels_annotations.html" title="Setup Kubernetes labels" class="dd-item ">
+        <a href="../../22_workshop_1/40_deploy_sample_app/41_import_k8s_labels_annotations.html">
         Setup Kubernetes labels
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -714,7 +761,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -723,7 +770,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -737,7 +784,7 @@
  
   
     
-    <li data-nav-id="/25_workshop_2_ha-dr.html" title="Workshop Module 2: Using GitOps and EKS to Manage HA &amp; DR" class="dd-item 
+    <li data-nav-id="/25_workshop_2_ha-dr.html" title="Workshop Module 2: Using GitOps and EKS to Manage HA &amp; DR" class="dd-item
         parent
         
         
@@ -756,7 +803,7 @@
             
           
           
-          
+
         
           
             
@@ -768,7 +815,7 @@
  
   
     
-    <li data-nav-id="/25_workshop_2_ha-dr/01_prerequisites.html" title="Workshop Prerequisites" class="dd-item 
+    <li data-nav-id="/25_workshop_2_ha-dr/01_prerequisites.html" title="Workshop Prerequisites" class="dd-item
         
         
         
@@ -780,35 +827,7 @@
           
       </a>
       
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/25_workshop_2_ha-dr/20_create_two_clusters.html" title="Create Two EKS Clusters" class="dd-item 
-        
-        
-        
-        ">
-      <a href="../../25_workshop_2_ha-dr/20_create_two_clusters.html">
-          Create Two EKS Clusters
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
       
-              
     </li>
   
  
@@ -824,19 +843,19 @@
  
   
     
-    <li data-nav-id="/25_workshop_2_ha-dr/30_create_git_repo.html" title="Set Up Your GIT Repository" class="dd-item 
+    <li data-nav-id="/25_workshop_2_ha-dr/20_create_git_repo.html" title="Set Up Your GIT Repository" class="dd-item
         
         
         
         ">
-      <a href="../../25_workshop_2_ha-dr/30_create_git_repo.html">
+      <a href="../../25_workshop_2_ha-dr/20_create_git_repo.html">
           Set Up Your GIT Repository
           
             <i class="fas fa-check read-icon"></i>
           
       </a>
       
-              
+      
     </li>
   
  
@@ -852,7 +871,35 @@
  
   
     
-    <li data-nav-id="/25_workshop_2_ha-dr/40_gitops_enable_clusters.html" title="GitOps Enable Clusters" class="dd-item 
+    <li data-nav-id="/25_workshop_2_ha-dr/30_create_two_clusters.html" title="Create Two EKS Clusters" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../25_workshop_2_ha-dr/30_create_two_clusters.html">
+          Create Two EKS Clusters
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/25_workshop_2_ha-dr/40_gitops_enable_clusters.html" title="GitOps Enable Clusters" class="dd-item
         
         
         
@@ -869,7 +916,7 @@
           
           
           
-          
+
         
           
             
@@ -881,29 +928,8 @@
  
   
     
-      <li data-nav-id="/25_workshop_2_ha-dr/40_gitops_enable_clusters/10_checkkubectl.html" title="Check kubectl" class="dd-item ">
-        <a href="../../25_workshop_2_ha-dr/40_gitops_enable_clusters/10_checkkubectl.html">
-        Check kubectl
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/25_workshop_2_ha-dr/40_gitops_enable_clusters/32_enable_gitops.html" title="Enable Your Clusters for GitOps" class="dd-item ">
-        <a href="../../25_workshop_2_ha-dr/40_gitops_enable_clusters/32_enable_gitops.html">
+      <li data-nav-id="/25_workshop_2_ha-dr/40_gitops_enable_clusters/41_enable_gitops.html" title="Enable Your Clusters for GitOps" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/40_gitops_enable_clusters/41_enable_gitops.html">
         Enable Your Clusters for GitOps
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -916,7 +942,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -932,13 +958,13 @@
  
   
     
-    <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls.html" title="Add YAMLs to Repo" class="dd-item 
+    <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls.html" title="Manage your cluster using GitOps" class="dd-item
         parent
         
         
         ">
       <a href="../../25_workshop_2_ha-dr/50_add_yamls.html">
-          Add YAMLs to Repo
+          Manage your cluster using GitOps
           
             <i class="fas fa-check read-icon"></i>
           
@@ -949,7 +975,7 @@
           
           
           
-          
+
         
           
             
@@ -961,9 +987,9 @@
  
   
     
-      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html" title="Install an Application Load Balancer Ingress Controller (RBAC)" class="dd-item active">
+      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html" title="Install the NGINX Ingress Controller" class="dd-item active">
         <a href="../../25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html">
-        Install an Application Load Balancer Ingress Controller (RBAC)
+        Install the NGINX Ingress Controller
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -982,9 +1008,9 @@
  
   
     
-      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/11_alb_ingress.html" title="Install an Application Load Balancer Ingress Controller" class="dd-item ">
-        <a href="../../25_workshop_2_ha-dr/50_add_yamls/11_alb_ingress.html">
-        Install an Application Load Balancer Ingress Controller
+      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/20_hello_kubernetes_introduction.html" title="Introducing Hello Kubernetes" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/50_add_yamls/20_hello_kubernetes_introduction.html">
+        Introducing Hello Kubernetes
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -1003,9 +1029,9 @@
  
   
     
-      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/20_podinfo_introduction.html" title="Introducing Podinfo" class="dd-item ">
-        <a href="../../25_workshop_2_ha-dr/50_add_yamls/20_podinfo_introduction.html">
-        Introducing Podinfo
+      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/21_hello_kubernetes_deploy.html" title="Deploy the Hello Kubernetes Application" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/50_add_yamls/21_hello_kubernetes_deploy.html">
+        Deploy the Hello Kubernetes Application
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -1024,9 +1050,9 @@
  
   
     
-      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/21_podinfo_deploy.html" title="Deploy a Podinfo Pod" class="dd-item ">
-        <a href="../../25_workshop_2_ha-dr/50_add_yamls/21_podinfo_deploy.html">
-        Deploy a Podinfo Pod
+      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/22_hello_kubernetes_hpa.html" title="Enable Hello Kubernetes to Scale Automatically" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/50_add_yamls/22_hello_kubernetes_hpa.html">
+        Enable Hello Kubernetes to Scale Automatically
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -1045,51 +1071,9 @@
  
   
     
-      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/22_podinfo_hpa.html" title="Enable the Podinfo Pod to Scale Automatically" class="dd-item ">
-        <a href="../../25_workshop_2_ha-dr/50_add_yamls/22_podinfo_hpa.html">
-        Enable the Podinfo Pod to Scale Automatically
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/23_podinfo_service.html" title="Expose the Podinfo Pod Service" class="dd-item ">
-        <a href="../../25_workshop_2_ha-dr/50_add_yamls/23_podinfo_service.html">
-        Expose the Podinfo Pod Service
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/24_podinfo_ingress.html" title="Connect the Podinfo Service to the Ingress Controller" class="dd-item ">
-        <a href="../../25_workshop_2_ha-dr/50_add_yamls/24_podinfo_ingress.html">
-        Connect the Podinfo Service to the Ingress Controller
+      <li data-nav-id="/25_workshop_2_ha-dr/50_add_yamls/25_check_everything.html" title="Check Everything" class="dd-item ">
+        <a href="../../25_workshop_2_ha-dr/50_add_yamls/25_check_everything.html">
+        Check Everything
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -1101,7 +1085,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -1117,7 +1101,7 @@
  
   
     
-    <li data-nav-id="/25_workshop_2_ha-dr/60_test_ingresses.html" title="Test Ingress Settings" class="dd-item 
+    <li data-nav-id="/25_workshop_2_ha-dr/60_test_ingresses.html" title="Test Ingress Settings" class="dd-item
         
         
         
@@ -1129,7 +1113,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -1145,7 +1129,7 @@
  
   
     
-    <li data-nav-id="/25_workshop_2_ha-dr/70_adjust_hpa.html" title="Adjust HPA Settings" class="dd-item 
+    <li data-nav-id="/25_workshop_2_ha-dr/70_adjust_hpa.html" title="Adjust HPA Settings" class="dd-item
         
         
         
@@ -1157,7 +1141,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -1173,7 +1157,7 @@
  
   
     
-    <li data-nav-id="/25_workshop_2_ha-dr/80_configure_route53.html" title="Configure Route53 (Optional)" class="dd-item 
+    <li data-nav-id="/25_workshop_2_ha-dr/80_configure_route53.html" title="Configure Route53 (Optional)" class="dd-item
         
         
         
@@ -1185,7 +1169,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -1194,7 +1178,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -1208,7 +1192,7 @@
  
   
     
-    <li data-nav-id="/30_workshop_03_grc.html" title="Workshop Module 3: Managing GRC for K8s on EKS" class="dd-item 
+    <li data-nav-id="/30_workshop_03_grc.html" title="Workshop Module 3: Managing GRC for K8s on EKS" class="dd-item
         
         
         
@@ -1227,7 +1211,7 @@
             
           
           
-          
+
         
           
             
@@ -1239,7 +1223,7 @@
  
   
     
-    <li data-nav-id="/30_workshop_03_grc/010_prerequisites.html" title="Workshop Prerequsites" class="dd-item 
+    <li data-nav-id="/30_workshop_03_grc/010_prerequisites.html" title="Workshop Prerequsites" class="dd-item
         
         
         
@@ -1251,7 +1235,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -1267,7 +1251,7 @@
  
   
     
-    <li data-nav-id="/30_workshop_03_grc/120_deploy_opa_gatekeeper.html" title="Deploy OPA gatekeeper" class="dd-item 
+    <li data-nav-id="/30_workshop_03_grc/120_deploy_opa_gatekeeper.html" title="Deploy OPA gatekeeper" class="dd-item
         
         
         
@@ -1284,7 +1268,7 @@
           
           
           
-          
+
         
           
             
@@ -1331,7 +1315,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -1347,7 +1331,7 @@
  
   
     
-    <li data-nav-id="/30_workshop_03_grc/125_create_policy_templates.html" title="Create Policy Constraint Templates" class="dd-item 
+    <li data-nav-id="/30_workshop_03_grc/125_create_policy_templates.html" title="Create Policy Constraint Templates" class="dd-item
         
         
         
@@ -1364,7 +1348,7 @@
           
           
           
-          
+
         
           
             
@@ -1390,7 +1374,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -1406,7 +1390,7 @@
  
   
     
-    <li data-nav-id="/30_workshop_03_grc/130_create_policy_contraints.html" title="Create Policy Constraints" class="dd-item 
+    <li data-nav-id="/30_workshop_03_grc/130_create_policy_contraints.html" title="Create Policy Constraints" class="dd-item
         
         
         
@@ -1423,7 +1407,7 @@
           
           
           
-          
+
         
           
             
@@ -1449,7 +1433,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -1465,7 +1449,7 @@
  
   
     
-    <li data-nav-id="/30_workshop_03_grc/140_test-policy-contraints.html" title="Test Policy Constraints" class="dd-item 
+    <li data-nav-id="/30_workshop_03_grc/140_test-policy-contraints.html" title="Test Policy Constraints" class="dd-item
         
         
         
@@ -1482,7 +1466,7 @@
           
           
           
-          
+
         
           
             
@@ -1508,7 +1492,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -1524,7 +1508,7 @@
  
   
     
-    <li data-nav-id="/30_workshop_03_grc/150_iam-groups.html" title="Using IAM Groups to manage Kubernetes access" class="dd-item 
+    <li data-nav-id="/30_workshop_03_grc/150_iam-groups.html" title="Using IAM Groups to manage Kubernetes access" class="dd-item
         
         
         
@@ -1541,7 +1525,7 @@
           
           
           
-          
+
         
           
             
@@ -1714,7 +1698,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -1723,7 +1707,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -1737,7 +1721,7 @@
  
   
     
-    <li data-nav-id="/40_workshop_4_hipo-teams.html" title="Workshop Module 4: How to Build High Performing Team Operations" class="dd-item 
+    <li data-nav-id="/40_workshop_4_hipo-teams.html" title="Workshop Module 4: How to Build High Performing Team Operations" class="dd-item
         
         
         
@@ -1756,7 +1740,7 @@
             
           
           
-          
+
         
           
             
@@ -1768,7 +1752,7 @@
  
   
     
-    <li data-nav-id="/40_workshop_4_hipo-teams/01_prerequisites.html" title="Workshop Prerequisites" class="dd-item 
+    <li data-nav-id="/40_workshop_4_hipo-teams/01_prerequisites.html" title="Workshop Prerequisites" class="dd-item
         
         
         
@@ -1780,7 +1764,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -1796,7 +1780,7 @@
  
   
     
-    <li data-nav-id="/40_workshop_4_hipo-teams/20_create-eks-cluster.html" title="Create EKS Cluster" class="dd-item 
+    <li data-nav-id="/40_workshop_4_hipo-teams/20_create-eks-cluster.html" title="Create EKS Cluster" class="dd-item
         
         
         
@@ -1808,7 +1792,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -1824,7 +1808,7 @@
  
   
     
-    <li data-nav-id="/40_workshop_4_hipo-teams/30_gitops_enable_clusters.html" title="GitOps Enable Clusters" class="dd-item 
+    <li data-nav-id="/40_workshop_4_hipo-teams/30_gitops_enable_clusters.html" title="GitOps Enable Clusters" class="dd-item
         
         
         
@@ -1841,7 +1825,7 @@
           
           
           
-          
+
         
           
             
@@ -1909,7 +1893,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -1925,7 +1909,7 @@
  
   
     
-    <li data-nav-id="/40_workshop_4_hipo-teams/40_install-app-mesh.html" title="Install App Mesh" class="dd-item 
+    <li data-nav-id="/40_workshop_4_hipo-teams/40_install-app-mesh.html" title="Install App Mesh" class="dd-item
         
         
         
@@ -1942,7 +1926,7 @@
           
           
           
-          
+
         
           
             
@@ -2073,7 +2057,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -2089,7 +2073,7 @@
  
   
     
-    <li data-nav-id="/40_workshop_4_hipo-teams/50_install_container_insights.html" title="Install Container Insights" class="dd-item 
+    <li data-nav-id="/40_workshop_4_hipo-teams/50_install_container_insights.html" title="Install Container Insights" class="dd-item
         
         
         
@@ -2106,7 +2090,7 @@
           
           
           
-          
+
         
           
             
@@ -2195,7 +2179,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -2211,7 +2195,7 @@
  
   
     
-    <li data-nav-id="/40_workshop_4_hipo-teams/60_install-pod-info.html" title="Install Sample App (PodInfo)" class="dd-item 
+    <li data-nav-id="/40_workshop_4_hipo-teams/60_install-pod-info.html" title="Install Sample App (PodInfo)" class="dd-item
         
         
         
@@ -2228,7 +2212,7 @@
           
           
           
-          
+
         
           
             
@@ -2422,7 +2406,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -2431,7 +2415,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -2445,7 +2429,7 @@
  
   
     
-    <li data-nav-id="/50_workshop_5_accelerating_sdlc.html" title="Workshop Module 5: Accelerating the Software Development Lifecycle" class="dd-item 
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc.html" title="Workshop Module 5: Accelerating the Software Development Lifecycle" class="dd-item
         
         
         
@@ -2464,7 +2448,7 @@
             
           
           
-          
+
         
           
             
@@ -2476,7 +2460,7 @@
  
   
     
-    <li data-nav-id="/50_workshop_5_accelerating_sdlc/00_prerequisites.md.html" title="Prerequisites" class="dd-item 
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc/00_prerequisites.md.html" title="Prerequisites" class="dd-item
         
         
         
@@ -2493,7 +2477,7 @@
           
           
           
-          
+
         
           
             
@@ -2666,7 +2650,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -2682,7 +2666,7 @@
  
   
     
-    <li data-nav-id="/50_workshop_5_accelerating_sdlc/10_create_cluster.html" title="Create Cluster" class="dd-item 
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc/10_create_cluster.html" title="Create Cluster" class="dd-item
         
         
         
@@ -2699,7 +2683,7 @@
           
           
           
-          
+
         
           
             
@@ -2725,7 +2709,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -2741,7 +2725,7 @@
  
   
     
-    <li data-nav-id="/50_workshop_5_accelerating_sdlc/15_deployment_strategies.html" title="Deployment Strategies" class="dd-item 
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc/15_deployment_strategies.html" title="Deployment Strategies" class="dd-item
         
         
         
@@ -2758,7 +2742,7 @@
           
           
           
-          
+
         
           
             
@@ -2847,7 +2831,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -2863,7 +2847,7 @@
  
   
     
-    <li data-nav-id="/50_workshop_5_accelerating_sdlc/20_enable_gitops.html" title="Enable GitOps" class="dd-item 
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc/20_enable_gitops.html" title="Enable GitOps" class="dd-item
         
         
         
@@ -2880,7 +2864,7 @@
           
           
           
-          
+
         
           
             
@@ -2927,7 +2911,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -2943,7 +2927,7 @@
  
   
     
-    <li data-nav-id="/50_workshop_5_accelerating_sdlc/30_install_appmesh.html" title="Install App Mesh" class="dd-item 
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc/30_install_appmesh.html" title="Install App Mesh" class="dd-item
         
         
         
@@ -2960,7 +2944,7 @@
           
           
           
-          
+
         
           
             
@@ -3007,7 +2991,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -3023,7 +3007,7 @@
  
   
     
-    <li data-nav-id="/50_workshop_5_accelerating_sdlc/40_progressive_delivery.html" title="Progressive Delivery" class="dd-item 
+    <li data-nav-id="/50_workshop_5_accelerating_sdlc/40_progressive_delivery.html" title="Progressive Delivery" class="dd-item
         
         
         
@@ -3040,7 +3024,7 @@
           
           
           
-          
+
         
           
             
@@ -3129,7 +3113,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -3138,7 +3122,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -3152,7 +3136,7 @@
  
   
     
-    <li data-nav-id="/60_workshop_6_ml.html" title="Workshop Module 6:  Machine Learning on AWS EKS" class="dd-item 
+    <li data-nav-id="/60_workshop_6_ml.html" title="Workshop Module 6:  Machine Learning on AWS EKS" class="dd-item
         
         
         
@@ -3171,7 +3155,7 @@
             
           
           
-          
+
         
           
             
@@ -3183,7 +3167,7 @@
  
   
     
-    <li data-nav-id="/60_workshop_6_ml/00_prerequisites.md.html" title="Prerequisites" class="dd-item 
+    <li data-nav-id="/60_workshop_6_ml/00_prerequisites.md.html" title="Prerequisites" class="dd-item
         
         
         
@@ -3200,7 +3184,7 @@
           
           
           
-          
+
         
           
             
@@ -3373,7 +3357,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -3389,7 +3373,7 @@
  
   
     
-    <li data-nav-id="/60_workshop_6_ml/05_setup.html" title="Cloud9 Setup" class="dd-item 
+    <li data-nav-id="/60_workshop_6_ml/05_setup.html" title="Cloud9 Setup" class="dd-item
         
         
         
@@ -3406,7 +3390,7 @@
           
           
           
-          
+
         
           
             
@@ -3432,7 +3416,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -3448,7 +3432,7 @@
  
   
     
-    <li data-nav-id="/60_workshop_6_ml/10_create_cluster.html" title="Create Cluster" class="dd-item 
+    <li data-nav-id="/60_workshop_6_ml/10_create_cluster.html" title="Create Cluster" class="dd-item
         
         
         
@@ -3465,7 +3449,7 @@
           
           
           
-          
+
         
           
             
@@ -3491,7 +3475,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -3507,7 +3491,7 @@
  
   
     
-    <li data-nav-id="/60_workshop_6_ml/20_enable_gitops.html" title="Enable GitOps" class="dd-item 
+    <li data-nav-id="/60_workshop_6_ml/20_enable_gitops.html" title="Enable GitOps" class="dd-item
         
         
         
@@ -3524,7 +3508,7 @@
           
           
           
-          
+
         
           
             
@@ -3571,7 +3555,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -3587,7 +3571,7 @@
  
   
     
-    <li data-nav-id="/60_workshop_6_ml/30_deploy_appdev_profile.html" title="Deploy Application Development Profile" class="dd-item 
+    <li data-nav-id="/60_workshop_6_ml/30_deploy_appdev_profile.html" title="Deploy Application Development Profile" class="dd-item
         
         
         
@@ -3604,7 +3588,7 @@
           
           
           
-          
+
         
           
             
@@ -3630,7 +3614,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -3646,7 +3630,7 @@
  
   
     
-    <li data-nav-id="/60_workshop_6_ml/40_kubeflow.html" title="Kubeflow" class="dd-item 
+    <li data-nav-id="/60_workshop_6_ml/40_kubeflow.html" title="Kubeflow" class="dd-item
         
         
         
@@ -3663,7 +3647,7 @@
           
           
           
-          
+
         
           
             
@@ -3689,7 +3673,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -3705,7 +3689,7 @@
  
   
     
-    <li data-nav-id="/60_workshop_6_ml/50_titanic_sample_application.html" title="Example application - Titanic Survival Prediction" class="dd-item 
+    <li data-nav-id="/60_workshop_6_ml/50_titanic_sample_application.html" title="Example application - Titanic Survival Prediction" class="dd-item
         
         
         
@@ -3722,7 +3706,7 @@
           
           
           
-          
+
         
           
             
@@ -3832,7 +3816,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -3841,7 +3825,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -3855,7 +3839,7 @@
  
   
     
-    <li data-nav-id="/70_workshop_7_multicloud.html" title="Workshop Module 7: Cluster Management using Operators" class="dd-item 
+    <li data-nav-id="/70_workshop_7_multicloud.html" title="Workshop Module 7: Cluster Management using Operators" class="dd-item
         
         
         
@@ -3874,7 +3858,7 @@
             
           
           
-          
+
         
           
             
@@ -3886,7 +3870,7 @@
  
   
     
-    <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites.html" title="Prerequisites for Workshop" class="dd-item 
+    <li data-nav-id="/70_workshop_7_multicloud/10_prerequisites.html" title="Prerequisites for Workshop" class="dd-item
         
         
         
@@ -3903,7 +3887,7 @@
           
           
           
-          
+
         
           
             
@@ -4139,7 +4123,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -4155,7 +4139,7 @@
  
   
     
-    <li data-nav-id="/70_workshop_7_multicloud/15_setup_git_repo.html" title="Set up git repo" class="dd-item 
+    <li data-nav-id="/70_workshop_7_multicloud/15_setup_git_repo.html" title="Set up git repo" class="dd-item
         
         
         
@@ -4167,7 +4151,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -4183,7 +4167,7 @@
  
   
     
-    <li data-nav-id="/70_workshop_7_multicloud/20_credentials.html" title="Set up credentials" class="dd-item 
+    <li data-nav-id="/70_workshop_7_multicloud/20_credentials.html" title="Set up credentials" class="dd-item
         
         
         
@@ -4195,7 +4179,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -4211,7 +4195,7 @@
  
   
     
-    <li data-nav-id="/70_workshop_7_multicloud/30_bootstrap_management_cluster.html" title="Bootstrap Management Cluster" class="dd-item 
+    <li data-nav-id="/70_workshop_7_multicloud/30_bootstrap_management_cluster.html" title="Bootstrap Management Cluster" class="dd-item
         
         
         
@@ -4223,7 +4207,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -4239,7 +4223,7 @@
  
   
     
-    <li data-nav-id="/70_workshop_7_multicloud/31_add_yamls.html" title="Add YAMLs" class="dd-item 
+    <li data-nav-id="/70_workshop_7_multicloud/31_add_yamls.html" title="Add YAMLs" class="dd-item
         
         
         
@@ -4251,7 +4235,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -4267,7 +4251,7 @@
  
   
     
-    <li data-nav-id="/70_workshop_7_multicloud/40_gitops_enable_clusters.html" title="GitOps Enable Clusters" class="dd-item 
+    <li data-nav-id="/70_workshop_7_multicloud/40_gitops_enable_clusters.html" title="GitOps Enable Clusters" class="dd-item
         
         
         
@@ -4279,7 +4263,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -4295,7 +4279,7 @@
  
   
     
-    <li data-nav-id="/70_workshop_7_multicloud/50_cleanup.html" title="Cleanup" class="dd-item 
+    <li data-nav-id="/70_workshop_7_multicloud/50_cleanup.html" title="Cleanup" class="dd-item
         
         
         
@@ -4307,7 +4291,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -4316,7 +4300,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -4330,7 +4314,7 @@
  
   
     
-    <li data-nav-id="/100_cleanup.html" title="Cleanup" class="dd-item 
+    <li data-nav-id="/100_cleanup.html" title="Cleanup" class="dd-item
         
         
         
@@ -4347,7 +4331,7 @@
           
           
           
-          
+
         
           
             
@@ -4373,13 +4357,13 @@
           
         
         </ul>
-              
+      
     </li>
   
  
 
           
-         
+        
     </ul>
 
     
@@ -4388,19 +4372,19 @@
         <h3>More</h3>
         <ul>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://awsworkshop.io"><i class='fas fa-graduation-cap'></i> Modern Ops Workshops</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://aws.amazon.com/builders-library/"><i class='fas fa-tools'></i> AWS Builders Library</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://aws.amazon.com/blogs/modernizing-with-aws/"><i class='far fa-lightbulb'></i> Modern Ops with AWS & Weaveworks</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://aws.amazon.com/partners/find/"><i class='fas fa-users'></i> Partner Solutions Finder</a>
               </li>
           
@@ -4413,7 +4397,7 @@
       <hr/>
       <ul>
       
-      
+
       
         <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
       
@@ -4471,7 +4455,7 @@
             
           
           
-            <a href='../../'>GitOps on EKS with Weaveworks</a> > <a href='../../25_workshop_2_ha-dr.html'>Workshop Module 2: Using GitOps and EKS to Manage HA & DR</a> > <a href='../../25_workshop_2_ha-dr/50_add_yamls.html'>Add YAMLs to Repo</a> > Install an Application Load Balancer Ingress Controller (RBAC)
+            <a href='../../'>GitOps on EKS with Weaveworks</a> > <a href='../../25_workshop_2_ha-dr.html'>Workshop Module 2: Using GitOps and EKS to Manage HA & DR</a> > <a href='../../25_workshop_2_ha-dr/50_add_yamls.html'>Manage your cluster using GitOps</a> > Install the NGINX Ingress Controller
           
         
           
@@ -4502,48 +4486,113 @@
           
             <h1>
               
-              Install an Application Load Balancer Ingress Controller (RBAC)
+              Install the NGINX Ingress Controller
             </h1>
           
 
         
 
 
-<p>This manifest creates the role based authorization (RBAC) for the ingress controller. Copy and paste the following into a file called <strong>alb-rbac.yaml</strong> in your repository:</p>
+<p>There are multiple ways to enable access via <code>Ingress</code> to the <code>Services</code> running in your cluster. You can use <code>Application Load Balancers</code> using AWS own <a href="https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html" target="_blank">Load Balancer Controller</a> which will create an Application Load Balancer for every <code>Ingress</code> in your cluster, but in this case we are going to use the NGINX Ingress Controller, which works with a single <code>Network Load Balancer</code> created for the Ingress Controller <code>Service</code>.</p>
+
+<p>We are choosing this method in order to maintain a single and consistent desired state applicable to both clusters. You can learn more about NGINX Ingress Controller for EKS by <a href="https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/" target="_blank">following this link</a></p>
+
+<p>Copy and paste the following YAML into a file named <code>clusters/eks-ha/ingress-nginx/ingress.yaml</code>. This manifest will create all the resources required for the NGINX Ingress to work in your cluster inside the <code>ingress-nginx</code> namespace. (Note: The contents below are a slightly modified version of the file available at <a href="https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/aws/deploy.yaml" target="_blank">https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/aws/deploy.yaml</a>)</p>
 <pre><code>---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ingress-nginx
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: controller
+  name: ingress-nginx
+  namespace: ingress-nginx
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: controller
+  name: ingress-nginx-controller
+  namespace: ingress-nginx
+data:
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   labels:
-    app.kubernetes.io/name: alb-ingress-controller
-  name: alb-ingress-controller
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+  name: ingress-nginx
+  namespace: ingress-nginx
 rules:
   - apiGroups:
-      - &#34;&#34;
-      - extensions
+      - &#39;&#39;
     resources:
       - configmaps
       - endpoints
-      - events
-      - ingresses
-      - ingresses/status
+      - nodes
+      - pods
+      - secrets
+    verbs:
+      - list
+      - watch
+  - apiGroups:
+      - &#39;&#39;
+    resources:
+      - nodes
+    verbs:
+      - get
+  - apiGroups:
+      - &#39;&#39;
+    resources:
       - services
     verbs:
-      - create
       - get
       - list
       - update
       - watch
+  - apiGroups:
+      - extensions
+      - networking.k8s.io
+    resources:
+      - ingresses
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - &#39;&#39;
+    resources:
+      - events
+    verbs:
+      - create
       - patch
   - apiGroups:
-      - &#34;&#34;
       - extensions
+      - networking.k8s.io
     resources:
-      - nodes
-      - pods
-      - secrets
-      - services
-      - namespaces
+      - ingresses/status
+    verbs:
+      - update
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - ingressclasses
     verbs:
       - get
       - list
@@ -4553,32 +4602,485 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   labels:
-    app.kubernetes.io/name: alb-ingress-controller
-  name: alb-ingress-controller
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+  name: ingress-nginx
+  namespace: ingress-nginx
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: alb-ingress-controller
+  name: ingress-nginx
 subjects:
   - kind: ServiceAccount
-    name: alb-ingress-controller
-    namespace: kube-system
+    name: ingress-nginx
+    namespace: ingress-nginx
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: controller
+  name: ingress-nginx
+  namespace: ingress-nginx
+rules:
+  - apiGroups:
+      - &#39;&#39;
+    resources:
+      - namespaces
+    verbs:
+      - get
+  - apiGroups:
+      - &#39;&#39;
+    resources:
+      - configmaps
+      - pods
+      - secrets
+      - endpoints
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - &#39;&#39;
+    resources:
+      - services
+    verbs:
+      - get
+      - list
+      - update
+      - watch
+  - apiGroups:
+      - extensions
+      - networking.k8s.io   
+    resources:
+      - ingresses
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - extensions
+      - networking.k8s.io   
+    resources:
+      - ingresses/status
+    verbs:
+      - update
+  - apiGroups:
+      - networking.k8s.io   
+    resources:
+      - ingressclasses
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - &#39;&#39;
+    resources:
+      - configmaps
+    resourceNames:
+      - ingress-controller-leader-nginx
+    verbs:
+      - get
+      - update
+  - apiGroups:
+      - &#39;&#39;
+    resources:
+      - configmaps
+    verbs:
+      - create
+  - apiGroups:
+      - &#39;&#39;
+    resources:
+      - endpoints
+    verbs:
+      - create
+      - get
+      - update
+  - apiGroups:
+      - &#39;&#39;
+    resources:
+      - events
+    verbs:
+      - create
+      - patch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: controller
+  name: ingress-nginx
+  namespace: ingress-nginx
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ingress-nginx
+subjects:
+  - kind: ServiceAccount
+    name: ingress-nginx
+    namespace: ingress-nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: controller
+  name: ingress-nginx-controller-admission
+  namespace: ingress-nginx
+spec:
+  type: ClusterIP
+  ports:
+    - name: https-webhook
+      port: 443
+      targetPort: webhook
+  selector:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/component: controller
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+    service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: &#39;60&#39;
+    service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: &#39;true&#39;
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: controller
+  name: ingress-nginx-controller
+  namespace: ingress-nginx
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: http
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: https
+  selector:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/component: controller
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: controller
+  name: ingress-nginx-controller
+  namespace: ingress-nginx
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ingress-nginx
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/component: controller
+  revisionHistoryLimit: 10
+  minReadySeconds: 0
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ingress-nginx
+        app.kubernetes.io/instance: ingress-nginx
+        app.kubernetes.io/component: controller
+    spec:
+      dnsPolicy: ClusterFirst
+      containers:
+        - name: controller
+          image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.32.0
+          imagePullPolicy: IfNotPresent
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - /wait-shutdown
+          args:
+            - /nginx-ingress-controller
+            - --publish-service=ingress-nginx/ingress-nginx-controller
+            - --election-id=ingress-controller-leader
+            - --ingress-class=nginx
+            - --configmap=ingress-nginx/ingress-nginx-controller
+            - --validating-webhook=:8443
+            - --validating-webhook-certificate=/usr/local/certificates/cert
+            - --validating-webhook-key=/usr/local/certificates/key
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+              add:
+                - NET_BIND_SERVICE
+            runAsUser: 101
+            allowPrivilegeEscalation: true
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 10254
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 10254
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+            - name: https
+              containerPort: 443
+              protocol: TCP
+            - name: webhook
+              containerPort: 8443
+              protocol: TCP
+          volumeMounts:
+            - name: webhook-cert
+              mountPath: /usr/local/certificates/
+              readOnly: true
+          resources:
+            requests:
+              cpu: 100m
+              memory: 90Mi
+      serviceAccountName: ingress-nginx
+      terminationGracePeriodSeconds: 300
+      volumes:
+        - name: webhook-cert
+          secret:
+            secretName: ingress-nginx-admission
+---
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: ValidatingWebhookConfiguration
+metadata:
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: admission-webhook
+  name: ingress-nginx-admission
+  namespace: ingress-nginx
+webhooks:
+  - name: validate.nginx.ingress.kubernetes.io
+    rules:
+      - apiGroups:
+          - extensions
+          - networking.k8s.io
+        apiVersions:
+          - v1beta1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - ingresses
+    failurePolicy: Fail
+    clientConfig:
+      service:
+        namespace: ingress-nginx
+        name: ingress-nginx-controller-admission
+        path: /extensions/v1beta1/ingresses
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: ingress-nginx-admission
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: admission-webhook
+  namespace: ingress-nginx
+rules:
+  - apiGroups:
+      - admissionregistration.k8s.io
+    resources:
+      - validatingwebhookconfigurations
+    verbs:
+      - get
+      - update
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: ingress-nginx-admission
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: admission-webhook
+  namespace: ingress-nginx
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: ingress-nginx-admission
+subjects:
+  - kind: ServiceAccount
+    name: ingress-nginx-admission
+    namespace: ingress-nginx
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ingress-nginx-admission-create
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: admission-webhook
+  namespace: ingress-nginx
+spec:
+  template:
+    metadata:
+      name: ingress-nginx-admission-create
+      labels:
+        app.kubernetes.io/name: ingress-nginx
+        app.kubernetes.io/instance: ingress-nginx
+        app.kubernetes.io/version: 0.32.0
+        app.kubernetes.io/component: admission-webhook
+    spec:
+      containers:
+        - name: create
+          image: jettech/kube-webhook-certgen:v1.2.0
+          imagePullPolicy: IfNotPresent
+          args:
+            - create
+            - --host=ingress-nginx-controller-admission,ingress-nginx-controller-admission.ingress-nginx.svc
+            - --namespace=ingress-nginx
+            - --secret-name=ingress-nginx-admission
+      restartPolicy: OnFailure
+      serviceAccountName: ingress-nginx-admission
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 2000
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ingress-nginx-admission-patch
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: admission-webhook
+  namespace: ingress-nginx
+spec:
+  template:
+    metadata:
+      name: ingress-nginx-admission-patch
+      labels:
+        app.kubernetes.io/name: ingress-nginx
+        app.kubernetes.io/instance: ingress-nginx
+        app.kubernetes.io/version: 0.32.0
+        app.kubernetes.io/component: admission-webhook
+    spec:
+      containers:
+        - name: patch
+          image: jettech/kube-webhook-certgen:v1.2.0
+          imagePullPolicy:
+          args:
+            - patch
+            - --webhook-name=ingress-nginx-admission
+            - --namespace=ingress-nginx
+            - --patch-mutating=false
+            - --secret-name=ingress-nginx-admission
+            - --patch-failure-policy=Fail
+      restartPolicy: OnFailure
+      serviceAccountName: ingress-nginx-admission
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 2000
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ingress-nginx-admission
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: admission-webhook
+  namespace: ingress-nginx
+rules:
+  - apiGroups:
+      - &#39;&#39;
+    resources:
+      - secrets
+    verbs:
+      - get
+      - create
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ingress-nginx-admission
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: admission-webhook
+  namespace: ingress-nginx
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ingress-nginx-admission
+subjects:
+  - kind: ServiceAccount
+    name: ingress-nginx-admission
+    namespace: ingress-nginx
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
+  name: ingress-nginx-admission
   labels:
-    app.kubernetes.io/name: alb-ingress-controller
-  name: alb-ingress-controller
-  namespace: kube-system
-...</code></pre>
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/version: 0.32.0
+    app.kubernetes.io/component: admission-webhook
+  namespace: ingress-nginx</code></pre>
 
 <footer class="footline">
 	
 </footer>
 
         
-        </div> 
+        </div>
         
 
       </div>
@@ -4586,7 +5088,7 @@ metadata:
     <div id="navigation">
         
         
-        
+
         
             
             
@@ -4701,7 +5203,20 @@ metadata:
                     
             
         
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                     
+
+                    
                         
             
             
@@ -4714,6 +5229,9 @@ metadata:
                     
                     
 
+                    
+            
+        
                     
                         
             
@@ -4938,6 +5456,9 @@ metadata:
             
         
                     
+            
+        
+                    
                         
             
             
@@ -4950,9 +5471,6 @@ metadata:
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -5086,19 +5604,6 @@ metadata:
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
                         
             
@@ -5113,9 +5618,6 @@ metadata:
                     
 
                     
-            
-        
-                    
                         
             
             
@@ -5168,42 +5670,10 @@ metadata:
                         
             
             
-                
-                    
-                        
-                        
-                    
-                
                 
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
                     
                 
                 
@@ -7330,42 +7800,44 @@ metadata:
                     
             
         
-        
+
         
 
 
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../25_workshop_2_ha-dr/50_add_yamls.html" title="Add YAMLs to Repo"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../25_workshop_2_ha-dr/50_add_yamls.html" title="Manage your cluster using GitOps"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../25_workshop_2_ha-dr/50_add_yamls/11_alb_ingress.html" title="Install an Application Load Balancer Ingress Controller" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../25_workshop_2_ha-dr/50_add_yamls/20_hello_kubernetes_introduction.html" title="Introducing Hello Kubernetes" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
 
     </section>
-    
+
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1599763225"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1599763225"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1599763225"></script>
-    <script src="../../js/jquery.sticky.js?1599763225"></script>
-    <script src="../../js/featherlight.min.js?1599763225"></script>
-    <script src="../../js/highlight.pack.js?1599763225"></script>
+    <script src="../../js/clipboard.min.js?1623721394"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1623721394"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1623721394"></script>
+    <script src="../../js/jquery.sticky.js?1623721394"></script>
+    <script src="../../js/featherlight.min.js?1623721394"></script>
+    <script src="../../js/highlight.pack.js?1623721394"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1599763225"></script>
-    <script src="../../js/learn.js?1599763225"></script>
-    <script src="../../js/hugo-learn.js?1599763225"></script>
-
-    <link href="../../mermaid/mermaid.css?1599763225" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1599763225"></script>
-    <script>
-        mermaid.initialize({ startOnLoad: true });
-    </script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1623721394"></script>
+    <script src="../../js/learn.js?1623721394"></script>
+    <script src="../../js/hugo-learn.js?1623721394"></script>
+    
+        
+            <script src="../../mermaid/mermaid.js?1623721394"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
     
 
   </body>

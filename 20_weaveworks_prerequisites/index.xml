@@ -26,7 +26,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/20_weaveworks_prerequisites/11_install_eksctl.html</guid>
-      <description>For this workshop you will use a eksctl. Once you install eksctl, you will be ready to get started.
+      <description>For this workshop you will use eksctl. Once you install eksctl, you will be ready to get started.
 At the terminal command prompt, enter the following two commands:
 curl --silent --location &amp;#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz&amp;#34; | tar xz -C /tmpsudo mv /tmp/eksctl /usr/local/bin This will install eksctl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:
 eksctl get cluster You should get a &amp;ldquo;No clusters found&amp;rdquo; message.</description>
@@ -56,15 +56,15 @@ We are using Helm v3 in the workshops. So there is no tiller. If you are using y
     </item>
     
     <item>
-      <title>Install fluxctl</title>
+      <title>Install the Flux CLI</title>
       <link>/20_weaveworks_prerequisites/14_install_fluxctl.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/20_weaveworks_prerequisites/14_install_fluxctl.html</guid>
-      <description> Install Fluxctl Fluxctl is a CLI tool that is able to talk to Weave Flux.
+      <description> Install Fluxctl Flux CLI is a CLI tool that is able to talk to Weave Flux.
 Install by running this command:
-curl -Ls https://fluxcd.io/install | sh &amp;amp;&amp;amp; \ sudo mv $HOME/.fluxcd/bin/fluxctl /usr/local/bin/fluxctl Verify the installation:
-fluxctl version</description>
+curl -s https://fluxcd.io/install.sh | sudo bash Verify the installation:
+flux -v</description>
     </item>
     
     <item>
@@ -80,7 +80,7 @@ kustomize version</description>
     </item>
     
     <item>
-      <title>Install AWS IAM</title>
+      <title>Install AWS IAM Authenticator</title>
       <link>/20_weaveworks_prerequisites/16_install_aws-iam.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -88,17 +88,27 @@ kustomize version</description>
       <description>Amazon EKS uses IAM to provide authentication to your Kubernetes cluster through the AWS IAM authenticator for Kubernetes. You can configure the stock kubectl client to work with Amazon EKS by installing the AWS IAM authenticator for Kubernetes and modifying your kubectl configuration file to use it for authentication.
 To install aws-iam-authenticator on Cloud9
 Download the Amazon EKS-vended aws-iam-authenticator binary from Amazon S3:
-curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/aws-iam-authenticator Apply execute permissions to the binary:</description>
+curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/aws-iam-authenticator Make the downloaded binary executable:</description>
     </item>
     
     <item>
-      <title>Add the Required IAM Role</title>
-      <link>/20_weaveworks_prerequisites/17_add_the_role.html</link>
+      <title>Create IAM Policy and Role</title>
+      <link>/20_weaveworks_prerequisites/17_create_iam_policy_and_role.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/20_weaveworks_prerequisites/17_add_the_role.html</guid>
-      <description>Creating and using EKS clusters in AWS requires specific IAM roles for the user creating and accessing EKS clusters.
- Switch to the AWS Console (You can open the console from the &amp;ldquo;Team Dashboard&amp;rdquo;) Under Services, select EC2 Click Running Instances Select the instance named &amp;ldquo;aws-cloud9-&amp;hellip;&amp;rdquo; by clicking the check box to the left of the name On Actions pull down, select Instance Settings -&amp;gt; Attach/Replace IAM Role In the IAM role pull down, select TeamRoleInstanceProfile To the right, click Apply  </description>
+      <guid>/20_weaveworks_prerequisites/17_create_iam_policy_and_role.html</guid>
+      <description>Creating and using EKS clusters in AWS requires specific IAM permissions for the user performing those actions. Since we are using a Cloud9 Environment during this workshop, we&amp;rsquo;ll create a policy with all required grants, and use that policy in a role that we will attach to our Cloud9 instance.
+First, you&amp;rsquo;ll need to create a new IAM policy. In your AWS Console go to Identity and Access Management (IAM) and click on Policies under Access Management in the menu on the left, and click the Create Policy button.</description>
+    </item>
+    
+    <item>
+      <title>Attach Role to instance</title>
+      <link>/20_weaveworks_prerequisites/18_attach_the_role.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/20_weaveworks_prerequisites/18_attach_the_role.html</guid>
+      <description>Now, we need to attach the IAM role we created in the previous step, to the Cloud9 Instance that you will be working on:
+ Switch to the AWS Console (You can open the console from the &amp;ldquo;Team Dashboard&amp;rdquo;) Under Services, select EC2 Click Running Instances Select the instance named &amp;ldquo;aws-cloud9-&amp;hellip;&amp;rdquo; by clicking the check box to the left of the name On Actions pull down, select Security -&amp;gt; Modify IAM Role In the IAM role pull down, select eks-ha-workshop-role To the right, click Apply  </description>
     </item>
     
     <item>

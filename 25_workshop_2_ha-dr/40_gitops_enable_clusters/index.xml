@@ -11,25 +11,13 @@
     
     
     <item>
-      <title>Check kubectl</title>
-      <link>/25_workshop_2_ha-dr/40_gitops_enable_clusters/10_checkkubectl.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/25_workshop_2_ha-dr/40_gitops_enable_clusters/10_checkkubectl.html</guid>
-      <description>With two terminal windows open, you&amp;rsquo;ll have to be careful when executing commands to ensure you are working with the correct cluster. In each terminal window, verify that you are connecting to the correct cluster by executing:
-kubectl config get-contexts This should produce out similar to this. It is difficult to see because the cluster names and credentials are long. You may have more than one line listed. However, the line that begins with the &amp;ldquo;*&amp;rdquo; is the current context (the cluster kubectl will be connecting to) for the kubectl command.</description>
-    </item>
-    
-    <item>
       <title>Enable Your Clusters for GitOps</title>
-      <link>/25_workshop_2_ha-dr/40_gitops_enable_clusters/32_enable_gitops.html</link>
+      <link>/25_workshop_2_ha-dr/40_gitops_enable_clusters/41_enable_gitops.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/25_workshop_2_ha-dr/40_gitops_enable_clusters/32_enable_gitops.html</guid>
-      <description>Perform this command in each of your two terminal windows. Verify that you are connecting to your two clusters individually. The cluster names and regions are the information provided when you created the clusters.
- The following command will set up your cluster with:
- Flux, Flux Helm Operator with Helm v3 support,  and add their manifests to Git, so you can configure them through pull requests.
-Run this command from any directory in your file system.</description>
+      <guid>/25_workshop_2_ha-dr/40_gitops_enable_clusters/41_enable_gitops.html</guid>
+      <description>Perform this command once for each one of your clusters, by selecting the appropriate context, running the command and then switching to the other context and doing it again.
+ The following command will set up your cluster with Flux v2 and configure your cluster to track its state from the repository created earlier. The first time you run this command, all manifests declaring the state of the cluster will be pushed to the repo, the second time you run it (against the second cluster), the command will refer to the state already stored in the repository.</description>
     </item>
     
   </channel>

@@ -55,16 +55,6 @@ We can leverage on AWS IAM Groups to easilly add or remove users and give them p
     </item>
     
     <item>
-      <title>Check kubectl</title>
-      <link>/25_workshop_2_ha-dr/40_gitops_enable_clusters/10_checkkubectl.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/25_workshop_2_ha-dr/40_gitops_enable_clusters/10_checkkubectl.html</guid>
-      <description>With two terminal windows open, you&amp;rsquo;ll have to be careful when executing commands to ensure you are working with the correct cluster. In each terminal window, verify that you are connecting to the correct cluster by executing:
-kubectl config get-contexts This should produce out similar to this. It is difficult to see because the cluster names and credentials are long. You may have more than one line listed. However, the line that begins with the &amp;ldquo;*&amp;rdquo; is the current context (the cluster kubectl will be connecting to) for the kubectl command.</description>
-    </item>
-    
-    <item>
       <title>Cleanup</title>
       <link>/100_cleanup/10_cleanup.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -72,17 +62,6 @@ kubectl config get-contexts This should produce out similar to this. It is diffi
       <guid>/100_cleanup/10_cleanup.html</guid>
       <description>AWS Cleanup In order to prevent charges to your account we recommend cleaning up the infrastructure that was created. If you plan to keep things running so you can examine the workshop a bit more please remember to do the cleanup when you are done. It is very easy to leave things running in an AWS account, forget about it, and then accrue charges.
  In the AWS console, go to CloudFormation, click ModernizationWorkshop-EKS stack and then Delete.</description>
-    </item>
-    
-    <item>
-      <title>Create a Cluster with eksctl</title>
-      <link>/22_workshop_1/10_create_cluster/10-create-cluster.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/22_workshop_1/10_create_cluster/10-create-cluster.html</guid>
-      <description>eksctl makes it simple to provision Kubernetes clusters in EKS. For this workshop, we will create a defauklt three node EKS cluster. With eksctl, this is a single command line:
-eksctl create cluster --name eksworkshop You will see a number of messages scroll, ending with the kubeconfig message
- [ℹ] eksctl version 0.18.0 [ℹ] using region us-west-2 ..... [ℹ] deploying stack &#34;eksctl-unique-unicorn-1588181335-nodegroup-ng-d61e2b06&#34; [✔] all EKS cluster resources for &#34;unique-unicorn-1588181335&#34; have been created [✔] saved kubeconfig as &#34;</description>
     </item>
     
     <item>
@@ -119,16 +98,6 @@ Paste the contents of the following into the new file:
     </item>
     
     <item>
-      <title>Install an Application Load Balancer Ingress Controller (RBAC)</title>
-      <link>/25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html</guid>
-      <description>This manifest creates the role based authorization (RBAC) for the ingress controller. Copy and paste the following into a file called alb-rbac.yaml in your repository:
---- apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRole metadata: labels: app.kubernetes.io/name: alb-ingress-controller name: alb-ingress-controller rules: - apiGroups: - &amp;#34;&amp;#34; - extensions resources: - configmaps - endpoints - events - ingresses - ingresses/status - services verbs: - create - get - list - update - watch - patch - apiGroups: - &amp;#34;&amp;#34; - extensions resources: - nodes - pods - secrets - services - namespaces verbs: - get - list - watch --- apiVersion: rbac.</description>
-    </item>
-    
-    <item>
       <title>Install eksctl</title>
       <link>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/10_install_eksctl.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -150,6 +119,16 @@ eksctl get cluster You should get a &amp;ldquo;No clusters found&amp;rdquo; mess
 At the terminal command prompt, enter the following two commands:
 curl --silent --location &amp;#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz&amp;#34; | tar xz -C /tmp &amp;amp;&amp;amp; \ sudo mv /tmp/eksctl /usr/local/bin This will install eksctl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:
 eksctl get cluster You should get a &amp;ldquo;No clusters found&amp;rdquo; message.</description>
+    </item>
+    
+    <item>
+      <title>Install the NGINX Ingress Controller</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html</guid>
+      <description>There are multiple ways to enable access via Ingress to the Services running in your cluster. You can use Application Load Balancers using AWS own Load Balancer Controller which will create an Application Load Balancer for every Ingress in your cluster, but in this case we are going to use the NGINX Ingress Controller, which works with a single Network Load Balancer created for the Ingress Controller Service.
+We are choosing this method in order to maintain a single and consistent desired state applicable to both clusters.</description>
     </item>
     
     <item>
@@ -201,13 +180,14 @@ Attach to cloud9 instance  Switch to the AWS Console (You can open the console f
     </item>
     
     <item>
-      <title>Install an Application Load Balancer Ingress Controller</title>
-      <link>/25_workshop_2_ha-dr/50_add_yamls/11_alb_ingress.html</link>
+      <title>Enable GitHub Access</title>
+      <link>/22_workshop_1/10_setup_gitops_prequisites/11_enable_git_access.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/25_workshop_2_ha-dr/50_add_yamls/11_alb_ingress.html</guid>
-      <description>This manifest actually creates the ingress controller. Copy and paste the following into a file called alb-ingress.yaml in each of your terminal windows. We will be creating two files, one for each cluster, as we must place the actual cluster name in this file. Replace the XXXXXXXX on the cluster-name option with the name of your cluster.
-Once you have edited these two file, use kubectl apply -f alb-ingress.yaml in each of your terminal sessions to install the ingress controllers in each of your clusters.</description>
+      <guid>/22_workshop_1/10_setup_gitops_prequisites/11_enable_git_access.html</guid>
+      <description>In order for eksctl to automatically deploy Flux v2 in your cluster and enable GitOps at the time of cluster creation, it will need to have access to create and manage repositories in your GitHub account.
+Flux v2 also support GitLab as a git service provider. Using GitLab and other supported providers is not covered in this workshop series.
+ Flux v2 will create a repository and store the entire configuration of your cluster in it, which will include your workload manifests, HelmReleases, etc.</description>
     </item>
     
     <item>
@@ -216,7 +196,7 @@ Once you have edited these two file, use kubectl apply -f alb-ingress.yaml in ea
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/20_weaveworks_prerequisites/11_install_eksctl.html</guid>
-      <description>For this workshop you will use a eksctl. Once you install eksctl, you will be ready to get started.
+      <description>For this workshop you will use eksctl. Once you install eksctl, you will be ready to get started.
 At the terminal command prompt, enter the following two commands:
 curl --silent --location &amp;#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz&amp;#34; | tar xz -C /tmpsudo mv /tmp/eksctl /usr/local/bin This will install eksctl in your Cloud9 environment. To test to make sure the command is installed properly, execute the command:
 eksctl get cluster You should get a &amp;ldquo;No clusters found&amp;rdquo; message.</description>
@@ -280,15 +260,15 @@ eksctl version</description>
     </item>
     
     <item>
-      <title>Install fluxctl</title>
+      <title>Install the Flux CLI</title>
       <link>/20_weaveworks_prerequisites/14_install_fluxctl.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/20_weaveworks_prerequisites/14_install_fluxctl.html</guid>
-      <description> Install Fluxctl Fluxctl is a CLI tool that is able to talk to Weave Flux.
+      <description> Install Fluxctl Flux CLI is a CLI tool that is able to talk to Weave Flux.
 Install by running this command:
-curl -Ls https://fluxcd.io/install | sh &amp;amp;&amp;amp; \ sudo mv $HOME/.fluxcd/bin/fluxctl /usr/local/bin/fluxctl Verify the installation:
-fluxctl version</description>
+curl -s https://fluxcd.io/install.sh | sudo bash Verify the installation:
+flux -v</description>
     </item>
     
     <item>
@@ -314,7 +294,7 @@ kustomize version</description>
     </item>
     
     <item>
-      <title>Install AWS IAM</title>
+      <title>Install AWS IAM Authenticator</title>
       <link>/20_weaveworks_prerequisites/16_install_aws-iam.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -322,7 +302,7 @@ kustomize version</description>
       <description>Amazon EKS uses IAM to provide authentication to your Kubernetes cluster through the AWS IAM authenticator for Kubernetes. You can configure the stock kubectl client to work with Amazon EKS by installing the AWS IAM authenticator for Kubernetes and modifying your kubectl configuration file to use it for authentication.
 To install aws-iam-authenticator on Cloud9
 Download the Amazon EKS-vended aws-iam-authenticator binary from Amazon S3:
-curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/aws-iam-authenticator Apply execute permissions to the binary:</description>
+curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/aws-iam-authenticator Make the downloaded binary executable:</description>
     </item>
     
     <item>
@@ -337,13 +317,13 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s http
     </item>
     
     <item>
-      <title>Add the Required IAM Role</title>
-      <link>/20_weaveworks_prerequisites/17_add_the_role.html</link>
+      <title>Create IAM Policy and Role</title>
+      <link>/20_weaveworks_prerequisites/17_create_iam_policy_and_role.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/20_weaveworks_prerequisites/17_add_the_role.html</guid>
-      <description>Creating and using EKS clusters in AWS requires specific IAM roles for the user creating and accessing EKS clusters.
- Switch to the AWS Console (You can open the console from the &amp;ldquo;Team Dashboard&amp;rdquo;) Under Services, select EC2 Click Running Instances Select the instance named &amp;ldquo;aws-cloud9-&amp;hellip;&amp;rdquo; by clicking the check box to the left of the name On Actions pull down, select Instance Settings -&amp;gt; Attach/Replace IAM Role In the IAM role pull down, select TeamRoleInstanceProfile To the right, click Apply  </description>
+      <guid>/20_weaveworks_prerequisites/17_create_iam_policy_and_role.html</guid>
+      <description>Creating and using EKS clusters in AWS requires specific IAM permissions for the user performing those actions. Since we are using a Cloud9 Environment during this workshop, we&amp;rsquo;ll create a policy with all required grants, and use that policy in a role that we will attach to our Cloud9 instance.
+First, you&amp;rsquo;ll need to create a new IAM policy. In your AWS Console go to Identity and Access Management (IAM) and click on Policies under Access Management in the menu on the left, and click the Create Policy button.</description>
     </item>
     
     <item>
@@ -355,6 +335,16 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s http
       <description>Helm describes itself as a &amp;lsquo;package manager for kubernetes&amp;rsquo; and can be used to deploy resources to Kubernetes.
 You package your application as a chart which can contain templated files (usually Kubernetes resources) and default configuration values too use when rendering the template. Charts are reusable and values can be overriden for specific environments.
 We are using Helm v3 in the workshops. So there is no tiller. If you are using your own environment and not the workshops Cloud9 environment and you have Helm v2 the commands should work ok.</description>
+    </item>
+    
+    <item>
+      <title>Attach Role to instance</title>
+      <link>/20_weaveworks_prerequisites/18_attach_the_role.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/20_weaveworks_prerequisites/18_attach_the_role.html</guid>
+      <description>Now, we need to attach the IAM role we created in the previous step, to the Cloud9 Instance that you will be working on:
+ Switch to the AWS Console (You can open the console from the &amp;ldquo;Team Dashboard&amp;rdquo;) Under Services, select EC2 Click Running Instances Select the instance named &amp;ldquo;aws-cloud9-&amp;hellip;&amp;rdquo; by clicking the check box to the left of the name On Actions pull down, select Security -&amp;gt; Modify IAM Role In the IAM role pull down, select eks-ha-workshop-role To the right, click Apply  </description>
     </item>
     
     <item>
@@ -528,12 +518,14 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s http
     </item>
     
     <item>
-      <title>Introducing Podinfo</title>
-      <link>/25_workshop_2_ha-dr/50_add_yamls/20_podinfo_introduction.html</link>
+      <title>Introducing Hello Kubernetes</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/20_hello_kubernetes_introduction.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/25_workshop_2_ha-dr/50_add_yamls/20_podinfo_introduction.html</guid>
-      <description>Podinfo is a tiny web application made with Go that showcases best practices of running microservices in Kubernetes. It provides a simple web interface that allows you verify the operation of ingresses and/or service meshes. Podinfo was written by Stefan Prodan of Weaveworks, and is freely available on github. There are many options, and URLs are available to provide a wealth of information. More information on Podinfo is available here.</description>
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/20_hello_kubernetes_introduction.html</guid>
+      <description>Hello Kubernetes is a very simple web application created by Paul Bouwer, open source and available in GitHub.
+For our workshop, we will be using Hello Kubernetes to quickly demonstrate how load balancing and high availability can be simply implemented with ingresses and Kubernetes.
+Our configuration will enable internal Kubernetes load balancing and scaling. Optionally, AWS Route 53 can be used to balance between your actual clusters in different regions.</description>
     </item>
     
     <item>
@@ -570,16 +562,24 @@ We will define 3 groups:
     </item>
     
     <item>
-      <title>Deploy a Podinfo Pod</title>
-      <link>/25_workshop_2_ha-dr/50_add_yamls/21_podinfo_deploy.html</link>
+      <title>Create a GitOps enabled cluster using eksctl</title>
+      <link>/22_workshop_1/20_create_cluster/21-create-cluster.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/25_workshop_2_ha-dr/50_add_yamls/21_podinfo_deploy.html</guid>
-      <description>First, let&amp;rsquo;s create a namespace for our application (podinfo) to execute in. In each of the terminal sessions, execute:
-kubectl create namespace podinfo Yes, this can also be accomplished by placing a manifest in your git repository to create the namespace.
-You can run:
-kubectl create namespace podinfo --dry-run -o yaml &amp;gt; podinfo-namespace.yaml Or paste this into a new file called podinfo-namespace.yaml.
-apiVersion: v1 kind: Namespace metadata: creationTimestamp: null name: podinfo Add, commit, and push this change to your repository.</description>
+      <guid>/22_workshop_1/20_create_cluster/21-create-cluster.html</guid>
+      <description>eksctl makes it simple to provision Kubernetes clusters in EKS and enable GitOps in the cluster by automating the deployment of Flux v2.
+For this workshop, we will create a default three node EKS cluster and automatically enable GitOps for it. eksctl automated installation of Flux v2 will create a repository and synchronize the cluster state with the manifests pushed to it.
+Start by creating a configuration file that defines the specifications for your new cluster as well as the details of your GitHub account and repository.</description>
+    </item>
+    
+    <item>
+      <title>Deploy the Hello Kubernetes Application</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/21_hello_kubernetes_deploy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/21_hello_kubernetes_deploy.html</guid>
+      <description>One of the principles of GitOps states that the only way to interact with a cluster should be by modifying the state declared in code. Following that principle means we will not be performing any action with kubectl or otherwise interacting with either of our clusters directly.
+You are now going to deploy the Hello Kubernetes application and associated resources in both of your clusters, by pushing manifests into your repository.</description>
     </item>
     
     <item>
@@ -595,33 +595,25 @@ aws iam get-group --group-name k8sAdmin aws iam get-group --group-name k8sDev aw
     </item>
     
     <item>
-      <title>Enable the Podinfo Pod to Scale Automatically</title>
-      <link>/25_workshop_2_ha-dr/50_add_yamls/22_podinfo_hpa.html</link>
+      <title>Enable Hello Kubernetes to Scale Automatically</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/22_hello_kubernetes_hpa.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/25_workshop_2_ha-dr/50_add_yamls/22_podinfo_hpa.html</guid>
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/22_hello_kubernetes_hpa.html</guid>
       <description>A very useful feature in Kubernetes is to enable auto-scaling. This is accomplished by created a Horizontal Pod Autoscaler (HPA) object that is targeted at a specific pod. Each HPA has criteria that Kubernetes uses in order add pods to the running deployment. This HPA will scale the podinfo deployment to a minimum of 2 replicas, and a maximum of 4 replicas.
-Create a file called podinfo-hpa.yaml in your git repository:</description>
+Create a file called clusters/eks-ha/hello-kubernetes/hpa.yaml in your git repository:</description>
     </item>
     
     <item>
-      <title>Expose the Podinfo Pod Service</title>
-      <link>/25_workshop_2_ha-dr/50_add_yamls/23_podinfo_service.html</link>
+      <title>Check Everything</title>
+      <link>/25_workshop_2_ha-dr/50_add_yamls/25_check_everything.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/25_workshop_2_ha-dr/50_add_yamls/23_podinfo_service.html</guid>
-      <description>In order for any Kubernetes object, including other pods, to access the podinfo pod, we have to expose on the Kubernetes network the network ports that should be accessed. When using the Application Load Balancer on EKS, the service type should be NodePort. In more complex architectures, there are other load balancing methods that can be used.
-You can create a NodePort Service yaml (as specified by the ALB ingress controller) by running the following command and adding the manifest to your repository as podinfo-service.</description>
-    </item>
-    
-    <item>
-      <title>Connect the Podinfo Service to the Ingress Controller</title>
-      <link>/25_workshop_2_ha-dr/50_add_yamls/24_podinfo_ingress.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/25_workshop_2_ha-dr/50_add_yamls/24_podinfo_ingress.html</guid>
-      <description>The final step is to inform the ALB Ingress Controller that a service needs to be exposed externally from the cluster. The ingress controller watches for the creation of Ingress objects, and then creates the routing required to reach the object externally.
-In the Ingress object definition, ther eare annotations to indicate how the Ingress Controller should handle this service, as well as which controller to utilize. As there may be several different ingress controllers in a single Kubernetes cluster, this ability is key to managing access to multiple applications and microservices.</description>
+      <guid>/25_workshop_2_ha-dr/50_add_yamls/25_check_everything.html</guid>
+      <description>Let&amp;rsquo;s inspect what we have deployed to the cluster by pushing the various manifests into the repo. Using the kubectl get all -n &amp;lt;namespace&amp;gt; command, let&amp;rsquo;s look at what has been automatically created in each namespace.
+You will now have three new namespaces:
+ flux-system which holds all the resources that Flux v2 runs to automatically reconcile your cluster against one or more repos
+NAME READY STATUS RESTARTS AGE pod/helm-controller-85bfd4959d-m9f98 1/1 Running 0 11h pod/kustomize-controller-7d5959c758-k94sm 1/1 Running 0 11h pod/notification-controller-758d759586-cz5bx 1/1 Running 0 11h pod/source-controller-6d986bbb7f-486qv 1/1 Running 0 11h NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE service/notification-controller ClusterIP 10.</description>
     </item>
     
     <item>
@@ -712,59 +704,24 @@ The Advantage of using Role to access the cluster instead of specifying directly
     </item>
     
     <item>
-      <title>Set Up Your GIT Repository</title>
-      <link>/22_workshop_1/20_gitops_enable/31_set_up_git.html</link>
+      <title>Accessing the configuration repo</title>
+      <link>/22_workshop_1/30_gitops_enable/33_using_flux_v2.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/22_workshop_1/20_gitops_enable/31_set_up_git.html</guid>
-      <description>The most important ingredient using eksctl enable repo is the configuration of your repository (which will include your workload manifests, HelmReleases, etc). You can start with an empty repository and push that to Git, or use the one you intend to deploy to the cluster.
-The main point of GitOps is to keep everything (config, alerts, dashboards, apps, literally everything) in Git and use it as a single source of truth.</description>
+      <guid>/22_workshop_1/30_gitops_enable/33_using_flux_v2.html</guid>
+      <description>You have created an EKS cluster, installed Flux v2 in it, and created a repo that holds manifests matching precisely the current state of your cluster -and you did all that with one command, pretty cool right!.
+In order to manage your cluster as well as deploy workloads you will need to clone the repo that Flux v2 created in your GitHub account. Flux created and configured a key pair for the repository automatically, and uses it to provide repository access to the Source Controller running in the cluster.</description>
     </item>
     
     <item>
-      <title>Enable Your Cluster for GitOps</title>
-      <link>/22_workshop_1/20_gitops_enable/32_enable_gitops.html</link>
+      <title>Managing configuration with GitOps</title>
+      <link>/22_workshop_1/30_gitops_enable/34_update_flux_for_demo.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/22_workshop_1/20_gitops_enable/32_enable_gitops.html</guid>
-      <description>The following command will set up your cluster with:
- Flux, Flux Helm Operator with Helm v3 support,  and add their manifests to Git, so you can configure them through pull requests.
-Run this command from any directory in your file system. eksctl will clone your repository in a temporary directory that will be removed later.
-EKSCTL_EXPERIMENTAL=true \ eksctl enable repo \ --git-url git@github.com:example/my-eks-config \ --git-email your@email.com \ --cluster your-cluster-name \ --region your-cluster-region Let us go through the specified arguments one by one:</description>
-    </item>
-    
-    <item>
-      <title>Enable Your Clusters for GitOps</title>
-      <link>/25_workshop_2_ha-dr/40_gitops_enable_clusters/32_enable_gitops.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/25_workshop_2_ha-dr/40_gitops_enable_clusters/32_enable_gitops.html</guid>
-      <description>Perform this command in each of your two terminal windows. Verify that you are connecting to your two clusters individually. The cluster names and regions are the information provided when you created the clusters.
- The following command will set up your cluster with:
- Flux, Flux Helm Operator with Helm v3 support,  and add their manifests to Git, so you can configure them through pull requests.
-Run this command from any directory in your file system.</description>
-    </item>
-    
-    <item>
-      <title>Flux and GitOps</title>
-      <link>/22_workshop_1/20_gitops_enable/33_lets_check_flux.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/22_workshop_1/20_gitops_enable/33_lets_check_flux.html</guid>
-      <description>The command will take a while to run and it&amp;rsquo;s a good idea to scan the output. You will note a similar bit of information in the log like this one:
- [ℹ] Flux will only operate properly once it has write-access to the Git repository ... [ℹ] please configure git@github.com:YOURUSER/eks-quickstart-app-dev.git so that the following Flux SSH public key has write access to it ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8msUDG9tEEWHKKJw1o8BpwfMkCvCepeUSMa9iTVK6Bmxeu2pA/ivBS8Qgx/Lg8Jnu4Gk2RbXYMt3KL3/lcIezLwqipGmVvLgBLvUccbBpeUpWt+SlW2LMwcMOnhF3n86VOYjaRPggoPtWfLhFIfnkvKOFLHPRYS3nqyYspFeCGUmOzQim+JAWokf4oGOOX4SNzRKjusboh93oy8fvWk8SrtSwLBWXOKu+kKXC0ecZJK7G0jW91qb40QvB+VeSAbfk8LJZcXGWWvWa3W0/woKzGNWBPZz+pGuflUjVwQG5GoOq5VVWu71gmXoXBS3bUNqlu6nDobd2LlqiXNViaszX  Copy the lines starting with ssh-rsa and give it read/write access to your repository.</description>
-    </item>
-    
-    <item>
-      <title>Speed up Flux for Demo</title>
-      <link>/22_workshop_1/20_gitops_enable/34_update_flux_for_demo.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/22_workshop_1/20_gitops_enable/34_update_flux_for_demo.html</guid>
-      <description>By default Flux will poll git every 5m but for the sake of the demo, we want to speed things up a bit.
-Lets edit the flux deployment and add the following argument into around line 180 --git-poll-interval
-Edit the following file in your prefered way:
-./flux/flux-deployment.yaml175 # Serve /metrics endpoint at different port; 176 # make sure to set prometheus&amp;#39; annotation to scrape the port value. 177 - --listen-metrics=:3031 178 179 # Additional arguments 180 - --sync-garbage-collection 190 - --git-poll-interval=1m</description>
+      <guid>/22_workshop_1/30_gitops_enable/34_update_flux_for_demo.html</guid>
+      <description>Lets look at how configuration is managed following GitOps by modifying declarations in the repository created by Flux v2.
+To demonstrate this, you will change the default polling interval configured by Flux in the Kustomization that pulls changes from the ./clusters/aws-workshop path in the repository. This change will also help accelerate changes being applied to the cluster, which will make the demo go smoother.
+First, check the current configuration as applied to the cluster, by running the following command:</description>
     </item>
     
     <item>
@@ -839,11 +796,21 @@ NAME READY STATUS RESTARTS AGE flux-5884545b8c-thfxh 1/1 Running 0 22m flux-memc
     </item>
     
     <item>
-      <title>Setup Kubernetes labels</title>
-      <link>/22_workshop_1/30_deploy_sample_app/41_import_k8s_labels_annotations.html</link>
+      <title>Enable Your Clusters for GitOps</title>
+      <link>/25_workshop_2_ha-dr/40_gitops_enable_clusters/41_enable_gitops.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/22_workshop_1/30_deploy_sample_app/41_import_k8s_labels_annotations.html</guid>
+      <guid>/25_workshop_2_ha-dr/40_gitops_enable_clusters/41_enable_gitops.html</guid>
+      <description>Perform this command once for each one of your clusters, by selecting the appropriate context, running the command and then switching to the other context and doing it again.
+ The following command will set up your cluster with Flux v2 and configure your cluster to track its state from the repository created earlier. The first time you run this command, all manifests declaring the state of the cluster will be pushed to the repo, the second time you run it (against the second cluster), the command will refer to the state already stored in the repository.</description>
+    </item>
+    
+    <item>
+      <title>Setup Kubernetes labels</title>
+      <link>/22_workshop_1/40_deploy_sample_app/41_import_k8s_labels_annotations.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/40_deploy_sample_app/41_import_k8s_labels_annotations.html</guid>
       <description>Explore metadata in pod definitions List all the Sock Shop pods running:
 kubectl get po -l product=sockshop --all-namespaces  Pick up a pod and a namespace (production or dev) and get the pods details, including the Labels and the Annotations.
 kubectl describe po &amp;lt;pod_name&amp;gt; -n &amp;lt;namespace&amp;gt; Grant viewer role to service accounts Those Labels and Annotations are centrally defined and managed in Kubernetes but we also want them available in Weaveworks for grouping and filtering purposes.</description>

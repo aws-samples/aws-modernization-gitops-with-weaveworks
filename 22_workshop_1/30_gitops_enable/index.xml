@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Doing GitOps with Flux v2 on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/22_workshop_1/30_gitops_enable.html</link>
+    <description>Recent content in Doing GitOps with Flux v2 on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/22_workshop_1/30_gitops_enable/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Accessing the configuration repo</title>
+      <link>/22_workshop_1/30_gitops_enable/33_using_flux_v2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/30_gitops_enable/33_using_flux_v2.html</guid>
+      <description>You have created an EKS cluster, installed Flux v2 in it, and created a repo that holds manifests matching precisely the current state of your cluster -and you did all that with one command, pretty cool right!.
+In order to manage your cluster as well as deploy workloads you will need to clone the repo that Flux v2 created in your GitHub account. Flux created and configured a key pair for the repository automatically, and uses it to provide repository access to the Source Controller running in the cluster.</description>
+    </item>
+    
+    <item>
+      <title>Managing configuration with GitOps</title>
+      <link>/22_workshop_1/30_gitops_enable/34_update_flux_for_demo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/30_gitops_enable/34_update_flux_for_demo.html</guid>
+      <description>Lets look at how configuration is managed following GitOps by modifying declarations in the repository created by Flux v2.
+To demonstrate this, you will change the default polling interval configured by Flux in the Kustomization that pulls changes from the ./clusters/aws-workshop path in the repository. This change will also help accelerate changes being applied to the cluster, which will make the demo go smoother.
+First, check the current configuration as applied to the cluster, by running the following command:</description>
+    </item>
+    
+  </channel>
+</rss>

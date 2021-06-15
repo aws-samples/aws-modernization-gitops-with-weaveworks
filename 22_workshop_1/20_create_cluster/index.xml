@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Create a Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/22_workshop_1/20_create_cluster.html</link>
+    <description>Recent content in Create a Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/22_workshop_1/20_create_cluster/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create a GitOps enabled cluster using eksctl</title>
+      <link>/22_workshop_1/20_create_cluster/21-create-cluster.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/20_create_cluster/21-create-cluster.html</guid>
+      <description>eksctl makes it simple to provision Kubernetes clusters in EKS and enable GitOps in the cluster by automating the deployment of Flux v2.
+For this workshop, we will create a default three node EKS cluster and automatically enable GitOps for it. eksctl automated installation of Flux v2 will create a repository and synchronize the cluster state with the manifests pushed to it.
+Start by creating a configuration file that defines the specifications for your new cluster as well as the details of your GitHub account and repository.</description>
+    </item>
+    
+  </channel>
+</rss>

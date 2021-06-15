@@ -32,14 +32,6 @@
   </url>
   
   <url>
-    <loc>/22_workshop_1/10_create_cluster.html</loc>
-  </url>
-  
-  <url>
-    <loc>/22_workshop_1/20_gitops_enable.html</loc>
-  </url>
-  
-  <url>
     <loc>/05_introduction.html</loc>
   </url>
   
@@ -57,15 +49,7 @@
   </url>
   
   <url>
-    <loc>/25_workshop_2_ha-dr/40_gitops_enable_clusters/10_checkkubectl.html</loc>
-  </url>
-  
-  <url>
     <loc>/100_cleanup/10_cleanup.html</loc>
-  </url>
-  
-  <url>
-    <loc>/22_workshop_1/10_create_cluster/10-create-cluster.html</loc>
   </url>
   
   <url>
@@ -89,15 +73,15 @@
   </url>
   
   <url>
-    <loc>/25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html</loc>
-  </url>
-  
-  <url>
     <loc>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/10_install_eksctl.html</loc>
   </url>
   
   <url>
     <loc>/60_workshop_6_ml/00_prerequisites.md/10_install_eksctl.html</loc>
+  </url>
+  
+  <url>
+    <loc>/25_workshop_2_ha-dr/50_add_yamls/10_alb_ingress.html</loc>
   </url>
   
   <url>
@@ -117,6 +101,10 @@
   </url>
   
   <url>
+    <loc>/22_workshop_1/10_setup_gitops_prequisites.html</loc>
+  </url>
+  
+  <url>
     <loc>/10_aws_prerequisites.html</loc>
   </url>
   
@@ -133,7 +121,7 @@
   </url>
   
   <url>
-    <loc>/25_workshop_2_ha-dr/50_add_yamls/11_alb_ingress.html</loc>
+    <loc>/22_workshop_1/10_setup_gitops_prequisites/11_enable_git_access.html</loc>
   </url>
   
   <url>
@@ -189,11 +177,15 @@
   </url>
   
   <url>
-    <loc>/20_weaveworks_prerequisites/17_add_the_role.html</loc>
+    <loc>/20_weaveworks_prerequisites/17_create_iam_policy_and_role.html</loc>
   </url>
   
   <url>
     <loc>/70_workshop_7_multicloud/10_prerequisites/17_install_helm.html</loc>
+  </url>
+  
+  <url>
+    <loc>/20_weaveworks_prerequisites/18_attach_the_role.html</loc>
   </url>
   
   <url>
@@ -241,10 +233,6 @@
   </url>
   
   <url>
-    <loc>/25_workshop_2_ha-dr/20_create_two_clusters.html</loc>
-  </url>
-  
-  <url>
     <loc>/50_workshop_5_accelerating_sdlc/20_enable_gitops.html</loc>
   </url>
   
@@ -277,7 +265,7 @@
   </url>
   
   <url>
-    <loc>/25_workshop_2_ha-dr/50_add_yamls/20_podinfo_introduction.html</loc>
+    <loc>/25_workshop_2_ha-dr/50_add_yamls/20_hello_kubernetes_introduction.html</loc>
   </url>
   
   <url>
@@ -286,6 +274,10 @@
   
   <url>
     <loc>/70_workshop_7_multicloud/20_credentials.html</loc>
+  </url>
+  
+  <url>
+    <loc>/25_workshop_2_ha-dr/20_create_git_repo.html</loc>
   </url>
   
   <url>
@@ -302,7 +294,15 @@
   </url>
   
   <url>
-    <loc>/25_workshop_2_ha-dr/50_add_yamls/21_podinfo_deploy.html</loc>
+    <loc>/22_workshop_1/20_create_cluster.html</loc>
+  </url>
+  
+  <url>
+    <loc>/22_workshop_1/20_create_cluster/21-create-cluster.html</loc>
+  </url>
+  
+  <url>
+    <loc>/25_workshop_2_ha-dr/50_add_yamls/21_hello_kubernetes_deploy.html</loc>
   </url>
   
   <url>
@@ -311,7 +311,7 @@
   </url>
   
   <url>
-    <loc>/25_workshop_2_ha-dr/50_add_yamls/22_podinfo_hpa.html</loc>
+    <loc>/25_workshop_2_ha-dr/50_add_yamls/22_hello_kubernetes_hpa.html</loc>
   </url>
   
   <url>
@@ -323,11 +323,7 @@
   </url>
   
   <url>
-    <loc>/25_workshop_2_ha-dr/50_add_yamls/23_podinfo_service.html</loc>
-  </url>
-  
-  <url>
-    <loc>/25_workshop_2_ha-dr/50_add_yamls/24_podinfo_ingress.html</loc>
+    <loc>/25_workshop_2_ha-dr/50_add_yamls/25_check_everything.html</loc>
   </url>
   
   <url>
@@ -354,7 +350,15 @@
   </url>
   
   <url>
+    <loc>/25_workshop_2_ha-dr/30_create_two_clusters.html</loc>
+  </url>
+  
+  <url>
     <loc>/60_workshop_6_ml/30_deploy_appdev_profile.html</loc>
+  </url>
+  
+  <url>
+    <loc>/22_workshop_1/30_gitops_enable.html</loc>
   </url>
   
   <url>
@@ -382,10 +386,6 @@
   </url>
   
   <url>
-    <loc>/25_workshop_2_ha-dr/30_create_git_repo.html</loc>
-  </url>
-  
-  <url>
     <loc>/30_workshop_03_grc/150_iam-groups/31_configure-aws-auth.html</loc>
     <lastmod>2020-05-12T18:00:00+00:00</lastmod>
   </url>
@@ -395,23 +395,11 @@
   </url>
   
   <url>
-    <loc>/22_workshop_1/20_gitops_enable/31_set_up_git.html</loc>
+    <loc>/22_workshop_1/30_gitops_enable/33_using_flux_v2.html</loc>
   </url>
   
   <url>
-    <loc>/22_workshop_1/20_gitops_enable/32_enable_gitops.html</loc>
-  </url>
-  
-  <url>
-    <loc>/25_workshop_2_ha-dr/40_gitops_enable_clusters/32_enable_gitops.html</loc>
-  </url>
-  
-  <url>
-    <loc>/22_workshop_1/20_gitops_enable/33_lets_check_flux.html</loc>
-  </url>
-  
-  <url>
-    <loc>/22_workshop_1/20_gitops_enable/34_update_flux_for_demo.html</loc>
+    <loc>/22_workshop_1/30_gitops_enable/34_update_flux_for_demo.html</loc>
   </url>
   
   <url>
@@ -424,7 +412,7 @@
   </url>
   
   <url>
-    <loc>/22_workshop_1/30_deploy_sample_app.html</loc>
+    <loc>/22_workshop_1/40_deploy_sample_app.html</loc>
   </url>
   
   <url>
@@ -468,11 +456,11 @@
   </url>
   
   <url>
-    <loc>/22_workshop_1/30_deploy_sample_app/41_import_k8s_labels_annotations.html</loc>
+    <loc>/25_workshop_2_ha-dr/40_gitops_enable_clusters/41_enable_gitops.html</loc>
   </url>
   
   <url>
-    <loc>/25_workshop_2_ha-dr/50_add_yamls.html</loc>
+    <loc>/22_workshop_1/40_deploy_sample_app/41_import_k8s_labels_annotations.html</loc>
   </url>
   
   <url>
@@ -497,6 +485,10 @@
   
   <url>
     <loc>/40_workshop_4_hipo-teams/40_install-app-mesh/50_install_appmesh_prometheus.html</loc>
+  </url>
+  
+  <url>
+    <loc>/25_workshop_2_ha-dr/50_add_yamls.html</loc>
   </url>
   
   <url>

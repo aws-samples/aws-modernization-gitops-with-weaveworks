@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Setup Prerequisites on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/22_workshop_1/10_setup_gitops_prequisites.html</link>
+    <description>Recent content in Setup Prerequisites on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/22_workshop_1/10_setup_gitops_prequisites/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Enable GitHub Access</title>
+      <link>/22_workshop_1/10_setup_gitops_prequisites/11_enable_git_access.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/22_workshop_1/10_setup_gitops_prequisites/11_enable_git_access.html</guid>
+      <description>In order for eksctl to automatically deploy Flux v2 in your cluster and enable GitOps at the time of cluster creation, it will need to have access to create and manage repositories in your GitHub account.
+Flux v2 also support GitLab as a git service provider. Using GitLab and other supported providers is not covered in this workshop series.
+ Flux v2 will create a repository and store the entire configuration of your cluster in it, which will include your workload manifests, HelmReleases, etc.</description>
+    </item>
+    
+  </channel>
+</rss>
