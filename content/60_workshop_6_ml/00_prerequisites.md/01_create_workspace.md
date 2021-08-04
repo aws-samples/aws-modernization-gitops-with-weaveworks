@@ -1,7 +1,7 @@
 +++
 title = "AWS Workshop Portal"
 chapter = false
-weight = 02
+weight = 2
 +++
 
 ## Login to AWS Workshop Portal

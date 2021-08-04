@@ -1,7 +1,7 @@
 +++
 title = "Workshop Prerequisites"
 chapter = true
-weight = 05
+weight = 5
 +++
 
 # Prerequisites

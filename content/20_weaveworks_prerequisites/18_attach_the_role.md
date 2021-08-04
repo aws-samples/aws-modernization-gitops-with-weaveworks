@@ -11,5 +11,5 @@ Now, we need to attach the IAM role we created in the previous step, to the Clou
 - Click **Running Instances**
 - Select the instance named "aws-cloud9-..." by clicking the check box to the left of the name
 - On **Actions** pull down, select **Security -> Modify IAM Role**
-- In the **IAM role** pull down, select **eks-ha-workshop-role**
-- To the right, click **Apply**
+- In the **IAM role** pull down, select the role that starts with  `mod-`
+- Click **Save**
