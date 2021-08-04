@@ -9,24 +9,24 @@
 
     <link rel="icon" href="../images/favicon.png" type="image/png">
 
-    <title>Create IAM Policy and Role :: Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <title>Grant permissions to role :: Weaveworks Introduction to GitOps w/ AWS EKS</title>
 
     
-    <link href="../css/nucleus.css?1623721394" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1623721394" rel="stylesheet">
-    <link href="../css/hybrid.css?1623721394" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1623721394" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1623721394" rel="stylesheet">
-    <link href="../css/auto-complete.css?1623721394" rel="stylesheet">
-    <link href="../css/atom-one-dark-reasonable.css?1623721394" rel="stylesheet">
-    <link href="../css/theme.css?1623721394" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1623721394" rel="stylesheet">
+    <link href="../css/nucleus.css?1628115299" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1628115299" rel="stylesheet">
+    <link href="../css/hybrid.css?1628115299" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1628115299" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1628115299" rel="stylesheet">
+    <link href="../css/auto-complete.css?1628115299" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1628115299" rel="stylesheet">
+    <link href="../css/theme.css?1628115299" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1628115299" rel="stylesheet">
     
-    <link href="../css/theme-mine.css?1623721394" rel="stylesheet">
+    <link href="../css/theme-mine.css?1628115299" rel="stylesheet">
     
     
 
-    <script src="../js/jquery-3.3.1.min.js?1623721394"></script>
+    <script src="../js/jquery-3.3.1.min.js?1628115299"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1623721394"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1623721394"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1628115299"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1628115299"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1623721394"></script>
+<script type="text/javascript" src="../js/search.js?1628115299"></script>
 
     
   </div>
@@ -356,9 +356,9 @@
  
   
     
-      <li data-nav-id="/20_weaveworks_prerequisites/14_install_fluxctl.html" title="Install the Flux CLI" class="dd-item ">
+      <li data-nav-id="/20_weaveworks_prerequisites/14_install_fluxctl.html" title="Install Required CLIs" class="dd-item ">
         <a href="../20_weaveworks_prerequisites/14_install_fluxctl.html">
-        Install the Flux CLI
+        Install Required CLIs
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -419,9 +419,9 @@
  
   
     
-      <li data-nav-id="/20_weaveworks_prerequisites/17_create_iam_policy_and_role.html" title="Create IAM Policy and Role" class="dd-item active">
+      <li data-nav-id="/20_weaveworks_prerequisites/17_create_iam_policy_and_role.html" title="Grant permissions to role" class="dd-item active">
         <a href="../20_weaveworks_prerequisites/17_create_iam_policy_and_role.html">
-        Create IAM Policy and Role
+        Grant permissions to role
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -4314,6 +4314,268 @@
  
   
     
+    <li data-nav-id="/80_workshop_8_hybrid_ssp.html" title="Workshop Module 8: Hybrid Shared Services Platform" class="dd-item
+        
+        
+        
+        ">
+      <a href="../80_workshop_8_hybrid_ssp.html">
+          Workshop Module 8: Hybrid Shared Services Platform
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/80_workshop_8_hybrid_ssp/00_prerequisites.html" title="Workshop Prerequisites" class="dd-item
+        
+        
+        
+        ">
+      <a href="../80_workshop_8_hybrid_ssp/00_prerequisites.html">
+          Workshop Prerequisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/80_workshop_8_hybrid_ssp/05_architecture.html" title="Cluster Architecture" class="dd-item
+        
+        
+        
+        ">
+      <a href="../80_workshop_8_hybrid_ssp/05_architecture.html">
+          Cluster Architecture
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/80_workshop_8_hybrid_ssp/10_create_eksd_cluster.html" title="Create your EKS-D Cluster" class="dd-item
+        
+        
+        
+        ">
+      <a href="../80_workshop_8_hybrid_ssp/10_create_eksd_cluster.html">
+          Create your EKS-D Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/80_workshop_8_hybrid_ssp/15_connect_development_cluster.html" title="Connect to your Development Cluster" class="dd-item
+        
+        
+        
+        ">
+      <a href="../80_workshop_8_hybrid_ssp/15_connect_development_cluster.html">
+          Connect to your Development Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/80_workshop_8_hybrid_ssp/20_create_infrastructure_repository.html" title="Create your SSP platform repository" class="dd-item
+        
+        
+        
+        ">
+      <a href="../80_workshop_8_hybrid_ssp/20_create_infrastructure_repository.html">
+          Create your SSP platform repository
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/80_workshop_8_hybrid_ssp/25_enable_cluster_gitops.html" title="Enable GitOps on both clusters" class="dd-item
+        
+        
+        
+        ">
+      <a href="../80_workshop_8_hybrid_ssp/25_enable_cluster_gitops.html">
+          Enable GitOps on both clusters
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/80_workshop_8_hybrid_ssp/30_onboard_your_clusters.html" title="Onboard your clusters" class="dd-item
+        
+        
+        
+        ">
+      <a href="../80_workshop_8_hybrid_ssp/30_onboard_your_clusters.html">
+          Onboard your clusters
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/80_workshop_8_hybrid_ssp/50_promote_releases.html" title="Release changes across environments" class="dd-item
+        
+        
+        
+        ">
+      <a href="../80_workshop_8_hybrid_ssp/50_promote_releases.html">
+          Release changes across environments
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
     <li data-nav-id="/100_cleanup.html" title="Cleanup" class="dd-item
         
         
@@ -4451,7 +4713,7 @@
             
           
           
-            <a href='../'>GitOps on EKS with Weaveworks</a> > <a href='../20_weaveworks_prerequisites.html'>Prerequisites for all GitOps Workshop Modules</a> > Create IAM Policy and Role
+            <a href='../'>GitOps on EKS with Weaveworks</a> > <a href='../20_weaveworks_prerequisites.html'>Prerequisites for all GitOps Workshop Modules</a> > Grant permissions to role
           
         
           
@@ -4480,177 +4742,26 @@
           
             <h1>
               
-              Create IAM Policy and Role
+              Grant permissions to role
             </h1>
           
 
         
 
 
-<p>Creating and using EKS clusters in AWS requires specific IAM permissions for the user performing those actions. Since we are using a Cloud9 Environment during this workshop, we&rsquo;ll create a policy with all required grants, and use that policy in a role that we will attach to our Cloud9 instance.</p>
-
-<p>First, you&rsquo;ll need to create a new IAM policy. In your AWS Console go to <code>Identity and Access Management (IAM)</code> and click on <code>Policies</code> under <code>Access Management</code> in the menu on the left, and click the <code>Create Policy</code> button.</p>
-
-<p><img src="../images/create-policy.png" alt="Create Policy Button" /></p>
-
-<p>In the <code>Create policy</code>screen, select the <code>JSON</code> tab, and paste the JSON document available below:</p>
-
-<p><img src="../images/create-policy-json.png" alt="JSON Tab" /></p>
+<p>Your event engine seat has been pre-provisioned with an IAM role with basic access rights, for the purpose of the workshop and considering you are running in a sandboxed environment, we will grant wider privileges to the precreated role.</p>
 
 
-<div class="notices warning" ><p>You will need to replace all instances of <code>&lt;your-account-number&gt;</code> in the JSON policy below with your actual AWS account number, you can get it by running <code>aws sts get-caller-identity</code> in your Cloud9 Console, use the value shown in <code>Account</code></p>
+<div class="notices warning" ><p>Granting full privileges to a role is <strong>not</strong> something to do in any scenario outside of sandboxed and ephemeral event engine use cases.</p>
 </div>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
-  <span style="color:#f92672">&#34;Statement&#34;</span>: [
-    {
-      <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;ec2:*&#34;</span>,
-      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
-    },
-    {
-      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-      <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;elasticloadbalancing:*&#34;</span>,
-      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
-    },
-    {
-      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-      <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;cloudwatch:*&#34;</span>,
-      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
-    },
-    {
-      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-      <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;autoscaling:*&#34;</span>,
-      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
-    },
-    {
-      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-      <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;iam:CreateServiceLinkedRole&#34;</span>,
-      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
-      <span style="color:#f92672">&#34;Condition&#34;</span>: {
-        <span style="color:#f92672">&#34;StringEquals&#34;</span>: {
-          <span style="color:#f92672">&#34;iam:AWSServiceName&#34;</span>: [
-            <span style="color:#e6db74">&#34;autoscaling.amazonaws.com&#34;</span>,
-            <span style="color:#e6db74">&#34;ec2scheduled.amazonaws.com&#34;</span>,
-            <span style="color:#e6db74">&#34;elasticloadbalancing.amazonaws.com&#34;</span>,
-            <span style="color:#e6db74">&#34;spot.amazonaws.com&#34;</span>,
-            <span style="color:#e6db74">&#34;spotfleet.amazonaws.com&#34;</span>,
-            <span style="color:#e6db74">&#34;transitgateway.amazonaws.com&#34;</span>
-          ]
-        }
-      }
-    },
-    {
-      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-      <span style="color:#f92672">&#34;Action&#34;</span>: [
-        <span style="color:#e6db74">&#34;cloudformation:*&#34;</span>
-      ],
-      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
-    },
-    {
-      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-      <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;eks:*&#34;</span>,
-      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
-    },
-    {
-      <span style="color:#f92672">&#34;Action&#34;</span>: [
-        <span style="color:#e6db74">&#34;ssm:GetParameter&#34;</span>,
-        <span style="color:#e6db74">&#34;ssm:GetParameters&#34;</span>
-      ],
-      <span style="color:#f92672">&#34;Resource&#34;</span>: [
-        <span style="color:#e6db74">&#34;arn:aws:ssm:*:&lt;your-account-number&gt;:parameter/aws/*&#34;</span>,
-        <span style="color:#e6db74">&#34;arn:aws:ssm:*::parameter/aws/*&#34;</span>
-      ],
-      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>
-    },
-    {
-      <span style="color:#f92672">&#34;Action&#34;</span>: [
-        <span style="color:#e6db74">&#34;kms:CreateGrant&#34;</span>,
-        <span style="color:#e6db74">&#34;kms:DescribeKey&#34;</span>
-      ],
-      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
-      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>
-    },
-    {
-      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-      <span style="color:#f92672">&#34;Action&#34;</span>: [
-        <span style="color:#e6db74">&#34;iam:CreateInstanceProfile&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:DeleteInstanceProfile&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:GetInstanceProfile&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:RemoveRoleFromInstanceProfile&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:GetRole&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:CreateRole&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:DeleteRole&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:AttachRolePolicy&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:PutRolePolicy&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:ListInstanceProfiles&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:AddRoleToInstanceProfile&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:ListInstanceProfilesForRole&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:PassRole&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:DetachRolePolicy&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:DeleteRolePolicy&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:GetRolePolicy&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:GetOpenIDConnectProvider&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:CreateOpenIDConnectProvider&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:DeleteOpenIDConnectProvider&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:ListAttachedRolePolicies&#34;</span>,
-        <span style="color:#e6db74">&#34;iam:TagRole&#34;</span>
-      ],
-      <span style="color:#f92672">&#34;Resource&#34;</span>: [
-        <span style="color:#e6db74">&#34;arn:aws:iam::&lt;your-account-number&gt;:instance-profile/eksctl-*&#34;</span>,
-        <span style="color:#e6db74">&#34;arn:aws:iam::&lt;your-account-number&gt;:role/eksctl-*&#34;</span>,
-        <span style="color:#e6db74">&#34;arn:aws:iam::&lt;your-account-number&gt;:oidc-provider/*&#34;</span>,
-        <span style="color:#e6db74">&#34;arn:aws:iam::&lt;your-account-number&gt;:role/aws-service-role/eks-nodegroup.amazonaws.com/AWSServiceRoleForAmazonEKSNodegroup&#34;</span>,
-        <span style="color:#e6db74">&#34;arn:aws:iam::&lt;your-account-number&gt;:role/eksctl-managed-*&#34;</span>
-      ]
-    },
-    {
-      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-      <span style="color:#f92672">&#34;Action&#34;</span>: [
-        <span style="color:#e6db74">&#34;iam:GetRole&#34;</span>
-      ],
-      <span style="color:#f92672">&#34;Resource&#34;</span>: [
-        <span style="color:#e6db74">&#34;arn:aws:iam::&lt;your-account-number&gt;:role/*&#34;</span>
-      ]
-    },
-    {
-      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-      <span style="color:#f92672">&#34;Action&#34;</span>: [
-        <span style="color:#e6db74">&#34;iam:CreateServiceLinkedRole&#34;</span>
-      ],
-      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
-      <span style="color:#f92672">&#34;Condition&#34;</span>: {
-        <span style="color:#f92672">&#34;StringEquals&#34;</span>: {
-          <span style="color:#f92672">&#34;iam:AWSServiceName&#34;</span>: [
-            <span style="color:#e6db74">&#34;eks.amazonaws.com&#34;</span>,
-            <span style="color:#e6db74">&#34;eks-nodegroup.amazonaws.com&#34;</span>,
-            <span style="color:#e6db74">&#34;eks-fargate.amazonaws.com&#34;</span>
-          ]
-        }
-      }
-    }
-  ]
-}</code></pre></div>
-<p>Hit <code>Next</code> twice, to get to the <code>Review</code> screen. Name your new policy <code>eks-ha-workshop</code> and click the <code>Create policy</code> button.</p>
 
-<p><img src="../images/create-policy-save.png" alt="Create policy" /></p>
-
-<p>Now we just need to create a <code>Role</code> that uses this policy so we can attach it to our instance in the next section. Click in <code>Roles</code> in the left menu of <code>Identity and Access Management (IAM)</code>, then click on <code>Create role</code>.</p>
-
-<p><img src="../images/create-role.png" alt="Create role" /></p>
-
-<p>In the <code>Create role</code> screen select <code>AWS service</code> and <code>EC2</code> under <code>Common use cases</code>, then click <code>Next: Permissions</code>.</p>
-
-<p><img src="../images/create-role-service.png" alt="Select service and use case" /></p>
-
-<p>Now, look for the <code>policy</code> we created previously and select it so that it will be attached to our new role.</p>
-
-<p><img src="../images/create-role-policy.png" alt="Attack policy to role" /></p>
-
-<p>Click <code>Next</code> twice to get to the <code>Review</code> screen, use <code>eks-ha-workshop-role</code> for <code>Role name</code> and click on <code>Create role</code></p>
-
-<p><img src="../images/create-role-create.png" alt="Save new role" /></p>
+<ul>
+<li>Navigate to the Identity and Access Management (IAM) service in AWS.</li>
+<li>Click on <code>Roles</code> and look for a role that begins with <code>mod-</code> with <code>AWS Service: ec2</code> for Trusted Entities.</li>
+<li>Click on the Role and then click on <code>Attach policies</code></li>
+<li>Select <code>AdministratorAccess</code> and click on <code>Attach policy</code></li>
+</ul>
 
 
 <footer class="footline">
@@ -7354,6 +7465,152 @@
 
                     
                     
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                     
 
                     
@@ -7398,19 +7655,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1623721394"></script>
-    <script src="../js/perfect-scrollbar.min.js?1623721394"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1623721394"></script>
-    <script src="../js/jquery.sticky.js?1623721394"></script>
-    <script src="../js/featherlight.min.js?1623721394"></script>
-    <script src="../js/highlight.pack.js?1623721394"></script>
+    <script src="../js/clipboard.min.js?1628115299"></script>
+    <script src="../js/perfect-scrollbar.min.js?1628115299"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1628115299"></script>
+    <script src="../js/jquery.sticky.js?1628115299"></script>
+    <script src="../js/featherlight.min.js?1628115299"></script>
+    <script src="../js/highlight.pack.js?1628115299"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1623721394"></script>
-    <script src="../js/learn.js?1623721394"></script>
-    <script src="../js/hugo-learn.js?1623721394"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1628115299"></script>
+    <script src="../js/learn.js?1628115299"></script>
+    <script src="../js/hugo-learn.js?1628115299"></script>
     
         
-            <script src="../mermaid/mermaid.js?1623721394"></script>
+            <script src="../mermaid/mermaid.js?1628115299"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

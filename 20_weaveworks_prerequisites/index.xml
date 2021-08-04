@@ -56,15 +56,16 @@ We are using Helm v3 in the workshops. So there is no tiller. If you are using y
     </item>
     
     <item>
-      <title>Install the Flux CLI</title>
+      <title>Install Required CLIs</title>
       <link>/20_weaveworks_prerequisites/14_install_fluxctl.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/20_weaveworks_prerequisites/14_install_fluxctl.html</guid>
-      <description> Install Fluxctl Flux CLI is a CLI tool that is able to talk to Weave Flux.
+      <description>Install the required CLIs Throughout the workshops you may need one of the following two products, both built by Weaveworks.
+Install Fluxctl Flux CLI is a CLI tool that is able to talk to Weave Flux.
 Install by running this command:
 curl -s https://fluxcd.io/install.sh | sudo bash Verify the installation:
-flux -v</description>
+flux -v Install Weave GitOps Weave GitOps Core is the latest product from Weaveworks, and enables a streamlined and effective GitOps Workflow.</description>
     </item>
     
     <item>
@@ -92,13 +93,14 @@ curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.15
     </item>
     
     <item>
-      <title>Create IAM Policy and Role</title>
+      <title>Grant permissions to role</title>
       <link>/20_weaveworks_prerequisites/17_create_iam_policy_and_role.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/20_weaveworks_prerequisites/17_create_iam_policy_and_role.html</guid>
-      <description>Creating and using EKS clusters in AWS requires specific IAM permissions for the user performing those actions. Since we are using a Cloud9 Environment during this workshop, we&amp;rsquo;ll create a policy with all required grants, and use that policy in a role that we will attach to our Cloud9 instance.
-First, you&amp;rsquo;ll need to create a new IAM policy. In your AWS Console go to Identity and Access Management (IAM) and click on Policies under Access Management in the menu on the left, and click the Create Policy button.</description>
+      <description>Your event engine seat has been pre-provisioned with an IAM role with basic access rights, for the purpose of the workshop and considering you are running in a sandboxed environment, we will grant wider privileges to the precreated role.
+Granting full privileges to a role is not something to do in any scenario outside of sandboxed and ephemeral event engine use cases.
+  Navigate to the Identity and Access Management (IAM) service in AWS.</description>
     </item>
     
     <item>
@@ -108,7 +110,7 @@ First, you&amp;rsquo;ll need to create a new IAM policy. In your AWS Console go 
       
       <guid>/20_weaveworks_prerequisites/18_attach_the_role.html</guid>
       <description>Now, we need to attach the IAM role we created in the previous step, to the Cloud9 Instance that you will be working on:
- Switch to the AWS Console (You can open the console from the &amp;ldquo;Team Dashboard&amp;rdquo;) Under Services, select EC2 Click Running Instances Select the instance named &amp;ldquo;aws-cloud9-&amp;hellip;&amp;rdquo; by clicking the check box to the left of the name On Actions pull down, select Security -&amp;gt; Modify IAM Role In the IAM role pull down, select eks-ha-workshop-role To the right, click Apply  </description>
+ Switch to the AWS Console (You can open the console from the &amp;ldquo;Team Dashboard&amp;rdquo;) Under Services, select EC2 Click Running Instances Select the instance named &amp;ldquo;aws-cloud9-&amp;hellip;&amp;rdquo; by clicking the check box to the left of the name On Actions pull down, select Security -&amp;gt; Modify IAM Role In the IAM role pull down, select the role that starts with mod- Click Save  </description>
     </item>
     
     <item>

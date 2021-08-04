@@ -20,6 +20,10 @@
   </url>
   
   <url>
+    <loc>/80_workshop_8_hybrid_ssp/00_prerequisites.html</loc>
+  </url>
+  
+  <url>
     <loc>/50_workshop_5_accelerating_sdlc/00_prerequisites.md/01_create_workspace.html</loc>
   </url>
   
@@ -29,6 +33,10 @@
   
   <url>
     <loc>/60_workshop_6_ml/05_setup.html</loc>
+  </url>
+  
+  <url>
+    <loc>/80_workshop_8_hybrid_ssp/05_architecture.html</loc>
   </url>
   
   <url>
@@ -70,6 +78,10 @@
   
   <url>
     <loc>/40_workshop_4_hipo-teams/50_install_container_insights/10_create_namespace.html</loc>
+  </url>
+  
+  <url>
+    <loc>/80_workshop_8_hybrid_ssp/10_create_eksd_cluster.html</loc>
   </url>
   
   <url>
@@ -153,6 +165,10 @@
   </url>
   
   <url>
+    <loc>/80_workshop_8_hybrid_ssp/15_connect_development_cluster.html</loc>
+  </url>
+  
+  <url>
     <loc>/70_workshop_7_multicloud/10_prerequisites/15_create_eks_cluster.html</loc>
   </url>
   
@@ -230,6 +246,10 @@
   
   <url>
     <loc>/40_workshop_4_hipo-teams/60_install-pod-info/20_create_namespace.html</loc>
+  </url>
+  
+  <url>
+    <loc>/80_workshop_8_hybrid_ssp/20_create_infrastructure_repository.html</loc>
   </url>
   
   <url>
@@ -327,6 +347,10 @@
   </url>
   
   <url>
+    <loc>/80_workshop_8_hybrid_ssp/25_enable_cluster_gitops.html</loc>
+  </url>
+  
+  <url>
     <loc>/30_workshop_03_grc/150_iam-groups/30_create-k8s-rbac.html</loc>
     <lastmod>2020-05-12T18:00:00+00:00</lastmod>
   </url>
@@ -383,6 +407,10 @@
   
   <url>
     <loc>/60_workshop_6_ml/00_prerequisites.md/30_install_fluxctl.html</loc>
+  </url>
+  
+  <url>
+    <loc>/80_workshop_8_hybrid_ssp/30_onboard_your_clusters.html</loc>
   </url>
   
   <url>
@@ -492,6 +520,10 @@
   </url>
   
   <url>
+    <loc>/80_workshop_8_hybrid_ssp/50_promote_releases.html</loc>
+  </url>
+  
+  <url>
     <loc>/20_weaveworks_prerequisites/50_workspaceiam.html</loc>
   </url>
   
@@ -558,6 +590,10 @@
   
   <url>
     <loc>/40_workshop_4_hipo-teams/60_install-pod-info/80_revert_routing.html</loc>
+  </url>
+  
+  <url>
+    <loc>/80_workshop_8_hybrid_ssp.html</loc>
   </url>
   
   <url>

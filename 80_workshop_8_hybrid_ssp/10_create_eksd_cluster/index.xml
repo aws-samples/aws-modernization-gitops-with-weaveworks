@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Create your EKS-D Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/80_workshop_8_hybrid_ssp/10_create_eksd_cluster.html</link>
+    <description>Recent content in Create your EKS-D Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/80_workshop_8_hybrid_ssp/10_create_eksd_cluster/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
