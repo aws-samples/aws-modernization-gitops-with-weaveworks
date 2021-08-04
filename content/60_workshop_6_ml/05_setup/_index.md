@@ -1,7 +1,7 @@
 +++
 title = "Cloud9 Setup"
 chapter = true
-weight = 05
+weight = 5
 +++
 
 ## Cloud9 Setup

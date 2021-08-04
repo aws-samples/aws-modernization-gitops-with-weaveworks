@@ -1,9 +1,12 @@
 +++
-title = "Install the Flux CLI"
+title = "Install Required CLIs"
 chapter = false
 weight = 14
-
 +++
+
+# Install the required CLIs
+
+Throughout the workshops you may need one of the following two products, both built by Weaveworks.
 
 ## Install Fluxctl
 
@@ -19,4 +22,20 @@ Verify the installation:
 
 ```sh
 flux -v
+```
+
+## Install Weave GitOps
+
+Weave GitOps Core is the latest product from Weaveworks, and enables a streamlined and effective GitOps Workflow.
+
+```sh
+curl -L https://github.com/weaveworks/weave-gitops/releases/download/v0.2.1/wego-$(uname)-$(uname -m) -o wego
+chmod +x wego
+sudo mv ./wego /usr/local/bin/wego
+```
+
+Verify the installation:
+
+```sh
+wego version
 ```

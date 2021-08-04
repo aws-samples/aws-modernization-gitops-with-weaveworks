@@ -16,7 +16,8 @@ Cloud9 requires third-party-cookies. You can whitelist the [specific domains]( h
 
 - In the AWS console, navigate to the cloud9 service and click `Create Environment`
 - For the Name type in `WorkshopIDE` and click `Next Step`
-- Leave all the defaults and click `Next Step` once again
+- Click `Network Settings (advanced)` and select the VPC that starts with `mod-`
+- Select `Public subnet 1` for Subnet and click `Next Step` once again
 - On the Review page click `Create Environment`
 
 Your environment should deploy and you should see something similar to the image below
