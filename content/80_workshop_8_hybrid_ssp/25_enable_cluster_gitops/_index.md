@@ -10,12 +10,9 @@ We will be using Weave GitOps as GitOps Operator in both our clusters, and will 
 
 This can be easily accomplished with a single command line! Let's start with your development, managed EKS Cluster.
 
-{{% notice info %}}
-Replace the name of the context with the one in your configuration. To get the full name use `kubectl config get-contexts`
-{{% /notice %}}
 
 ```sh
-kubectl config use-context <arn:aws:eks:....>
+kubectl config use-context development
 wego gitops install
 ```
 
@@ -38,7 +35,7 @@ You should see output similar to the following:
 Now, switch over to your EKS-D cluster context and run `wego gitops install` as well, the output should be identical to the one above.
 
 ```shell
-kubectl config use-context microk8s
+kubectl config use-context production
 wego gitops install
 ```
 
