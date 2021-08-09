@@ -22,10 +22,10 @@ chmod 0400 ~/.ssh/id_rsa
 To simplify access from your Cloud9 to both the EKS Cluster that was provisioned as part of your Event Engine configuration, as well as to the EKS-D Cluster you're about to create, we will use the same Security Group for everything. Let's get the security group ID for it:
 
 ```shell
+export INTERFACE_MAC=$(ifconfig eth0 | grep ether | awk '{print $2}')
 export VPC_ID=$(curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/${INTERFACE_MAC}/vpc-id 2>&1 | grep vpc)
 export SECURITY_GROUP_NAME=$(curl http://169.254.169.254/latest/meta-data/security-groups 2>&1 | grep eks)
 export SECURITY_GROUP_ID=$(aws ec2 describe-security-groups --filter Name=vpc-id,Values=${VPC_ID} Name=group-name,Values=${SECURITY_GROUP_NAME} --query 'SecurityGroups[*].[GroupId]' --output text)
-export INTERFACE_MAC=$(ifconfig eth0 | grep ether | awk '{print $2}')
 export SUBNET_ID=$(curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/${INTERFACE_MAC}/subnet-id 2>&1 | grep subnet)
 
 ```
