@@ -14,11 +14,10 @@ Together with this consolidation of workloads, the use of hybrid architectures i
 
 ### What you will learn in this module
 
-* How to operate a hybrid Kubernetes architecture, using managed EKS in the AWS Cloud and EKS-Distro on premises.
+* How to provision multiple EKS Environments with Terraform and use GitOps to boostrap them.
 * How to structure your infrastructure repository to efficiently manage multiple teams.
 * How to use Kubernetes RBAC to provide secure cluster multi-tenancy.
 * How to use GitOps to promote releases across a hybrid set of independent clusters.
-* How to accomplish data and operational sovereignty.
 
 ### What is a Shared Services Platform
 
