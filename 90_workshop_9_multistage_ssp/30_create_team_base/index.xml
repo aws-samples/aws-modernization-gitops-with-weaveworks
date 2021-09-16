@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Create Team Base on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/90_workshop_9_multistage_ssp/30_create_team_base.html</link>
+    <description>Recent content in Create Team Base on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/90_workshop_9_multistage_ssp/30_create_team_base/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
