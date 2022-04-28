@@ -8,6 +8,10 @@
   </url>
   
   <url>
+    <loc>/95_workshop_hybrid_eks/00_install_flux.html</loc>
+  </url>
+  
+  <url>
     <loc>/50_workshop_5_accelerating_sdlc/00_prerequisites.md.html</loc>
   </url>
   
@@ -105,6 +109,10 @@
   </url>
   
   <url>
+    <loc>/95_workshop_hybrid_eks/10_install_weave_gitops.html</loc>
+  </url>
+  
+  <url>
     <loc>/40_workshop_4_hipo-teams/60_install-pod-info/10_about_podinfo.html</loc>
   </url>
   
@@ -185,6 +193,10 @@
   </url>
   
   <url>
+    <loc>/95_workshop_hybrid_eks/15_install_cluster_api.html</loc>
+  </url>
+  
+  <url>
     <loc>/20_weaveworks_prerequisites/15_install_kustomize.html</loc>
   </url>
   
@@ -246,6 +258,10 @@
   
   <url>
     <loc>/90_workshop_9_multistage_ssp/20_add_core_components.html</loc>
+  </url>
+  
+  <url>
+    <loc>/95_workshop_hybrid_eks/20_create_a_cluster.html</loc>
   </url>
   
   <url>
@@ -360,6 +376,10 @@
   
   <url>
     <loc>/80_workshop_8_hybrid_ssp/25_enable_cluster_gitops.html</loc>
+  </url>
+  
+  <url>
+    <loc>/95_workshop_hybrid_eks/25_upgrade_your_cluster.html</loc>
   </url>
   
   <url>
@@ -634,6 +654,10 @@
   
   <url>
     <loc>/90_workshop_9_multistage_ssp.html</loc>
+  </url>
+  
+  <url>
+    <loc>/95_workshop_hybrid_eks.html</loc>
   </url>
   
   <url>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Install Flux and Bootstrap your Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/95_workshop_hybrid_eks/00_install_flux.html</link>
+    <description>Recent content in Install Flux and Bootstrap your Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/95_workshop_hybrid_eks/00_install_flux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Create a Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</title>
+    <link>/95_workshop_hybrid_eks/20_create_a_cluster.html</link>
+    <description>Recent content in Create a Cluster on Weaveworks Introduction to GitOps w/ AWS EKS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/95_workshop_hybrid_eks/20_create_a_cluster/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
