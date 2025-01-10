@@ -26,7 +26,7 @@
       
       <guid>/60_workshop_6_ml/50_titanic_sample_application/02_kubeflow_ui.html</guid>
       <description>To enable the mlops-user to do a kubectl port-forward:
-git clone git@github.com:paulcarlton-ww/mlops-titanic cd mlops-titanic aws iam attach-user-policy --user-name mlops-user --policy-arn arn:aws:iam::aws:policy/AdministratorAccess eksctl create iamidentitymapping --cluster $EKS_CLUSTER_NAME --group system:masters --username mlops-user --arn $(aws iam get-user --user-name mlops-user | jq -r &amp;#39;.&amp;#34;User&amp;#34;[&amp;#34;Arn&amp;#34;]&amp;#39;) A shell script is provided to generate the commands required to run kubectl port-forward on workstation
+# This repo no longer works. Removed a potential security flaw. aws iam attach-user-policy --user-name mlops-user --policy-arn arn:aws:iam::aws:policy/AdministratorAccess eksctl create iamidentitymapping --cluster $EKS_CLUSTER_NAME --group system:masters --username mlops-user --arn $(aws iam get-user --user-name mlops-user | jq -r &amp;#39;.&amp;#34;User&amp;#34;[&amp;#34;Arn&amp;#34;]&amp;#39;) A shell script is provided to generate the commands required to run kubectl port-forward on workstation
 aws-titanic/get-port-forward-cmds.sh $EKS_CLUSTER_NAME Run the commands generated on a terminal on your workstation (not cloud9 session)</description>
     </item>
     
