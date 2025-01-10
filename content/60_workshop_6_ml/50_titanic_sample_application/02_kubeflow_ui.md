@@ -7,8 +7,7 @@ weight = 502
 To enable the mlops-user to do a kubectl port-forward:
 
 ```sh
-git clone git@github.com:paulcarlton-ww/mlops-titanic
-cd mlops-titanic
+# This repo no longer works. Removed a potential security flaw.
 aws iam attach-user-policy --user-name mlops-user  --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
 eksctl create  iamidentitymapping --cluster $EKS_CLUSTER_NAME --group system:masters --username mlops-user --arn $(aws iam get-user --user-name mlops-user | jq -r '."User"["Arn"]')
 ```
